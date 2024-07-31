@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.2. Neural Networks for Time Series Predictions &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Frederick/Neural_Networks_for_Time_Series_Predictions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.3. Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html" />
+    <link rel="prev" title="7.1. Introduction to Recurrent Neural Networks (RNN)" href="../Saranya/W6_RNN_Summary.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFrederick/Neural_Networks_for_Time_Series_Predictions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Frederick/Neural_Networks_for_Time_Series_Predictions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Neural Networks for Time Series Predictions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">7.2.1. Processing Sequences using RNNs and CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">7.2.2. Transformers and Attention</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="neural-networks-for-time-series-predictions">
+<h1><span class="section-number">7.2. </span>Neural Networks for Time Series Predictions<a class="headerlink" href="#neural-networks-for-time-series-predictions" title="Permalink to this headline">#</a></h1>
+<p>This week, we will introduce ML approaches for time series data. Time series data documents the temporal changes of variables and is very common when dealing with instrumental data. This chapter will introduce the use of Recurrent Neural Networks and 1D Convolutional Neural Networks to predict future changes in variables with time.</p>
+<p>Learning Objectives for this chapter include:</p>
+<ul class="simple">
+<li><p>Define a recurrent neural network</p></li>
+<li><p>Distinguish recurrent from convolutional neural networks</p></li>
+<li><p>Discuss the forecasting of environmental time series</p></li>
+<li><p>Define natural language processing</p></li>
+<li><p>Know at least three algorithms to process time-series</p></li>
+</ul>
+<div class="section" id="processing-sequences-using-rnns-and-cnns">
+<h2><span class="section-number">7.2.1. </span>Processing Sequences using RNNs and CNNs<a class="headerlink" href="#processing-sequences-using-rnns-and-cnns" title="Permalink to this headline">#</a></h2>
+<p><img alt="RNN_schematic.jpg" src="../_images/RNN_schematic.jpg" /></p>
+<p><strong>Caption</strong> LSTM Model for time series prediction for environmental sciences</p>
+<p><strong>Source</strong> Figure 1 from Mishra et al. (2020; <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2352484719308546#fig1">link to paper</a>)</p>
+<p><strong>Key concepts of RNNs:</strong></p>
+<ul class="simple">
+<li><p><strong>Unrolling the network through time:</strong> This is a way of representing an RNN as a feedforward neural network, where each time step is represented by a separate layer of neurons.</p></li>
+<li><p><strong>Backpropagation through time (BPTT):</strong> This is a way of training RNNs that takes into account the fact that the outputs of the network at a one-time step depend on the outputs of the network at previous time steps.</p></li>
+<li><p><strong>Vanishing and exploding gradients:</strong> These are two problems that can occur when training RNNs, and they can make it difficult for the network to learn long-term dependencies.</p></li>
+<li><p><strong>Long short-term memory (LSTM) and gated recurrent units (GRUs):</strong> These are two types of RNN cells that are designed to address the vanishing and exploding gradients problems.</p></li>
+</ul>
+<p><strong>Take home messages</strong></p>
+<ul class="simple">
+<li><p>Time series forecasting in environmental sciences can be framed in different ways: <em>Sequence-to-sequence</em>, <em>sequence-to-vector</em>, <em>vector-to-sequence</em></p></li>
+<li><p>The <em>encoder-decoder</em> structure is essentially a sequence-to-vector model followed by a vector-to-sequence model.</p></li>
+<li><p>A recurrent node unrolling through time =&gt; the most straightforward RNN architecture</p></li>
+<li><p>Stacking multiple layers of recurrent nodes gives you <em>deep RNNs</em>, which may have better skills than simple RNNs</p></li>
+<li><p>Vanilla RNNs may encounter problems when dealing with long-time series data, such as <em>unstable gradients</em> and <em>short-term memory</em> problems.</p></li>
+<li><p>Using the <em>Long Short-Term Memory (LSTM)</em> layers or <em>Gated Recurrent Units (GRU)</em> layers in your architecture helps to alleviate the above problems.</p></li>
+<li><p>These solutions split the available information into long-term and short-term components and learn which part of long-term information to include in the prediction during training.</p></li>
+<li><p>Time series predictions can also be produced with 1D convolutional networks.</p></li>
+</ul>
+<p><strong>Inputs and Outputs Configurations for RNNs:</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configuration</p></th>
+<th class="text-center head"><p>Discussion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sequence-to-sequence networks</p></td>
+<td class="text-center"><p>Predict outputs for each input in a sequence, useful for tasks like predicting stock prices</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sequence-to-vector networks</p></td>
+<td class="text-center"><p>Output a single result for a sequence, suitable for tasks like sentiment analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector-to-sequence networks</p></td>
+<td class="text-center"><p>generate a sequence based on a constant input, such as generating captions for an image</p></td>
+</tr>
+<tr class="row-odd"><td><p>Encoder–Decoder networks</p></td>
+<td class="text-center"><p>sequence-to-vector and vector-to-sequence components, useful for translation tasks</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Memory cells:</strong></p>
+<ul class="simple">
+<li><p>A part of a neural network that preserves some state across time steps is called a memory cell. It is called “memory cells” because past information impacts the neuron outputs.</p></li>
+<li><p>A single recurrent neuron, or a layer of recurrent neurons, is a very basic cell, capable of learning only short patterns, typically aroundd 10 steps long.</p></li>
+<li><p>The LSTM and GRU architecture contain more complex cells with the ability to learn longer patterns.</p></li>
+</ul>
+<blockquote>
+<div><p>Generally, a cell’s state at time step “t” is denoted as <span class="math notranslate nohighlight">\(h(t)\)</span> and is a function of inputs at
+that step and its state at the previous step: <span class="math notranslate nohighlight">\(h(t) = f(h(t–1), x(t))\)</span>. The output at time step “t,”
+denoted as <span class="math notranslate nohighlight">\(y(t)\)</span>, depends on the previous state and current inputs.</p>
+</div></blockquote>
+<p>Here we show an schematic diagram of a simple RNN memory cell and a complex cell in a LSTM model (Figure 1 in Rassem et al. 2017). In a simple RNN cell, cell output at a previous time step is stored and added to the input features list, which is then used for predictions.</p>
+<p><img alt="RNN_LSTM_cells.png" src="../_images/RNN_LSTM_cells.png" /></p>
+<p><strong>How to train RNNs</strong></p>
+<ul class="simple">
+<li><p>Backpropagation through time (BPTT): Unroll the RNN through time, creating a temporal
+sequence, and then apply regular backpropagation.</p></li>
+<li><p>The gradients of the cost function are propagated backward through the
+unrolled network, and the model parameters are updated using these gradients.</p></li>
+<li><p>The gradients flow backward through all the outputs used by the cost function, not solely through the final output.</p></li>
+</ul>
+<p><strong>Baseline metrics:</strong></p>
+<ul class="simple">
+<li><p>Naive forecasting (predicting the last value in each series)</p></li>
+<li><p>Fully connected neural network</p></li>
+</ul>
+<p><strong>Forecasting Several Time Steps Ahead:</strong></p>
+<p>Two approaches:</p>
+<ul class="simple">
+<li><p>Making sequential predictions one step at a time.</p></li>
+<li><p>Predicting all future values at once.</p></li>
+</ul>
+<blockquote>
+<div><p>LSTM cells: This specialized cell improves upon the RNN cell in solving the short-term memory problem of that simple cell. The LSTM cell has gates (forget, input, and output) that control information flow using logistic activation.</p>
+<blockquote>
+<div><p>The Forget gate <span class="math notranslate nohighlight">\(f(t)\)</span> removes unnecessary information from the long-term state. Input gate <span class="math notranslate nohighlight">\(i(t)\)</span> controls which parts of the new information <span class="math notranslate nohighlight">\(g(t)\)</span> should be added to the long-term state. Output gate <span class="math notranslate nohighlight">\(o(t)\)</span> controls which parts of the long-term state should be read and output.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>The main layer outputs <span class="math notranslate nohighlight">\(g(t)\)</span>, analyzing current inputs and the previous short-term state.
+Three gate controllers (forget gate f(t), input gate i(t), and output gate o(t)) control information flow using logistic activation.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>The LSTM cell excels at recognizing, storing, preserving, and extracting
+important inputs over time, making it highly successful in capturing long-term
+patterns in various data types such as time series, texts, and audio recordings.</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="LSTMcell.jpg" src="../_images/LSTMcell.jpg" /></p>
+<blockquote>
+<div><p>Gated Recurrent Unit (GRU) Cells:
+The GRU cell is a simplified version of the LSTM cell but performs similarly well.</p>
+<blockquote>
+<div><p>Key simplifications include merging both state vectors into a single vector <span class="math notranslate nohighlight">\(h(t)\)</span>, a single gate controller <span class="math notranslate nohighlight">\(z(t)\)</span> governing both the forget and input gates, and the absence of an output gate.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>A new gate controller <span class="math notranslate nohighlight">\(r(t)\)</span> determines which part of the previous
+state is revealed to the main layer <span class="math notranslate nohighlight">\(g(t)\)</span>.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Keras provides a keras.layers.GRU layer, making its implementation straightforward by replacing SimpleRNN or LSTM with GRU.</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="GRUcell.jpg" src="../_images/GRUcell.jpg" /></p>
+<p>While LSTM and GRU cells contribute significantly to the success of RNNs, they still face challenges in learning long-term patterns in sequences of 100 or more time steps, such as audio samples or long sentences. One approach to address this limitation is to <em>shorten input sequences</em>, potentially by using 1D convolutional layers.</p>
+<p><strong>Environmental Sciences Applications</strong></p>
+<p>The neural network architectures introduced in this chapter can be useful when your problem involves predicting the time evolution of different physical variables. One example is using LSTM to predict river streamflow in the western US (e.g., Hunt et al. 2022).</p>
+<p>Assuming you have a large gridded dataset with time evolution of environmental properties (e.g., topography, vegetation, weather conditions, rainfall predictions), and your research task is to evaluate the likelihood of flooding in the next 12 hours, you can use RNN or similar models to predict the changes in water levels at particular measuring sites. These models make predictions using environmental context from the gridded data and water level predictions at the previous time step.</p>
+<p>Reference:
+Hunt, K. M. R., Matthews, G. R., Pappenberger, F., &amp; Prudhomme, C. (2022). Using a long short-term memory (LSTM) neural network to boost river streamflow forecasts over the western united states. Hydrology and Earth System Sciences, 26(21), 5449-5472.
+(<a class="reference external" href="https://hess.copernicus.org/articles/26/5449/2022/hess-26-5449-2022.html">Link to Paper</a>)</p>
+<p><strong>Exercise: Composing Music with RNNs / 1D CNNs</strong></p>
+<p>The first exercise of this chapter is to use RNNs and 1D CNNs to create new Chorales in the style of Bach. Can you tune the model hyperparameters to create a track that is listenable?</p>
+<ol class="arabic simple">
+<li><p>Load and preprocess a dataset storing multiple existing Bach chorales</p></li>
+<li><p>Train a small WaveNet to create new chorale in time series format</p></li>
+<li><p>Evaluate model skills</p></li>
+<li><p>Repeat the prediction task with RNNs</p></li>
+</ol>
+</div>
+<div class="section" id="transformers-and-attention">
+<h2><span class="section-number">7.2.2. </span>Transformers and Attention<a class="headerlink" href="#transformers-and-attention" title="Permalink to this headline">#</a></h2>
+<p><strong>Key points</strong></p>
+<ul class="simple">
+<li><p>The main disavantages of the RNNs introduced in the previous section is that RNNs have limited capacities to capture long-range dependencies and can be hard to interpret.</p></li>
+<li><p>Attention mechanism is a useful technique to improve upon the traditional RNNs.</p></li>
+<li><p>The attention layer consists of a encoding part, a decoding part, and a small neural network (alignment model) to find the similarity between different subsections of inputs and outputs.</p></li>
+<li><p>The similarity measurements in the model hidden state are interpretable and reveal information on which part of the inputs influences the model prediction the most.</p></li>
+<li><p>Attention architecture can be used to process visual images. Visual attention informs which part of a picture influences model predictions.</p></li>
+<li><p>The main advantages of incoporating attention mechanism are (a) ability to capture long-range dependencies, (b) interpretable, and (c) potentially improve model prediction skills.</p></li>
+<li><p>The attention layer is the vital part of a novel architecture proved to be useful for time series tasks - Transformers.</p></li>
+<li><p>Novel aspects of transformers include positional encoding and multi-head attention.</p></li>
+<li><p>Using Natural Language Processing tasks as an example, multihead attention trains different iterations of self-attention that captures different long-range dependencies within a sentence.</p></li>
+<li><p>The multihead attention module will then combine different similarity matrices and provide the final attention output from 0 to 1.</p></li>
+</ul>
+<p><strong>Attention Mechanism</strong></p>
+<ul class="simple">
+<li><p>Allows the decoder to focus on relevant words from the
+encoder at each time step.</p></li>
+<li><p>Mitigates the short-term memory limitations of traditional RNNs especially for long sentences.</p></li>
+<li><p>All encoder outputs are sent to the decoder and at each time step, the
+decoder’s memory cell computes a weighted sum of these outputs determining the
+focus on specific words.</p></li>
+<li><p>These weights containing information of what previous words to focus on are generated by an alignment model that is a small neural network trained parallel to the Encoder-Decoder model.</p></li>
+</ul>
+<p>There are two main types of attention:</p>
+<ol class="arabic simple">
+<li><p>Bahdanau attention (concatenative attention): Combines encoder output with
+the decoder’s previous hidden state.</p></li>
+<li><p>Luong attention (multiplicative attention): Computes the dot product of
+encoder outputs and the decoder’s hidden state. The weights derived from
+this dot product are obtained through a softmax layer.</p></li>
+</ol>
+<p>It has been demonstrated that dot product variants outperformed concatenative attention.</p>
+<blockquote>
+<div><p>Models originally developed for language tasks has resulted in breakthroughs in environmental sciences studies. These models can be adapted to environmental sciences because the goal and data structure of time series prediction tasks are very similar to human languages.</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Here we show a comparison of different ML model architectures in predicting water quality (Yang et al. 2021). Notice that adding an attention layer to the same background moddel architecture yields substantial reduction in the model error (compare the LSTM and LSTM-Attention results)</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="LSTM_attention.jpg" src="../_images/LSTM_attention.jpg" /></p>
+<p><strong>Transformers</strong></p>
+<ul class="simple">
+<li><p>Revolutionized neural machine translation (NMT) without the need of recurrent or convolutional layers for translation tasks</p></li>
+<li><p>It uses only attention mechanisms, yet achieved state-of-the-art
+performance in translation tasks and exhibited faster training and enhanced parallelization capabilities</p></li>
+<li><p>In the Transformer architecture, the encoder takes input sentences represented as sequences of word IDs. It encodes each word into a 512-dimensional representation.</p></li>
+<li><p>The decoder takes the target sentence as input and receives the encoder’s outputs.</p></li>
+<li><p>The decoder outputs probabilities for each possible next word at each time step. The decoder predicts subsequent words without target inputs, relying on previously generated words until an end-of-sequence token is produced.</p></li>
+<li><p>The key components include two embedding layers, skip connections, layer
+normalization, feed-forward modules, and a softmax activation output layer.</p></li>
+<li><p>The novel components are the Multi-Head Attention layers in both the encoder and decoder.</p></li>
+<li><p>The encoder’s layer encodes relationships between words in the same
+sentence using self-attention, emphasizing more relevant words.</p></li>
+<li><p>The decoder’s Masked Multi-Head Attention layer ensures each word attends only to preceding words, while the upper Multi-Head Attention layer enables the decoder to attend to words in the input sentence.</p></li>
+<li><p>Positonal encodings, the second novel component, are dense vectors representing word positions in a sentence. Added to word embeddings, these encodings provide the model with positional information.</p></li>
+<li><p>Positional encodings are crucial for understanding word order as the
+Multi-Head Attention layers focus on relationships between words.</p></li>
+</ul>
+<p><img alt="transformer.jpg" src="../_images/transformer.jpg" /></p>
+<blockquote>
+<div><p>The use of transformer has become more attractive in environmental sciences problems in recent years</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Alerskans et al. (2022) developed a transformer-based machine learning moddel to predict the surface temperature values for different sites in Denmark.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>In Figure 4 of this paper, the authors compares the bias/errors in the transformer temperature predictions for different seasons to other ML baselines (linear regression, neural network).</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>While there are seasonal variabilities in the results, the transformer consistently beats the baselines for all seasons at most of the study sites.</p>
+</div></blockquote>
+</div></blockquote>
+<p><img alt="transformer_environmental.jpg" src="../_images/transformer_environmental.jpg" /></p>
+<p>Reference:</p>
+<ol class="arabic simple">
+<li><p>Rassem, A., El-Beltagy, M., &amp; Saleh, M. (2017). Cross-country skiing gears classification using deep learning. arXiv preprint arXiv:1706.08924.</p></li>
+<li><p>Yang, Y., Xiong, Q., Wu, C., Zou, Q., Yu, Y., Yi, H., &amp; Gao, M. (2021). A study on water quality prediction by a hybrid CNN-LSTM model with attention mechanism. Environmental Science and Pollution Research, 28(39), 55129-55139.</p></li>
+<li><p>Alerskans, E., Nyborg, J., Birk, M., &amp; Kaas, E. (2022). A transformer neural network for predicting near‐surface temperature. Meteorological Applications, 29(5), e2098.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Frederick"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Saranya/W6_RNN_Summary.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7.1. </span>Introduction to Recurrent Neural Networks (RNN)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.3. </span>Exercise 1: Comparing Different Types of Recurrent and Convolutional Neural Networks to Compose Bach Chorales</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-sequences-using-rnns-and-cnns">7.2.1. Processing Sequences using RNNs and CNNs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-and-attention">7.2.2. Transformers and Attention</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

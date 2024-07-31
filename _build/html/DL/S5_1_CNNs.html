@@ -1,0 +1,1203 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Deep Computer Vision &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DL/S5_1_CNNs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.3. Land Cover Classification using Convolutional Neural Networks (CNNs)" href="S5_2_CNN_and_EuroSAT.html" />
+    <link rel="prev" title="6.1. Convolutional Neural Networks and Remote Sensing" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDL/S5_1_CNNs.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/DL/S5_1_CNNs.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deep Computer Vision</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">6.2.1. Notebook Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-setup">6.2.2. Data Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-tf-flowers-dataset-from-tensorflow-split-it-into-a-training-validation-and-test-set-make-sure-you-save-the-dataset-information-it-will-be-useful-for-sampling-the-datasets-and-shuffle-the-files-for-good-measure">6.2.3. Q1) Load the <code class="docutils literal notranslate"><span class="pre">tf_flowers</span></code> dataset from Tensorflow. Split it into a training, validation, and test set. Make sure you save the dataset information (it will be useful for sampling the datasets), and shuffle the files for good measure!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-define-a-function-that-takes-in-a-dataset-and-the-information-about-the-dataset-prints-out-how-many-samples-are-in-the-dataset-and-displays-a-set-of-samples-from-the-dataset">6.2.4. Q2) Define a function that takes in a dataset and the information about the dataset, prints out how many samples are in the dataset, and displays a set of samples from the dataset.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-run-your-defined-visualization-function-on-each-of-the-training-validation-and-test-sets">6.2.5. Q3) Run your defined visualization function on each of the training, validation, and test sets.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-write-a-preprocessing-function-for-the-images-and-labels-in-our-dataset-the-function-should-set-the-image-size-to-128x128-normalize-the-pixel-values-to-be-between-0-and-1-and-one-hot-encode-the-labels">6.2.6. Q4) Write a preprocessing function for the images and labels in our dataset. The function should set the image size to 128x128, normalize the pixel values to be between 0 and 1, and one-hot encode the labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-apply-the-preprocessing-function-to-each-of-the-training-validation-and-test-sets">6.2.7. Q5) Apply the preprocessing function to each of the training, validation, and test sets.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-batch-each-of-the-training-validation-and-test-sets">6.2.8. Q6) Batch each of the training, validation, and test sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-setup-and-training">6.2.9. Model Setup and Training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-define-a-function-that-returns-a-filepath-with-the-format-cnn-logs-run-current-date-and-time">6.2.10. Q7) Define a function that returns a filepath with the format <code class="docutils literal notranslate"><span class="pre">'./CNN_logs/run_CURRENT-DATE-AND-TIME'</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-define-a-convolutional-neural-network-model-do-not-use-data-augmentation-techniques-we-want-to-use-this-same-architecture-data-augmentation-later">6.2.11. Q9) Define a convolutional neural network model. Do not use data augmentation techniques! We want to use this same architecture + data augmentation later.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q13-train-an-identical-model-to-that-defined-in-q9-with-the-exception-of-randomflip-and-randomrotation-augmentation-layers-added-before-the-convolutional-layers">6.2.12. Q13) Train an identical model to that defined in Q9, with the exception of <code class="docutils literal notranslate"><span class="pre">RandomFlip</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomRotation</span></code> augmentation layers added before the convolutional layers.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/DL/S5_1_CNNs.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="deep-computer-vision">
+<h1><span class="section-number">6.2. </span>Deep Computer Vision<a class="headerlink" href="#deep-computer-vision" title="Permalink to this headline">#</a></h1>
+<center>
+<img width = 98% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EaAJAP-MWHJFiDTIcFJCnosBfaLTxi3RC_kh2ixpFwE9QA?download=1'>
+<img width=49% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ES_kuYGy9jlPjh907YZLACsBGIhmf0wNyBG3pld1ihMlww?download=1'>
+<img width=49% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EUwL006o7nZHproboSn_1D4Bn0SqBPk0DO5wVXkMjlC9HA?download=1'>
+<p>Top: Picture of Shinkyo Bridge in Nikko (日光の神橋) (2010), ©Milton Gomez 😀<br>
+Bottom: Style transfers based on the above image, using Google’s <a class="reference external" href="https://deepdreamgenerator.com/">Deep Dream Generator</a> </center></p>
+<p>Convolutional networks find spatial relationships in multidimensional data (most often images), which allow computers to detect patterns to make predictions or modify the input images in surprising ways. The following image shows a series of feature map visualizations for a convolutional neural network.</p>
+<center> <img  width=70% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EZQZFWrxlBFJmpm0l1qCLa8Bt3kner5j-WzuihnVzl6GKA?download=1'></center>
+<p>The images may not seem immediately relevant at first glance without knowing a transfersbit more about the input. For example, with the picture of a cat as an input the CNN could extract features related to the eyes, ears, or details as fine as pupil types!</p>
+<center> <img width=80% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ESvbciKRAVtJnuLKQShuVcwBrITboypDhC2AhQUlou8aHQ?download=1'></center>
+<p>For the style transfer examples shown at the beginning of the notebook, the original image is transformed so that it looks similar to a target style image (not shown) until they’re virtually indistinguishable using the information from the filters.</p>
+<center> <img width=80% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EWUesyFYz6lKvQ62r9LA1DoBA6UVaGUGJAkhSj2SLfQ3yA?download=1'><p>Convolution Visualization images from:
+Qin, Z., Yu, F., Liu, C., &amp; Chen, X. (2018). How convolutional neural network see the world-A survey of convolutional neural network visualization methods. <a class="reference external" href="https://arxiv.org/pdf/1804.11191.pdf?ref=https://githubhelp.com"><em>arXiv preprint arXiv:1804.11191</em></a>.</p>
+<div class="section" id="notebook-setup">
+<h2><span class="section-number">6.2.1. </span>Notebook Setup<a class="headerlink" href="#notebook-setup" title="Permalink to this headline">#</a></h2>
+<p>Today we’ll be training CNNs, a process which can be very slow when run on a CPU. Instead, we’ll be relying on GPU processing! Thankfully, we can easily make the switch on Colab!</p>
+<p>(If you’re running the notebooks on your own computer, you <em>may</em> have to jump through a few hoops in order to take advantage of your computer’s GPU)</p>
+<p><em><strong>Do note, however, that access to GPUs on Colab is somewhat limited - running your model’s training too many times may limit your access to the GPU resources at Google.</strong></em></p>
+<p>###Changing the Runtime to GPU on Colab</p>
+<center>
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EWNo250Zu5hBnx9QjuPtNiQB8taogMkrLcrrP7calTARyw?download=1' border=1px><br>Click on the <i>runtime</i> dropdown menu and click on "change on runtime type"<br><br>
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EXf6kLhNEF1AtpZKquVXEuQByKKbFy8PFi0pn-Ivisi1DQ?download=1'border=1px><br>THen select "GPU" on the hardware accelerator dropdown menu<br><br>
+</center>
+<p>Once you’ve changed the runtime type, run the Notebook setup cell. A message confirming that you’ve succesfully changed runtime type should be printed 😃</p>
+<p>In the setup cell, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We’ll also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python ≥3.5 is required</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Is this notebook running on Colab or Kaggle?</span>
+<span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="n">IS_KAGGLE</span> <span class="o">=</span> <span class="s2">&quot;kaggle_secrets&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+
+<span class="c1"># TensorFlow ≥2.0 is required</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;2.0&quot;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No GPU was detected. CNNs can be very slow without a GPU.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">IS_COLAB</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Go to Runtime &gt; Change runtime and select a GPU hardware accelerator.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">IS_KAGGLE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Go to Settings &gt; Accelerator and select GPU.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPU runtime succesfully selected! We&#39;re ready to train our CNNs.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Common imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pooch</span>
+
+<span class="c1"># to make this notebook&#39;s output stable across runs</span>
+<span class="n">rnd_seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rnd_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Where to save the figures</span>
+<span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CHAPTER_ID</span> <span class="o">=</span> <span class="s2">&quot;cnn&quot;</span>
+<span class="n">IMAGES_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">CHAPTER_ID</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">fig_id</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fig_extension</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving figure&quot;</span><span class="p">,</span> <span class="n">fig_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tight_layout</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fig_extension</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+
+<span class="c1"># Loading Tensorboard</span>
+<span class="o">%</span><span class="k">load_ext</span> tensorboard
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">IS_KAGGLE</span> <span class="o">=</span> <span class="s2">&quot;kaggle_secrets&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># TensorFlow ≥2.0 is required</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-setup">
+<h2><span class="section-number">6.2.2. </span>Data Setup<a class="headerlink" href="#data-setup" title="Permalink to this headline">#</a></h2>
+<p>Today, we won’t be working on the MNIST dataset! Instead, we’ll be working on the <a class="reference external" href="https://knowyourdata-tfds.withgoogle.com/#tab=STATS&amp;dataset=tf_flowers">tensorflow flower database</a>, and we’ll be attempting to train a Neural Network to learn to classify the flowers into 1 of 5 flower species: daisies, dandelions, roses, sunflowers, and tulips.</p>
+<p>Let’s begin by loading the data into our colab environment. The data is hosted online and loaded directly into Google’s servers (if you’re running this notebook on Colab, that is!) - which is lucky since its about two-hundred megabytes of data and we can take advantage of Google’s servers’ download speeds 🤖</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s clear out the backend and set our random seeds</span>
+<span class="c1"># Consistency makes things easier for labs!</span>
+<span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q1-load-the-tf-flowers-dataset-from-tensorflow-split-it-into-a-training-validation-and-test-set-make-sure-you-save-the-dataset-information-it-will-be-useful-for-sampling-the-datasets-and-shuffle-the-files-for-good-measure">
+<h2><span class="section-number">6.2.3. </span>Q1) Load the <code class="docutils literal notranslate"><span class="pre">tf_flowers</span></code> dataset from Tensorflow. Split it into a training, validation, and test set. Make sure you save the dataset information (it will be useful for sampling the datasets), and shuffle the files for good measure!<a class="headerlink" href="#q1-load-the-tf-flowers-dataset-from-tensorflow-split-it-into-a-training-validation-and-test-set-make-sure-you-save-the-dataset-information-it-will-be-useful-for-sampling-the-datasets-and-shuffle-the-files-for-good-measure" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: Tensorflow Datasets was imported as <code class="docutils literal notranslate"><span class="pre">tfds</span></code> in the notebook setup. Check out the <code class="docutils literal notranslate"><span class="pre">tfds.load()</span></code> method <a class="reference external" href="https://www.tensorflow.org/datasets/api_docs/python/tfds/load">on the documentation</a>.</em></p>
+<p><em>Hint 2: If you use the <code class="docutils literal notranslate"><span class="pre">.load()</span></code> method with <code class="docutils literal notranslate"><span class="pre">with_info</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function will return the requested datasplit in a tuple with the dataset information as a separate variable.</em></p>
+<p><em>Hint 3: The datasets are loaded with <code class="docutils literal notranslate"><span class="pre">as_supervised</span></code> set to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default, which requries that we worry about dictionaries when trying to access the data. We can make our lives easier by setting it to <code class="docutils literal notranslate"><span class="pre">True</span></code></em></p>
+<p><em>Hint 4: The dataset we’ll be using today includes a single <code class="docutils literal notranslate"><span class="pre">train</span></code> set, but by specifying the <code class="docutils literal notranslate"><span class="pre">split</span></code> list we can tell <code class="docutils literal notranslate"><span class="pre">tfds</span></code> how we want it to split that data. We can also use percentages in the indices to indicate which percent of the dataset to take into the dataset.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 5: One example implementation</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">(test_set, valid_set, train_set), info = tfds.load(</span>
+<span class="sd">                name=&quot;tf_flowers&quot;,</span>
+<span class="sd">                split=[&quot;train[:10%]&quot;, &quot;train[10%:25%]&quot;, &quot;train[25%:]&quot;],</span>
+<span class="sd">                as_supervised=True,</span>
+<span class="sd">                shuffle_files=True,</span>
+<span class="sd">                with_info=True</span>
+<span class="sd">                )</span>
+
+<span class="sd"># Datasets loaded this way don&#39;t have a string ID to identify them, so we&#39;ll set</span>
+<span class="sd"># up our own as it will make other code more compact/readable. :)</span>
+<span class="sd">train_set.name=&#39;Training&#39;</span>
+<span class="sd">valid_set.name=&#39;Validation&#39;</span>
+<span class="sd">test_set.name=&#39;Test&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">),</span> <span class="n">_____</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tf_flowers&quot;</span><span class="p">,</span>
+                <span class="n">split</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;train[:___%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[___%:___%]&quot;</span><span class="p">,</span> <span class="s2">&quot;train[___%:]&quot;</span><span class="p">],</span>
+                <span class="n">as_supervised</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span>
+                <span class="n">shuffle_files</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span>
+                <span class="n">with_info</span><span class="o">=</span><span class="n">_____</span>
+                <span class="p">)</span>
+
+<span class="c1"># Datasets loaded this way don&#39;t have a string ID to identify them, so we&#39;ll set</span>
+<span class="c1"># up our own as it will make other code more compact/readable. :)</span>
+<span class="n">_____</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Training&#39;</span>
+<span class="n">_____</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Validation&#39;</span>
+<span class="n">_____</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a set of variables that have the training, validation, and test sets, as well as a variable with the information about the dataset. Let’s go ahead and define a function that will let us visualize our data.</p>
+</div>
+<div class="section" id="q2-define-a-function-that-takes-in-a-dataset-and-the-information-about-the-dataset-prints-out-how-many-samples-are-in-the-dataset-and-displays-a-set-of-samples-from-the-dataset">
+<h2><span class="section-number">6.2.4. </span>Q2) Define a function that takes in a dataset and the information about the dataset, prints out how many samples are in the dataset, and displays a set of samples from the dataset.<a class="headerlink" href="#q2-define-a-function-that-takes-in-a-dataset-and-the-information-about-the-dataset-prints-out-how-many-samples-are-in-the-dataset-and-displays-a-set-of-samples-from-the-dataset" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: Tensorflow datasets include a <code class="docutils literal notranslate"><span class="pre">.cardinality()</span></code> method that counts the number of datapoints in the dataset, and a <code class="docutils literal notranslate"><span class="pre">.numpy()</span></code> method that converts the resulting value to a numpy array for clean print access</em></p>
+<p><em>Hint 2: We defined the <code class="docutils literal notranslate"><span class="pre">.name()</span></code> attribute for each dataset in the previous cell!</em></p>
+<p><em>Hint 3: tfds includes a <code class="docutils literal notranslate"><span class="pre">show_examples</span></code> method. <a class="reference external" href="https://www.tensorflow.org/datasets/api_docs/python/tfds/visualization/show_examples">Here is the documentation</a>.</em></p>
+<p><em>Hint 4: You can shuffle the contents of a dataset by calling its <code class="docutils literal notranslate"><span class="pre">.shuffle()</span></code> method. Try running it with an integer value between 16 and 256 as an argument.</em></p>
+<p><em>Hint 5: <code class="docutils literal notranslate"><span class="pre">show_examples</span></code> expects a set of (dataset) and (dataset info) objects as argumnets!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dataset_info</span><span class="p">(</span><span class="n">__</span><span class="p">,</span> <span class="n">_____</span><span class="p">):</span>
+    <span class="c1"># Extract the number of samples in the dataset in an easily printable format</span>
+    <span class="n">num_samples</span> <span class="o">=</span> <span class="n">__</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span>
+
+    <span class="c1"># Print the dataset name we defined in the previous code cell and the number</span>
+    <span class="c1"># of samples</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">____</span><span class="o">.</span><span class="n">_____</span><span class="si">}</span><span class="s2"> set contains </span><span class="si">{</span><span class="n">num_samples</span><span class="si">}</span><span class="s2"> data samples.&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;Let&#39;s visualize some of them...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Show examples from the dataset. Shuffle to make things more interesting!</span>
+    <span class="n">tfds</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">___</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">__</span><span class="p">),</span> <span class="n">_____</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now let’s run the function on each of our training, validation, and test sets…</p>
+</div>
+<div class="section" id="q3-run-your-defined-visualization-function-on-each-of-the-training-validation-and-test-sets">
+<h2><span class="section-number">6.2.5. </span>Q3) Run your defined visualization function on each of the training, validation, and test sets.<a class="headerlink" href="#q3-run-your-defined-visualization-function-on-each-of-the-training-validation-and-test-sets" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_info</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span>
+<span class="n">dataset_info</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span>
+<span class="n">dataset_info</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If everything worked out fine, you’ll have something like the following as your output:</p>
+<center> <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ETTy292DtS5OqgLi8ZiOR0EBcJ9MQNeJIZEdiaDx0may7Q?download=1' border=1px></center>
+<p>The flowers look very nice! (“<em>And I’d be pretty bad at classifying them myself…</em>” - a botanically challenged TA)</p>
+<p>However, there is one sore point for our purposes - <em>the images have different resolutions</em>. Why is this a sore point? Well, in our architecture we’ll eventually flatten our convolutions and connect them to a dense layer, and as such we will need for all of the images to have the same dimensions! (There are other ways to address the issue of resolution, but we won’t discuss these for now)</p>
+<p>We also note that the images are stored as pixels containing a value between 0 and 255 for each one of three color channels (RGB) - we’d prefer that the values be normalized to fall between 0 and 1.</p>
+<p>Finally, if you paid close attention to the labels on the nice images we displayed you may have noticed that there is a number between 0 and 4 next to the name of each of the flowers - this is the integer value associated with the label. We’ve previously seen, however, that when addressing classification problems it’s often better to use one-hot encoding.</p>
+<p>Let’s write a preprocessing function that will help us address all of these issues!</p>
+</div>
+<div class="section" id="q4-write-a-preprocessing-function-for-the-images-and-labels-in-our-dataset-the-function-should-set-the-image-size-to-128x128-normalize-the-pixel-values-to-be-between-0-and-1-and-one-hot-encode-the-labels">
+<h2><span class="section-number">6.2.6. </span>Q4) Write a preprocessing function for the images and labels in our dataset. The function should set the image size to 128x128, normalize the pixel values to be between 0 and 1, and one-hot encode the labels<a class="headerlink" href="#q4-write-a-preprocessing-function-for-the-images-and-labels-in-our-dataset-the-function-should-set-the-image-size-to-128x128-normalize-the-pixel-values-to-be-between-0-and-1-and-one-hot-encode-the-labels" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: As we’ve set the <code class="docutils literal notranslate"><span class="pre">as_supervised</span></code> argument as <code class="docutils literal notranslate"><span class="pre">True</span></code> when loading the dataset, the preprocessing function should take in an image and a label as an argument.</em> <em><strong>Any other parameters taken in by the function should be hardcoded into our function.</strong></em></p>
+<p><em>Hint 2: In order to modify the image fed into the function, we will have to convert it to a <code class="docutils literal notranslate"><span class="pre">float32</span></code> type using Tensorflow’s <code class="docutils literal notranslate"><span class="pre">.cast()</span></code> method (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/cast">here is its documentation</a>). Similarly, we need to cast the label as an <code class="docutils literal notranslate"><span class="pre">int32</span></code> type object.</em></p>
+<p><em>Hint 3: Tensorflow has a built-in image resizer, implemented as the <code class="docutils literal notranslate"><span class="pre">image.resize()</span></code> method. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/image/resize">Here is the documentation</a>.</em></p>
+<p><em>Hint 4: Tensorflow has a built-in one-hot encoder, implemented as the <code class="docutils literal notranslate"><span class="pre">one_hot()</span></code> method. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/one_hot">Here is the documentation</a></em></p>
+<p><em>Hint 5: After one-hot encoding, the label should be recast to the <code class="docutils literal notranslate"><span class="pre">float32</span></code> datatype</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 6: One example function implementation</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def preprocessing_function(image, label):</span>
+<span class="sd">    # We&#39;re going to hard code the image size we want to use. We can define this</span>
+<span class="sd">    # with a lambda function, but we won&#39;t really need to change this and it&#39;s</span>
+<span class="sd">    # more trouble than it&#39;s worth for us right now :)</span>
+<span class="sd">    image_size = 128</span>
+<span class="sd">    num_classes = 5</span>
+
+<span class="sd">    image = tf.cast(image, tf.float32)</span>
+<span class="sd">    # Normalize the pixel values</span>
+<span class="sd">    image = image / 255.0</span>
+<span class="sd">    # Resize the image</span>
+<span class="sd">    image = tf.image.resize(image, (image_size, image_size))</span>
+
+<span class="sd">    # Casts to an Int and performs one-hot ops</span>
+<span class="sd">    label = tf.one_hot(tf.cast(label, tf.int32), num_classes)</span>
+<span class="sd">    # Recasts it to Float32</span>
+<span class="sd">    label = tf.cast(label, tf.float32)</span>
+<span class="sd">    return image, label</span>
+<span class="sd">&#39;&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocessing_function</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="c1"># We&#39;re going to hard code the image size we want to use. We can define this</span>
+    <span class="c1"># with a lambda function, but we won&#39;t really need to change this and it&#39;s</span>
+    <span class="c1"># more trouble than it&#39;s worth for us right now :)</span>
+    <span class="n">image_size</span> <span class="o">=</span> <span class="n">_____</span>
+    <span class="n">num_classes</span> <span class="o">=</span> <span class="n">_____</span>
+
+    <span class="c1"># Cast the image and label datatypes</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">__</span><span class="o">.</span><span class="n">__</span><span class="p">(</span><span class="n">___</span><span class="p">,</span><span class="n">____</span><span class="p">)</span>
+
+    <span class="c1"># Normalize the pixel values. Use a float value in the denominator!</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">_____</span> <span class="o">/</span> <span class="n">_____</span>
+
+    <span class="c1"># Resize the image</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">_____</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">))</span>
+
+    <span class="c1"># Cast the label to int32 and one-hot encode</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span>
+    <span class="c1"># Recast label to Float32</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">__</span><span class="o">.</span><span class="n">_____</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5-apply-the-preprocessing-function-to-each-of-the-training-validation-and-test-sets">
+<h2><span class="section-number">6.2.7. </span>Q5) Apply the preprocessing function to each of the training, validation, and test sets.<a class="headerlink" href="#q5-apply-the-preprocessing-function-to-each-of-the-training-validation-and-test-sets" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: the datasets have a <code class="docutils literal notranslate"><span class="pre">.map()</span></code> method that allow applying a function to each image and label combination in the dataset. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#map">Here is the documentation</a>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span>
+<span class="n">valid</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_____</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this point I’d also like to point out that our dataset is not set up to be taken in batches. If you call <code class="docutils literal notranslate"><span class="pre">train_set.take(1)</span></code>, you’ll extract a single image! (Let’s run some code and verify this)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Images shape: </span><span class="si">{</span><span class="n">images</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> Labels: </span><span class="si">{</span><span class="n">labels</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We actually want to work in 32 image batches, so let’s go ahead and batch our datasets.</p>
+</div>
+<div class="section" id="q6-batch-each-of-the-training-validation-and-test-sets">
+<h2><span class="section-number">6.2.8. </span>Q6) Batch each of the training, validation, and test sets<a class="headerlink" href="#q6-batch-each-of-the-training-validation-and-test-sets" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: You can define a <code class="docutils literal notranslate"><span class="pre">batch_size</span></code> variable to guarantee that the batch size is updated for all three datasets if you change the value and rerun the cell.</em></p>
+<p><em>Hint 2: Tensorflow datasets include a <code class="docutils literal notranslate"><span class="pre">.batch()</span></code> method that allows you to easily define batch sizes associated with the database instance. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/data/Dataset#batch">Here is the documentation</a></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the batch size</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="n">______</span>
+
+<span class="n">train</span> <span class="o">=</span> <span class="n">___</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">___</span><span class="p">)</span>
+<span class="n">validation</span> <span class="o">=</span> <span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we now take a sample like we did before, we’ll notice that the first dimension in the shape tuple is our batch size!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">validation</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Images shape: </span><span class="si">{</span><span class="n">images</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> Labels: </span><span class="si">{</span><span class="n">labels</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Max pixel value: </span><span class="si">{</span><span class="n">images</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s1">, min pixel value: </span><span class="si">{</span><span class="n">images</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Here&#39;s a sample image:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve verified that our data generators work as intended, let’s go ahead and build our model!</p>
+</div>
+<div class="section" id="model-setup-and-training">
+<h2><span class="section-number">6.2.9. </span>Model Setup and Training<a class="headerlink" href="#model-setup-and-training" title="Permalink to this headline">#</a></h2>
+<p>Let’s begin by setting up everything we need to define our callbacks! This time, we want to work with multiple runs, and in order to visualize them in Tensorboard we’ll want to generate the name automatically using the current date and time!</p>
+</div>
+<div class="section" id="q7-define-a-function-that-returns-a-filepath-with-the-format-cnn-logs-run-current-date-and-time">
+<h2><span class="section-number">6.2.10. </span>Q7) Define a function that returns a filepath with the format <code class="docutils literal notranslate"><span class="pre">'./CNN_logs/run_CURRENT-DATE-AND-TIME'</span></code><a class="headerlink" href="#q7-define-a-function-that-returns-a-filepath-with-the-format-cnn-logs-run-current-date-and-time" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: Numpy includes a method to return the current date and time as a datetime64 object. Call the <code class="docutils literal notranslate"><span class="pre">datetime64</span></code> method with <code class="docutils literal notranslate"><span class="pre">'now'</span></code> as an argument.</em></p>
+<p><em>Hint 2: The OS library, imported as <code class="docutils literal notranslate"><span class="pre">os</span></code> in the notebook setup, allows you to join path strings in a manner appropriate to the operating system using the <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> method. This helps avoids headaches when running code across windows/linux/macOS! <a class="reference external" href="https://docs.python.org/3/library/os.path.html#os.path.join">Here is the documentation</a></em>.</p>
+<p><em>Hint 3: You can use the <code class="docutils literal notranslate"><span class="pre">.astype()</span></code> method to convert a numpy datetime64 object to a string.</em></p>
+<p><em>Hint 4: OS also includes a <code class="docutils literal notranslate"><span class="pre">.curdir</span></code> attribute that returns the current directory.</em></p>
+<p><em>Hint 5: If you convert the datetime64 object to a string, it will include the seconds! You can remove these with regular python indexing (i.e., [:-3])</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_CNN_logdir</span><span class="p">():</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="p">)</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="p">)</span>
+    <span class="n">run_logdir</span> <span class="o">=</span> <span class="n">__</span><span class="o">.</span><span class="n">____</span><span class="o">.</span><span class="n">____</span><span class="p">(</span><span class="n">__</span><span class="o">.</span><span class="n">_____</span><span class="p">,</span> <span class="s2">&quot;CNN_logs&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;run_</span><span class="si">{</span><span class="n">____</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># time goes in the fstring</span>
+    <span class="k">return</span> <span class="n">run_logdir</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try out our function! It should return something like: <code class="docutils literal notranslate"><span class="pre">./CNN_logs/run_2022-04-10T18:49</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_CNN_logdir</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Define your <a class="reference external" href="https://keras.io/api/callbacks/">callbacks</a> below. For the checkpoint <code class="docutils literal notranslate"><span class="pre">checkpoint_cb</span></code>, we recommend monitoring the validation loss to avoid overfitting. Look for “monitor” in the <code class="docutils literal notranslate"><span class="pre">model_checkpoint</span></code>’s documentation <a class="reference external" href="https://keras.io/api/callbacks/model_checkpoint/">at this link</a>.</p>
+<p>##Q8) Set up an EarlyStopping Callback, a ModelCheckpoint callback, and a Tensorboard Callback for a CNN model <em>without</em> data augmentation.</p>
+<p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping">Here is the documentation</a> for the EarlyStopping Callback and <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint">here is the one</a> for the ModelCheckpoint Callback.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">early_stopping_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="n">____</span><span class="p">)</span>
+<span class="n">checkpoint_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span><span class="s2">&quot;CNN_unaugmented.h5&quot;</span><span class="p">,</span>
+                                                   <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                   <span class="n">monitor</span><span class="o">=</span><span class="n">_____</span><span class="p">)</span>
+<span class="n">tensorboard_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">get_CNN_logdir</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a set of callbacks to call during training. Let’s go ahead and define the model! Though let’s go ahead and clean up our random states first…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s clear out the backend and set our random seeds.</span>
+<span class="c1"># Consistency is key :)</span>
+<span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q9-define-a-convolutional-neural-network-model-do-not-use-data-augmentation-techniques-we-want-to-use-this-same-architecture-data-augmentation-later">
+<h2><span class="section-number">6.2.11. </span>Q9) Define a convolutional neural network model. Do not use data augmentation techniques! We want to use this same architecture + data augmentation later.<a class="headerlink" href="#q9-define-a-convolutional-neural-network-model-do-not-use-data-augmentation-techniques-we-want-to-use-this-same-architecture-data-augmentation-later" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv2D">Here is the documentation</a> for the Conv2D layer in tensorflow. Generally, you want to start out with larger kernels and a smaller number of filters and move on to smaller kernels with a large number of filters as your network becomes deeper.</em></p>
+<p><em>Hint 2: After the convolutional layers, you can use flatten to change the collection of filtered images into a flat array to feed into a densely connected layer! In essence, the CNN is representing the images in a</em> <em><strong>latent space</strong></em> <em>, and a densely connected ANN is connected on top to classify the images based on their representation in the latent space.</em></p>
+<p><em>Hint 3: Once your model is defined, we’ll be using the <code class="docutils literal notranslate"><span class="pre">.build()</span></code> and <code class="docutils literal notranslate"><span class="pre">.summary()</span></code> methods to check how many parameters our model includes! A TA’s model included around 13 million parameters when testing this notebook! This is significantly more parameters than the amount used when we trained our first artificial neural networks.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 4: Example model used during notebook development</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd"># Note: there is at least one small, immediate change that will make the</span>
+<span class="sd"># performance of this model more effective :)</span>
+
+<span class="sd">model = keras.models.Sequential([</span>
+<span class="sd">    # Convolution 1</span>
+<span class="sd">    keras.layers.Conv2D(32, kernel_size=7, padding=&quot;same&quot;, activation=&quot;relu&quot;),</span>
+<span class="sd">    keras.layers.MaxPool2D((3,3)),</span>
+
+<span class="sd">    # Convolution 2</span>
+<span class="sd">    keras.layers.Conv2D(64, kernel_size=5, padding=&quot;same&quot;, activation=&quot;relu&quot;),</span>
+<span class="sd">    keras.layers.MaxPool2D((2,2)),</span>
+
+<span class="sd">    # Convolution 3</span>
+<span class="sd">    keras.layers.Conv2D(96, kernel_size=3, padding=&quot;same&quot;, activation=&quot;relu&quot;),</span>
+<span class="sd">    keras.layers.MaxPool2D((2,2)),</span>
+
+<span class="sd">    # Convolution 4</span>
+<span class="sd">    keras.layers.Conv2D(128, kernel_size=3, padding=&quot;same&quot;, activation=&quot;relu&quot;),</span>
+<span class="sd">    keras.layers.MaxPool2D((2,2)),</span>
+
+<span class="sd">    keras.layers.Flatten(),</span>
+<span class="sd">    keras.layers.Dense(4096, activation=&quot;relu&quot;),</span>
+<span class="sd">    keras.layers.Dropout(0.5),</span>
+<span class="sd">    keras.layers.Dense(5, activation=&quot;softmax&quot;)</span>
+<span class="sd">])</span>
+<span class="sd">&#39;&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="c1"># Convolution 1</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">__</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">____</span><span class="p">),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">((</span><span class="n">__</span><span class="p">,</span><span class="n">__</span><span class="p">)),</span>
+
+    <span class="c1"># Convolution 2</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">__</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">____</span><span class="p">),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">((</span><span class="n">__</span><span class="p">,</span><span class="n">__</span><span class="p">)),</span>
+
+
+    <span class="c1"># Convolution 3</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">__</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">____</span><span class="p">),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">((</span><span class="n">__</span><span class="p">,</span><span class="n">__</span><span class="p">)),</span>
+
+
+    <span class="c1"># Convolution 4</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="n">__</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">____</span><span class="p">),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPool2D</span><span class="p">((</span><span class="n">__</span><span class="p">,</span><span class="n">__</span><span class="p">)),</span>
+
+
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">____</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">____</span><span class="p">),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">___</span><span class="p">),</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softmax&quot;</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the model using our input image resolution to produce the number of</span>
+<span class="c1"># parameters in our model...</span>
+<span class="n">model</span><span class="o">.</span><span class="n">build</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="mi">128</span> <span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># And visualize the structure of the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Q10) Compile the CNN model. We recommend using  <code class="docutils literal notranslate"><span class="pre">categorical_crossentropy</span></code> as the loss function, ‘adam’ as the optimizer, and ‘accuracy’ as a metric</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">_____</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Q11) Train the CNN model!</p>
+<p><em>Hint 1: You can use the training data generator directly as your input and labels; the model class will automatically deal with it!</em></p>
+<p><em>Hint 2: While it’s best to have defined too many epochs instead of too few (considering that the have an early stopping callback), it’s not worth training over a large number of epochs for this project. Try setting the epoch limit somewhere around 30-50.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="c1"># Training data generator</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="n">____</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span> <span class="c1"># Validation data generator</span>
+                    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">_____</span><span class="p">,</span>
+                               <span class="n">_____</span><span class="p">,</span>
+                               <span class="n">_____</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well, the performance of our CNN is likely underwhelming. This is what we saw during notebook development:</p>
+<center> <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EXKV6_5IGF9AiXzgNn2jJbMBXP5w3bUnuQ_q24-ZtQkS9w?download=1' border=1px></center>
+<p>The model didn’t have too hard a time learning on the training set, but the validation loss quickly diverged and we started overfitting our training data. 😯</p>
+<p>A common way to try to address this is by augmenting our training data - we can flip and rotate our images and it shouldn’t make too large a difference.</p>
+<blockquote>
+<div><p>“A rose by any other name would smell as sweet” - <em>Shakespeare</em></p>
+</div></blockquote>
+<blockquote>
+<div><p>“An upside down rose is still a rose” - <em>A significantly less talented poet than Shakespeare</em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s clear out the backend and set our random seeds</span>
+<span class="c1"># It&#39;s best to start out from a common point, no?</span>
+<span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Q12) Set up an EarlyStopping Callback, a ModelCheckpoint callback, and a Tensorboard Callback for a CNN model with data augmentation.</p>
+<p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping">Here is the documentation</a> for the EarlyStopping Callback and <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint">here is the one</a> for the ModelCheckpoint Callback.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">early_stopping_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="n">____</span><span class="p">)</span>
+<span class="n">checkpoint_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span><span class="s2">&quot;CNN_augmented.h5&quot;</span><span class="p">,</span>
+                                                   <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                   <span class="n">monitor</span><span class="o">=</span><span class="n">_____</span><span class="p">)</span>
+<span class="n">tensorboard_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">get_CNN_logdir</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q13-train-an-identical-model-to-that-defined-in-q9-with-the-exception-of-randomflip-and-randomrotation-augmentation-layers-added-before-the-convolutional-layers">
+<h2><span class="section-number">6.2.12. </span>Q13) Train an identical model to that defined in Q9, with the exception of <code class="docutils literal notranslate"><span class="pre">RandomFlip</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomRotation</span></code> augmentation layers added before the convolutional layers.<a class="headerlink" href="#q13-train-an-identical-model-to-that-defined-in-q9-with-the-exception-of-randomflip-and-randomrotation-augmentation-layers-added-before-the-convolutional-layers" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomFlip">Here is the documentation</a> for the <code class="docutils literal notranslate"><span class="pre">RandomFlip</span></code> method.</em></p>
+<p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomRotation">Here is the documentation</a> for the <code class="docutils literal notranslate"><span class="pre">RandomRotation</span></code> method.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">RandomFlip</span><span class="p">(),</span> <span class="c1"># Flip augmentation</span>
+    <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">RandomRotation</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="c1"># Rotation Aumentation</span>
+
+    <span class="c1"># Copy your previous model&#39;s layers here</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the model using our input image resolution to produce the number of</span>
+<span class="c1"># parameters in our model...</span>
+<span class="n">model</span><span class="o">.</span><span class="n">build</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="mi">128</span> <span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># And visualize the structure of the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>##Q14) Compile the CNN model. We recommend using  <code class="docutils literal notranslate"><span class="pre">categorical_crossentropy</span></code> as the loss function, ‘adam’ as the optimizer, and ‘accuracy’ as a metric</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span>
+              <span class="n">optimizer</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">_____</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="c1"># Training data generator</span>
+                    <span class="n">epochs</span><span class="o">=</span><span class="n">____</span><span class="p">,</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="n">_____</span><span class="p">,</span> <span class="c1"># Validation data generator</span>
+                    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">_____</span><span class="p">,</span>
+                               <span class="n">_____</span><span class="p">,</span>
+                               <span class="n">_____</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If everything went according to plan, your model icluding data augmentation should perform a little like this:</p>
+<center> <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EViI9ctwWN1NnEUkL-r9t9oB4nZWF3AGWXf0J2WEYS4irA?download=1' border=1px></center>
+<p>Now let’s run tensorboard and compare your two runs!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir=./CNN_logs --port=6006
+</pre></div>
+</div>
+</div>
+</div>
+<p>If everything went well, the model trained on the augmented data should have a lower accuracy on the training set compared to the original, but the behavior accross both datasets should be indicative of more meaningful features being extracted and overall better generalization.</p>
+<p>(While the use of augmented data is exciting, this might not be wise to do - e.g., when looking at maps of atmospheric variable data)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load the models!</span>
+<span class="n">non_aug_model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;CNN_unaugmented.h5&#39;</span><span class="p">)</span>
+<span class="n">aug_model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;CNN_augmented.h5&#39;</span><span class="p">)</span>
+
+<span class="c1"># And test them on the testing dataset</span>
+<span class="n">non_aug_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">aug_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./DL"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.1. </span>Convolutional Neural Networks and Remote Sensing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="S5_2_CNN_and_EuroSAT.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.3. </span>Land Cover Classification using Convolutional Neural Networks (CNNs)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">6.2.1. Notebook Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-setup">6.2.2. Data Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-tf-flowers-dataset-from-tensorflow-split-it-into-a-training-validation-and-test-set-make-sure-you-save-the-dataset-information-it-will-be-useful-for-sampling-the-datasets-and-shuffle-the-files-for-good-measure">6.2.3. Q1) Load the <code class="docutils literal notranslate"><span class="pre">tf_flowers</span></code> dataset from Tensorflow. Split it into a training, validation, and test set. Make sure you save the dataset information (it will be useful for sampling the datasets), and shuffle the files for good measure!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-define-a-function-that-takes-in-a-dataset-and-the-information-about-the-dataset-prints-out-how-many-samples-are-in-the-dataset-and-displays-a-set-of-samples-from-the-dataset">6.2.4. Q2) Define a function that takes in a dataset and the information about the dataset, prints out how many samples are in the dataset, and displays a set of samples from the dataset.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-run-your-defined-visualization-function-on-each-of-the-training-validation-and-test-sets">6.2.5. Q3) Run your defined visualization function on each of the training, validation, and test sets.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-write-a-preprocessing-function-for-the-images-and-labels-in-our-dataset-the-function-should-set-the-image-size-to-128x128-normalize-the-pixel-values-to-be-between-0-and-1-and-one-hot-encode-the-labels">6.2.6. Q4) Write a preprocessing function for the images and labels in our dataset. The function should set the image size to 128x128, normalize the pixel values to be between 0 and 1, and one-hot encode the labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-apply-the-preprocessing-function-to-each-of-the-training-validation-and-test-sets">6.2.7. Q5) Apply the preprocessing function to each of the training, validation, and test sets.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-batch-each-of-the-training-validation-and-test-sets">6.2.8. Q6) Batch each of the training, validation, and test sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-setup-and-training">6.2.9. Model Setup and Training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-define-a-function-that-returns-a-filepath-with-the-format-cnn-logs-run-current-date-and-time">6.2.10. Q7) Define a function that returns a filepath with the format <code class="docutils literal notranslate"><span class="pre">'./CNN_logs/run_CURRENT-DATE-AND-TIME'</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-define-a-convolutional-neural-network-model-do-not-use-data-augmentation-techniques-we-want-to-use-this-same-architecture-data-augmentation-later">6.2.11. Q9) Define a convolutional neural network model. Do not use data augmentation techniques! We want to use this same architecture + data augmentation later.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q13-train-an-identical-model-to-that-defined-in-q9-with-the-exception-of-randomflip-and-randomrotation-augmentation-layers-added-before-the-convolutional-layers">6.2.12. Q13) Train an identical model to that defined in Q9, with the exception of <code class="docutils literal notranslate"><span class="pre">RandomFlip</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomRotation</span></code> augmentation layers added before the convolutional layers.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

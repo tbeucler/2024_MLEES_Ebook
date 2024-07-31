@@ -1,0 +1,1041 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.4. Ocean Regimes Identification &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ML/S3_3_THOR';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Artificial Neural Networks and Surrogate Modeling" href="../DL/Week_4_Artificial_Neural_Networks.html" />
+    <link rel="prev" title="4.3. Clustering" href="S3_2_Clustering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FML/S3_3_THOR.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ML/S3_3_THOR.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ocean Regimes Identification</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatting-as-xarray">4.4.1. Reformatting as Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-make-a-blank-xarray-dataset-br">4.4.1.1. Q1) Make a blank xarray dataset.<br/></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output">4.4.1.2. Q2) Visualize the data using a plot and printing the shape of the data to the console output.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset">4.4.1.3. Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions">4.4.1.4. Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-build-the-dataset-from-the-data-dictionary">4.4.1.5. Q5) Build the dataset from the data dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-store-a-flattened-version-of-our-dataset">4.4.1.6. Q6) Store a flattened version of our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features">4.4.1.7. Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">4.4.2. Kmeans clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-scale-the-input-data">4.4.2.1. Q8) Scale the input data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids">4.4.2.2. Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">4.4.3. Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields">4.4.3.1. Q10) Turn the flattened xarray back into a set of 2D fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-plot-the-cluster-variable-using-the-built-in-xarray-function">4.4.3.2. Q11) Plot the ‘cluster’ variable using the built-in xarray function</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/ML/S3_3_THOR.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="ocean-regimes-identification">
+<h1><span class="section-number">4.4. </span>Ocean Regimes Identification<a class="headerlink" href="#ocean-regimes-identification" title="Permalink to this headline">#</a></h1>
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ESLP1e1BfUxKu-hchh7wZKcBZiG3bJnNbnt0PDDm3BK-9g?download=1'>
+<center>
+Photo Credits: <a href="https://unsplash.com/photos/zCMWw56qseM">Sea Foam</a> by <a href="https://unsplash.com/@unstable_affliction">Ivan Bandura</a> licensed under the <a href='https://unsplash.com/license'>Unsplash License</a>
+</center>
+<blockquote>
+<div><p><em>A frequently asked question related to this work is “Which mixing processes matter most for climate?” As with many alluringly comprehensive sounding questions, the answer is “it depends.”</em> <br>
+<span class="math notranslate nohighlight">\(\qquad\)</span> MacKinnon, Jennifer A., et al. <br><span class="math notranslate nohighlight">\(\qquad\)</span>”Climate process team on internal wave–driven ocean mixing.” <br><span class="math notranslate nohighlight">\(\qquad\)</span> Bulletin of the American Meteorological Society 98.11 (2017): 2429-2454.</p>
+</div></blockquote>
+<p>In week 4’s final notebook, we will perform clustering to identify regimes in data taken from the realistic numerical ocean model <a class="reference external" href="https://www.ecco-group.org/products-ECCO-V4r4.htm">Estimating the Circulation and Climate of the Ocean</a>. Sonnewald et al. point out that finding robust regimes is intractable with a naïve approach, so we will be using reduced dimensionality data.</p>
+<p>It is worth pointing out, however, that the reduction was done with an equation instead of one of the algorithms we discussed this week. If you’re interested in the full details, you can check out <a class="reference external" href="https://doi.org/10.1029/2018EA000519">Sonnewald et al. (2019)</a></p>
+<p><strong>Setup</strong></p>
+<p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python ≥3.5 is required</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+
+<span class="c1"># Common imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">pooch</span>
+
+<span class="c1"># to make this notebook&#39;s output stable across runs</span>
+<span class="n">rnd_seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rnd_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Where to save the figures</span>
+<span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CHAPTER_ID</span> <span class="o">=</span> <span class="s2">&quot;dim_reduction&quot;</span>
+<span class="n">IMAGES_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">CHAPTER_ID</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">fig_id</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fig_extension</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving figure&quot;</span><span class="p">,</span> <span class="n">fig_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tight_layout</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fig_extension</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Common imports</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we’re going to import the <a class="reference external" href="https://duckduckgo.com/sklearn.preprocessing.standardscaler">StandardScaler</a> function from scikit’s preprocessing tools, import the <a class="reference external" href="https://duckduckgo.com/sklearn.clustering">scikit clustering library</a>, and set up the colormap that we will use when plotting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">sklearn.cluster</span> <span class="k">as</span> <span class="nn">cluster</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span><span class="p">,</span> <span class="n">ListedColormap</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;royalblue&#39;</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+<span class="n">mycmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Data Preprocessing</strong></p>
+<p>The first thing we need to do is retrieve the list of files we’ll be working on. We’ll rely on pooch to access the files hosted on the cloud.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the files from the cloud using Pooch.</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/tom_beucler_unil_ch/EUYqUzpIjoJBui02QEo6q1wBSN1Zsi1ofE6I3G4B9LJn_Q?download=1&#39;</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="s1">&#39;3f41661c7a087fa7d7af1d2a8baf95c065468f8a415b8514baedda2f5bc18bb5&#39;</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="n">pooch</span><span class="o">.</span><span class="n">Unzip</span><span class="p">())</span>
+<span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And now that we have a set of files to load, let’s set up a dictionary with the variable names as keys and the data in numpy array format as the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s read in the variable names from the filepaths</span>
+<span class="n">var_names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="p">[</span><span class="n">var_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+
+<span class="c1"># And build a dictionary of the data variables keyed to the filenames</span>
+<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">var_names</span><span class="p">):</span>
+    <span class="n">data_dict</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="c1">#We&#39;ll print the name of the variable loaded and the associated shape</span>
+<span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Varname: </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">&lt;15</span><span class="si">}</span><span class="s1"> Shape: </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a dictionary that uses the filename as the key! Feel free to explore the data (e.g., loading the keys, checking the shape of the arrays, plotting)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Feel free to explore the data dictionary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re eventually going to have an array of cluster classes that we’re going to use to label dynamic regimes in the ocean. Let’s make an array full of NaN (not-a-number) values that has the same shape as our other variables and store it in the data dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;BPT&#39;</span><span class="p">],</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reformatting-as-xarray">
+<h2><span class="section-number">4.4.1. </span>Reformatting as Xarray<a class="headerlink" href="#reformatting-as-xarray" title="Permalink to this headline">#</a></h2>
+<p>In the original paper, this data was loaded as numpy arrays. However, we’ll take this opportunity to demonstrate the same procedure while relying on xarray. First, let’s instantiate a blank dataset.<br><br></p>
+<div class="section" id="q1-make-a-blank-xarray-dataset-br">
+<h3><span class="section-number">4.4.1.1. </span>Q1) Make a blank xarray dataset.<br><a class="headerlink" href="#q1-make-a-blank-xarray-dataset-br" title="Permalink to this headline">#</a></h3>
+<p><em>Hint: Look at the xarray <a class="reference external" href="https://duckduckgo.com/?q=xarray+dataset">documentation</a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make your blank dataset here! Instantiate the class without passing any parameters.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EZv_qqVz_h1Hio6Nq11ckScBb01bGb9jtNKzdqAg1TPrKQ?download=1'>
+<center> Image taken from the xarray <a href='https://xarray.pydata.org/en/stable/user-guide/data-structures.html#:~:text=Dataset-,xarray.,from%20the%20netCDF%20file%20format.'> <i>Data Structure documentation</i> </a> </center>
+<p>In order to build the dataset, we’re going to need a set of coordinate vectors that help us map out our data! For our data, we have two axes corresponding to longitude (<span class="math notranslate nohighlight">\(\lambda\)</span>) and latitude (<span class="math notranslate nohighlight">\(\phi\)</span>).</p>
+<p>We don’t know much about how many lat/lon points we have, so let’s explore one of the variables to make sense of the data the shape of one of the numpy arrays.</p>
+</div>
+<div class="section" id="q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output">
+<h3><span class="section-number">4.4.1.2. </span>Q2) Visualize the data using a plot and printing the shape of the data to the console output.<a class="headerlink" href="#q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
+<span class="c1"># Let&#39;s print out an image of the Bottom Pressure Torques (BPT)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span> <span class="n">_______</span> <span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># It will also be useful to store and print out the shape of the data</span>
+<span class="n">data_shape</span> <span class="o">=</span> <span class="n">_______</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we know how the resolution of our data, we can prepare a set of axis arrays. We will use these to organize the data we will feed into the dataset.</p>
+</div>
+<div class="section" id="q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset">
+<h3><span class="section-number">4.4.1.3. </span>Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset<a class="headerlink" href="#q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset" title="Permalink to this headline">#</a></h3>
+<p><em>Hint 1: You can build ordered numpy arrays using, e.g., <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">numpy.linspace</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">numpy.arange</a></em></p>
+<p><em>Hint 2: You can rely on the data_shape variable we loaded previously to know how many points you need along each axis</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
+<span class="c1"># Let&#39;s prepare the lat and lon axes for our data.</span>
+<span class="n">lat</span> <span class="o">=</span>
+<span class="n">lon</span> <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have the axes we need, we can build xarray <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.html"><em>data arrays</em></a> for each data variable. Since we’ll be doing it several times, let’s go ahead and defined a function that does this for us!</p>
+</div>
+<div class="section" id="q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions">
+<h3><span class="section-number">4.4.1.4. </span>Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions<a class="headerlink" href="#q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the code</span>
+<span class="k">def</span> <span class="nf">np_to_xr</span><span class="p">(</span><span class="n">array_name</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
+    <span class="c1">#building the xarrray</span>
+    <span class="n">da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">_______</span><span class="p">,</span> <span class="c1"># Data to be stored</span>
+
+                  <span class="c1">#set the name of dimensions for the dataArray</span>
+                  <span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;_______&#39;</span><span class="p">],</span>
+
+                  <span class="c1">#Set the dictionary pointing the name dimensions to np arrays</span>
+                  <span class="n">coords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lat&#39;</span><span class="p">:</span><span class="n">_______</span><span class="p">,</span>
+                            <span class="s1">&#39;_______&#39;</span><span class="p">:</span><span class="n">_______</span><span class="p">},</span>
+
+                  <span class="n">name</span><span class="o">=</span><span class="n">_______</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_______</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re now ready to build our data array! Let’s iterate through the items and merge our blank dataset with the data arrays we create.</p>
+</div>
+<div class="section" id="q5-build-the-dataset-from-the-data-dictionary">
+<h3><span class="section-number">4.4.1.5. </span>Q5) Build the dataset from the data dictionary<a class="headerlink" href="#q5-build-the-dataset-from-the-data-dictionary" title="Permalink to this headline">#</a></h3>
+<p><em>Hint: We’ll be using the xarray merge command to put everything together.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The code in the notebook assumes you named your dataset ds. Change it to</span>
+<span class="c1"># whatever you used!</span>
+
+<span class="c1"># Complete the code</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1"># Let&#39;s make use of our np_to_xr function to get the data as a dataArray</span>
+    <span class="n">da</span> <span class="o">=</span> <span class="n">np_to_xr</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+
+    <span class="c1"># Merge the dataSet with the dataArray here!</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span> <span class="p">[</span><span class="n">____</span> <span class="p">,</span> <span class="n">____</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Congratulations! You should now have a nicely set up xarray dataset. This let’s you access a ton of nice features, e.g.:</p>
+<blockquote>
+<div><p>Data plotting by calling, e.g., <code class="docutils literal notranslate"><span class="pre">ds.BPT.plot.imshow(cmap='ocean')</span></code></p>
+<p>Find statistical measures of all variables at once! (e.g.: <code class="docutils literal notranslate"><span class="pre">ds.std()</span></code>, <code class="docutils literal notranslate"><span class="pre">ds.mean()</span></code>)</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Play around with the dataset here if you&#39;d like :)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we want to find clusters of data considering each grid point as a datapoint with 5 dimensional data. However, we went through a lot of work to get the data nicely associated with a lat and lon - do we really want to undo that?</p>
+<p>Luckily, xarray developers foresaw the need to group dimensions together. Let’s create a ‘flat’ version of our dataset using the <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.stack.html"><code class="docutils literal notranslate"><span class="pre">stack</span></code></a> method. Let’s make a flattened version of our dataset.</p>
+</div>
+<div class="section" id="q6-store-a-flattened-version-of-our-dataset">
+<h3><span class="section-number">4.4.1.6. </span>Q6) Store a flattened version of our dataset<a class="headerlink" href="#q6-store-a-flattened-version-of-our-dataset" title="Permalink to this headline">#</a></h3>
+<p><em>Hint 1: You’ll need to pass a dictionary with the ‘new’ stacked dimension name as the key and the ‘flattened’ dimensions as the values.</em></p>
+<p><em>Hint 2: xarrays have a <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.values.html">‘.values’ attribute</a> that return their data as a numpy array.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
+<span class="c1"># Let&#39;s store the stacked version of our dataset</span>
+<span class="n">stacked</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span> <span class="p">{</span> <span class="n">_______</span> <span class="p">:[</span> <span class="n">_______</span> <span class="p">,</span> <span class="n">_______</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And verify the shape of our data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stacked</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">_______</span><span class="o">.</span><span class="n">_______</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far we’ve ignored an important point - we’re supposed to have 5 variables, not 6! As you may have guessed, <code class="docutils literal notranslate"><span class="pre">noiseMask</span></code> helps us throw away data we dont want (e.g., from land mass or bad pixels).</p>
+<p>We’re now going to clean up the stacked dataset using the noise mask. Relax and read through the code, since there won’t be a question in this part :)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s redefine stacked as all the points where noiseMask = 1, since noisemask</span>
+<span class="c1"># is binary data.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dataset shape before processing: </span><span class="si">{</span><span class="n">stacked</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let&#39;s do some data cleaning!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Points before cleaning: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stacked</span><span class="o">.</span><span class="n">BPT</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">stacked</span> <span class="o">=</span> <span class="n">stacked</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">stacked</span><span class="o">.</span><span class="n">noiseMask</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Points after cleaning: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">stacked</span><span class="o">.</span><span class="n">BPT</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We also no longer need the noiseMask variable, so we can just drop it.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;And drop the noisemask variable...&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before dropping: </span><span class="si">{</span><span class="n">stacked</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">stacked</span> <span class="o">=</span> <span class="n">stacked</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;noiseMask&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Dataset shape after processing: </span><span class="si">{</span><span class="n">stacked</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have several thousand points which we want to divide into clusters using the kmeans clustering algorithm (you can check out the documentation for scikit’s implementation of kmeans <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">here</a>).</p>
+<p>You’ll note that the algorithm expects the input data <code class="docutils literal notranslate"><span class="pre">X</span></code> to be fed as <code class="docutils literal notranslate"><span class="pre">(n_samples,</span> <span class="pre">n_features)</span></code>. This is the opposite of what we have! Let’s go ahead and make a copy to a numpy array has the axes in the right order.</p>
+<p>You’ll need xarray’s <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.Dataset.to_array.html"><code class="docutils literal notranslate"><span class="pre">.to_array()</span></code></a> method and <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.values.html"><code class="docutils literal notranslate"><span class="pre">.values</span></code></a> parameter, as well as numpy’s <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.moveaxis.html"><code class="docutils literal notranslate"><span class="pre">.moveaxis</span></code></a> method.</p>
+</div>
+<div class="section" id="q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features">
+<h3><span class="section-number">4.4.1.7. </span>Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.<a class="headerlink" href="#q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
+<span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">_______</span><span class="p">(</span><span class="n">stacked</span><span class="o">.</span><span class="n">_______</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span><span class="o">.</span><span class="n">_______</span><span class="p">()</span><span class="o">.</span><span class="n">_______</span><span class="p">,</span>  <span class="c1"># data to reshape. Note that cluster is dropped since not needed for training</span>
+                         <span class="n">_______</span><span class="p">,</span>          <span class="c1"># source axis as integer,</span>
+                         <span class="n">_______</span><span class="p">)</span>          <span class="c1"># destination axis as integer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Does the input data look the way it&#39;s supposed to? Print the shape.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">_______</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kmeans-clustering">
+<h2><span class="section-number">4.4.2. </span>Kmeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this headline">#</a></h2>
+<p>In previous classes we discussed the importance of the scaling the data before implementing our algorithms. Now that our data is all but ready to be fed into an algorithm, let’s make sure that it’s been scaled.</p>
+<div class="section" id="q8-scale-the-input-data">
+<h3><span class="section-number">4.4.2.1. </span>Q8) Scale the input data<a class="headerlink" href="#q8-scale-the-input-data" title="Permalink to this headline">#</a></h3>
+<p><em>Hint 1: Import the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html"><code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code></a> class from scikit and instantiate it</em></p>
+<p><em>Hint 2: Update the input array to the one returned by the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler.fit_transform"><code class="docutils literal notranslate"><span class="pre">.fit_transform(X)</span></code></a> method</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write your scaling code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’re finally ready to train our algorithm! Let’s load up the kmeans model and find clusters in our data.</p>
+</div>
+<div class="section" id="q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids">
+<h3><span class="section-number">4.4.2.2. </span>Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.<a class="headerlink" href="#q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids" title="Permalink to this headline">#</a></h3>
+<p><em>Hint 1: <code class="docutils literal notranslate"><span class="pre">sklearn.cluster</span></code> was imported as <code class="docutils literal notranslate"><span class="pre">cluser</span></code> during the notebook setup! <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">Here is the scikit <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> documentation</a>.</em></p>
+<p><em>Hint 2: Use the <code class="docutils literal notranslate"><span class="pre">fit_predict</span></code> method to organize the data into clusters</em></p>
+<p>*Warning! : Fitting the data may take some time (under a minute during the testing of the notebook)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">_____</span><span class="p">(</span><span class="n">________</span> <span class="o">=</span><span class="mi">50</span><span class="p">,</span>  <span class="c1"># Number of clusters</span>
+                        <span class="n">________</span> <span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="c1"># setting a random state</span>
+                        <span class="n">________</span> <span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># Number of initial centroid states to try</span>
+                       <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>   <span class="c1"># Verbosity so we know things are working</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">______</span><span class="p">(</span><span class="n">____</span><span class="p">)</span> <span class="c1"># Feed in out scaled input data!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a set of cluster labels that group the data into 50 similar groups. Let’s store it in our stacked dataset!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s run this line</span>
+<span class="n">stacked</span><span class="p">[</span><span class="s1">&#39;clusters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">cluster_labels</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualization">
+<h2><span class="section-number">4.4.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">#</a></h2>
+<p>We now have a set of labels, but they’re stored in a flattened array. Since we’d like to see the data as a map, we still have some work to do. Let’s go back to a 2D representation of our values.</p>
+<div class="section" id="q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields">
+<h3><span class="section-number">4.4.3.1. </span>Q10) Turn the flattened xarray back into a set of 2D fields<a class="headerlink" href="#q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields" title="Permalink to this headline">#</a></h3>
+<p><em>Hint</em>: xarrays have an <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.unstack.html"><code class="docutils literal notranslate"><span class="pre">.unstack</span></code> method</a> that you will find to be very useful for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Complete the code:</span>
+<span class="n">processed_ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">____</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have an unstacked dataset, and can now easily plot out the clusters we found!</p>
+</div>
+<div class="section" id="q11-plot-the-cluster-variable-using-the-built-in-xarray-function">
+<h3><span class="section-number">4.4.3.2. </span>Q11) Plot the ‘cluster’ variable using the built-in xarray function<a class="headerlink" href="#q11-plot-the-cluster-variable-using-the-built-in-xarray-function" title="Permalink to this headline">#</a></h3>
+<p><em>Hint: <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> <a class="reference external" href="https://xarray.pydata.org/en/stable/generated/xarray.DataArray.plot.html">link text</a> let’s you access the xarray implementations of <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.pcolormesh.html"><code class="docutils literal notranslate"><span class="pre">pcolormesh</span></code></a> and <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">imshow</span></code></a>.</em></p>
+<p>Compare your results to those from the paper:
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EdLh6Ds0yVlFivyfIOXlV74B_G35dVz87GFagzylIG-gZA?download=1'></p>
+<p>We now want to find the 5 most common regimes, and group the rest. This isn’t straightforward, so we’ve gone ahead and prepared the code for you. Run through it and try to understand what the code is doing!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make field filled with -1 vals so unprocessed points are easily retrieved.</span>
+<span class="c1"># Noise masked applied automatically by using previously found labels as base.</span>
+<span class="n">processed_ds</span><span class="p">[</span><span class="s1">&#39;final_clusters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">processed_ds</span><span class="o">.</span><span class="n">clusters</span> <span class="o">*</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Find the 5 most common cluster labels</span>
+<span class="n">top_clusters</span> <span class="o">=</span> <span class="n">processed_ds</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;clusters&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="s1">&#39;BPT&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">clusters</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1">#Build the set of indices for the cluster data, used for rewriting cluster labels</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">top_clusters</span><span class="p">):</span>
+    <span class="c1">#Find the indices where the label is found</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">processed_ds</span><span class="o">.</span><span class="n">clusters</span> <span class="o">==</span> <span class="n">label</span><span class="p">)</span>
+
+    <span class="n">processed_ds</span><span class="p">[</span><span class="s1">&#39;final_clusters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="o">-</span><span class="n">idx</span>
+
+<span class="c1"># Set the remaining unlabeled regions to category 5 &quot;non-linear&quot;</span>
+<span class="n">processed_ds</span><span class="p">[</span><span class="s1">&#39;final_clusters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">processed_ds</span><span class="o">.</span><span class="n">final_clusters</span><span class="o">==-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Plot the figure</span>
+<span class="n">processed_ds</span><span class="o">.</span><span class="n">final_clusters</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">mycmap</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">8</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feel free to use this space</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare it to the regimes found in the paper:
+<img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EehuR9cUfaJImrw4DCAzDPoBiGuG7R3Ys6453Umi1cN_OQ?download=1'></p>
+<p>The authors then went on to train neural networks <em><strong>to infer in-depth dynamics from data that is largely readily available from for example CMIP6 models, using NN methods to infer the source of predictive skill</strong></em> and <em><strong>to apply the trained Ensemble MLP to a climate model in order to assess circulation changes under global heating</strong></em>.</p>
+<p>For our purposes, however, we will say goodbye to <em>THOR</em> at this point 😃</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ML"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="S3_2_Clustering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.3. </span>Clustering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../DL/Week_4_Artificial_Neural_Networks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Artificial Neural Networks and Surrogate Modeling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reformatting-as-xarray">4.4.1. Reformatting as Xarray</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-make-a-blank-xarray-dataset-br">4.4.1.1. Q1) Make a blank xarray dataset.<br/></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-visualize-the-data-using-a-plot-and-printing-the-shape-of-the-data-to-the-console-output">4.4.1.2. Q2) Visualize the data using a plot and printing the shape of the data to the console output.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-prepare-the-latitude-and-longitude-arrays-to-be-used-as-axes-for-our-dataset">4.4.1.3. Q3) Prepare the latitude and longitude arrays to be used as axes for our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-define-a-function-that-takes-in-1-an-array-name-2-a-numpy-array-3-a-lat-vector-and-4-a-lon-vector-the-function-should-return-a-dataarray-with-lat-lon-as-the-coordinate-dimensions">4.4.1.4. Q4) Define a function that takes in: 1) an array name, 2) a numpy array, 3) a lat vector, and 4) a lon vector. The function should return a dataArray with lat-lon as the coordinate dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-build-the-dataset-from-the-data-dictionary">4.4.1.5. Q5) Build the dataset from the data dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-store-a-flattened-version-of-our-dataset">4.4.1.6. Q6) Store a flattened version of our dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-load-the-datapoints-into-a-numpy-array-following-the-convention-where-the-0th-axis-corresponds-to-the-samples-and-the-1st-axis-corresponds-to-the-features">4.4.1.7. Q7) Load the datapoints into a numpy array following the convention where the 0th axis corresponds to the samples and the 1st axis corresponds to the features.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">4.4.2. Kmeans clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-scale-the-input-data">4.4.2.1. Q8) Scale the input data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-instantiate-the-kmeans-clustering-algorithm-and-then-fit-it-using-50-clusters-trying-out-10-different-initial-centroids">4.4.2.2. Q9) Instantiate the kmeans clustering algorithm, and then fit it using 50 clusters, trying out 10 different initial centroids.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">4.4.3. Visualization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-turn-the-flattened-xarray-back-into-a-set-of-2d-fields">4.4.3.1. Q10) Turn the flattened xarray back into a set of 2D fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-plot-the-cluster-variable-using-the-built-in-xarray-function">4.4.3.2. Q11) Plot the ‘cluster’ variable using the built-in xarray function</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

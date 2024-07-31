@@ -1,0 +1,870 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1. Classification and Regression &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Saranya/W1_2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.2. (Exercises) Classification" href="../ML/S1_1_Classification.html" />
+    <link rel="prev" title="2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting" href="../ML/Week_1_Linear%26Logistic_Regression.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSaranya/W1_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Saranya/W1_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Classification and Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-v-s-regression">2.1.1. Classification v.s. Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">2.1.1.1. Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">2.1.1.2. Regression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-cost-function">2.1.2. Define Cost Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">2.1.3. Training the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">2.1.3.1. Gradient Descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">2.1.3.2. Learning Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-model-performance">2.1.4. Evaluate Model Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">2.1.5. Benchmarking</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/W1_2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="classification-and-regression">
+<h1><span class="section-number">2.1. </span>Classification and Regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">#</a></h1>
+<p>This summary will give you a brief introduction to classification and regression tasks in Machine Learning</p>
+<p><strong>Learning Objectives</strong>:</p>
+<ol class="arabic simple">
+<li><p>Distinguish classification from regression</p></li>
+<li><p>Define a loss/cost function</p></li>
+<li><p>Understand how to train a logistic/softmax regression for binary/multiclass classification</p></li>
+<li><p>Know how to benchmark a classifier</p></li>
+</ol>
+<div class="section" id="classification-v-s-regression">
+<h2><span class="section-number">2.1.1. </span>Classification v.s. Regression<a class="headerlink" href="#classification-v-s-regression" title="Permalink to this headline">#</a></h2>
+<div class="section" id="classification">
+<h3><span class="section-number">2.1.1.1. </span>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h3>
+<p>Classification is a supervised learning task where the model learns to <strong>classify instances into predefined classes or categories</strong>.</p>
+<p><strong>Binary Classification</strong>: Classifying instances into two classes (e.g., spam vs. non-spam emails).</p>
+<blockquote>
+<div><p><strong>Logistic regression</strong> is used for binary classification tasks, predicting probabilities for each class.</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Log Loss (Cross-Entropy): The cost function used to evaluate the performance of logistic regression models.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>Training Logistic Regression: Iteratively optimize the model’s parameters using gradient descent.</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Multiclass Classification</strong>: Classifying instances into multiple classes (e.g., digit recognition, where each digit is a class).</p>
+<p>Multiclass classification, also known as multinomial classification, refers to a classification problem where instances are categorized into three or more distinct classes.</p>
+<blockquote>
+<div><blockquote>
+<div><p>Example: Classifying images of animals into categories like “dog,” “cat,” “elephant,” and “lion.”</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><em>Softmax Regression</em> (Multinomial Logistic Regression): Softmax regression is used for multiclass classification tasks, predicting probabilities for multiple classes. The Softmax function ensures the predicted probabilities sum up to 1.
+Cross-Entropy Loss: The cost function used to evaluate softmax regression models.</p>
+</div></blockquote>
+</div></blockquote>
+<p><em><strong>Multilabel Classification</strong></em>:
+Multilabel classification deals with instances that can belong to multiple classes simultaneously. In other words, an instance can have multiple labels associated with it.</p>
+<blockquote>
+<div><blockquote>
+<div><p>Example: Tagging a news article with multiple categories like “politics,” “economy,” and “technology” to capture its diverse content.</p>
+</div></blockquote>
+</div></blockquote>
+<p><em><strong>Multioutput Classification</strong></em>(or Multioutput Regression):</p>
+<p>Multioutput classification (or regression) involves predicting multiple output variables simultaneously for each instance. Each output variable can have multiple possible values or classes.</p>
+<blockquote>
+<div><blockquote>
+<div><p>Example: Predicting both the color and size of a piece of fruit, where color could be “red,” “green,” or “yellow,” and size could be “small,” “medium,” or “large.”</p>
+</div></blockquote>
+</div></blockquote>
+<p>Here are some <em>practical applications</em> of classification in Environmental Sciences🌄</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Wildlife Identification: Classification techniques can be used to identify animal species from images or audio recordings, supporting wildlife monitoring projects.</p></li>
+<li><p>Land Cover Classification: Satellite imagery can be classified into various land cover types, aiding in monitoring land use changes over time.</p></li>
+<li><p>Invasive Species Detection: Developing models that classify invasive species in images, helping conservationists identify and manage ecological threats.</p></li>
+<li><p>Water Quality Assessment: Using classification algorithms to determine the quality of water bodies based on factors like chemical concentrations and biological indicators.</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="regression">
+<h3><span class="section-number">2.1.1.2. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h3>
+<p><strong>Linear regression</strong> is a supervised machine learning algorithm used for <strong>predicting a continuous numerical output</strong> based on one or more input features. It assumes a linear relationship between the inputs and the target variable. The goal of linear regression is to find the best-fitting line (or hyperplane in higher dimensions) that <em>minimizes the difference between the predicted values and the actual target values</em>. The most common cost function used in linear regression is the <em>Mean Squared Error</em> (MSE).</p>
+<p><strong>Multiple linear regression</strong> is an extension of linear regression that deals with multiple input features. Instead of just one input, there are multiple independent variables influencing the target variable. The algorithm estimates the coefficients for each feature, determining their individual impact on the target variable while considering their interrelationships.</p>
+<blockquote>
+<div><p>Other Regression Methods:</p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Polynomial Regression</strong>: This type of regression extends linear regression to capture nonlinear relationships by introducing polynomial terms of the input features. It fits a curve to the data instead of a straight line.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Ridge Regression</strong> (L2 Regularization): Ridge regression adds a regularization term to the linear regression cost function. It helps prevent overfitting by penalizing large coefficient values, thus promoting simpler models.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Lasso Regression</strong> (L1 Regularization): Similar to ridge regression, lasso regression also adds a regularization term. However, it uses the absolute values of coefficients, often resulting in some coefficients being exactly zero. This leads to feature selection.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Elastic Net Regression</strong>: Elastic Net combines L1 and L2 regularization to balance the strengths of both. It can handle situations where there are correlated features.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Support Vector Regression</strong> (SVR): SVR applies the principles of support vector machines to regression problems. It aims to fit a hyperplane that captures as many instances within a specified margin as possible.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Decision Tree Regression</strong>: Similar to classification decision trees, decision tree regression predicts a continuous target value by partitioning the feature space into regions and assigning the average target value of instances within each region.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Random Forest Regression</strong>: An ensemble method combining multiple decision tree regressors. It improves predictive accuracy and reduces overfitting by averaging the predictions of individual trees.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Gradient Boosting Regression</strong>: A boosting technique that builds an additive model in a forward stage-wise manner. It combines the predictions of weak learners (often decision trees) to create a strong predictive model.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Each regression method has its own strengths, weaknesses, and applicability to different types of data and problem domains. The choice of which method to use depends on the nature of the data, the problem’s requirements, and the desired level of interpretability and predictive accuracy.</p>
+<hr class="docutils" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="define-cost-function">
+<h2><span class="section-number">2.1.2. </span>Define Cost Function<a class="headerlink" href="#define-cost-function" title="Permalink to this headline">#</a></h2>
+<p><strong>During training</strong>, <strong>cost Function</strong> quantifies the <strong>difference</strong> betweeen <strong>predicted values</strong> generated by a model and the <strong>actual ground truth values</strong>. The cost function is specific to the learning algorithm and is used to <strong>update the model’s parameters iteratively</strong> to improve its performance on the training data.</p>
+<p>The choice of a cost function depends on the nature of the problem—whether it’s a classification, regression, or other type of task—and the desired properties of the model’s predictions. Different algorithms and tasks require different types of cost functions.</p>
+<p>Examples:</p>
+<blockquote>
+<div><p><em><strong>Mean Squared Error</strong></em> (MSE): Used in regression tasks, it calculates the average squared difference between predicted and actual values. It penalizes larger errors more heavily.</p>
+</div></blockquote>
+<blockquote>
+<div><p><em><strong>Log Loss</strong></em> (Cross-Entropy Loss): Commonly used in classification tasks, especially in logistic regression and neural networks. It measures the dissimilarity between predicted probabilities and actual binary class labels.</p>
+</div></blockquote>
+<blockquote>
+<div><p><em><strong>Absolute Error</strong></em> (L1 Loss): Similar to MSE, but it computes the absolute difference between predicted and actual values. It’s less sensitive to outliers compared to MSE.</p>
+</div></blockquote>
+<hr class="docutils" />
+</div>
+<hr class="docutils" />
+<div class="section" id="training-the-model">
+<h2><span class="section-number">2.1.3. </span>Training the Model<a class="headerlink" href="#training-the-model" title="Permalink to this headline">#</a></h2>
+<div class="section" id="gradient-descent">
+<h3><span class="section-number">2.1.3.1. </span>Gradient Descent<a class="headerlink" href="#gradient-descent" title="Permalink to this headline">#</a></h3>
+<p>An optimization technique to minimize the cost function and determine the optimal model parameters. It relies on the partial derivative of the cost function with respect to the model parameters to iteratively improve those parameters. An important parameter of Gradient Descent is the learning rate hyperparameter.</p>
+<p><strong>Gradient Descent</strong> is an optimization technique used to minimize the cost function and find the optimal model parameters.</p>
+<blockquote>
+<div><p><em>Normal Equation vs Gradient Descent</em></p>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>The <strong>normal equation</strong> provides a closed-form solution to find the optimal parameters that minimize the cost function in linear regression. It is particularly useful when dealing with small to moderately sized datasets as it efficiently computes the optimal parameters directly.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>On the other hand, <strong>gradient descent</strong> is an iterative optimization algorithm that works well with large datasets and complex models. It iteratively updates model parameters in the direction of steepest descent, making it suitable for high-dimensional spaces and non-linear models.</p>
+</div></blockquote>
+</div></blockquote>
+<blockquote>
+<div><blockquote>
+<div><p>The two methods complement each other in machine learning. While the normal equation offers a straightforward analytical solution for simple cases, gradient descent shines in handling more complex scenarios, where computational efficiency and adaptability to various models and data sizes are paramount.</p>
+</div></blockquote>
+</div></blockquote>
+<p>The optimization techniques using Gradient Descent include the following approaches:</p>
+<ul class="simple">
+<li><p><strong>Batch Gradient Descent</strong>: Updates model parameters using the entire training set.</p></li>
+<li><p><strong>Stochastic Gradient Descent</strong> (SGD): Updates parameters based on a single training instance or a small batch of instances.</p></li>
+<li><p><strong>Mini-batch Gradient Descent</strong>: A compromise between batch and SGD, updating parameters using a small batch of instances.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>Advantages</p></th>
+<th class="head"><p>Disadvantages</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Batch Gradient Descent</p></td>
+<td><p>Stable error gradient</p></td>
+<td><p>Requires entire training data in memory</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Parallelizable</p></td>
+<td><p>Slow model updates and convergence</p></td>
+</tr>
+<tr class="row-even"><td><p>Stochastic Gradient Descent</p></td>
+<td><p>Avoids stucking in local minimas</p></td>
+<td><p>Noisy gradient and large variance during training</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Improvements in every model update</p></td>
+<td><p>Computationally intensive</p></td>
+</tr>
+<tr class="row-even"><td><p>Mini-batch Gradient Descent</p></td>
+<td><p>Computationally efficient</p></td>
+<td><p>Extra hyperparameter to tune</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>Smoother learning curves than SGD</p></td>
+<td><p>Need to accumulate error over batches</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Less memory intensive</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="learning-rate">
+<h3><span class="section-number">2.1.3.2. </span>Learning Rate<a class="headerlink" href="#learning-rate" title="Permalink to this headline">#</a></h3>
+<p><strong>Learning Rate</strong> is a small positive scalar value that controls the step size at each iteration during model training. It scales the gradient (derivative) of the loss function with respect to the model parameters.</p>
+<blockquote>
+<div><p>Impact on Training: A high learning rate can lead to rapid convergence but risks overshooting the optimal solution, potentially causing the model to diverge. Conversely, a low learning rate can lead to slow convergence and might get stuck in local minima.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Learning rate is a crucial hyperparameter in machine learning algorithms, especially those that involve optimization techniques like gradient descent. It determines the size of the steps taken when updating model parameters during the training process. Understanding and setting an appropriate learning rate is vital, as it can significantly impact the training convergence, model performance, and the ability to find the optimal solution. In environmental science, where machine learning is applied to various prediction and forecasting tasks, choosing an appropriate learning rate is essential for achieving accurate and efficient models.</p>
+</div></blockquote>
+<p><img alt="gradient.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/gradient.png?raw=1" /></p>
+<p>A suitable learning rate is very important and directly affects the likelihood for the ML model to reach the true minima. A small learning rate will result in a slow convergence, whereas a learning rate that is too large might render the model unable to reach the true minima.</p>
+<p>Fig 2: An Easy Guide to Gradient Descent in Machine Learning, Great Learning. (<a class="reference external" href="https://www.mygreatlearning.com/blog/gradient-descent/">link</a>)</p>
+<p><img alt="batch-1.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/batch-1.png?raw=1" /></p>
+<p>The above figure shows the different ways the three gradient descent methods summarized above approaches the true minima. The SGD can have a very noisy learning process, whereas mini-batch is a compromise between SGD and the smooth batch method.</p>
+<p>Fig 3: Relation between Learning Rate and Batch Size, Baeldung. (<a class="reference external" href="https://www.baeldung.com/cs/learning-rate-batch-size">link</a>)</p>
+<p>Some examples:</p>
+<blockquote>
+<div><p>Air Quality Forecasting: In predicting air quality levels, machine learning models may require careful tuning of the learning rate. An appropriately chosen learning rate can help the model converge to an accurate representation of air quality based on historical data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Climate Modeling: Climate models often involve complex optimization problems. Setting the learning rate correctly can accelerate the training process and enable better understanding of climate patterns.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Hydrological Forecasting: When predicting river flows or flood levels, an optimal learning rate can ensure that hydrological models converge to accurate predictions, improving early warning systems.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Land Cover Classification: In tasks like land cover classification using remote sensing data, a well-tuned learning rate can help neural networks efficiently learn the intricate relationships between spectral bands and land cover types.</p>
+</div></blockquote>
+<blockquote>
+<div><p>Ecosystem Modeling: Learning rates are essential in ecosystem models, where they affect the speed and stability of parameter estimation, allowing researchers to gain insights into ecosystem dynamics.</p>
+</div></blockquote>
+<hr class="docutils" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="evaluate-model-performance">
+<h2><span class="section-number">2.1.4. </span>Evaluate Model Performance<a class="headerlink" href="#evaluate-model-performance" title="Permalink to this headline">#</a></h2>
+<p>In Machine Learning, it is critical to make sure that your trained model can <strong>generalize</strong> well to <strong>unseen data</strong>. Model evaluation involves assessing the performance of a trained model using various metrics on a separate dataset (test set or validation set) that the model hasn’t seen during training. For this purpose, we rely on different <strong>performance metrics</strong>.</p>
+<p>The most simple skill score for classification models is the <em><strong>Accuracy Score</strong></em>, which is <em>the ratio between correct predictions and the total number of instances</em>.</p>
+<p>The accuracy score is intuitive and straight-forward, but using it to benchmark your classification models can be problematic for real data, particularly if you are dealing with <em>unbalanced data</em>.</p>
+<p>Assuming that 90% of your data belongs to the positive class, then the model can have no skills on preddicting negative class and still have a good precision score. 😲 It is definitely not ideal that your classification model can only give you one answer no matter how your samples look like!</p>
+<p>Fortunately, we have skill scores that are useful for unbalanced data. These scores balance the precision and the recall of a model.</p>
+<blockquote>
+<div><p><em><strong>Precision</strong></em>: The ratio between correctly-predicted positives (True Positive; TP) and the number of instances the model predicted positive (True Positive + False Positive). \
+<em><strong>Recall</strong></em>: The ratio between TP and the number of real positives in the data (True Positive + False Negative).</p>
+</div></blockquote>
+<p>Analyze misclassified instances to gain insights into model weaknesses and potential data issues. We can use a <strong>Confusion Matrix</strong> table to summary these information in an attractive visual format and how they impact the model’s performance..</p>
+<p><img alt="image" src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13040-018-0188-2/MediaObjects/13040_2018_188_Fig2_HTML.png?as=webp" /></p>
+<p>Fig. 1 Confusion matrix (Bittrich et al. 2019)</p>
+<p><strong>Scikit-learn</strong> provides a function to access the confusion matrix: \
+<code class="docutils literal notranslate"><span class="pre">sklearn.metrics.confusion_matrix(y_true,</span> <span class="pre">y_pred)</span></code></p>
+<p>The metric that balances precision and recall is the <em><strong>F1 Score</strong></em>.</p>
+<blockquote>
+<div><p>F1 Score: The harmonic mean of precision and recall, providing a balanced measure.</p>
+</div></blockquote>
+<p>ROC-AUC (Receiver Operating Characteristic - Area Under Curve), and PR-AUC (Precision-Recall Area Under Curve) are other metrics used for evaluation.</p>
+<blockquote>
+<div><p>The <strong>ROC curve</strong> is a graphical representation that illustrates the trade-off between true positive rate (TPR) and false positive rate (FPR) across various thresholds.</p>
+</div></blockquote>
+</div>
+<div class="section" id="benchmarking">
+<h2><span class="section-number">2.1.5. </span>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">#</a></h2>
+<p>Benchmarking a classifier involves assessing its performance against certain metrics and comparing it with other classifiers or established standards.</p>
+<hr class="docutils" />
+<hr class="docutils" />
+<blockquote>
+<div><blockquote>
+<div><p><em><strong>Tips and Tricks</strong></em> 💡</p>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Overfitting</strong>: High-degree polynomials can lead to overfitting the training data.</p>
+<p><strong>Learning Rate Scheduling</strong>: Adjusting the learning rate during training to converge faster and prevent overshooting.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Saranya"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../ML/Week_1_Linear%26Logistic_Regression.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../ML/S1_1_Classification.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.2. </span>(Exercises) Classification</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-v-s-regression">2.1.1. Classification v.s. Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification">2.1.1.1. Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">2.1.1.2. Regression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-cost-function">2.1.2. Define Cost Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">2.1.3. Training the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">2.1.3.1. Gradient Descent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">2.1.3.2. Learning Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-model-performance">2.1.4. Evaluate Model Performance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">2.1.5. Benchmarking</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

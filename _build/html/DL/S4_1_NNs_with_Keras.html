@@ -1,0 +1,1075 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.2. (Exercise) Artificial Neural Networks with Keras &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'DL/S4_1_NNs_with_Keras';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.3. (Exercise) Physically-Informed Climate Modeling" href="S4_2_Physically_informed_parameterization.html" />
+    <link rel="prev" title="5.1. Introduction to Artificial Neural Networks" href="../Saranya/W4_ANN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDL/S4_1_NNs_with_Keras.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/DL/S4_1_NNs_with_Keras.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>(Exercise) Artificial Neural Networks with Keras</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">5.2.1. <strong>Notebook Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">5.2.2. Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">5.2.3. Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">5.2.4. Q3) Normalize the input data for the training, validation, and testing sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-to-visualize-a-sample-image-write-a-function-that">5.2.5. Q4) To visualize a sample image, write a function that:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">5.2.6. Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">5.2.7. Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">5.2.8. Q7) Write a sequential Keras model that will predict the digit class.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">5.2.9. Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">5.2.10. Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">5.2.11. Q10) Redefine and re-compile the model with the learning rate you found in Q9.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-fit-the-updated-model-for-100-epochs">5.2.12. Q11) Fit the updated model for 100 epochs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-evaluate-the-model-on-the-test-set">5.2.13. Q12) Evaluate the model on the test set.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/DL/S4_1_NNs_with_Keras.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercise-artificial-neural-networks-with-keras">
+<h1><span class="section-number">5.2. </span>(Exercise) Artificial Neural Networks with Keras<a class="headerlink" href="#exercise-artificial-neural-networks-with-keras" title="Permalink to this headline">#</a></h1>
+<p>This notebook was designed to be run on Google Colab and we recommend clicking on the Google Colab badge to proceed.</p>
+<p><img alt="picture" src="https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EWzvoN-LqmBDtvuEXvi3m2MBRr4ACElB77IAfndUaDFVJQ?download=1" /></p>
+<center>
+<br> Photo Credits: <a href="https://unsplash.com/photos/_HRi5kBwGh0">Galaxy's Edge</a> by <a href="https://unsplash.com/@rodlong">Rod Long</a> licensed under the <a href='https://unsplash.com/license'>Unsplash License</a><blockquote>
+<div><p><em>The defnition of AI is a highly contested concept. It often refers to technologies that demonstrate levels of independent intelligence from humans. By its very
+defnition, it is an intelligence that is differentiated from natural intelligence; it is
+a constructed, artificial, or machine intelligence.</em> <br>
+<span class="math notranslate nohighlight">\(\quad\)</span>Ryan, M. (2020). In AI we trust: ethics, artificial intelligence, and reliability. Science and Engineering Ethics, 26(5), 2749-2767.</p>
+</div></blockquote>
+<p><em>This notebook, whose first draft was written by Milton Gomez, covers Chapters 10 of Géron, and builds on the <a class="reference external" href="https://github.com/ageron/handson-ml2">notebooks made available on <em>Github</em></a>.</em></p>
+<div class="section" id="notebook-setup">
+<h2><span class="section-number">5.2.1. </span><strong>Notebook Setup</strong><a class="headerlink" href="#notebook-setup" title="Permalink to this headline">#</a></h2>
+<p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python ≥3.5 is required</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># %tensorflow_version only exists in Colab.</span>
+    <span class="o">%</span><span class="k">tensorflow_version</span> 2.x
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># TensorFlow ≥2.0 is required</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="k">assert</span> <span class="n">tf</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;2.0&quot;</span>
+
+<span class="c1"># Common imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># to make this notebook&#39;s output stable across runs</span>
+<span class="n">rnd_seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rnd_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Where to save the figures</span>
+<span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CHAPTER_ID</span> <span class="o">=</span> <span class="s2">&quot;ann&quot;</span>
+<span class="n">IMAGES_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">CHAPTER_ID</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">fig_id</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fig_extension</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving figure&quot;</span><span class="p">,</span> <span class="n">fig_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tight_layout</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fig_extension</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+
+<span class="c1"># Initialize the run_index</span>
+<span class="n">run_index</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Loading Tensorboard</span>
+<span class="o">%</span><span class="k">load_ext</span> tensorboard
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="c1"># %tensorflow_version only exists in Colab.</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Data Setup</strong></p>
+<p>Today, we’ll once again be working on the MNIST handwritten digit database - we’re becoming experts in typography! ✍</p>
+<p>Let’s begin by importing the dataset from the keras dataset library.</p>
+</div>
+<div class="section" id="q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">
+<h2><span class="section-number">5.2.2. </span>Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset<a class="headerlink" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: To access the Keras library, you can either reimport keras (e.g., <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">tensorflow.keras</span> <span class="pre">as</span> <span class="pre">keras</span></code>), or you can access it from the instance of tensorflow we imported during setup (i.e., using <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code>)</em></p>
+<p><em>Hint 2: <a class="reference external" href="https://keras.io/api/datasets/mnist/">Here is the documentation</a> for the Keras implementation of the MNIST dataset</em></p>
+<p><em>Hint 3: If you use the <code class="docutils literal notranslate"><span class="pre">mnist.load_data()</span></code> method, what will be returned will be a set of tuples: (training_data, testing_data), where training_data and testing_data are tuples of inputs and labels (X, y)</em></p>
+<p><em>Hint 4: You can break down the training dataset from the <code class="docutils literal notranslate"><span class="pre">.load()</span></code> method into a training and validation dataset. Since the full training dataset includes 60 000 samples, try using 50 000 samples as training data and 10 000 samples as validation data.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the keras dataset data</span>
+<span class="p">(</span> <span class="p">(</span><span class="n">X_train_full</span><span class="p">,</span> <span class="n">y_train_full</span><span class="p">)</span> <span class="p">,</span> <span class="p">(</span><span class="n">_____</span><span class="p">,</span> <span class="n">_____</span><span class="p">)</span> <span class="p">)</span> <span class="o">=</span> <span class="n">_____</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">_____</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the data</span>
+<span class="n">X_train</span> <span class="o">=</span>
+<span class="n">X_valid</span> <span class="o">=</span>
+<span class="n">_______</span> <span class="o">=</span>
+<span class="n">_______</span> <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What does our data look like? Let’s get an idea of the values and figure out what kind of preprocessing we should do before training our neural network.</p>
+</div>
+<div class="section" id="q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">
+<h2><span class="section-number">5.2.3. </span>Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.<a class="headerlink" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: You loaded the data as numpy arrays. Thus, you can rely on the built-in methods for finding the shape and min/max values.</em></p>
+<p><em>Hint 2: Click for the documentation on <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html"><code class="docutils literal notranslate"><span class="pre">ndarray.max()</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html"><code class="docutils literal notranslate"><span class="pre">ndarray.min()</span></code></a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html"><code class="docutils literal notranslate"><span class="pre">ndarray.shape</span></code></a></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you used the same train/validation split as we did, you should have 50k samples in the training set, 10k in the validation set, and 10k in the test set.</p>
+<p>Since the data represents grayscale image values, data values should vary between 0 and 255; Normalize the data by dividing it by 255.</p>
+</div>
+<div class="section" id="q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">
+<h2><span class="section-number">5.2.4. </span>Q3) Normalize the input data for the training, validation, and testing sets<a class="headerlink" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: The datasets are stored as simple numpy arrays, so you can perform arithmetic operations on them!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">_____</span> <span class="o">/</span> <span class="mi">255</span>
+<span class="n">_____</span> <span class="o">=</span>
+<span class="n">_____</span> <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have the normalized training, validation, and testing data that we’ll use to train our neural network. Before moving on, it might be worth it to make a small visualiation of samples in our data to ensure that everything worked out correctly.</p>
+</div>
+<div class="section" id="q4-to-visualize-a-sample-image-write-a-function-that">
+<h2><span class="section-number">5.2.5. </span>Q4) To visualize a sample image, write a function that:<a class="headerlink" href="#q4-to-visualize-a-sample-image-write-a-function-that" title="Permalink to this headline">#</a></h2>
+<p><br> <blockquote>1) Takes in an input dataset and its labels, a number of rows, and a number of columns <br> 2) Prints out a random <code class="docutils literal notranslate"><span class="pre">n_rows</span></code> by <code class="docutils literal notranslate"><span class="pre">n_columns</span></code> sample of images with their labels</blockquote>**</p>
+<p><em>Hint 1: You can use the <code class="docutils literal notranslate"><span class="pre">rnd_seed.integers()</span></code> generator to generate a set of integers between 0 and the number of samples, with a size of (rows,columns). <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html#simple-random-data">Here is some documentation that can help</a>. It’s best practice to take in the random generator as an argument for your function.</em></p>
+<p><em>Hint 2: You can use matplotlib’s <code class="docutils literal notranslate"><span class="pre">fig,</span> <span class="pre">axes</span> <span class="pre">=</span> <span class="pre">plt.subplots()</span></code> to make a grid of axes and call the <code class="docutils literal notranslate"><span class="pre">imshow()</span></code> method on each ax in order to plot the digit. It is recommended that you use the <code class="docutils literal notranslate"><span class="pre">cmap='binary'</span></code> argument in imshow to print the digits in black and white</em>. Click on the links for the documentation to <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.subplots.html"><code class="docutils literal notranslate"><span class="pre">plt.sublopts()</span></code></a>, <a class="reference external" href="https://matplotlib.org/3.5.0/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a>, and <a class="reference external" href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">the colormaps (i.e., cmap values)</a> available in matplotlib.</p>
+<p><em>Hint 3: You can iterate using numpy <code class="docutils literal notranslate"><span class="pre">ndenumerate()</span></code> method, which will return the n-dimensional index of the array and the element located there. This will be useful when iterating through the indices you generated and plotting the corresponding digit and label</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Hint 4: Code Snippet, if you&#39;re feeling stuck</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def sample_plotter(X, y, n_rows, n_columns, rnd_gen):</span>
+<span class="sd">    assert type(X) == type(np.empty(0))</span>
+<span class="sd">    indices = rnd_gen.integers(0,X.shape[0], size=(n_rows, n_columns))</span>
+
+<span class="sd">    fig, axes = plt.subplots(n_rows, n_columns, figsize=(8,6))</span>
+
+<span class="sd">    for idx, element in np.ndenumerate(indices):</span>
+<span class="sd">        axes[idx].imshow(X[element], cmap=&#39;binary&#39;)</span>
+<span class="sd">        axes[idx].axis(&#39;off&#39;)</span>
+<span class="sd">        axes[idx].title.set_text(y[element])</span>
+<span class="sd">    return</span>
+<span class="sd">&#39;&#39;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_plotter</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">___</span><span class="p">,</span> <span class="n">___</span><span class="p">,</span> <span class="n">___</span><span class="p">):</span>
+
+    <span class="c1"># Create a set of indices to access the sample images/labels</span>
+
+    <span class="c1"># Create a figure with n_rows and n_columns</span>
+
+    <span class="c1"># Plot each selected digit</span>
+    <span class="k">for</span> <span class="ow">in</span> <span class="p">:</span>
+
+
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that our function is defined, let’s go ahead and print out a 4 row by 8 column sample from each dataset.</p>
+</div>
+<div class="section" id="q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">
+<h2><span class="section-number">5.2.6. </span>Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels<a class="headerlink" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Write your code here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re now ready to start developing our neural network. The first thing that we want to do is figure out an appropriate learning rate for our model - after all, we want to choose one that converges to a solution <em>and</em> is the least computationally expensive possible.</p>
+<p>Let’s start by setting up a keras <em>callback</em> <a class="reference external" href="https://keras.io/api/callbacks/">(click here for the documentation)</a>, a type of object that will allow us to change the learning rate after every iteration (i.e., after every batch of data). We will set up what is called an exponential learning rate (that is, the learning will increase by a factor of <span class="math notranslate nohighlight">\(k\)</span> after each iteration). Expressed mathematically,
+\begin{align}
+\eta_{\scriptsize{t}} = \eta_{\scriptsize{0}} , \cdot , k^{\scriptsize{t}}
+\end{align}
+where <span class="math notranslate nohighlight">\(t\)</span> is the current iteration.</p>
+<p>As a reminder, an epoch is an iteration through the entire training dataset, while a batch is an iteration through a predefined subset of . It’s important to make this distinction, as ML algorithms are often trained in batches when dealing with large datasets, and we <em>normally</em> do not want to change the learning rate in between batches during model training. However, we will do so during this evaluation phase in order to determine an adequate learning rate.</p>
+<p>We will therefore set a callback that will do two things after the end of each batch:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Keep a track of the losses <br> 2) Adjust the learning rate by multiplying it by a predefined factor</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">
+<h2><span class="section-number">5.2.7. </span>Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span><a class="headerlink" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: Multiple backend options are available with Keras. We will be using tensorflow, but the code is thought to be written in such a way that a different backend <strong>could</strong> be used. <code class="docutils literal notranslate"><span class="pre">tf.keras.backend</span></code> has a <code class="docutils literal notranslate"><span class="pre">.backend()</span></code> method that allows you to check what backend is being used.</em></p>
+<p>*Hint 2: You should extend the <code class="docutils literal notranslate"><span class="pre">tf.keras.callbacks.Callback</span></code> class. (Confused about extending classes? <a class="reference external" href="https://stackoverflow.com/questions/15526858/how-to-extend-a-class-in-python">Here is a question on stack overflow</a> that could provide some context) *</p>
+<p><em>Hint 3: The ExponentialLearningRate callback we will implement will need to take in the <span class="math notranslate nohighlight">\(k\)</span> factor during its initialization (<a class="reference external" href="https://stackoverflow.com/questions/625083/what-do-init-and-self-do-in-python">here’s a quick overview</a> on the <strong>init</strong> contructor method and <strong>self</strong> arguments in classes, with a focus on python.). You will also need to save an empty list as an attribute for both the losses and the learning rates</em></p>
+<p><em>Hint 4: Keras model optimizers have an attribute where the learning rate is stored: <code class="docutils literal notranslate"><span class="pre">model.optimizer.learning_rate</span></code>. In order to read the value, you will have to use the keras backend’s <code class="docutils literal notranslate"><span class="pre">.get_value()</span></code> method with the model’s learning rate as an argument</em></p>
+<p><em>Hint 5: the on_train_batch_end method pass the <code class="docutils literal notranslate"><span class="pre">logs</span></code> argument into the function. You can access the loss function by using <code class="docutils literal notranslate"><span class="pre">logs['loss']</span></code></em></p>
+<p><em>Hint 6: In order to set the learning rate to a different value, you will have to depend on the keras backend’s <code class="docutils literal notranslate"><span class="pre">.set_value()</span></code> method. This method takes in two arguments: the first is the value that will be set (e.g., the learning rate in the model’s optimizer) and the value that it will be set to (e.g., the learning rate multiplied by the k factor).</em></p>
+<p><em>Hint 7: Unlike in other documentations we’ve seen, <code class="docutils literal notranslate"><span class="pre">backend.get_value()</span></code> and <code class="docutils literal notranslate"><span class="pre">backend.set_value()</span></code> don’t yet have their own page. However, <a class="reference external" href="https://www.tensorflow.org/guide/keras/custom_callback#learning_rate_scheduling">here is the link</a> to an example where both methods are used in a learning rate scheduler.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll start by making it easier to access the keras backend. See hint #1 for</span>
+<span class="c1"># more details</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span>
+
+<span class="c1"># Use the .backend() method to determine what backend we&#39;re running</span>
+<span class="n">___</span><span class="o">.</span><span class="n">___</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remember that you can access the keras.backend using K, which we defined in</span>
+<span class="c1"># the code cell above!</span>
+
+<span class="k">class</span> <span class="nc">_____</span><span class="p">(</span><span class="n">____</span><span class="o">.</span><span class="n">____</span><span class="o">.</span><span class="n">____</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span> <span class="c1">#define the ExponentialLearningRate class</span>
+    <span class="c1"># Start</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">____</span> <span class="o">=</span> <span class="n">____</span> <span class="c1"># set the factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">____</span> <span class="o">=</span> <span class="n">____</span> <span class="c1"># initialize the losses list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">____</span> <span class="o">=</span> <span class="n">____</span> <span class="c1"># initialize the learning rates list</span>
+
+    <span class="k">def</span> <span class="nf">on_batch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">logs</span><span class="p">):</span>
+        <span class="c1"># Add the value of the learning rate to the list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">__</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">))</span>
+
+        <span class="c1"># Add the value of the loss</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">___</span><span class="p">[</span><span class="n">___</span><span class="p">])</span>
+
+        <span class="c1"># Set the value of the</span>
+        <span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">___</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">___</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve defined out callback, we can go ahead and start thinking about our neural network. For consistency’s sake, let’s start by clearing the Keras backend and setting our random state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell</span>
+<span class="n">K</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s make a simple neural network model using Keras. For this, we will rely on a <a class="reference external" href="https://keras.io/guides/sequential_model/"><em>Sequential model</em></a>, since we will want all of the inputs of one layer to be fed into the next layer. We recommend using the architecture described in the diagram below, but feel free to define your own architecture!</p>
+<center><img width=60% src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/ETl6L_3bHENFt6ZDSgaCpIEBkg2cNPDGowc8u5V8Gxe7XQ?download=1'></center></div>
+<div class="section" id="q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">
+<h2><span class="section-number">5.2.8. </span>Q7) Write a sequential Keras model that will predict the digit class.<a class="headerlink" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: You can add the layers in the sequential model when initializing the model. It expects the layers in a list. Alternatively, you can add them one by one using the model’s <code class="docutils literal notranslate"><span class="pre">.add()</span></code> method. <a class="reference external" href="https://keras.io/guides/sequential_model/#creating-a-sequential-model">Check out the documentation here</a>.</em></p>
+<p><em>Hint 2: The input images should be flattened before feeding them into any densely connected layers. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten">Here is the documentation</a> for the flatten layer.</em></p>
+<p><em>Hint 3: You want to use simple, densely connected layers for this exercise. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense">Here is the documentation</a> for the dense layer.</em></p>
+<p><em>Hint 4: Using a dense layer with the number of units set to the number of classes (e.g., the number of different digits in the MNIST dataset: 10) using a softmax activation unit can be interpreted as a probability of the input belonging to a given class. <a class="reference external" href="https://keras.io/api/layers/activations/#softmax-function">Here is the documentation</a> for the softmax activation function in Keras</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create your model! Feel free to use our outline, or make your own from scratch</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">____</span><span class="o">.</span><span class="n">sequential</span><span class="p">([</span>  <span class="c1"># call the keras sequential model class</span>
+                            <span class="n">___</span><span class="p">,</span>  <span class="c1"># 1st Layer</span>
+                            <span class="n">___</span><span class="p">,</span>  <span class="c1"># 2nd Layer</span>
+                            <span class="n">___</span><span class="p">,</span>  <span class="c1"># 3rd Layer</span>
+                            <span class="n">___</span><span class="p">])</span> <span class="c1"># 4th Layer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have a model defined, we need to run its `.compile()’ method, in which we will give the model the following hyper-parameters:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Loss function will be set to sparse categorical cross entropy <br> 2) The optimizer will be set to Stochastic Gradient Descent with a learning rate of 1e-3 <br> 3) The model metrics will include the accuracy score</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">
+<h2><span class="section-number">5.2.9. </span>Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)<a class="headerlink" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/metrics/sparse_categorical_crossentropy">Here is the documentation</a> for the sparse categorical cross entropy loss function in keras. You can simply reference the function using <code class="docutils literal notranslate"><span class="pre">loss='sparse_categorical_crossentropy'</span></code> when compiling.</em></p>
+<p><em>Hint 2: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/SGD">Here is the documentation</a> for the Stochastic Gradient Descent optimizer in keras</em></p>
+<p><em>Hint 3: <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Accuracy">Here is the documentation</a> for the accuracy score implementation in keras. Like with the sparse_categorical_cross_entropy loss, you can reference the accuracy score in the metrics list, e.g. by setting <code class="docutils literal notranslate"><span class="pre">metrics=['accuracy']</span></code> when compiling.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">____</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="p">,</span> <span class="c1"># Set the loss function</span>
+              <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">____</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="p">),</span> <span class="c1"># Set the optimizer and learning rate</span>
+              <span class="n">___</span><span class="o">=</span><span class="p">[</span><span class="n">___</span><span class="p">])</span> <span class="c1"># Set the metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exponential_lr_callback</span> <span class="o">=</span> <span class="n">_____</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="n">____</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s go ahead and train the compiled model for a single epoch.</p>
+</div>
+<div class="section" id="q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">
+<h2><span class="section-number">5.2.10. </span>Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.<a class="headerlink" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: Just like in scikit-learn, the keras model includes a <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method to train the algorithm! <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit">Here is the documentation</a>.</em></p>
+<p><em>Hint 2: After training, you can access the recorded losses and corresponding learning rates using the attributes we defined when we defined the class in Q5!</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">____</span><span class="p">,</span> <span class="c1"># set the training inputs</span>
+                    <span class="n">____</span><span class="p">,</span> <span class="c1"># set the training labels</span>
+                    <span class="n">____</span><span class="o">=</span><span class="n">__</span><span class="p">,</span> <span class="c1"># set the number of epochs</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">____</span><span class="p">,</span> <span class="n">____</span><span class="p">),</span> <span class="c1"># set validation input/labels</span>
+                    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">_____</span><span class="p">])</span> <span class="c1"># Set the callback</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">,</span> <span class="c1"># learning rates</span>
+        <span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">)</span> <span class="c1"># losses</span>
+
+<span class="c1"># Define a tuple with (min_learning_rate, max_learn_rate)</span>
+<span class="n">x_limits</span> <span class="o">=</span> <span class="p">(</span> <span class="nb">min</span><span class="p">(</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># Set the xscale to logarithmic</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="c1"># Draw a horizontal line at the minimum loss value</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">____</span><span class="o">.</span><span class="n">___</span><span class="p">),</span> <span class="c1">#Find the minimum loss value to draw a horizontal line</span>
+          <span class="o">*</span><span class="n">x_limits</span><span class="p">,</span> <span class="c1"># the star unpacks x_limits to the expected num of args</span>
+          <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the limits for drawing the curves</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_limits</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">____</span><span class="p">)</span> <span class="c1"># use the initial loss as the top y boundary</span>
+
+<span class="c1"># Display gridlines to see better</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Learning rate&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you used the architecture we defined above with the learning rate we defined above, you should produce a graph that looks like this:</p>
+<center> <img src='https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EUhU2fuy3K1Nm5iuia8ocF8BB2-jU_pAf6h5TA8MaIqrfw?download=1'> </center>
+<p>In this graph, you can see that the loss reaches a minimum at around 6e-1 and then begins to shoot up violently. Let’s avoid that by using half that value (e.g., 3e-1).</p>
+<p>If you have a different curve, try setting your learning rate to half of the learning rate with the minimum loss! 😃</p>
+<p>Now that we have an idea of what the learning rate should be, let’s go ahead and start from scratch once more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell - let&#39;s go back to a clean slate!</span>
+<span class="n">K</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also want to instantiate the model again - the weights in our current model are quite bad and if we use it as is it won’t be able to learn since the weights are too far away from the solution. There are other ways to do this, but since our model is quite simple it’s worth it to just redefine and recompile it.</p>
+</div>
+<div class="section" id="q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">
+<h2><span class="section-number">5.2.11. </span>Q10) Redefine and re-compile the model with the learning rate you found in Q9.<a class="headerlink" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># redefine the model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">___</span><span class="o">.</span><span class="n">___</span><span class="p">([</span> <span class="c1"># call the sequential model class</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">___</span><span class="p">(),</span> <span class="c1"># flatten the data</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">___</span><span class="p">(),</span> <span class="c1"># densely connected ReLU layer, 300 units</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">___</span><span class="p">(),</span> <span class="c1"># densely connected ReLU layer, 100 units</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">___</span><span class="p">())]</span> <span class="c1"># densely connected Softmax layer, 10 units</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">____</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="p">,</span> <span class="c1"># Set the loss function</span>
+              <span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="o">.</span><span class="n">____</span><span class="o">.</span><span class="n">___</span><span class="p">(</span><span class="n">___</span><span class="o">=</span><span class="n">___</span><span class="p">),</span> <span class="c1"># Set the optimizer and learning rate</span>
+              <span class="n">___</span><span class="o">=</span><span class="p">[</span><span class="n">___</span><span class="p">])</span> <span class="c1"># Set the metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’re now going to set up a saving directory in case you want to try running the model with different learning rates or other hyper-parameters!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Change this number and rerun this cell whenever you want to change runs</span>
+<span class="n">run_index</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">run_logdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">,</span> <span class="s2">&quot;my_mnist_logs&quot;</span><span class="p">,</span> <span class="s2">&quot;run_</span><span class="si">{:03d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">run_index</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">run_logdir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll also set up some additional callbacks.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>An early stopping callback (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping">documentation here</a>). This callback will stop the training if no improvement is found after a <code class="docutils literal notranslate"><span class="pre">patience</span></code> number of epochs. <br> 2) A model checkpoint callback (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint">documentation here</a>). This callback will ensure that only the best version of the model is kept (in case your model’s performance reaches a maximum and then deteriorates after a certain number of epochs) <br> 3) A tensorboard callback (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/TensorBoard">documentation here</a>). This callback will enable using Tensorboard to visualize learning curves, metrics, etc. Handy 🙌!</p></li>
+</ol>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">early_stopping_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">patience</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">checkpoint_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span><span class="s2">&quot;my_mnist_model.h5&quot;</span><span class="p">,</span> <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tensorboard_cb</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">run_logdir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s go ahead and fit the model again!</p>
+</div>
+<div class="section" id="q11-fit-the-updated-model-for-100-epochs">
+<h2><span class="section-number">5.2.12. </span>Q11) Fit the updated model for 100 epochs<a class="headerlink" href="#q11-fit-the-updated-model-for-100-epochs" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">____</span><span class="p">,</span> <span class="c1"># inputs</span>
+                    <span class="n">____</span><span class="p">,</span> <span class="c1"># labels</span>
+                    <span class="n">____</span><span class="o">=</span><span class="n">___</span><span class="p">,</span> <span class="c1">#epochs</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="n">___</span><span class="p">),</span>
+                    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">checkpoint_cb</span><span class="p">,</span> <span class="n">early_stopping_cb</span><span class="p">,</span> <span class="n">tensorboard_cb</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we need to evaluate the performance of our model. Go ahead and try it out on the test set!</p>
+</div>
+<div class="section" id="q12-evaluate-the-model-on-the-test-set">
+<h2><span class="section-number">5.2.13. </span>Q12) Evaluate the model on the test set.<a class="headerlink" href="#q12-evaluate-the-model-on-the-test-set" title="Permalink to this headline">#</a></h2>
+<p><em>Hint 1: Keras models include an <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> method that takes in the test set inputs/labels. <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#evaluate">Here is the documentation</a>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rollback to best model, which was saved by the callback</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;my_mnist_model.h5&quot;</span><span class="p">)</span> <span class="c1"># rollback to best model</span>
+
+<span class="c1"># Evaluate the model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">____</span><span class="p">(</span><span class="n">____</span><span class="p">,</span> <span class="n">____</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can use tensorboard to check out our model’s performance! Note that the tensorboard extension was loaded in the notebook setup cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">tensorboard</span> --logdir=./my_mnist_logs --port=6006
+</pre></div>
+</div>
+</div>
+</div>
+<p>An enthusiastic (albeit somewhat sick 😷) TA noted that during the development of the notebook the accuracy reached on the test dataset was 97.84%. Additionally, the tensorboard curves from the test run is given below:</p>
+<p><img alt="picture" src="https://unils-my.sharepoint.com/:i:/g/personal/tom_beucler_unil_ch/EXPT4jVOfNZJpkSqD4wNktMByxa9LmH-uq0EU6PIaul27Q?download=1" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./DL"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Saranya/W4_ANN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>Introduction to Artificial Neural Networks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="S4_2_Physically_informed_parameterization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5.3. </span>(Exercise) Physically-Informed Climate Modeling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-setup">5.2.1. <strong>Notebook Setup</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-load-the-mnist-dataset-from-keras-divide-it-into-a-training-validation-and-test-dataset">5.2.2. Q1) Load the MNIST dataset from Keras. Divide it into a training, validation, and test dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-print-the-shape-of-the-training-validation-and-test-sets-then-print-the-maximum-and-minimum-input-values">5.2.3. Q2) Print the shape of the training, validation, and test sets. Then, print the maximum and minimum input values.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-normalize-the-input-data-for-the-training-validation-and-testing-sets">5.2.4. Q3) Normalize the input data for the training, validation, and testing sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-to-visualize-a-sample-image-write-a-function-that">5.2.5. Q4) To visualize a sample image, write a function that:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-grab-a-4x8-sample-of-digits-from-each-dataset-and-print-out-the-image-and-labels">5.2.6. Q5) Grab a 4x8 sample of digits from each dataset and print out the image and labels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-set-up-an-exponential-learning-rate-callback-that-after-each-batch-logs-the-value-of-the-loss-function-and-learning-rate-and-then-multiplies-the-learning-rate-by-a-factor-of-k">5.2.7. Q6) Set up an <em>Exponential_Learning_Rate</em> callback that, after each batch, logs the value of the loss function and learning rate, and then multiplies the learning rate by a factor of <span class="math notranslate nohighlight">\(k\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-write-a-sequential-keras-model-that-will-predict-the-digit-class">5.2.8. Q7) Write a sequential Keras model that will predict the digit class.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q8-compile-the-model-with-the-given-hyperparameters-i-e-loss-function-optimizer-and-metrics-and-instantiate-the-callback-we-defined-previously-using-a-k-factor-of-1-005-i-e-a-0-5-increase-in-learning-rate-per-batch">5.2.9. Q8) Compile the model with the given hyperparameters (i.e., loss function, optimizer, and metrics) and instantiate the callback we defined previously using a <span class="math notranslate nohighlight">\(k\)</span> factor of 1.005 (i.e., a 0.5% increase in learning rate per batch)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-fit-the-model-for-a-single-epoch-using-the-exponential-learning-rate-callback-we-defined-in-the-previous-code-cell-then-plot-the-loss-vs-learning-rate">5.2.10. Q9) Fit the model for a single epoch, using the exponential learning rate callback we defined in the previous code cell. Then, plot the Loss vs Learning rate.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-redefine-and-re-compile-the-model-with-the-learning-rate-you-found-in-q9">5.2.11. Q10) Redefine and re-compile the model with the learning rate you found in Q9.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-fit-the-updated-model-for-100-epochs">5.2.12. Q11) Fit the updated model for 100 epochs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#q12-evaluate-the-model-on-the-test-set">5.2.13. Q12) Evaluate the model on the test set.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
