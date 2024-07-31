@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.1. Explainable AI (XAI) &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Frederick/S8_XAIsummary';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="Chapter8_Ex1.html" />
+    <link rel="prev" title="8. Explainable Artifical Intelligence (XAI):" href="../DL/W8_XAI.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Milton/00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FFrederick/S8_XAIsummary.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Frederick/S8_XAIsummary.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Explainable AI (XAI)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">8.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">8.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">8.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">8.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">8.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Frederick/S8_XAIsummary.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="explainable-ai-xai">
+<h1><span class="section-number">8.1. </span>Explainable AI (XAI)<a class="headerlink" href="#explainable-ai-xai" title="Permalink to this headline">#</a></h1>
+<div class="section" id="learning-objectives">
+<h2><span class="section-number">8.1.1. </span>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p>Understand the importance of XAI</p></li>
+<li><p>Distinguish local from global explanation methods</p></li>
+<li><p>Distinguish model-agnostic from model-specific methods</p></li>
+<li><p>Know how to implement permutation feature importance and partial dependence plots</p></li>
+<li><p>Apprehend explanation methods for neural networks.</p></li>
+</ol>
+<p>This chapter concerns the steps we can take to make ML model more interpretable or explainable, and introduce some tools we can use to extract physical understanding from data.</p>
+<p>Broadly speaking, a ML model that is interpretable means that human decision makers understand the cause of a decision and can anticipate the model’s predictions. The simplest interpretable model is a simple multiple linear regression (MLR) model.</p>
+</div>
+<div class="section" id="when-do-we-need-ml-models-to-be-explainable">
+<h2><span class="section-number">8.1.2. </span>1. <strong>When do we need ML models to be explainable?</strong><a class="headerlink" href="#when-do-we-need-ml-models-to-be-explainable" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><blockquote>
+<div><p>‘Interpretability is the degree to which a human can understand the cause of a decision’ (Miller, 2017)</p>
+</div></blockquote>
+</div></blockquote>
+<p>The first question we need to ask ourselves is “do we really need a model to the interpretable?” This question stems from the <strong>trade-offs</strong> between predictive accuracy and model interpretability. A MLR model is often less accurate than complex neural networks for complex problems. Neural networks are too complex to be directly interpretable, however.</p>
+<blockquote>
+<div><p>There is a trade-off between the interpretability of a model and its predictive skill. This trade-off can be visualized with an transparency-accuracy plot (Figure 3 in Wang and Lin 2021)</p>
+</div></blockquote>
+<p><img alt="Pareto_interpretable.jpg" src="../_images/Pareto_interpretable.jpg" /></p>
+<p>As shown in the above figure, choosing the <em>optimal</em> model depends largely on how transparent you want your model to be (desired transparency), and how large a drop in model skills are you comfortable with (tolerance accuracy loss).</p>
+<p><strong>Critical decision-making</strong>: The first scenario you would want a model to be interpretable is in the context of high-stakes cases. Medical settings can be one situation where the extra transparency in your models would be very helpful. Can you think of one example where this transparency is not needed?</p>
+<p><strong>Human Understanding</strong>: The basic role of a science pratitioner is to discover new knowledge from observations. By analyzing how machine learning models make predictions, we may get some new understanding on, e.g., what differentiates premium wines to cheap ones? It is also possible to use tools to leverage interpretability to extract knowledge embedded in machine learning models (<strong>Extract Additional Insights</strong>)</p>
+<p><strong>Increase trust:</strong> AI/ML techniques are relatively new to a lot of different fields, such as weather forecasting. If we can explain how the ML models work in simple terms, forecasters may trust the AL predictions more.</p>
+<p><strong>Debugging ML models:</strong> It is difficult to explain how a black box model makes its predictions. This can be problematic because the model may be learning the wrong things while having a good skill score. A good example often mentioned in the literature is image classification, where classification models label the images correctly only because of a common watermark.</p>
+<p>Here are the possible benefits of using inherently interpretable ML model rather than black box models for your research task [Figure taken from Figure 4 in Du et al. (2019)]</p>
+<p><img alt="interpretable_progress.jpg" src="../_images/interpretable_progress.jpg" /></p>
+<p>If you are not using an intrinsically intepretable model, the normal workflow of explaining a ML model would be to train the model first, and use ad-hoc methods to explain the trained model.</p>
+</div>
+<div class="section" id="distinguishing-local-vs-global-explanation-methods">
+<h2><span class="section-number">8.1.3. </span>2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong><a class="headerlink" href="#distinguishing-local-vs-global-explanation-methods" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Local Explanations:</strong></p>
+<ul>
+<li><p>Focus on explaining individual predictions or instances.</p></li>
+<li><p>Better accuracy for specific predictions but might not represent the overall model behavior.</p></li>
+<li><p>Examples: Counterfactual explanations, instance-based methods.</p></li>
+</ul>
+</li>
+<li><p><strong>Global Explanations:</strong></p>
+<ul>
+<li><p>Aimed at understanding the overall model behavior.</p></li>
+<li><p>Highlights feature importance and interactions across the entire dataset.</p></li>
+<li><p>Examples: Feature importance rankings, aggregated insights.</p></li>
+</ul>
+</li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scope of Intepretability</p></th>
+<th class="text-center head"><p>Discussion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Algorithm Transparency</p></td>
+<td class="text-center"><p>Understanding the algorithm and how it works</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global, Holistic Model interpretability</p></td>
+<td class="text-center"><p>Understanding on a general level how the model works</p></td>
+</tr>
+<tr class="row-even"><td><p>Global Model Interpretability</p></td>
+<td class="text-center"><p>Understanding parts of the model and how it affects the results</p></td>
+</tr>
+<tr class="row-odd"><td><p>Local Interpretability</p></td>
+<td class="text-center"><p>Understanding and explaining the output from the input variables and how it behaved to reach that point</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="model-agnostic-vs-model-specific-methods">
+<h2><span class="section-number">8.1.4. </span>3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong><a class="headerlink" href="#model-agnostic-vs-model-specific-methods" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Model-Agnostic Methods:</strong></p>
+<ul>
+<li><p>Applicable to various machine learning models.</p></li>
+<li><p>Post hoc techniques that analyze models after training.</p></li>
+<li><p>Examples: Permutation feature importance, SHAP (SHapley Additive exPlanations).</p></li>
+</ul>
+</li>
+<li><p><strong>Model-Specific Methods:</strong></p>
+<ul>
+<li><p>Tailored to particular model architectures or types.</p></li>
+<li><p>Interpretation based on specific model internals or structures.</p></li>
+<li><p>Examples: Interpreting weights in linear models, decision tree visualization.</p></li>
+</ul>
+</li>
+</ul>
+<p>These AI explanation methods can be evaluated with the following criteria:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Criteria</p></th>
+<th class="text-center head"><p>Discussion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Expressive power</p></td>
+<td class="text-center"><p>The structure/language that the explanation method can give</p></td>
+</tr>
+<tr class="row-odd"><td><p>Translucency</p></td>
+<td class="text-center"><p>How much it requires to look into the machine learning model</p></td>
+</tr>
+<tr class="row-even"><td><p>Algorithmic Complexity</p></td>
+<td class="text-center"><p>Computational complexity of the method</p></td>
+</tr>
+<tr class="row-odd"><td><p>Portability</p></td>
+<td class="text-center"><p>How many machine learning models the method can be used for</p></td>
+</tr>
+</tbody>
+</table>
+<p>Properties of the explanations themselves: accurate, consistent, faithful, stable, understandable, confidence, degree of representation, and importance of features, and how outliers or “novel” instances are evaluated.</p>
+</div>
+<div class="section" id="implementing-permutation-feature-importance-and-partial-dependence-plots">
+<h2><span class="section-number">8.1.5. </span>4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong><a class="headerlink" href="#implementing-permutation-feature-importance-and-partial-dependence-plots" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Partial Dependence Plots:</strong></p>
+<ul>
+<li><p>Visualizing the marginal effect of a feature on the predicted outcome.</p></li>
+<li><p>To create these plots, we would first decide an input feature that we are interested in.</p></li>
+<li><p>Summarizes the model predictions for different parts of the distribution of the interested input feature.</p></li>
+<li><p>Put the statistical summary of predictions for different input feature values to a plot.</p></li>
+<li><p>Illustrates how changes in a feature impact model predictions.</p></li>
+<li><p>It is useful for regression tasks and classification tasks where the ML model outputs probabilities.</p></li>
+<li><p>Useful for understanding complex feature interactions.</p></li>
+</ul>
+</li>
+<li><p><strong>PDP-based Feature Importance:</strong></p>
+<ul>
+<li><p>The flatter a PDP is, the lesser the feature is important as opposed to having a PDP which varies a lot.</p></li>
+<li><p>Possible to combine the information in a PDP plot into a single numerical value.</p></li>
+<li><p>The numerical value shows how each PDP curve deviates from the average curve for all features.</p></li>
+<li><p>One disadvantage is that PDP-based feature importance ignores feature interactions. Only features that are directly impactful are important in this analysis.</p></li>
+<li><p>Gives only the main effect of the feature and ignores possible feature interactions. Moreover, PDP is only defined by the unique feature value.</p></li>
+</ul>
+</li>
+<li><p><strong>Advantages of PDPs:</strong></p>
+<ul>
+<li><p>Intuitive</p></li>
+<li><p>Clear interpretation</p></li>
+<li><p>A causal interpretation</p></li>
+</ul>
+</li>
+<li><p><strong>Disadvantages of PDPs:</strong></p>
+<ul>
+<li><p>Assumption of Independence</p></li>
+<li><p>Correlated feature complicates the interpretation</p></li>
+<li><p>Only shows 2D plots (many figures for a model with a lot of input features)</p></li>
+<li><p>As PDP illustrates the average marginal effect, it is possible that the heterogeneous effects might stay hidden. To know these effects, the individual conditional expectation curves can be plotted instead of aggregated line.</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p>Here is an example of using PDPs to understand how a machine learning model predicting the water level at a reservoir works [Figure 3 in Obringer and Nateghi (2018)]</p>
+</div></blockquote>
+<p><img alt="streamflow_pdp1.jpg" src="../_images/streamflow_pdp1.jpg" /></p>
+<ul class="simple">
+<li><p><strong>Permutation Feature Importance:</strong></p>
+<ul>
+<li><p>Shuffling feature values to evaluate their impact on model performance.</p></li>
+<li><p>Identifying influential features by measuring performance degradation.</p></li>
+<li><p>Practical application in assessing feature relevance.</p></li>
+<li><p>Makes more sense to use the test data to calculate the importance, because a feature that is important in an overfitting model can just be unhelpful noise.</p></li>
+</ul>
+</li>
+<li><p><strong>Advantages of Permutation Feature Importances:</strong></p>
+<ul>
+<li><p>Compressed, global insight into how the model works</p></li>
+<li><p>Clear interpretation</p></li>
+<li><p>Accounts for all possible interactions between features</p></li>
+<li><p>There are explanation methods that requires you to remove features and retrain models. This method does not require you to do that.</p></li>
+</ul>
+</li>
+<li><p><strong>Disadvantages of Permutation Feature Importances:</strong></p>
+<ul>
+<li><p>Linked to the error of the model. Sometimes how predictions change with feature (linear vs. nonlinear) is what we want.</p></li>
+<li><p>Does not work when you do not have labels (true outcomes).</p></li>
+<li><p>Based on random shuffling. Results can be unstable.</p></li>
+<li><p>Importance values can be misleading when there are multicollinearity (features correlate with one another).</p></li>
+</ul>
+</li>
+<li><p><strong>Alternatives:</strong></p>
+<ul>
+<li><p>PIMP algorithm to produce p-values for the importance</p></li>
+<li><p>Variance-based measures such as Sobol’s indices, functional ANOVA</p></li>
+<li><p>SHAP importance</p></li>
+<li><p>Model-specific methods such as Gini importance for random forests or standardised regression coefficients for regression models</p></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<div><p><strong>Tying Permutation Feature Importances to Model Optimization:</strong> Permutation feature importances can be a useful tool to reduce the complexity of your model if your model has a clear overfitting problem. By setting a cutoff threshold on the feature importance to filter out unimportant input features, we can get a model that probably generalizes better to unseen data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>In the following proposed data-driven data to predict diabetes, Nirmalraj et al. (2023) applies a feature filtering mechanism based on global explanation methods to improve the data-driven model.</p>
+</div></blockquote>
+<p><img alt="Permutation_diabetes.jpg" src="../_images/Permutation_diabetes.jpg" /></p>
+</div>
+<div class="section" id="explanation-methods-for-neural-networks">
+<h2><span class="section-number">8.1.6. </span>5. <strong>Explanation Methods for Neural Networks:</strong><a class="headerlink" href="#explanation-methods-for-neural-networks" title="Permalink to this headline">#</a></h2>
+<p>For Neural Networks, it is still useful to use model-agnostic methods discussed earlier, it may be even more useful to use interpretation methods designed specifically for NNs.</p>
+<p>Compared to model-agnostic methods, these methods are useful because:</p>
+<ul class="simple">
+<li><p>These methods uncover learned featres and concepts in the hidden layers</p></li>
+<li><p>Most model-agnostic methods are originally designed for tabular data</p></li>
+<li><p>Can be more efficient</p></li>
+</ul>
+<p>The simplest explanation method for neural networks is <strong>Vanilla Gradient (Saliency Maps)</strong>.</p>
+<ul class="simple">
+<li><p>Gradient between machine learning predictions (class score of interest in the case of classification) with respect to the input pixels.</p></li>
+<li><p>A plot that summarizes the relevance of each pixel in an image to the machine learning model prediction.</p></li>
+</ul>
+<p>For example, in the case of image classification, pixel attribution methods will highlight and identify the most relevant pixels used by the NN from the input image to arrive at their output. These can help understand how the NN model works. It is a specialised feature attribution method for images.</p>
+<p><strong>Environmental Sciences Application:</strong>
+Saliency maps can be very useful for environmental sciences tasks. Here we show an application of this technique to weather tasks.</p>
+<blockquote>
+<div><p>Molina et al. (2021) trained a neural network to classify severe thunderstorms from non-severe ones. Saliency maps are used to understand how variables distribute for correctly-classified samples and samples where models are making mistakes.</p>
+</div></blockquote>
+<p><img alt="saliency_map_atmsci.jpg" src="../_images/saliency_map_atmsci.jpg" /></p>
+<p>Other methods include:</p>
+<ul class="simple">
+<li><p><strong>DeconvNet:</strong></p>
+<ul>
+<li><p>Reverse a neural network (from prediction to inputs)</p></li>
+</ul>
+</li>
+<li><p><strong>Grad-CAM:</strong></p>
+<ul>
+<li><p>Backpropagates the gradient to the last convolutional layer.</p></li>
+<li><p>It finds smooth representations of abstract features learned by the CNN model.</p></li>
+<li><p>This method gives us <em>heat maps</em></p></li>
+</ul>
+</li>
+<li><p><strong>Guided Grad-CAM</strong></p></li>
+<li><p><strong>SmoothGrad:</strong></p>
+<ul>
+<li><p>Add noise and averaging over the artifically noisy gradient.</p></li>
+<li><p>This method gives smoother explanations than other gradient-based methods (e.g., Vanilla Gradient)</p></li>
+</ul>
+</li>
+</ul>
+<p>These are <strong>pixle attribution methods</strong> that assigns relevance / importance to every points in the image.</p>
+<p>Disadvantages of using these methods:</p>
+<ul class="simple">
+<li><p><strong>No ground truth:</strong></p>
+<ul>
+<li><p>Different attribution methods often gives very different, even contradictory results.</p></li>
+<li><p>Since these explanations are not directly observed, it is difficult to say which method gives the most trustworthy explanation.</p></li>
+</ul>
+</li>
+<li><p><strong>Fragile to noise:</strong></p>
+<ul>
+<li><p>Adding adversarial perturbations to an image can lead to very different explanations.</p></li>
+</ul>
+</li>
+</ul>
+<p>Reference:</p>
+<p>(1) Wang, T., &amp; Lin, Q. (2021). Hybrid predictive models: When an interpretable model collaborates with a black-box model. The Journal of Machine Learning Research, 22(1), 6085-6122.</p>
+<p>(2) Du, M., Liu, N., &amp; Hu, X. (2019). Techniques for interpretable machine learning. Communications of the ACM, 63(1), 68-77.</p>
+<p>(3) Obringer, R., &amp; Nateghi, R. (2018). Predicting urban reservoir levels using statistical learning techniques. Scientific reports, 8(1), 5164.</p>
+<p>(4) Nirmalraj, S., Antony, A. S. M., Srideviponmalar, P., Oliver, A. S., Velmurugan, K. J., Elanangai, V., &amp; Nagarajan, G. (2023). Permutation feature importance-based fusion techniques for diabetes prediction. Soft Computing, 1-12.</p>
+<p>(5) Molina, M. J., Gagne, D. J., &amp; Prein, A. F. (2021). A benchmark to test generalization capabilities of deep learning methods to classify severe convective storms in a changing climate. Earth and Space Science, 8(9), e2020EA001490.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># - **Layer-wise Relevance Propagation (LRP):**</span>
+<span class="c1">#  - Assigning relevance scores to individual neurons or layers.</span>
+<span class="c1">#  - Tracing contributions of input features to model predictions.</span>
+<span class="c1">#  - Enhancing interpretability in neural network decision-making.</span>
+
+<span class="c1">#- **Activation Maximization:**</span>
+<span class="c1">#  - Generating inputs that maximally activate specific neurons.</span>
+<span class="c1">#  - Understanding what patterns or features trigger certain neural responses.</span>
+<span class="c1">#  - Useful for visualizing what the model &quot;looks for&quot; in data.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Frederick"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../DL/W8_XAI.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Explainable Artifical Intelligence (XAI):</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter8_Ex1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">8.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">8.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">8.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">8.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">8.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+Traceback (most recent call last):
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\tbeucler\.conda\envs\JB\lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#@title Run this cell to get the python environment set up!
+# Python ≥3.5 is required
+import sys
+assert sys.version_info >= (3, 5)
+
+# Is this notebook running on Colab or Kaggle?
+IS_COLAB = "google.colab" in sys.modules
+
+# Scikit-Learn ≥0.20 is required
+import sklearn
+assert sklearn.__version__ >= "0.20"
+
+# Common imports
+import numpy as np
+import os
+import pandas as pd
+import pooch
+
+#Data Visalization Import
+from google.colab import data_table
+
+
+# to make this notebook's output stable across runs
+rnd_seed = 42
+rnd_gen = np.random.default_rng(rnd_seed)
+
+# To plot pretty figures
+%matplotlib inline
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+mpl.rc('axes', labelsize=14)
+mpl.rc('xtick', labelsize=12)
+mpl.rc('ytick', labelsize=12)
+
+# Where to save the figures
+PROJECT_ROOT_DIR = "."
+CHAPTER_ID = "classification"
+IMAGES_PATH = os.path.join(PROJECT_ROOT_DIR, "images", CHAPTER_ID)
+os.makedirs(IMAGES_PATH, exist_ok=True)
+
+def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
+    path = os.path.join(IMAGES_PATH, fig_id + "." + fig_extension)
+    print("Saving figure", fig_id)
+    if tight_layout:
+        plt.tight_layout()
+    plt.savefig(path, format=fig_extension, dpi=resolution)
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [1;32mIn[1], line 10[0m
+[0;32m      7[0m IS_COLAB [38;5;241m=[39m [38;5;124m"[39m[38;5;124mgoogle.colab[39m[38;5;124m"[39m [38;5;129;01min[39;00m sys[38;5;241m.[39mmodules
+[0;32m      9[0m [38;5;66;03m# Scikit-Learn ≥0.20 is required[39;00m
+[1;32m---> 10[0m [38;5;28;01mimport[39;00m [38;5;21;01msklearn[39;00m
+[0;32m     11[0m [38;5;28;01massert[39;00m sklearn[38;5;241m.[39m__version__ [38;5;241m>[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124m0.20[39m[38;5;124m"[39m
+[0;32m     13[0m [38;5;66;03m# Common imports[39;00m
+
+[1;31mModuleNotFoundError[0m: No module named 'sklearn'
+
