@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9. Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>10. Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -62,7 +62,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Jingyan/ch9generative_uncertainty';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="8.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="../Frederick/Chapter8_Ex1.html" />
+    <link rel="next" title="11. Hybrid Modeling and Knowledge-Guided Learning" href="../TrustworthyAI/HybridModeling_summary.html" />
+    <link rel="prev" title="9.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="../Frederick/Chapter8_Ex1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -226,15 +227,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Generative Modeling and Uncertainty Quantification</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Generative Modeling and Uncertainty Quantification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
 </ul>
 
     </div>
@@ -428,12 +431,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1. Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-modeling">9.2. Generative Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-uncertainty-to-machine-learning-models">9.3. Add Uncertainty to Machine Learning Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-uncertainty">9.4. Evaluate Uncertainty</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notable-genetative-models">9.5. Notable Genetative Models:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-data-representations">9.6. Latent data representations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">10.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-modeling">10.2. Generative Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-uncertainty-to-machine-learning-models">10.3. Add Uncertainty to Machine Learning Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-uncertainty">10.4. Evaluate Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notable-genetative-models">10.5. Notable Genetative Models:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-data-representations">10.6. Latent data representations</a></li>
 </ul>
             </nav>
         </div>
@@ -447,9 +450,9 @@ document.write(`
                   
   <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Jingyan/ch9generative_uncertainty.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling">
-<h1><span class="section-number">9. </span>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling<a class="headerlink" href="#generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">10. </span>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling<a class="headerlink" href="#generative-modeling-from-uncertainty-quantification-to-stochastic-downscaling" title="Permalink to this headline">#</a></h1>
 <div class="section" id="learning-objectives">
-<h2><span class="section-number">9.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Define generative modeling</p></li>
 <li><p>Know different ways of adding uncertainty to ML models</p></li>
@@ -459,7 +462,7 @@ document.write(`
 </ol>
 </div>
 <div class="section" id="generative-modeling">
-<h2><span class="section-number">9.2. </span>Generative Modeling<a class="headerlink" href="#generative-modeling" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.2. </span>Generative Modeling<a class="headerlink" href="#generative-modeling" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p>Generative modeling refers to a class of models within artificial intelligence that focuses on the creation of new data samples that resemble a given dataset. Instead of predictive tasks, like classification or regression, generative models aim to understand and mimic the underlying structure of the data to generate entirely new samples.</p>
 </div></blockquote>
@@ -470,7 +473,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <div class="section" id="add-uncertainty-to-machine-learning-models">
-<h2><span class="section-number">9.3. </span>Add Uncertainty to Machine Learning Models<a class="headerlink" href="#add-uncertainty-to-machine-learning-models" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.3. </span>Add Uncertainty to Machine Learning Models<a class="headerlink" href="#add-uncertainty-to-machine-learning-models" title="Permalink to this headline">#</a></h2>
 <p>Incorporating uncertainty into machine learning models is pivotal, especially in scenarios where decisions rely on understanding the confidence or reliability of predictions. Several methods exist to inject uncertainty into models:</p>
 <ol class="arabic simple">
 <li><p><strong>Ensemble Prediction</strong>: Ensemble methods, like bagging or boosting, involve training multiple models on different subsets of data or using diverse algorithms. The variance among predictions across these models reflects uncertainty. Aggregating these predictions, such as through averaging or weighted averaging, provides more robust estimates.</p></li>
@@ -486,7 +489,7 @@ document.write(`
 <p>Fig 2. Information flow for an machine learning model with uncertainty quantification (Haynes et al. 2023)</p>
 </div>
 <div class="section" id="evaluate-uncertainty">
-<h2><span class="section-number">9.4. </span>Evaluate Uncertainty<a class="headerlink" href="#evaluate-uncertainty" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.4. </span>Evaluate Uncertainty<a class="headerlink" href="#evaluate-uncertainty" title="Permalink to this headline">#</a></h2>
 <p>Evaluating uncertainty estimates in machine learning models involves various methods and metrics, such as:</p>
 <ol class="arabic simple">
 <li><p><strong>Spread-Skill Plot</strong>: This metric assesses the relationship between uncertainty and model performance. It plots the spread of predicted uncertainties against the model’s accuracy. A good model demonstrates higher uncertainty for incorrectly predicted instances.</p></li>
@@ -495,7 +498,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <div class="section" id="notable-genetative-models">
-<h2><span class="section-number">9.5. </span>Notable Genetative Models:<a class="headerlink" href="#notable-genetative-models" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.5. </span>Notable Genetative Models:<a class="headerlink" href="#notable-genetative-models" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>Autoencoders</strong>: Neural networks designed to learn a compressed representation of the input data, which can then be used to generate similar data.</p></li>
 <li><p><strong>Generative Adversarial Networks (GANs)</strong>: Comprising two networks—a generator and a discriminator—that compete against each other. The generator creates synthetic samples, and the discriminator tries to distinguish between real and generated data. Through adversarial training, the generator improves its ability to produce more realistic samples.</p></li>
@@ -505,7 +508,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <div class="section" id="latent-data-representations">
-<h2><span class="section-number">9.6. </span>Latent data representations<a class="headerlink" href="#latent-data-representations" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.6. </span>Latent data representations<a class="headerlink" href="#latent-data-representations" title="Permalink to this headline">#</a></h2>
 <p>Latent data representations, existing on a latent manifold, are condensed, abstract encodings extracted from raw data through methods like autoencoders, VAEs, or GANs. These representations capture essential features while reducing dimensionality, residing within a structured latent space.</p>
 <p>In semi-supervised learning, latent manifolds within latent data representations may capture the underlying structure or the distribution of the data, to improve the model’s performance when only a limited portion of the data is labeled. For example, models may use unlabeled data that lie close to the clusters or structures within the latent manifold to generalize better, thus learning from both labeled and unlabeled data points. The structure of the latent manifold helps in defining decision boundaries, assigning labels to unlabeled data points. The smoothness and continuity of the latent space assist in guiding the model’s predictions, allowing for more accurate classifications even with limited labeled data.</p>
 </div>
@@ -548,8 +551,17 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
+        <p class="prev-next-title"><span class="section-number">9.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../TrustworthyAI/HybridModeling_summary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Hybrid Modeling and Knowledge-Guided Learning</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -569,12 +581,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1. Learning Objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-modeling">9.2. Generative Modeling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-uncertainty-to-machine-learning-models">9.3. Add Uncertainty to Machine Learning Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-uncertainty">9.4. Evaluate Uncertainty</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notable-genetative-models">9.5. Notable Genetative Models:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-data-representations">9.6. Latent data representations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">10.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-modeling">10.2. Generative Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-uncertainty-to-machine-learning-models">10.3. Add Uncertainty to Machine Learning Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-uncertainty">10.4. Evaluate Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notable-genetative-models">10.5. Notable Genetative Models:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#latent-data-representations">10.6. Latent data representations</a></li>
 </ul>
   </nav></div>
 
@@ -589,7 +601,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi, Ayoub Fatihi
 </p>
 
   </div>

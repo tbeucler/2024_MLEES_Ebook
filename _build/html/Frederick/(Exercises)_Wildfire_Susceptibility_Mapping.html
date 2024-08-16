@@ -479,25 +479,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (0.14.1)
-Requirement already satisfied: fiona&gt;=1.8.21 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (1.9.4.post1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (1.0.1)
+Requirement already satisfied: numpy&gt;=1.22 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (1.25.1)
+Requirement already satisfied: pyogrio&gt;=0.7.2 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (0.9.0)
 Requirement already satisfied: packaging in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (23.1)
 Requirement already satisfied: pandas&gt;=1.4.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.3)
 Requirement already satisfied: pyproj&gt;=3.3.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (3.6.0)
-Requirement already satisfied: shapely&gt;=1.8.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.2)
-Requirement already satisfied: attrs&gt;=19.2.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (21.4.0)
-Requirement already satisfied: certifi in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (2023.5.7)
-Requirement already satisfied: click~=8.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (8.1.4)
-Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (1.1.1)
-Requirement already satisfied: cligj&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (0.7.2)
-Requirement already satisfied: six in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (1.16.0)
-Requirement already satisfied: importlib-metadata in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from fiona&gt;=1.8.21-&gt;geopandas) (6.8.0)
+Requirement already satisfied: shapely&gt;=2.0.0 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from geopandas) (2.0.5)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (2.8.2)
 Requirement already satisfied: pytz&gt;=2020.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (2023.3)
 Requirement already satisfied: tzdata&gt;=2022.1 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (2023.3)
-Requirement already satisfied: numpy&gt;=1.20.3 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pandas&gt;=1.4.0-&gt;geopandas) (1.25.1)
-Requirement already satisfied: colorama in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from click~=8.0-&gt;fiona&gt;=1.8.21-&gt;geopandas) (0.4.6)
-Requirement already satisfied: zipp&gt;=0.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from importlib-metadata-&gt;fiona&gt;=1.8.21-&gt;geopandas) (3.16.0)
+Requirement already satisfied: certifi in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from pyogrio&gt;=0.7.2-&gt;geopandas) (2023.5.7)
+Requirement already satisfied: six&gt;=1.5 in c:\users\tbeucler\.conda\envs\jb\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.4.0-&gt;geopandas) (1.16.0)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
@@ -1602,7 +1595,7 @@ Your TA actually experimented training a RandomForest model with 10 variables an
   <div class="footer-item">
     
 <p class="component-author">
-By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi, Ayoub Fatihi
 </p>
 
   </div>
