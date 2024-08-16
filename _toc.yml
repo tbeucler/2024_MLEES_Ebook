@@ -119,6 +119,8 @@ parts:
           title: (Exercise) Composing Music
         - file: DL/S6_2_LSTM.ipynb
           title: (Exercise) Hydrological Modeling
+    - file: DL/GNN.ipynb
+      title: Graph Neural Networks and Interconnected Systems
 - caption: (Part IV) Towards Trustworthy AI
   numbered: True
   chapters:
@@ -131,3 +133,5 @@ parts:
           title: (Exercise) XAI on Simple Datasets
     - file: Jingyan/ch9generative_uncertainty.ipynb
       title: Generative Modeling and Uncertainty Quantification
+    - file: TrustworthyAI/HybridModeling_summary.ipynb
+      title: Hybrid Modeling and Knowledge-Guided Learning
