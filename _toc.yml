@@ -133,5 +133,10 @@ parts:
           title: (Exercise) XAI on Simple Datasets
     - file: Jingyan/ch9generative_uncertainty.ipynb
       title: Generative Modeling and Uncertainty Quantification
+      sections:
+        - file: Milton/09_GenerativeAI.ipynb
+          title: (Exercise) Introduction to Uncertainty Quantification and Generative Modeling
+        - file: Ayoub/Week_9_Generative_modeling.ipynb
+          title: (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models
     - file: TrustworthyAI/HybridModeling_summary.ipynb
       title: Hybrid Modeling and Knowledge-Guided Learning

@@ -1,0 +1,1829 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling &#8212; Machine Learning for Earth and Environmental Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Milton/09_GenerativeAI';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.5. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models" href="../Ayoub/Week_9_Generative_modeling.html" />
+    <link rel="prev" title="10. Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling" href="../Jingyan/ch9generative_uncertainty.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Hands-on Machine Learning for Earth and Environmental Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_Running_Python_Scripts.html">Running Python scripts</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part I) Basics of Scientific Programming for Applied Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../IP/intro_python.html">1. Introduction to Python for Earth and Environmental Sciences</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1_Tutorial.html">1.1. Variables, Control Flow, and File I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S1.html">1.2. (Exercises) Text and Tabular Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2_Tutorial.html">1.3. Data Structure, Functions, and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W1_S2.html">1.4. (Exercises) Simple Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1_Tutorial.html">1.5. Scientific Computing with Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S1.html">1.6. (Exercise) Ocean Floats Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2_Tutorial.html">1.7. Visualization with Matplotlib and Cartopy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W2_S2.html">1.8. (Exercises) Replicating plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1_Tutorial.html">1.9. Tabular Data with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S1.html">1.10. (Exercise) Earthquake Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2_Tutorial.html">1.11. Geospatial Data with Geopandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W3_S2.html">1.12. (Exercise) Hurricane Track Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1_Tutorial.html">1.13. Regression, Classification, and Clustering with Scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S1.html">1.14. (Exercises) Multivariate linear regression and clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2_Tutorial.html">1.15. Statistical Graphics with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../IP/W4_S2.html">1.16. (Exercise) Marathon Data Analysis</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part II) Basics of Machine Learning for Earth and Environmental Sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_1_Linear%26Logistic_Regression.html">2. Linear Regression for Regression, Logistic Regression for Classification and Statistical Forecasting</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2.html">2.1. Classification and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_1_Classification.html">2.2. (Exercises) Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_2_Training_Models.html">2.3. (Exercises) Training Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W1_2_Stat.html">2.4. Statistical Forecasting in Environmental Sciences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Ensemble_Modeling_and_Stacking.html">3.4. (Exercises) Ensemble Modeling and Stacking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ML/S3_3_THOR.html">4.4. (Exercise) Ocean Regimes Identification</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part III) Deep Learning for the Geosciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_4_Artificial_Neural_Networks.html">5. Artificial Neural Networks and Surrogate Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W4_ANN.html">5.1. Introduction to Artificial Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_1_NNs_with_Keras.html">5.2. (Exercise) Artificial Neural Networks with Keras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S4_2_Physically_informed_parameterization.html">5.3. (Exercise) Physically-Informed Climate Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_5_Convolutional_NN.html">6. Convolutional Neural Networks and Remote Sensing</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Jingyan/Ch5%20Convolutional%20Neural%20Networks%20%26%20Remote%20Sensing.html">6.1. Convolutional Neural Networks and Remote Sensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_1_CNNs.html">6.2. (Exercise) Deep Computer Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S5_2_CNN_and_EuroSAT.html">6.3. (Exercise) Land Cover Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/Week_6_Recurrent_NN.html">7. Recurrent Neural Networks and Hydrological Modeling</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Saranya/W6_RNN_Summary.html">7.1. Introduction to Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Neural_Networks_for_Time_Series_Predictions.html">7.2. Neural Networks for Time Series Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_1_Composing_Music_With_RNNs_CNNs.html">7.3. (Exercise) Composing Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.5. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FMilton/09_GenerativeAI.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Milton/09_GenerativeAI.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>(Exercise) Introduction to Uncertainty Quantification and Generative Modeling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.2. Data Preparation and Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">10.2.1. Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">10.2.2. Question 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.3. Distributional Regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.3.1. Explaining CRPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.3.2. Setting up the Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.3.3. Model Performance Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.3.4. Model Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.3.4.1. Spread Skill Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.3.4.2. Probability Integral Transform (PIT) Histogram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.4. Bonus Challenge</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p><a href="https://colab.research.google.com/github/tbeucler/2024_MLEES_Ebook/blob/main/Milton/09_GenerativeAI.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="exercise-introduction-to-uncertainty-quantification-and-generative-modeling">
+<h1><span class="section-number">10.1. </span>(Exercise) Introduction to Uncertainty Quantification and Generative Modeling<a class="headerlink" href="#exercise-introduction-to-uncertainty-quantification-and-generative-modeling" title="Permalink to this headline">#</a></h1>
+<center>
+<img src="https://github.com/msgomez06/ML_pedagogical_materials/blob/main/images/09.01-missing.png?raw=True" width=90%></img>
+<p>We’re often tasked with filling voids and to express how sure we are of our answer.
+<br> <i> How can we train an algorithm to do the same? </i></p>
+</center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title ## Prerequisite Imports</span>
+<span class="c1">#@markdown Run this cell for preliminary requirements. Double click it if you want to check out the source :)</span>
+
+<span class="c1"># Python ≥3.5 is required</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">assert</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Is this notebook running on Colab or Kaggle?</span>
+<span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+
+<span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+
+<span class="c1"># Common imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># To make this notebook&#39;s output stable across runs</span>
+<span class="n">rnd_seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">rnd_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rnd_seed</span><span class="p">)</span>
+
+<span class="c1"># To plot pretty figures</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;xtick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;ytick&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Where to save the figures</span>
+<span class="n">PROJECT_ROOT_DIR</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">CHAPTER_ID</span> <span class="o">=</span> <span class="s2">&quot;classification&quot;</span>
+<span class="n">IMAGES_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_ROOT_DIR</span><span class="p">,</span> <span class="s2">&quot;images&quot;</span><span class="p">,</span> <span class="n">CHAPTER_ID</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_fig</span><span class="p">(</span><span class="n">fig_id</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fig_extension</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">IMAGES_PATH</span><span class="p">,</span> <span class="n">fig_id</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">fig_extension</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Saving figure&quot;</span><span class="p">,</span> <span class="n">fig_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tight_layout</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">fig_extension</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">resolution</span><span class="p">)</span>
+
+<span class="c1"># Import pooch - used to handle data downloading</span>
+<span class="kn">import</span> <span class="nn">pooch</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">215</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">122</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">199</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">214</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">114</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">IS_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Scikit-Learn ≥0.20 is required</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">assert</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.20&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># Common imports</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="a-quick-introduction-to-uncertainty">
+<h2><span class="section-number">10.1.1. </span>A Quick Introduction to Uncertainty<a class="headerlink" href="#a-quick-introduction-to-uncertainty" title="Permalink to this headline">#</a></h2>
+<p>Uncertainty is one of those terms that you are likely very familiar with, whether in the colloquial sense (I’d have a hard time believing that any of us have <em>never</em> had a moment of doubt) or the scientific sense.</p>
+<p>Today, we’ll be using <a href="https://doi.org/10.1175/AIES-D-22-0061.1">Haynes et al.’s paper on uncertainty estimates with neural networks for environmental science applications</a> as a guide for our efforts. Let us then begin as they did - by discussing the different types of uncertainty we expect to encounter.</p>
+<p>Generally speaking, we expect to encounter two types of uncertainty - reducible and irreducible uncertainty.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# prompt: Write a small python script that illustrates how machine precision affects floating point operations
+
+a = 1.0
+b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1
+print(a == b)  # False due to floating-point precision limitations
+print(a)
+print(b)
+
+c = 0.3
+d = 0.1 + 0.2
+print(c == d)  # Also False due to floating-point precision
+
+import math
+print(math.isclose(a, b))  # True, using a tolerance for comparison
+print(math.isclose(c, d))  # True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# prompt: Make a namespace with &quot;with&quot; that allows me to only import numpy within that namespace
+
+with np_namespace():
+  import numpy as np
+  print(np.array([1, 2, 3]))
+
+def np_namespace():
+  class Namespace:
+    pass
+  return Namespace()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-preparation-and-analysis">
+<h1><span class="section-number">10.2. </span>Data Preparation and Analysis<a class="headerlink" href="#data-preparation-and-analysis" title="Permalink to this headline">#</a></h1>
+<p>First, let’s download a dataset we prepared for this notebook and plot it. Like before, we’ll rely on pooch to load the data from OneDrive, and</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the files from the cloud using Pooch.</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/tom_beucler_unil_ch/EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA?download=1&#39;</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="s1">&#39;1ed5315572b919ed192e50ecaecff18a060db99d58119c151bbbe26028aa449c&#39;</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="n">pooch</span><span class="o">.</span><span class="n">Unzip</span><span class="p">())</span>
+<span class="p">[</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;File at index </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">)];</span>
+
+<span class="c1"># look for UQ_x in the filename to get the x file</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;UQ_y&#39;</span> <span class="ow">in</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">y_file</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="k">elif</span> <span class="s1">&#39;UQ_x&#39;</span> <span class="ow">in</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">x_file</span> <span class="o">=</span> <span class="n">filename</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from &#39;https://unils-my.sharepoint.com/:u:/g/personal/tom_beucler_unil_ch/EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA?download=1&#39; to file &#39;/root/.cache/pooch/b9a9e6bb8720fbf86030e9695ff55a87-EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA&#39;.
+Unzipping contents of &#39;/root/.cache/pooch/b9a9e6bb8720fbf86030e9695ff55a87-EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA&#39; to &#39;/root/.cache/pooch/b9a9e6bb8720fbf86030e9695ff55a87-EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA.unzip&#39;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File at index 0: ch9_UQ_y.npy
+File at index 1: ch9_UQ_x.npy
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load the files. Note that they&#39;re npy files</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">y_file</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">x_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And make a scatter plot. Be sure to use a small marker size and make the dots semi-transparent!</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
+</pre></div>
+</div>
+<img alt="../_images/7ee90c6417bb2bfdea8a57218c975a3ea28cb6f2d4e62ed76d1ab73afd7c257a.png" src="../_images/7ee90c6417bb2bfdea8a57218c975a3ea28cb6f2d4e62ed76d1ab73afd7c257a.png" />
+</div>
+</div>
+<p>Imagine that you’ve taken this data from a physical variable you’re very familiar with - and thus you know that you can model the variable with a 4th degree polynomial. Let’s fit it quickly with scikit-learn.</p>
+<div class="section" id="question-1">
+<h2><span class="section-number">10.2.1. </span>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline">#</a></h2>
+<p>Make a 4th degree polynomial regressor using scikit-learn.<br><br></p>
+<details>
+<summary>Tips</summary>
+Scikit-learn doesn't include a polynomial regression model because they can be more easily made by extending the linear model! Since a polynomial regression is simply the linear combination of inputs to different powers, you can instead populate the feature space with these and fit a linear regression model.
+<p>See <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.PolynomialFeatures.html">this scikit-learn module</a> for more details.</p>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit a 4th degree polynomial regression model using scikit-learn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the polynomial regression and the datapoints</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Here&#39;s one solution for fitting the model. Double click to see the answer.</span>
+<span class="c1"># %%script false --no-raise-error</span>
+<span class="c1"># Remove %%script false --no-raise-error in order to get this cell to run</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">poly_features</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">x_poly</span> <span class="o">=</span> <span class="n">poly_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">x_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">x_pred_poly</span> <span class="o">=</span> <span class="n">poly_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_pred_poly</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Here&#39;s a quick plot of the polynomial regression in the solution above. Double click to see the answer.</span>
+<span class="c1"># %%script false --no-raise-error</span>
+<span class="c1"># Remove %%script false --no-raise-error in order to get this cell to run</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
+</pre></div>
+</div>
+<img alt="../_images/0f7dc40c8f288eea2577149b5db85edd7290cc3577cb47396645a89d258ee9e6.png" src="../_images/0f7dc40c8f288eea2577149b5db85edd7290cc3577cb47396645a89d258ee9e6.png" />
+</div>
+</div>
+<p>This does a pretty good job, but we can clearly see that y isn’t a simple function of x - after all, there are multiple values of y for each value of x. Thus, we can say that there is a degree of uncertainty in the value we predict for y. One common way to express this in your model is to add simple error bars, which quantify how far away your predicted y is from the actual value of y - <strong>on average</strong>.</p>
+</div>
+<div class="section" id="question-2">
+<h2><span class="section-number">10.2.2. </span>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline">#</a></h2>
+<p>How would express the confidence in this model? e.g., if a stakeholder asks you for a measurement of the error and how confident you are in the model predictions? <br><br></p>
+<details>
+<summary>Tips</summary>
+<p>Think of the many functions you already know for quantifying the error. Given the large number of samples that you have, how can you express the average error?</p>
+<p>Once you have a way of quantifying the error, how can you express your confidence in the spread of the error?</p>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantify the error in the predictions made by the model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the model with your confidence intervals</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details>
+  <summary>Click here to read about one way you could answer question 1. Read it once you have your own answer 🙂 </summary>
+<p>One way that you can quantify the error is by figuring out how far away your prediction is from the truth, on average. This can be done, e.g., by calculating the <em>mean absolute error</em>, i.e. <span class="math notranslate nohighlight">\(\text{MAE} = \dfrac{1}{n}\sum_{i=0}^{n}|\hat{y}_i - y_i|\)</span>.</p>
+<p>If you were to calculate the MAE and its statistics, as well as the variance of y, you’d get the following values (see our code cell below for the calculation)</p>
+<blockquote>
+<div><p>The mean absolute error is 0.91 <br>
+The standard deviation of the error is 1.03 <br>
+The maximum error is 17.95 <br>
+The variance in y is 8.94</p>
+</div></blockquote>
+<p>If one were to see the report of this model including this MAE, one could get the misplaced impression that the model is able to capture the data’s behavior quite well - an MAE of 0.91 compared to a variance of ~9 could give the appearance that the model does well enough (and for some applications, this could indeed be true).</p>
+<p>We can see, however, that the model does significantly worse at explaining the behavior of y around values of <span class="math notranslate nohighlight">\(x = 1\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, and <span class="math notranslate nohighlight">\(5\)</span>. Similarly, by having a single value to represent the error mean and standard deviation, we are underconfident in our predictions in areas where our model does better (e.g.,  around x=2 &amp; x=4).</p>
+<p>Like we discussed before, there can be many sources for the uncertainty we observe- for example, the spread in the values could be due to a stochastic process (i.e., a process we can only describe statistically), and this may lead us to have models that are better suited to predict conditions around specific inputs.</p>
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Our solution for quantifying the average error.</span>
+<span class="c1"># Quantify the error using the mean absolute error.</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_poly</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The mean absolute error is </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The standard deviation of the error is </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum error is </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The variance in y is </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean absolute error is 0.91
+The standard deviation of the error is 1.03
+The maximum error is 17.95
+The variance in y is 8.94
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Our solution for visualizing the error.</span>
+<span class="c1"># Plot the polynomial model with error bars</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">error</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="n">y_pred</span> <span class="o">+</span> <span class="n">error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">error</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PolyCollection at 0x7b191b792230&gt;
+</pre></div>
+</div>
+<img alt="../_images/706f4809d8e22348464eda4d36092a7d866a6759bc754d26688e589d45a58dd1.png" src="../_images/706f4809d8e22348464eda4d36092a7d866a6759bc754d26688e589d45a58dd1.png" />
+</div>
+</div>
+<p>Let’s look at the distribution of y values in our data for <span class="math notranslate nohighlight">\(x ≈ 1.1\)</span>. Let’s do this by finding all of the points that are within .02 of 1.1, and then plotting the histogram.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select x values within 0.01 of 1</span>
+<span class="n">x_close</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">1.1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">]</span>
+
+<span class="c1"># Select the corresponding y values</span>
+<span class="n">y_close</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">1.1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.02</span><span class="p">]</span>
+
+<span class="c1"># Plot the distribution of y values</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_close</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability density&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of y values for x ≈ 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of y values for x ≈ 1&#39;)
+</pre></div>
+</div>
+<img alt="../_images/44c9583241f9807d1164d3ef8fe27576c0e2e4fc4276c8c9c83be7aaced2f16c.png" src="../_images/44c9583241f9807d1164d3ef8fe27576c0e2e4fc4276c8c9c83be7aaced2f16c.png" />
+</div>
+</div>
+<p>If you did as we did, you should get the following plot: <br><center>
+<img src="https://github.com/tbeucler/2024_MLEES_Ebook/blob/main/Milton/paste_link_here.png?raw=1" width=80% height=250></center></p>
+<p>Looking at this histogram, it looks like we could make the assumption that the distribution of y given a value of x can be approximated by a normal distribution (a.k.a. a bell curve, or a gaussian).</p>
+<p>The question now becomes, <i>how do we do this?</i> 🤔</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributional-regression">
+<h1><span class="section-number">10.3. </span>Distributional Regression<a class="headerlink" href="#distributional-regression" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Run this code cell to define some functions we&#39;ll need for an interactive demo</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">fixed</span>
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots a gaussian distribution with a given mean and standard deviation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mean : float</span>
+<span class="sd">        The mean of the gaussian distribution.</span>
+<span class="sd">    std : float</span>
+<span class="sd">        The standard deviation of the gaussian distribution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">std</span><span class="p">,</span> <span class="n">mean</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">std</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">std</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">std</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Gaussian with mean </span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s1"> and std </span><span class="si">{</span><span class="n">std</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to make this adjustment, we can write a model that predicts a distribution for each value of x. In this way, we are writing a model for the joint probability of x and y. As you may know, the shape of a normal distribution is given by two values: the mean (mu, <span class="math notranslate nohighlight">\(\mu\)</span>) and the standard deviation (sigma, <span class="math notranslate nohighlight">\(\sigma\)</span>).</p>
+<p>If you run the code below, you can play around with a gaussian distribution and see how the two parameters change the output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">std</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given that we can do this, why don’t we train a neural network to predict the mean (<em><span class="math notranslate nohighlight">\(\mu\)</span></em>) and standard deviation (<em><span class="math notranslate nohighlight">\(\sigma\)</span></em>) of y given a value of x? Well, if you use the techniques we’ve been using so far, this might seem straightforward, until you reach the following question: <br> <em>what should I use as a training loss?</em></p>
+<p>Before, you trained neural networks to reduce some kind of deterministic metric (e.g., the mean average error, root mean square error, or accuracy). However, these metrics require that we compare singular values against other singular values - if we predict <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>, we will need a function that will return a singular value when comparing distributions.</p>
+<p>Here is where the Continuous Ranked Probability Score (CRPS) comes in! Let’s walk through what we’re going to do in order for us to understand how our network will learn.</p>
+<div class="section" id="explaining-crps">
+<h2><span class="section-number">10.3.1. </span>Explaining CRPS<a class="headerlink" href="#explaining-crps" title="Permalink to this headline">#</a></h2>
+<p>The CRPS is a value that quantifies the absolute area between the <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function"> cumulative distribution function</a> of two distributions. Let’s say that we have two gaussians we want to compare to the standard gaussian distribution (<span class="math notranslate nohighlight">\(\mu = 0\)</span> and <span class="math notranslate nohighlight">\(\sigma = 1\)</span>), the first with <span class="math notranslate nohighlight">\(\mu = 0.5\)</span> and <span class="math notranslate nohighlight">\(\sigma = 1.2\)</span>, and the second with <span class="math notranslate nohighlight">\(\mu=0.1\)</span> and <span class="math notranslate nohighlight">\(\sigma = 1.7\)</span>. Which of these two is closer to the standard gaussian?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Let&#39;s plot the three gaussians. As always, feel free to check the code by double clicking :)</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">215</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">122</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">199</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">214</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">114</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Standard Gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;Gaussian 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Gaussian 2&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">y3</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="c1"># shade the area underneath the curve</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Comparison of three gaussians&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Like we said, the CRPS depends on the area between the CDFs. Let’s plot the CDFs of the standard gaussian with the two gaussians. Calculating the CRPS between two gaussians requires a bit of math that we don’t want to get into, so we’ll just give you the function to calculate it 😀</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown This cells defines the gaussian_crps function, which takes in $\mu_1,\; \sigma_1,\; \mu_2,\; \sigma_2$</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="k">def</span> <span class="nf">gaussians_crps</span><span class="p">(</span><span class="n">mu_F</span><span class="p">,</span> <span class="n">sigma_F</span><span class="p">,</span> <span class="n">mu_G</span><span class="p">,</span> <span class="n">sigma_G</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the CRPS between two gaussians.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mu_F : float</span>
+<span class="sd">        The mean of the first gaussian.</span>
+<span class="sd">    sigma_F : float</span>
+<span class="sd">        The standard deviation of the first gaussian.</span>
+<span class="sd">    mu_G : float</span>
+<span class="sd">        The mean of the second gaussian.</span>
+<span class="sd">    sigma_G : float</span>
+<span class="sd">        The standard deviation of the second gaussian.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    crps : float</span>
+<span class="sd">        The CRPS between the two gaussians.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the intersection</span>
+    <span class="n">x_inter</span> <span class="o">=</span> <span class="p">(</span><span class="n">mu_F</span> <span class="o">*</span> <span class="n">sigma_G</span> <span class="o">-</span> <span class="n">mu_G</span> <span class="o">*</span> <span class="n">sigma_F</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma_G</span> <span class="o">-</span> <span class="n">sigma_F</span><span class="p">)</span>
+
+
+    <span class="n">min_bound</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mu_F</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_F</span><span class="p">,</span> <span class="n">mu_G</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_G</span><span class="p">)</span>
+    <span class="n">max_bound</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mu_F</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_F</span><span class="p">,</span> <span class="n">mu_G</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_G</span><span class="p">)</span>
+
+    <span class="n">first_area</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">x_inter</span> <span class="o">&gt;</span> <span class="n">min_bound</span><span class="p">:</span>
+        <span class="n">x_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_bound</span><span class="p">,</span> <span class="n">x_inter</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="c1"># Calculate the CDF values for x_lower</span>
+        <span class="n">y_lower_F</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">mu_F</span><span class="p">,</span> <span class="n">sigma_F</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x_lower</span><span class="p">)</span>
+        <span class="n">y_lower_G</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">mu_G</span><span class="p">,</span> <span class="n">sigma_G</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x_lower</span><span class="p">)</span>
+
+        <span class="c1"># Calculate the area under the curve</span>
+        <span class="n">first_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y_lower_F</span><span class="p">,</span> <span class="n">x_lower</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y_lower_G</span><span class="p">,</span> <span class="n">x_lower</span><span class="p">))</span>
+
+    <span class="n">second_area</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">x_inter</span> <span class="o">&lt;</span> <span class="n">max_bound</span><span class="p">:</span>
+        <span class="n">x_upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_inter</span><span class="p">,</span> <span class="n">max_bound</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="c1"># Calculate the CDF values for x_upper</span>
+        <span class="n">y_upper_F</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">mu_F</span><span class="p">,</span> <span class="n">sigma_F</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x_upper</span><span class="p">)</span>
+        <span class="n">y_upper_G</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">mu_G</span><span class="p">,</span> <span class="n">sigma_G</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x_upper</span><span class="p">)</span>
+        <span class="c1"># Calculate the area under the curve</span>
+        <span class="n">second_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y_upper_F</span><span class="p">,</span> <span class="n">x_upper</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">y_upper_G</span><span class="p">,</span> <span class="n">x_upper</span><span class="p">))</span>
+
+    <span class="c1"># Calculate the CRPS</span>
+    <span class="n">crps</span> <span class="o">=</span> <span class="p">(</span><span class="n">first_area</span> <span class="k">if</span> <span class="n">first_area</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">second_area</span> <span class="k">if</span> <span class="n">second_area</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">crps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Run this cell to get an interactive plot visualizing the two distributions, the area between them, and the resulting CRPS.</span>
+<span class="k">def</span> <span class="nf">compare_gaussians</span><span class="p">(</span><span class="n">mu_1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sigma_1</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">mu_2</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">sigma_2</span><span class="o">=</span><span class="mf">1.7</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compares two gaussians.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mu_1 : float</span>
+<span class="sd">        The mean of the first gaussian.</span>
+<span class="sd">    sigma_1 : float</span>
+<span class="sd">        The standard deviation of the first gaussian.</span>
+<span class="sd">    mu_2 : float</span>
+<span class="sd">        The mean of the second gaussian.</span>
+<span class="sd">    sigma_2 : float</span>
+<span class="sd">        The standard deviation of the second gaussian.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">62</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+    <span class="n">standard_gaussian</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">x_lower</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mu_1</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_1</span><span class="p">,</span> <span class="n">mu_2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_2</span><span class="p">)</span>
+    <span class="n">x_upper</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mu_1</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_1</span><span class="p">,</span> <span class="n">mu_2</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sigma_2</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_lower</span><span class="p">,</span> <span class="n">x_upper</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">standard_gaussian</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">mu_1</span><span class="p">,</span> <span class="n">sigma_1</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">mu_2</span><span class="p">,</span> <span class="n">sigma_2</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="n">crps_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">crps_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gaussians_crps</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mu_1</span><span class="p">,</span> <span class="n">sigma_1</span><span class="p">))</span>
+    <span class="n">crps_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gaussians_crps</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mu_2</span><span class="p">,</span> <span class="n">sigma_2</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ys</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">legend</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Gaussian </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> CRPS </span><span class="si">{</span><span class="n">crps_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+
+        <span class="c1"># Change the legend facecolor</span>
+        <span class="n">legend</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">217</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">217</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+        <span class="c1"># And make the legend lines more visibile</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">legend</span><span class="o">.</span><span class="n">get_lines</span><span class="p">():</span>
+            <span class="n">line</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># set the labels, ticks, tickmarks, axis labels, and title colors to white):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">([</span><span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()):</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+        <span class="c1"># draw axis lines</span>
+        <span class="n">xaxis</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">yaxis</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+        <span class="n">xaxis</span><span class="o">.</span><span class="n">set_dashes</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+        <span class="n">yaxis</span><span class="o">.</span><span class="n">set_dashes</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">compare_gaussians</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">compare_gaussians</span><span class="p">,</span>
+         <span class="n">mu_1</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">sigma_1</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="c1"># Parameter range of distribution 1</span>
+         <span class="n">mu_2</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">sigma_2</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="c1"># Parameter range of distribution 2</span>
+         <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now have a way to evaluate the distance between two distributions (and it’s even a <em>proper score</em> !!!) - but if you recall what we’re going to be doing is comparing the gaussian that we predict to deterministic observations (i.e., we’ll predict a distribution but our target is a single value).</p>
+<p>How do we go about doing this? Well, one way that we can do this is to represent our observations with what is known as a <a href='https://en.wikipedia.org/wiki/Degenerate_distribution'><em>degenerate distribution</em></a> (a.k.a. a dirac distribution), whose PDf is a step function with a value between 0 and 1, where the change happens at the value of our observation. Let’s make a quick plot, since a picture is worth 1000 words!
+📸</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Run this cell to get an interactive plot of a degenerate distribution.</span>
+<span class="k">def</span> <span class="nf">degenerate_distribution</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots a degenerate distribution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        The value of the degenerate distribution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+    <span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">Y_heaviside</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">x_range</span> <span class="o">-</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">Y_heaviside</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">215</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">122</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Degenerate distribution with x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">degenerate_distribution</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">4.9</span><span class="p">,</span> <span class="mf">4.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With this, we have two distributions that we can compare using the CRPS! Let’s take a single value of x in our dataset, and see if we can manually minimize the CRPS value for the observations for that single value of X.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s load the files again. Note that they&#39;re npy files</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">y_file</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">x_file</span><span class="p">)</span>
+
+<span class="c1"># 1.02 is one of the unique values in x, so let&#39;s use it</span>
+<span class="c1"># to get a sample of y_values.</span>
+<span class="n">sample_x</span> <span class="o">=</span> <span class="mf">1.02</span>
+
+<span class="c1"># Let&#39;s get the corresponding y values</span>
+<span class="n">sample_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">x</span> <span class="o">==</span> <span class="n">sample_x</span><span class="p">]</span>
+
+<span class="c1"># Print out some statistics</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">sample_y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">sample_y</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_y</span><span class="p">)</span><span class="si">}</span><span class="s1"> y values for x = </span><span class="si">{</span><span class="n">sample_x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The mean of the sample is </span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> and the standard deviation is </span><span class="si">{</span><span class="n">std</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># and 5 points</span>
+<span class="n">sample_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sample_y</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code based on the properscoring library</span>
+<span class="c1"># https://github.com/properscoring/properscoring/</span>
+<span class="k">def</span> <span class="nf">crps_gaussian</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the CRPS of observations y relative to normally distributed</span>
+<span class="sd">    forecast with mean, mu, and standard deviation, sig.</span>
+
+<span class="sd">    CRPS(N(mu, sig^2); x)</span>
+
+<span class="sd">    Formula taken from Equation (5):</span>
+
+<span class="sd">    Calibrated Probablistic Forecasting Using Ensemble Model Output</span>
+<span class="sd">    Statistics and Minimum CRPS Estimation. Gneiting, Raftery,</span>
+<span class="sd">    Westveld, Goldman. Monthly Weather Review 2004</span>
+
+<span class="sd">    http://journals.ametsoc.org/doi/pdf/10.1175/MWR2904.1</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : scalar or np.ndarray</span>
+<span class="sd">        The observation or set of observations.</span>
+<span class="sd">    mu : scalar or np.ndarray</span>
+<span class="sd">        The mean of the forecast normal distribution</span>
+<span class="sd">    sig : scalar or np.ndarray</span>
+<span class="sd">        The standard deviation of the forecast distribution</span>
+<span class="sd">    grad : boolean</span>
+<span class="sd">        If True the gradient of the CRPS w.r.t. mu and sig</span>
+<span class="sd">        is returned along with the CRPS.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    crps : scalar or np.ndarray or tuple of</span>
+<span class="sd">        The CRPS of each observation y relative to mu and sig.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span>
+    <span class="n">sig</span> <span class="o">=</span> <span class="n">sig</span>
+
+    <span class="c1"># Normalize the y values using mu and sigma</span>
+    <span class="n">y_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">sig</span>
+
+    <span class="c1"># Generate the standard gaussian</span>
+    <span class="n">std_distribution</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the pdf and cdf function values at which the target y value</span>
+    <span class="c1"># is located, as well as the constant value we&#39;ll need</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">std_distribution</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">y_norm</span><span class="p">)</span>
+    <span class="n">cdf</span> <span class="o">=</span> <span class="n">std_distribution</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">y_norm</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the crps using the analytical formula from the reference</span>
+    <span class="n">crps</span> <span class="o">=</span> <span class="n">sig</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_norm</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">cdf</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pdf</span> <span class="o">-</span> <span class="n">c</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">crps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">degenerate_gaussian</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mean</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">std</span><span class="o">-</span><span class="mf">.2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots a degenerate distribution cdf of a set of observations alongside a gaussian distribution cdf. Also outputs the CRPS value for each observation, as well as the mean CRPS value.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obs : np.ndarray</span>
+<span class="sd">        The observations.</span>
+<span class="sd">    mu : float</span>
+<span class="sd">        The mean of the gaussian distribution.</span>
+<span class="sd">    sigma : float</span>
+<span class="sd">        The standard deviation of the gaussian distribution.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lower_bound</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="n">upper_bound</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">mu</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">)</span>
+
+    <span class="n">norm_distribution</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+    <span class="n">obs_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+    <span class="n">cdf</span> <span class="o">=</span> <span class="n">norm_distribution</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">obs_range</span><span class="p">)</span>
+
+    <span class="n">crps_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">obs</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">obs_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">obs</span><span class="p">):</span>
+        <span class="n">crps_vals</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">crps_gaussian</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">obs_val</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+
+    <span class="n">num_rows</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num_rows</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">62</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="p">):</span>
+        <span class="n">degenerate_distribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">obs_range</span> <span class="o">-</span> <span class="n">obs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obs_range</span><span class="p">,</span> <span class="n">cdf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obs_range</span><span class="p">,</span> <span class="n">degenerate_distribution</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">199</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">obs_range</span><span class="p">,</span> <span class="n">cdf</span><span class="p">,</span> <span class="n">degenerate_distribution</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+        <span class="c1"># add label on the right side</span>
+        <span class="c1"># Add a label on the right border</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;CRPS: </span><span class="si">{</span><span class="n">crps_vals</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span>
+            <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+        <span class="c1"># set the labels, ticks, tickmarks, axis labels, and title colors to white):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">([</span><span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="p">]</span> <span class="o">+</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()):</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribution with mean </span><span class="si">{</span><span class="n">mu</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> and std </span><span class="si">{</span><span class="n">sigma</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s1">Mean CRPS: </span><span class="si">{</span><span class="n">crps_vals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Remove the docstring for a better user experience with interact()</span>
+<span class="n">degenerate_gaussian</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown This cell will let you do what you will train your network to do! Can you find the mu and sigma that will minimize the value of the crps for these 5 observations?</span>
+<span class="n">mu_min</span> <span class="o">=</span> <span class="n">sample_y</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">mu_max</span> <span class="o">=</span> <span class="n">sample_y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">sigma_min</span> <span class="o">=</span> <span class="n">sample_y</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="mi">6</span>
+<span class="n">sigma_max</span> <span class="o">=</span> <span class="n">sample_y</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">*</span> <span class="mi">6</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">degenerate_gaussian</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="p">(</span><span class="n">mu_min</span><span class="p">,</span> <span class="n">mu_max</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="p">(</span><span class="n">sigma_min</span><span class="p">,</span> <span class="n">sigma_max</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">obs</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="n">sample_y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-up-the-neural-network">
+<h2><span class="section-number">10.3.2. </span>Setting up the Neural Network<a class="headerlink" href="#setting-up-the-neural-network" title="Permalink to this headline">#</a></h2>
+<p>Today, we’ll be setting up a simple neural network using PyTorch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start by importing torch, the functional api, and the module api</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, let&#39;s create a model by defining a class that inherits from nn.module</span>
+<span class="k">class</span> <span class="nc">ANN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="c1"># Let&#39;s define what our model will look like using the init method</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">input_size</span><span class="p">,</span> <span class="c1"># the number of features in the input</span>
+                 <span class="n">hidden_size</span><span class="p">,</span> <span class="c1"># the number of neurons in the hidden layer</span>
+                 <span class="n">output_size</span> <span class="c1"># the number of output features.</span>
+                 <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ANN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+
+    <span class="c1"># When the model is trained or used in inference, it calls upon its &#39;forward&#39; method, which tell&#39;s it precisely what it needs to do. Let&#39;s go ahead and define it</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">leaky_relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown CRPS isn&#39;t predefined as a loss function in torch, but it *can* be written using torch. We&#39;ve gone ahead and set it up as ```CRPS_ML``` for you in this cell,</span>
+
+<span class="k">def</span> <span class="nf">CRPS_ML</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the Continuous Ranked Probability Score (CRPS).</span>
+
+<span class="sd">    The CRPS is a probabilistic metric that evaluates the accuracy of a</span>
+<span class="sd">    probabilistic forecast. It is defined as the integral of the squared</span>
+<span class="sd">    difference between the cumulative distribution function (CDF) of the</span>
+<span class="sd">    forecast and the CDF of the observations.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    y_pred : array-like of shape (n_samples, 2*n_features)</span>
+<span class="sd">        The predicted probability parameters for each sample. The odd columns</span>
+<span class="sd">        should contain the mean (mu), and the even columns should contain the</span>
+<span class="sd">        standard deviation (sigma).</span>
+
+<span class="sd">    y_true : array-like of shape (n_samples,n_features)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    crps : float or array-like</span>
+<span class="sd">        The CRPS value mean, or array of individual CRPS values.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># adapted from https://github.com/WillyChap/ARML_Probabilistic/blob/main/Coastal_Points/Testing_and_Utility_Notebooks/CRPS_Verify.ipynb</span>
+    <span class="c1"># and work by Louis Poulain--Auzeau (https://github.com/louisPoulain)</span>
+    <span class="n">reduction</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reduction&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># prevent negative sigmas</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">loc</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">loc</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="n">cdf</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">loc</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))))</span>
+
+    <span class="c1"># compute CRPS for each (input, truth) pair</span>
+    <span class="n">crps</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="n">loc</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">cdf</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">pdf</span>
+        <span class="o">-</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">crps</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">if</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span> <span class="k">else</span> <span class="n">crps</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We need to define the other aspcets for our model training in torch as well. This includes the batch size, optimizer, &amp; loss function. Let’s make a list of the things we need to do:</p>
+<ol class="arabic simple">
+<li><p>Since we know the underlying relationship is well represented using 4th degree polynomials, let’s make polynomial features of the x array</p></li>
+<li><p>Convert the numpy arrays to pytorch tensors.</p></li>
+<li><p>Convert the tensors into a tensor dataset and use the dataset to make a dataloader.</p></li>
+<li><p>Instantiate the model. Remember that the</p></li>
+<li><p>Define the loss function and optimizer</p></li>
+<li><p>Write and run the training loop. It should include an early stopping criterion or two :</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly_fitter</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">poly_x</span> <span class="o">=</span> <span class="n">poly_fitter</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">x_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">poly_x</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="n">y_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">y_tensor</span><span class="p">)</span>
+<span class="n">dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
+                                         <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="c1"># The number of samples in each batch</span>
+                                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Whether to shuffle the order of the points being fed during training</span>
+                                         <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([50000, 4]) torch.Size([50000, 1])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ANN</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="c1">#Number of input features</span>
+            <span class="mi">110</span><span class="p">,</span> <span class="c1"># Number of neurons / hidden layer</span>
+            <span class="mi">2</span><span class="p">,</span> <span class="c1"># Predicted features, =2 because we predict a mean and std</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss_function</span> <span class="o">=</span> <span class="n">CRPS_ML</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">NAdam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training loop</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting training&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">batch_losses</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">x_batch</span><span class="p">,</span> <span class="n">y_batch</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">num_epochs</span><span class="si">}</span><span class="s1">, Batch </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span><span class="si">}</span><span class="s1">, last loss: </span><span class="si">{</span><span class="n">losses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Reset the gradients - needs to happen for each iteration</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="c1"># Forward pass</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_batch</span><span class="p">)</span>
+        <span class="c1"># Compute the loss</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_batch</span><span class="p">)</span>
+        <span class="n">batch_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+        <span class="c1"># Backpropagation</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="c1"># Update the weights</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">batch_losses</span><span class="p">))</span>
+
+    <span class="c1"># save the best model</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">losses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">losses</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;best_model.pth&#39;</span><span class="p">)</span>
+
+    <span class="c1"># early stopping</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span> <span class="o">&gt;=</span><span class="mi">10</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">losses</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span> <span class="o">&lt;</span> <span class="n">losses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">break</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> Training complete&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting training
+Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
+ Training complete
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the training curve</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training Curve&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/13352aef1f45a8da6b001fa052ee1aa08b616f77e32ccc866f84ce84fa797eec.png" src="../_images/13352aef1f45a8da6b001fa052ee1aa08b616f77e32ccc866f84ce84fa797eec.png" />
+</div>
+</div>
+</div>
+<div class="section" id="model-performance-overview">
+<h2><span class="section-number">10.3.3. </span>Model Performance Overview<a class="headerlink" href="#model-performance-overview" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s go ahead and load the best model state from what we saved before</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;best_model.pth&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;All keys matched successfully&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s go ahead and generate the plot for our predicted distributions</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">poly_fitter</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_plot</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span>
+
+<span class="n">x_tensor_plot</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x_plot</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x_tensor_plot</span><span class="p">)</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#plot the mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># plot 2 standard deviations above and below</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_plot</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mu</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Predicted Distribution&#39;</span><span class="p">)</span>
+<span class="c1"># Increase the weight of the lines in the legend</span>
+<span class="n">legend</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">legend</span><span class="o">.</span><span class="n">get_lines</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># increase the marker size of the scatter elements in the legend</span>
+<span class="n">legend</span><span class="o">.</span><span class="n">legend_handles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">];</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a50d5ee06b1fa01e03f47f58aab3703d33cb24ee47c8538444d6047db8b86482.png" src="../_images/a50d5ee06b1fa01e03f47f58aab3703d33cb24ee47c8538444d6047db8b86482.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.005278643
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-evaluation">
+<h2><span class="section-number">10.3.4. </span>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h2>
+<p>Now that we have a probabilistic model, we need to discuss ways in which to evaluate how well our model performs. However, up to now we’ve focused on deterministic metrics (e.g., RMSE, accuracy, MAE) in order to evaluate the performance of our models. As we saw before, these metrics are less useful when we predict a whole distribution as our outputs (whether it be via distributional regression as we did above, or even when making predictions with ensembles).</p>
+<p>Furthermore, we used the one probabilistic metric we’ve discussed as our optimization target (i.e., we trained the model to minimize the CRPS) -  if we use it as an evaluation metric we’ll get an overly optimistic view of how well our model performs. We’re therefore going to introduce two more metrics to evaluate the performance of our model.</p>
+<p>Note that these metrics also work when using other methods for quantifying uncertainty, such as cross-validation or model ensembles. However, the scores will be much worse for models whose errors aren’t conditional on the inputs!</p>
+<div class="section" id="spread-skill-score">
+<h3><span class="section-number">10.3.4.1. </span>Spread Skill Score<a class="headerlink" href="#spread-skill-score" title="Permalink to this headline">#</a></h3>
+<p>The Spread Skill Score (SSC) is used to quantify how large the <em>spread</em> predicted by your model(s) is (e.g., the predicted sigma in our case) compared to the mean error associated with predicted mean (i.e., its <em>skill</em>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s start by calculating the unique values of X. Note that normally this would done, e.g., by carrying out a random selection of inputs in order to sample the predicted spread and error. However, here we have the luxury of knowing that we have a relatively range of unique values for our univariate input.</span>
+<span class="n">unique_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">spread</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">unique_x</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">unique_x</span><span class="p">)</span>
+<span class="c1"># For each unique X value, let&#39;s get the predicted spread and the MAE</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_x</span><span class="p">):</span>
+    <span class="c1"># Get the corresponding y values</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">x</span><span class="o">==</span><span class="n">x_val</span><span class="p">]</span>
+
+    <span class="c1"># Generate the mean and std from the model</span>
+    <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">poly_fitter</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x_val</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">]))</span><span class="o">.</span><span class="n">float</span><span class="p">())</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+    <span class="c1"># Make sure that sigma is always positive</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the spread and error</span>
+    <span class="n">spread</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma</span>
+    <span class="n">error</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">mu</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># MAE</span>
+
+<span class="c1"># Sort the spread and error by increasing error</span>
+<span class="n">idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">error</span><span class="p">[</span><span class="n">idxs</span><span class="p">]</span>
+<span class="n">spread</span> <span class="o">=</span> <span class="n">spread</span><span class="p">[</span><span class="n">idxs</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a square figure using plt.subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># set the origin to 0,0 and the top right corner to max(error_max, spread_max)</span>
+<span class="n">upper_bound</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">error</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">spread</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">*</span> <span class="mf">1.1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">)</span>
+
+<span class="c1"># draw the diagonal line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">],</span>
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot the spread vs skill</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">spread</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7b186cc60e80&gt;
+</pre></div>
+</div>
+<img alt="../_images/5c86818beff54d1217cc8de635f1935a1cbb1c887f5ba19be2b2c5541cca7fba.png" src="../_images/5c86818beff54d1217cc8de635f1935a1cbb1c887f5ba19be2b2c5541cca7fba.png" />
+</div>
+</div>
+<p>Note that the ideal spread skill score is a line where the error in your prediction is equal to the spread that you predict!</p>
+<p>Additionally, if you use a method of uncertainty quantification that isn’t conditional on the inputs (like the error bars we produced way up in Question 2), you’ll have a vertical line whose intersection with the diagonal will be whereever your error is as large as the spread in the data!</p>
+</div>
+<div class="section" id="probability-integral-transform-pit-histogram">
+<h3><span class="section-number">10.3.4.2. </span>Probability Integral Transform (PIT) Histogram<a class="headerlink" href="#probability-integral-transform-pit-histogram" title="Permalink to this headline">#</a></h3>
+<p>While this visualization carries a name that some may find intimidating (one of your T.A.’s will readily admit to waking from a nightmare muttering something about it with a far off look on his face), it’s simply a way of quantifying how well calibrated your models are. It’s simply a matter of calculating the CDF of random samples from the observations and plotting a histogram.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># First, we need to generate a set of y values to get a global distribution of y-values.</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">y_samples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x_val</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">:</span>
+    <span class="c1"># Let&#39;s generate mu and sigma</span>
+    <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">poly_fitter</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x_val</span><span class="p">)[</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">]))</span><span class="o">.</span><span class="n">float</span><span class="p">())</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="c1"># Make sure that sigma is always positive</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># make the distribution using scipy and get 100 samples</span>
+    <span class="n">y_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="n">y_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_samples</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now that we have the predicted values for y, let&#39;s go ahead and get an estimation of the CDF of y. To do this, we&#39;ll generate a regularly spaced grid of y values going from the minimum (where CDF~0) to the maximum (where CDF~1).</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+
+<span class="n">y_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">cdf_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">y_grid</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">y_val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y_grid</span><span class="p">):</span>
+    <span class="n">cdf_grid</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_samples</span> <span class="o">&lt;=</span> <span class="n">y_val</span><span class="p">)</span>
+
+<span class="c1"># and then we make an interpolator</span>
+<span class="n">cdf_interpolator</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">y_grid</span><span class="p">,</span>
+                            <span class="n">cdf_grid</span><span class="p">,</span>
+                            <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+                            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In order to make the PIT histogram, all we have to do is get a large number of samples from y_true, and plot the PDF of the CDF values calculated from the y_true samples. If we obtain a relatively uniform PDF, it means that the CDF from our predictions does a good job of matching the CDF of the observations.</span>
+
+<span class="n">rn_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">samples</span> <span class="o">=</span> <span class="n">rn_gen</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="n">CDF_vals</span> <span class="o">=</span> <span class="n">cdf_interpolator</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1"># Plot the histogram of the CDF values using 10 bins</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">CDF_vals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PIT Histogram&#39;</span><span class="p">)</span>
+<span class="c1"># set the x-axis ticks to be every 0.05 between 0 and 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="c1"># plot the hline at 1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uniform PDF&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CDF_vals</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7b186981be20&gt;
+</pre></div>
+</div>
+<img alt="../_images/fc9740e9b9d9bdcb9785b4d57ebaab46765faef2cfe839a590f3eb703fcc2f4a.png" src="../_images/fc9740e9b9d9bdcb9785b4d57ebaab46765faef2cfe839a590f3eb703fcc2f4a.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bonus-challenge">
+<h1><span class="section-number">10.4. </span>Bonus Challenge<a class="headerlink" href="#bonus-challenge" title="Permalink to this headline">#</a></h1>
+<p>As you can imagine, the data that you used today does <em>not</em>, in fact, associate a gaussian distribution of values for each value of x. Instead, the distribution is a <em>weibull</em> distribution whose shape and scale parameters depend on x!</p>
+<p>We’ve gone ahead and prepared an interactive demo for you to get familiar with the weibull distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weibull</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">shape</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">shape</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">scale</span><span class="p">)</span> <span class="o">**</span> <span class="n">shape</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Weibull with shape </span><span class="si">{</span><span class="n">shape</span><span class="si">}</span><span class="s1"> and scale </span><span class="si">{</span><span class="n">scale</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">weibull</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The challenge, however, is to repeat the fitting of the neural network by predicting a weibull instead of a gaussian distribution. Note that this means that <strong>the CRPS we implemented above is not correct for use with the weibull distribution</strong> - and as your TA ran out of time and energy to figure it out for you, it’s up to you to figure it out.</p>
+<p>“You really shouldn’t spend too much time on this. I’d rather you work on your final project, or have a coffee” - that same TA.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Milton"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Jingyan/ch9generative_uncertainty.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Ayoub/Week_9_Generative_modeling.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.5. </span>(Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.2. Data Preparation and Analysis</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">10.2.1. Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">10.2.2. Question 2</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.3. Distributional Regression</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.3.1. Explaining CRPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.3.2. Setting up the Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.3.3. Model Performance Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.3.4. Model Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.3.4.1. Spread Skill Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.3.4.2. Probability Integral Transform (PIT) Histogram</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.4. Bonus Challenge</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi, Ayoub Fatihi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
