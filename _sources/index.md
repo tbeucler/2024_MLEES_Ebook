@@ -1,6 +1,6 @@
-# Welcome to Machine Learning for Earth and Environmental Sciences
+# Welcome to Hands-on Machine Learning for Earth and Environmental Sciences
 
-Fall 2023 edition
+Fall 2024 edition
 
 ```{tableofcontents}
 ```

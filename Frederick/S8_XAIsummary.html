@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8.1. Explainable AI (XAI) &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>9.1. Explainable AI (XAI) &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -62,8 +62,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Frederick/S8_XAIsummary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="Chapter8_Ex1.html" />
-    <link rel="prev" title="8. Explainable Artifical Intelligence (XAI):" href="../DL/W8_XAI.html" />
+    <link rel="next" title="9.2. Exercise 1: Implementing Explainable AI Methods on Simple Datasets" href="Chapter8_Ex1.html" />
+    <link rel="prev" title="9. Explainable Artifical Intelligence (XAI):" href="../DL/W8_XAI.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../index.html">
-                    Welcome to Machine Learning for Earth and Environmental Sciences
+                    Welcome to Hands-on Machine Learning for Earth and Environmental Sciences
                 </a>
             </li>
         </ul>
@@ -227,15 +227,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../DL/W8_XAI.html">8. Explainable Artifical Intelligence and Understanding Predictions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.1. Why do we need machine learning model interpretability?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Milton/09_GenerativeAI.html">10.7. Introduction to Uncertainty Quantification and Generative Modeling</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.11. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
 </ul>
 
     </div>
@@ -429,12 +438,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">8.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">8.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">8.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">8.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">8.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1.1. Learning objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">9.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">9.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">9.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">9.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">9.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -448,9 +457,9 @@ document.write(`
                   
   <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Frederick/S8_XAIsummary.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="explainable-ai-xai">
-<h1><span class="section-number">8.1. </span>Explainable AI (XAI)<a class="headerlink" href="#explainable-ai-xai" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">9.1. </span>Explainable AI (XAI)<a class="headerlink" href="#explainable-ai-xai" title="Permalink to this headline">#</a></h1>
 <div class="section" id="learning-objectives">
-<h2><span class="section-number">8.1.1. </span>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1.1. </span>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p>Understand the importance of XAI</p></li>
 <li><p>Distinguish local from global explanation methods</p></li>
@@ -462,7 +471,7 @@ document.write(`
 <p>Broadly speaking, a ML model that is interpretable means that human decision makers understand the cause of a decision and can anticipate the model’s predictions. The simplest interpretable model is a simple multiple linear regression (MLR) model.</p>
 </div>
 <div class="section" id="when-do-we-need-ml-models-to-be-explainable">
-<h2><span class="section-number">8.1.2. </span>1. <strong>When do we need ML models to be explainable?</strong><a class="headerlink" href="#when-do-we-need-ml-models-to-be-explainable" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1.2. </span>1. <strong>When do we need ML models to be explainable?</strong><a class="headerlink" href="#when-do-we-need-ml-models-to-be-explainable" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><blockquote>
 <div><p>‘Interpretability is the degree to which a human can understand the cause of a decision’ (Miller, 2017)</p>
@@ -483,7 +492,7 @@ document.write(`
 <p>If you are not using an intrinsically intepretable model, the normal workflow of explaining a ML model would be to train the model first, and use ad-hoc methods to explain the trained model.</p>
 </div>
 <div class="section" id="distinguishing-local-vs-global-explanation-methods">
-<h2><span class="section-number">8.1.3. </span>2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong><a class="headerlink" href="#distinguishing-local-vs-global-explanation-methods" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1.3. </span>2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong><a class="headerlink" href="#distinguishing-local-vs-global-explanation-methods" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Local Explanations:</strong></p>
 <ul>
@@ -523,7 +532,7 @@ document.write(`
 </table>
 </div>
 <div class="section" id="model-agnostic-vs-model-specific-methods">
-<h2><span class="section-number">8.1.4. </span>3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong><a class="headerlink" href="#model-agnostic-vs-model-specific-methods" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1.4. </span>3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong><a class="headerlink" href="#model-agnostic-vs-model-specific-methods" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Model-Agnostic Methods:</strong></p>
 <ul>
@@ -565,7 +574,7 @@ document.write(`
 <p>Properties of the explanations themselves: accurate, consistent, faithful, stable, understandable, confidence, degree of representation, and importance of features, and how outliers or “novel” instances are evaluated.</p>
 </div>
 <div class="section" id="implementing-permutation-feature-importance-and-partial-dependence-plots">
-<h2><span class="section-number">8.1.5. </span>4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong><a class="headerlink" href="#implementing-permutation-feature-importance-and-partial-dependence-plots" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1.5. </span>4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong><a class="headerlink" href="#implementing-permutation-feature-importance-and-partial-dependence-plots" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>Partial Dependence Plots:</strong></p>
 <ul>
@@ -650,7 +659,7 @@ document.write(`
 <p><img alt="Permutation_diabetes.jpg" src="../_images/Permutation_diabetes.jpg" /></p>
 </div>
 <div class="section" id="explanation-methods-for-neural-networks">
-<h2><span class="section-number">8.1.6. </span>5. <strong>Explanation Methods for Neural Networks:</strong><a class="headerlink" href="#explanation-methods-for-neural-networks" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">9.1.6. </span>5. <strong>Explanation Methods for Neural Networks:</strong><a class="headerlink" href="#explanation-methods-for-neural-networks" title="Permalink to this headline">#</a></h2>
 <p>For Neural Networks, it is still useful to use model-agnostic methods discussed earlier, it may be even more useful to use interpretation methods designed specifically for NNs.</p>
 <p>Compared to model-agnostic methods, these methods are useful because:</p>
 <ul class="simple">
@@ -768,7 +777,7 @@ Saliency maps can be very useful for environmental sciences tasks. Here we show 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Explainable Artifical Intelligence (XAI):</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Explainable Artifical Intelligence (XAI):</p>
       </div>
     </a>
     <a class="right-next"
@@ -776,7 +785,7 @@ Saliency maps can be very useful for environmental sciences tasks. Here we show 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
+        <p class="prev-next-title"><span class="section-number">9.2. </span>Exercise 1: Implementing Explainable AI Methods on Simple Datasets</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -798,12 +807,12 @@ Saliency maps can be very useful for environmental sciences tasks. Here we show 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">8.1.1. Learning objectives:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">8.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">8.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">8.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">8.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">8.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">9.1.1. Learning objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-do-we-need-ml-models-to-be-explainable">9.1.2. 1. <strong>When do we need ML models to be explainable?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-local-vs-global-explanation-methods">9.1.3. 2. <strong>Distinguishing Local vs. Global Explanation Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-agnostic-vs-model-specific-methods">9.1.4. 3. <strong>Model-Agnostic vs. Model-Specific Methods:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-permutation-feature-importance-and-partial-dependence-plots">9.1.5. 4. <strong>Implementing Permutation Feature Importance and Partial Dependence Plots:</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanation-methods-for-neural-networks">9.1.6. 5. <strong>Explanation Methods for Neural Networks:</strong></a></li>
 </ul>
   </nav></div>
 
@@ -818,7 +827,7 @@ Saliency maps can be very useful for environmental sciences tasks. Here we show 
   <div class="footer-item">
     
 <p class="component-author">
-By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi, Ayoub Fatihi
 </p>
 
   </div>

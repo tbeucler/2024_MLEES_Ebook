@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Explainable Artifical Intelligence (XAI): &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>9. Explainable Artifical Intelligence (XAI): &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -62,8 +62,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'DL/W8_XAI';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8.1. Explainable AI (XAI)" href="../Frederick/S8_XAIsummary.html" />
-    <link rel="prev" title="7.4. Exercise 2 – Recurrent Neural Networks for Hydrological Modeling" href="S6_2_LSTM.html" />
+    <link rel="next" title="9.1. Explainable AI (XAI)" href="../Frederick/S8_XAIsummary.html" />
+    <link rel="prev" title="8. Graph Neural Networks and Interconnected Systems" href="GNN.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../index.html">
-                    Welcome to Machine Learning for Earth and Environmental Sciences
+                    Welcome to Hands-on Machine Learning for Earth and Environmental Sciences
                 </a>
             </li>
         </ul>
@@ -227,15 +227,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">8. Explainable Artifical Intelligence and Understanding Predictions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">8.1. Why do we need machine learning model interpretability?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">8.2. (Exercise) XAI on Simple Datasets</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">9. Explainable Artifical Intelligence and Understanding Predictions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">9. Generative Modeling and Uncertainty Quantification</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Milton/09_GenerativeAI.html">10.7. Introduction to Uncertainty Quantification and Generative Modeling</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.11. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
 </ul>
 
     </div>
@@ -432,7 +441,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="explainable-artifical-intelligence-xai">
-<h1><span class="section-number">8. </span>Explainable Artifical Intelligence (XAI):<a class="headerlink" href="#explainable-artifical-intelligence-xai" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">9. </span>Explainable Artifical Intelligence (XAI):<a class="headerlink" href="#explainable-artifical-intelligence-xai" title="Permalink to this headline">#</a></h1>
 <p>In this chapter, the learning objectives are:</p>
 <ol class="arabic simple">
 <li><p>Understand the importance of XAI</p></li>
@@ -509,12 +518,12 @@ The final project’s goal is to answer a well-defined scientific question by ap
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S6_2_LSTM.html"
+       href="GNN.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">7.4. </span><strong>Exercise 2 – Recurrent Neural Networks for Hydrological Modeling</strong></p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Graph Neural Networks and Interconnected Systems</p>
       </div>
     </a>
     <a class="right-next"
@@ -522,7 +531,7 @@ The final project’s goal is to answer a well-defined scientific question by ap
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.1. </span>Explainable AI (XAI)</p>
+        <p class="prev-next-title"><span class="section-number">9.1. </span>Explainable AI (XAI)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -545,7 +554,7 @@ The final project’s goal is to answer a well-defined scientific question by ap
   <div class="footer-item">
     
 <p class="component-author">
-By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi
+By Tom Beucler, Milton Gomez, Frederick Iat-Hin Tam, Jingyan Yu, Saranya Ganesh S, Haokun Liu, Kejdi LLeshi, Ayoub Fatihi
 </p>
 
   </div>
