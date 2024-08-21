@@ -15,7 +15,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#@title ## Prerequisite Imports
+#@title ### Prerequisite Imports
 #@markdown Run this cell for preliminary requirements. Double click it if you want to check out the source :)
 
 # Python ≥3.5 is required

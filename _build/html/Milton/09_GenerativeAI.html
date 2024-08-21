@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Milton/09_GenerativeAI';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="10.5. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models" href="../Ayoub/Week_9_Generative_modeling.html" />
+    <link rel="next" title="10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models" href="../Ayoub/Week_9_Generative_modeling.html" />
     <link rel="prev" title="10. Generative Modeling: From Uncertainty Quantification to Stochastic Downscaling" href="../Jingyan/ch9generative_uncertainty.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -192,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../ML/S1_3_Statistical_Forecasting.html">2.5. (Exercises) Statistical Forecasting</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_2_Decision_Trees_Random_Forests_SVMs.html">3. Supervised Learning (Decision Trees, Random Forests, Support Vector Machines) and Environmental Risk Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.html">3.1. Simple Machine Learning Algorithms for Classification Tasks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Support_Vector_Machines.html">3.2. (Exercises) Support Vector Machines</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Decision_Trees_and_Random_Forest.html">3.3. (Exercises) Decision Trees and Random Forest</a></li>
@@ -200,7 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/%28Exercises%29_Wildfire_Susceptibility_Mapping.html">3.5. (Exercises) Wildfire Susceptibility Mapping</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ML/Week_3_Dimensionality_Reduction_Clustering.html">4. Unsupervised Learning (Clustering, Dimensionality Reduction) and Environmental Complexity</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Jingyan/Chapter4-UnsupervisedLearning.html">4.1. Unsupervised Learning for Clustering and Dimensionality Reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ML/S3_1_Dimensionality.html">4.2. (Exercise) Dimensionality Reduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ML/S3_2_Clustering.html">4.3. (Exercise) Clustering</a></li>
@@ -240,10 +240,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.5. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
@@ -440,29 +437,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.1.2. Data Preparation and Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-model-the-data-using-a-4th-degree-polynomial">10.1.2.1. <strong>Q1) Model the data using a 4th degree polynomial</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-how-would-express-the-confidence-in-this-model">10.1.2.2. <strong>Q2: How would express the confidence in this model?</strong></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.2. Data Preparation and Analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">10.2.1. Question 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">10.2.2. Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.1.3. Distributional Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.1.4. Explaining CRPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.1.5. Setting up the Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.1.6. Model Performance Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.1.7. Model Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.1.7.1. Spread Skill Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.1.7.2. Probability Integral Transform (PIT) Histogram</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.3. Distributional Regression</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.3.1. Explaining CRPS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.3.2. Setting up the Neural Network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.3.3. Model Performance Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.3.4. Model Evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.3.4.1. Spread Skill Score</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.3.4.2. Probability Integral Transform (PIT) Histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.1.8. Bonus Challenge</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.4. Bonus Challenge</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -474,7 +465,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <p><a href="https://colab.research.google.com/github/tbeucler/2024_MLEES_Ebook/blob/main/Milton/09_GenerativeAI.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="exercise-introduction-to-uncertainty-quantification-and-generative-modeling">
+<div class="section" id="exercise-introduction-to-uncertainty-quantification-and-generative-modeling">
 <h1><span class="section-number">10.1. </span>(Exercise) Introduction to Uncertainty Quantification and Generative Modeling<a class="headerlink" href="#exercise-introduction-to-uncertainty-quantification-and-generative-modeling" title="Permalink to this headline">#</a></h1>
 <center>
 <img src="https://github.com/msgomez06/ML_pedagogical_materials/blob/main/images/09.01-missing.png?raw=True" width=90%></img>
@@ -482,7 +473,7 @@ document.write(`
 <br> <i> How can we train an algorithm to do the same? </i></p>
 </center><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title ## Prerequisite Imports</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title ### Prerequisite Imports</span>
 <span class="c1">#@markdown Run this cell for preliminary requirements. Double click it if you want to check out the source :)</span>
 
 <span class="c1"># Python ≥3.5 is required</span>
@@ -593,9 +584,8 @@ def np_namespace():
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="data-preparation-and-analysis">
-<h1><span class="section-number">10.2. </span>Data Preparation and Analysis<a class="headerlink" href="#data-preparation-and-analysis" title="Permalink to this headline">#</a></h1>
+<div class="section" id="data-preparation-and-analysis">
+<h2><span class="section-number">10.1.2. </span>Data Preparation and Analysis<a class="headerlink" href="#data-preparation-and-analysis" title="Permalink to this headline">#</a></h2>
 <p>First, let’s download a dataset we prepared for this notebook and plot it. Like before, we’ll rely on pooch to load the data from OneDrive, and</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,16 +602,6 @@ def np_namespace():
         <span class="n">y_file</span> <span class="o">=</span> <span class="n">filename</span>
     <span class="k">elif</span> <span class="s1">&#39;UQ_x&#39;</span> <span class="ow">in</span> <span class="n">filename</span><span class="p">:</span>
         <span class="n">x_file</span> <span class="o">=</span> <span class="n">filename</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from &#39;https://unils-my.sharepoint.com/:u:/g/personal/tom_beucler_unil_ch/EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA?download=1&#39; to file &#39;/root/.cache/pooch/b9a9e6bb8720fbf86030e9695ff55a87-EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA&#39;.
-Unzipping contents of &#39;/root/.cache/pooch/b9a9e6bb8720fbf86030e9695ff55a87-EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA&#39; to &#39;/root/.cache/pooch/b9a9e6bb8720fbf86030e9695ff55a87-EUAqVt0ZDwNNlVTALKSu_foBBgaBoWZy1A2bxoVPCHBFfA.unzip&#39;
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File at index 0: ch9_UQ_y.npy
-File at index 1: ch9_UQ_x.npy
 </pre></div>
 </div>
 </div>
@@ -645,17 +625,10 @@ File at index 1: ch9_UQ_x.npy
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
-</pre></div>
 </div>
-<img alt="../_images/7ee90c6417bb2bfdea8a57218c975a3ea28cb6f2d4e62ed76d1ab73afd7c257a.png" src="../_images/7ee90c6417bb2bfdea8a57218c975a3ea28cb6f2d4e62ed76d1ab73afd7c257a.png" />
-</div>
-</div>
-<p>Imagine that you’ve taken this data from a physical variable you’re very familiar with - and thus you know that you can model the variable with a 4th degree polynomial. Let’s fit it quickly with scikit-learn.</p>
-<div class="section" id="question-1">
-<h2><span class="section-number">10.2.1. </span>Question 1<a class="headerlink" href="#question-1" title="Permalink to this headline">#</a></h2>
-<p>Make a 4th degree polynomial regressor using scikit-learn.<br><br></p>
+<p>Imagine that you’ve taken this data from a physical variable you’re very familiar with - and thus you know that you can model the variable with a 4th degree polynomial. Let’s fit it quickly, e.g., with scikit-learn.</p>
+<div class="section" id="q1-model-the-data-using-a-4th-degree-polynomial">
+<h3><span class="section-number">10.1.2.1. </span><strong>Q1) Model the data using a 4th degree polynomial</strong><a class="headerlink" href="#q1-model-the-data-using-a-4th-degree-polynomial" title="Permalink to this headline">#</a></h3>
 <details>
 <summary>Tips</summary>
 Scikit-learn doesn't include a polynomial regression model because they can be more easily made by extending the linear model! Since a polynomial regression is simply the linear combination of inputs to different powers, you can instead populate the feature space with these and fit a linear regression model.
@@ -707,18 +680,13 @@ Scikit-learn doesn't include a polynomial regression model because they can be m
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
-</pre></div>
 </div>
-<img alt="../_images/0f7dc40c8f288eea2577149b5db85edd7290cc3577cb47396645a89d258ee9e6.png" src="../_images/0f7dc40c8f288eea2577149b5db85edd7290cc3577cb47396645a89d258ee9e6.png" />
+<p>This does a pretty good job, but we can clearly see that y isn’t a simple function of x - after all, there are multiple values of y for each value of x, so technically a function relating x to y does not exist!</p>
+<p>Thus, we can say that there is a degree of uncertainty in the value we predict for y. One common way to express this in your model is to add simple error bars, which quantify how far away your predicted y is from the actual value of y - <strong>on average</strong>.</p>
 </div>
-</div>
-<p>This does a pretty good job, but we can clearly see that y isn’t a simple function of x - after all, there are multiple values of y for each value of x. Thus, we can say that there is a degree of uncertainty in the value we predict for y. One common way to express this in your model is to add simple error bars, which quantify how far away your predicted y is from the actual value of y - <strong>on average</strong>.</p>
-</div>
-<div class="section" id="question-2">
-<h2><span class="section-number">10.2.2. </span>Question 2<a class="headerlink" href="#question-2" title="Permalink to this headline">#</a></h2>
-<p>How would express the confidence in this model? e.g., if a stakeholder asks you for a measurement of the error and how confident you are in the model predictions? <br><br></p>
+<div class="section" id="q2-how-would-express-the-confidence-in-this-model">
+<h3><span class="section-number">10.1.2.2. </span><strong>Q2: How would express the confidence in this model?</strong><a class="headerlink" href="#q2-how-would-express-the-confidence-in-this-model" title="Permalink to this headline">#</a></h3>
+<p>Imagine a stakeholder asks you for a measurement of the error and how confident you are in the model predictions.</p>
 <details>
 <summary>Tips</summary>
 <p>Think of the many functions you already know for quantifying the error. Given the large number of samples that you have, how can you express the average error?</p>
@@ -762,14 +730,6 @@ The variance in y is 8.94</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean absolute error is 0.91
-The standard deviation of the error is 1.03
-The maximum error is 17.95
-The variance in y is 8.94
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -784,14 +744,10 @@ The variance in y is 8.94
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PolyCollection at 0x7b191b792230&gt;
-</pre></div>
 </div>
-<img alt="../_images/706f4809d8e22348464eda4d36092a7d866a6759bc754d26688e589d45a58dd1.png" src="../_images/706f4809d8e22348464eda4d36092a7d866a6759bc754d26688e589d45a58dd1.png" />
-</div>
-</div>
-<p>Let’s look at the distribution of y values in our data for <span class="math notranslate nohighlight">\(x ≈ 1.1\)</span>. Let’s do this by finding all of the points that are within .02 of 1.1, and then plotting the histogram.</p>
+<p>You may notice that simply using the average error for all <span class="math notranslate nohighlight">\(x\)</span> is clearly unsatisfactory as we alternate between under-estimating and over-estimating the error 😞</p>
+<p>Looking a bit more closely 🕵 it would seem as if we need a different error bar for each <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>To get some intuition, let’s look at the distribution of y values in our data near <span class="math notranslate nohighlight">\(x = 1.1\)</span>. Let’s do this by finding all of the points that are within .02 of 1.1, and then plotting the histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select x values within 0.01 of 1</span>
@@ -805,25 +761,20 @@ The variance in y is 8.94
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_close</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability density&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of y values for x ≈ 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of y values for x ≈ 1.1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of y values for x ≈ 1&#39;)
-</pre></div>
 </div>
-<img alt="../_images/44c9583241f9807d1164d3ef8fe27576c0e2e4fc4276c8c9c83be7aaced2f16c.png" src="../_images/44c9583241f9807d1164d3ef8fe27576c0e2e4fc4276c8c9c83be7aaced2f16c.png" />
-</div>
-</div>
-<p>If you did as we did, you should get the following plot: <br><center>
-<img src="https://github.com/tbeucler/2024_MLEES_Ebook/blob/main/Milton/paste_link_here.png?raw=1" width=80% height=250></center></p>
+<p>If you did as we did, you should get the following plot: <br><center></p>
+<!-- <img src="https://github.com/tbeucler/2024_MLEES_Ebook/blob/main/Milton/paste_link_here.png?raw=1" width=80% height=250></center> -->
+<p><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABBoAAAFvCAIAAABraT/dAAAgAElEQVR4AezdCXwURRo3/urKMTkmCTkgAYQAckggKodyCLKKgooiHviqyJGIKN4XsgoSEUEJoCyiC4KKBzeuLKuwQFZgl0uM3CJ3AiioYLgC5O4/L/Wn3k73zGRq7u76zccP9lRXV9fznZ6e58kcTVTcIAABCEAAAhCAAAQgAAEIeCRAPNoKG0EAAhCAAAQgAAEIQAACEFBRTuAggAAEIAABCEAAAhCAAAQ8FEA54SEcNoMABCAAAQhAAAIQgAAEUE7gGIAABCAAAQhAAAIQgAAEPBRAOeEhHDaDAAQgAAEIQAACEIAABFBO4BiAAAQgAAEIQAACEIAABDwUQDnhIRw2gwAEIAABCEAAAhCAAARQTuAYgAAEIAABCEAAAhCAAAQ8FEA54SEcNoMABCAAAQhAAAIQgAAEUE7gGIAABCAAAQhAAAIQgAAEPBRAOeEhHDaDAAQgAAEIQAACEIAABFBO4BiAAAQgAAEIQAACEIAABDwUQDnhIRw2gwAEIAABCEAAAhCAAARQTuAYgAAEIAABCEAAAhCAAAQ8FEA54SEcNoMABNwUWLVqFbl0c7O/D7ux/a5atYqPWVBQwBoLCgp4Y8AWcnJyCCHdunUL2B59uKPt27f37ds3LS0tLCyMEHLNNdf4cPAAD2XSB8JKD0GAH3HsDgIQ8KsAygm/8mJwCFhHgGVgLBcnhCiKEhcXV79+/U6dOj355JMLFy4sLS11GK035cTFpD/n0s3hyDU2Br6c2LJlS05OznvvvedwbibNYlVVPXjwYFxcHPNMSkpKTU3t3r27wxhN0WjGB8JiD4EPj5Njx47Nnz9/+PDht9xyS1JSkvFZ7+a+CgoKvvjii+eff/7GG2/kR3tQ/u7g5oTRDQKhI4ByInQeC8wEAiEtwMuJ1Mu3+Ph4RVF4gZGcnPz3v//dGMP333/f4tLNuKrGFm9KEVVV2X6///57viN/vzvx6aefEkLS09P5HrUL77//fosWLfr3769tNMXy8OHDCSFNmzb95ZdfTDFh15M0YzlhsYfA9QMktJafmvi56OJ7gNr3JN0cbeDAgdoR2DLKCTf10E1yAZQTkh8ACB8C7grw12ztBhUVFdu3b580aVLjxo3Zq+/DDz9cVVWl7ePNspflhHHXwS0njPMxS8sdd9xBCHnppZfMMmHX8zRjOWGxh8D1AyS09o033mjQoMHdd9/95ptvzpgxg52IPCgnsrKyrrzyygceeOCdd955++23UU4IPQroLLkAygnJDwCEDwF3BRyWE3zjc+fOPfjgg+wFeNy4cbzdywWUE14C+mrzv/zlL4SQi58789WAwR3HjOWExR4CHx4AFRUVfDT+9wIPygntOPzMg3cnuC0WIOBCAOWECxysggAE/p+A63JCVdXS0tI2bdoQQuLj4//880++JX9h5i1s4eeff37ssceaNWsWHR1ts9muuOKKDh06vPrqqz///DPrkJ6ezuoT3b8DBw5kHbRJ4aJFi2699dbatWsrisKzXrahNrHg2UZBQcHevXsHDhxYv379yMjIBg0aPP7447/++qtuki4+vKQdim2lmye/y+ejnbBuR5s3b+7fv3/Dhg1tNlutWrU6der03nvvlZSU6Lpp55Ofn8++Gx0ZGdm4ceMXXnihqKhI19/13f379z/xxBNNmzaNioqKi4tr06bN6NGjT58+rd3K2aOgVdX2V1X1//yf/0MIuf3223Xt7O6+ffvYZ+RcjFBWVpacnEwI+dvf/uZwkI8//pgQEhcXd+7cOdbh2LFjU6ZM6d2791VXXRUfHx8VFXXllVc++uijO3fuNI7g8IHo1q2bs5LJYX82bEFBwXPPPZeRkREbGxsdHd2iRYtnn3320KFDxp3WeMAbN2Et7jwEx44de/nllzMyMmIu3TIyMoYNG/bbb7/pxtQetPv373/ssccaNWoUGRnp7ON5bPN33nmHEBIREaH93CBb9e2337JH88svv9TtKyh3eYAuji53JsbPWign3OFCHwignMAxAAEIuCXAMqqL+ZaL3gsXLmQ59Mcff8y78Rdm3qKq6ooVK2w2G+scERFRq1YtY/Ldvn37xMRE1n75+xr/9//PPvssG4oneS+++CL7dnhiYmJYWBhP39m22sSCZxvz5s1j37a02+3R0dGsZ1JS0o8//qidpzZ917arqsqH4glHampqfHw8IYRSqp3whAkTdBPWDfXuu+/yb6EkJCRERESw+Vx99dVHjx7VdubzmT17NuuWkJBAKWX9W7VqdfbsWW1/F8vz58/nD0FcXBxfbtCgwa5du/iG7du3T01NZfuKjY3lca1bt4730S2wR5xS6jCrZt8BaN68uW4r3d2nnnqK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" /></p>
 <p>Looking at this histogram, it looks like we could make the assumption that the distribution of y given a value of x can be approximated by a normal distribution (a.k.a. a bell curve, or a gaussian).</p>
 <p>The question now becomes, <i>how do we do this?</i> 🤔</p>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="distributional-regression">
-<h1><span class="section-number">10.3. </span>Distributional Regression<a class="headerlink" href="#distributional-regression" title="Permalink to this headline">#</a></h1>
+<div class="section" id="distributional-regression">
+<h2><span class="section-number">10.1.3. </span>Distributional Regression<a class="headerlink" href="#distributional-regression" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Run this code cell to define some functions we&#39;ll need for an interactive demo</span>
@@ -867,8 +818,9 @@ The variance in y is 8.94
 <p>Given that we can do this, why don’t we train a neural network to predict the mean (<em><span class="math notranslate nohighlight">\(\mu\)</span></em>) and standard deviation (<em><span class="math notranslate nohighlight">\(\sigma\)</span></em>) of y given a value of x? Well, if you use the techniques we’ve been using so far, this might seem straightforward, until you reach the following question: <br> <em>what should I use as a training loss?</em></p>
 <p>Before, you trained neural networks to reduce some kind of deterministic metric (e.g., the mean average error, root mean square error, or accuracy). However, these metrics require that we compare singular values against other singular values - if we predict <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>, we will need a function that will return a singular value when comparing distributions.</p>
 <p>Here is where the Continuous Ranked Probability Score (CRPS) comes in! Let’s walk through what we’re going to do in order for us to understand how our network will learn.</p>
+</div>
 <div class="section" id="explaining-crps">
-<h2><span class="section-number">10.3.1. </span>Explaining CRPS<a class="headerlink" href="#explaining-crps" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1.4. </span>Explaining CRPS<a class="headerlink" href="#explaining-crps" title="Permalink to this headline">#</a></h2>
 <p>The CRPS is a value that quantifies the absolute area between the <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function"> cumulative distribution function</a> of two distributions. Let’s say that we have two gaussians we want to compare to the standard gaussian distribution (<span class="math notranslate nohighlight">\(\mu = 0\)</span> and <span class="math notranslate nohighlight">\(\sigma = 1\)</span>), the first with <span class="math notranslate nohighlight">\(\mu = 0.5\)</span> and <span class="math notranslate nohighlight">\(\sigma = 1.2\)</span>, and the second with <span class="math notranslate nohighlight">\(\mu=0.1\)</span> and <span class="math notranslate nohighlight">\(\sigma = 1.7\)</span>. Which of these two is closer to the standard gaussian?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -897,7 +849,7 @@ The variance in y is 8.94
 </div>
 </div>
 </div>
-<p>Like we said, the CRPS depends on the area between the CDFs. Let’s plot the CDFs of the standard gaussian with the two gaussians. Calculating the CRPS between two gaussians requires a bit of math that we don’t want to get into, so we’ll just give you the function to calculate it 😀</p>
+<p>Like we said, the CRPS depends on the area between the CDFs. Let’s plot the CDFs of the standard Gaussian with the two Gaussians. Calculating the CRPS between two Gaussians requires a bit of math that we don’t want to get into, so we’ll just give you the function to calculate it 😀</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown This cells defines the gaussian_crps function, which takes in $\mu_1,\; \sigma_1,\; \mu_2,\; \sigma_2$</span>
@@ -1038,8 +990,8 @@ The variance in y is 8.94
 </div>
 </div>
 </div>
-<p>We now have a way to evaluate the distance between two distributions (and it’s even a <em>proper score</em> !!!) - but if you recall what we’re going to be doing is comparing the gaussian that we predict to deterministic observations (i.e., we’ll predict a distribution but our target is a single value).</p>
-<p>How do we go about doing this? Well, one way that we can do this is to represent our observations with what is known as a <a href='https://en.wikipedia.org/wiki/Degenerate_distribution'><em>degenerate distribution</em></a> (a.k.a. a dirac distribution), whose PDf is a step function with a value between 0 and 1, where the change happens at the value of our observation. Let’s make a quick plot, since a picture is worth 1000 words!
+<p>We now have a way to evaluate the distance between two distributions (and it’s even a <a class="reference external" href="https://en.wikipedia.org/wiki/Scoring_rule#:~:text=Any%20given%20proper%20scoring%20rule,the%20predicted%20probabilities%20will%20ultimately"><em>proper score</em></a> !!!) - but if you recall what we’re going to be doing is comparing the gaussian that we predict to deterministic observations (i.e., we’ll predict a distribution but our target is a single value).</p>
+<p>How do we go about doing this? Well, one way that we can do this is to represent our observations with what is known as a <a href='https://en.wikipedia.org/wiki/Degenerate_distribution'><em>degenerate distribution</em></a> (a.k.a. a dirac distribution), whose PDF is a step function with a value between 0 and 1, where the change happens at the value of our observation. Let’s make a quick plot, since a picture is worth 1000 words!
 📸</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1236,8 +1188,8 @@ The variance in y is 8.94
 </div>
 </div>
 <div class="section" id="setting-up-the-neural-network">
-<h2><span class="section-number">10.3.2. </span>Setting up the Neural Network<a class="headerlink" href="#setting-up-the-neural-network" title="Permalink to this headline">#</a></h2>
-<p>Today, we’ll be setting up a simple neural network using PyTorch.</p>
+<h2><span class="section-number">10.1.5. </span>Setting up the Neural Network<a class="headerlink" href="#setting-up-the-neural-network" title="Permalink to this headline">#</a></h2>
+<p>Today, we’ll be modeling the conditional uncertainty by setting up a simple neural network using PyTorch.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s start by importing torch, the functional api, and the module api</span>
@@ -1354,11 +1306,6 @@ The variance in y is 8.94
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([50000, 4]) torch.Size([50000, 1])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1419,13 +1366,6 @@ The variance in y is 8.94
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting training
-Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
- Training complete
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1438,22 +1378,14 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/13352aef1f45a8da6b001fa052ee1aa08b616f77e32ccc866f84ce84fa797eec.png" src="../_images/13352aef1f45a8da6b001fa052ee1aa08b616f77e32ccc866f84ce84fa797eec.png" />
-</div>
 </div>
 </div>
 <div class="section" id="model-performance-overview">
-<h2><span class="section-number">10.3.3. </span>Model Performance Overview<a class="headerlink" href="#model-performance-overview" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1.6. </span>Model Performance Overview<a class="headerlink" href="#model-performance-overview" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s go ahead and load the best model state from what we saved before</span>
 <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;best_model.pth&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;All keys matched successfully&gt;
 </pre></div>
 </div>
 </div>
@@ -1493,9 +1425,6 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/a50d5ee06b1fa01e03f47f58aab3703d33cb24ee47c8538444d6047db8b86482.png" src="../_images/a50d5ee06b1fa01e03f47f58aab3703d33cb24ee47c8538444d6047db8b86482.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1503,20 +1432,15 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.005278643
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="model-evaluation">
-<h2><span class="section-number">10.3.4. </span>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">10.1.7. </span>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h2>
 <p>Now that we have a probabilistic model, we need to discuss ways in which to evaluate how well our model performs. However, up to now we’ve focused on deterministic metrics (e.g., RMSE, accuracy, MAE) in order to evaluate the performance of our models. As we saw before, these metrics are less useful when we predict a whole distribution as our outputs (whether it be via distributional regression as we did above, or even when making predictions with ensembles).</p>
 <p>Furthermore, we used the one probabilistic metric we’ve discussed as our optimization target (i.e., we trained the model to minimize the CRPS) -  if we use it as an evaluation metric we’ll get an overly optimistic view of how well our model performs. We’re therefore going to introduce two more metrics to evaluate the performance of our model.</p>
 <p>Note that these metrics also work when using other methods for quantifying uncertainty, such as cross-validation or model ensembles. However, the scores will be much worse for models whose errors aren’t conditional on the inputs!</p>
 <div class="section" id="spread-skill-score">
-<h3><span class="section-number">10.3.4.1. </span>Spread Skill Score<a class="headerlink" href="#spread-skill-score" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.7.1. </span>Spread Skill Score<a class="headerlink" href="#spread-skill-score" title="Permalink to this headline">#</a></h3>
 <p>The Spread Skill Score (SSC) is used to quantify how large the <em>spread</em> predicted by your model(s) is (e.g., the predicted sigma in our case) compared to the mean error associated with predicted mean (i.e., its <em>skill</em>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1569,18 +1493,12 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7b186cc60e80&gt;
-</pre></div>
-</div>
-<img alt="../_images/5c86818beff54d1217cc8de635f1935a1cbb1c887f5ba19be2b2c5541cca7fba.png" src="../_images/5c86818beff54d1217cc8de635f1935a1cbb1c887f5ba19be2b2c5541cca7fba.png" />
-</div>
 </div>
 <p>Note that the ideal spread skill score is a line where the error in your prediction is equal to the spread that you predict!</p>
 <p>Additionally, if you use a method of uncertainty quantification that isn’t conditional on the inputs (like the error bars we produced way up in Question 2), you’ll have a vertical line whose intersection with the diagonal will be whereever your error is as large as the spread in the data!</p>
 </div>
 <div class="section" id="probability-integral-transform-pit-histogram">
-<h3><span class="section-number">10.3.4.2. </span>Probability Integral Transform (PIT) Histogram<a class="headerlink" href="#probability-integral-transform-pit-histogram" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">10.1.7.2. </span>Probability Integral Transform (PIT) Histogram<a class="headerlink" href="#probability-integral-transform-pit-histogram" title="Permalink to this headline">#</a></h3>
 <p>While this visualization carries a name that some may find intimidating (one of your T.A.’s will readily admit to waking from a nightmare muttering something about it with a far off look on his face), it’s simply a way of quantifying how well calibrated your models are. It’s simply a matter of calculating the CDF of random samples from the observations and plotting a histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1625,7 +1543,8 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In order to make the PIT histogram, all we have to do is get a large number of samples from y_true, and plot the PDF of the CDF values calculated from the y_true samples. If we obtain a relatively uniform PDF, it means that the CDF from our predictions does a good job of matching the CDF of the observations.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In order to make the PIT histogram, all we have to do is get a large number of samples, and plot the PDF of the CDF values calculated from the y_true samples.</span>
+<span class="c1"># If we obtain a relatively uniform PDF, it means that our predictions do a good job of matching the CDF of the observations.</span>
 
 <span class="n">rn_gen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
@@ -1646,18 +1565,12 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7b186981be20&gt;
-</pre></div>
 </div>
-<img alt="../_images/fc9740e9b9d9bdcb9785b4d57ebaab46765faef2cfe839a590f3eb703fcc2f4a.png" src="../_images/fc9740e9b9d9bdcb9785b4d57ebaab46765faef2cfe839a590f3eb703fcc2f4a.png" />
+<p>Question: Is the model over-dispersive or under-dispersive?</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="bonus-challenge">
-<h1><span class="section-number">10.4. </span>Bonus Challenge<a class="headerlink" href="#bonus-challenge" title="Permalink to this headline">#</a></h1>
+<div class="section" id="bonus-challenge">
+<h2><span class="section-number">10.1.8. </span>Bonus Challenge<a class="headerlink" href="#bonus-challenge" title="Permalink to this headline">#</a></h2>
 <p>As you can imagine, the data that you used today does <em>not</em>, in fact, associate a gaussian distribution of values for each value of x. Instead, the distribution is a <em>weibull</em> distribution whose shape and scale parameters depend on x!</p>
 <p>We’ve gone ahead and prepared an interactive demo for you to get familiar with the weibull distribution.</p>
 <div class="cell docutils container">
@@ -1682,6 +1595,42 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
 </div>
 <p>The challenge, however, is to repeat the fitting of the neural network by predicting a weibull instead of a gaussian distribution. Note that this means that <strong>the CRPS we implemented above is not correct for use with the weibull distribution</strong> - and as your TA ran out of time and energy to figure it out for you, it’s up to you to figure it out.</p>
 <p>“You really shouldn’t spend too much time on this. I’d rather you work on your final project, or have a coffee” - that same TA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You may ignore your TA and implement a CRPS loss tailored to the Weibull distribution below</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train your model with the new CRPS loss</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot its predictions as a function of x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What does its spread skill score look like? Does the spread match the error?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What does the PIT look like? Is the model over-dispersive, under-dispersive, or just right?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1729,7 +1678,7 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.5. </span>(Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>(Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1751,29 +1700,23 @@ Epoch 76/100, Batch 196/196, last loss: 0.5857338697022322
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.1.2. Data Preparation and Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-model-the-data-using-a-4th-degree-polynomial">10.1.2.1. <strong>Q1) Model the data using a 4th degree polynomial</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-how-would-express-the-confidence-in-this-model">10.1.2.2. <strong>Q2: How would express the confidence in this model?</strong></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.2. Data Preparation and Analysis</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">10.2.1. Question 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">10.2.2. Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.1.3. Distributional Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.1.4. Explaining CRPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.1.5. Setting up the Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.1.6. Model Performance Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.1.7. Model Evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.1.7.1. Spread Skill Score</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.1.7.2. Probability Integral Transform (PIT) Histogram</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.3. Distributional Regression</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.3.1. Explaining CRPS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.3.2. Setting up the Neural Network</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.3.3. Model Performance Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.3.4. Model Evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.3.4.1. Spread Skill Score</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.3.4.2. Probability Integral Transform (PIT) Histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.1.8. Bonus Challenge</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.4. Bonus Challenge</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

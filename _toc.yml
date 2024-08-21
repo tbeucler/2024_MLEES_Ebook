@@ -64,7 +64,7 @@ parts:
         - file: ML/S1_3_Statistical_Forecasting.ipynb
           title: (Exercises) Statistical Forecasting
     - file: ML/Week_2_Decision_Trees_Random_Forests_SVMs.ipynb
-      title: Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis
+      title: Supervised Learning (Decision Trees, Random Forests, Support Vector Machines) and Environmental Risk Analysis
       sections:
         - file: Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.ipynb
           title: Simple Machine Learning Algorithms for Classification Tasks
@@ -77,7 +77,7 @@ parts:
         - file: Frederick/(Exercises)_Wildfire_Susceptibility_Mapping.ipynb
           title: (Exercises) Wildfire Susceptibility Mapping
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb
-      title: Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity
+      title: Unsupervised Learning (Clustering, Dimensionality Reduction) and Environmental Complexity
       sections:
         - file: Jingyan/Chapter4-UnsupervisedLearning.ipynb
           title: Unsupervised Learning for Clustering and Dimensionality Reduction
