@@ -140,3 +140,6 @@ parts:
           title: (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models
     - file: TrustworthyAI/HybridModeling_summary.ipynb
       title: Hybrid Modeling and Knowledge-Guided Learning
+      sections:
+      	- file: Kejdi/10_Hybird_Models.ipynb
+      	  title: (Exercise) Introduction to Hybrid models.
