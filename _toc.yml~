@@ -64,7 +64,7 @@ parts:
         - file: ML/S1_3_Statistical_Forecasting.ipynb
           title: (Exercises) Statistical Forecasting
     - file: ML/Week_2_Decision_Trees_Random_Forests_SVMs.ipynb
-      title: Decision Trees, Random Forests, Support Vector Machines and Environmental Risk Analysis
+      title: Supervised Learning (Decision Trees, Random Forests, Support Vector Machines) and Environmental Risk Analysis
       sections:
         - file: Frederick/Simple_Machine_Learning_Algorithms_for_Classification_Tasks.ipynb
           title: Simple Machine Learning Algorithms for Classification Tasks
@@ -77,7 +77,7 @@ parts:
         - file: Frederick/(Exercises)_Wildfire_Susceptibility_Mapping.ipynb
           title: (Exercises) Wildfire Susceptibility Mapping
     - file: ML/Week_3_Dimensionality_Reduction_Clustering.ipynb
-      title: Unsupervised Learning for Clustering/Dimensionality Reduction and Environmental Complexity
+      title: Unsupervised Learning (Clustering, Dimensionality Reduction) and Environmental Complexity
       sections:
         - file: Jingyan/Chapter4-UnsupervisedLearning.ipynb
           title: Unsupervised Learning for Clustering and Dimensionality Reduction
@@ -121,6 +121,9 @@ parts:
           title: (Exercise) Hydrological Modeling
     - file: DL/GNN.ipynb
       title: Graph Neural Networks and Interconnected Systems
+      sections:
+        - file: Haokun/Graph_neural_networks.ipynb
+          title: (Exercise) Graph neural networks
 - caption: (Part IV) Towards Trustworthy AI
   numbered: True
   chapters:
@@ -140,3 +143,6 @@ parts:
           title: (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models
     - file: TrustworthyAI/HybridModeling_summary.ipynb
       title: Hybrid Modeling and Knowledge-Guided Learning
+      sections:
+      	- file: Kejdi/10_Hybird_Models.ipynb
+      	  title: (Exercise) Introduction to Hybrid models.

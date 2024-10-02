@@ -229,21 +229,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.1. (Exercise) Graph Neural Networks with PyTorch</a></li>
+
+
+
+
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.1. 1. Introduction to Glacier Flow</a></li>
+
+
+
+
+</ul>
+</li>
 </ul>
 
     </div>
@@ -437,19 +451,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#irreducible-uncertainty">10.1.1.1. Irreducible Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reducible-uncertainty">10.1.1.2. Reducible Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-can-you-think-of-sources-of-epistemic-and-aleatoric-uncertainty-in-your-field">10.1.1.3. <strong>Q1) Can you think of sources of epistemic and aleatoric uncertainty in your field?</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.1.2. Data Preparation and Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-model-the-data-using-a-4th-degree-polynomial">10.1.2.1. <strong>Q1) Model the data using a 4th degree polynomial</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-how-would-express-the-confidence-in-this-model">10.1.2.2. <strong>Q2: How would express the confidence in this model?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-model-the-data-using-a-4th-degree-polynomial">10.1.2.1. <strong>Q2) Model the data using a 4th degree polynomial</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-how-would-express-the-confidence-in-this-model">10.1.2.2. <strong>Q3) How would express the confidence in this model?</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.1.3. Distributional Regression</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.1.4. Explaining CRPS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.1.5. Setting up the Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.1.5. Setting up the Neural Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-set-up-a-simple-neural-network-using-pytorch">10.1.5.1. <strong>Q4) Set up a simple neural network using PyTorch</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-implement-steps-1-5-detailed-above-in-the-code-cells-below">10.1.5.2. <strong>Q5) Implement steps 1-5 detailed above in the code cells below.</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-update-the-training-loop-as-needed-and-train-a-model">10.1.5.3. <strong>Q6) Update the training loop as needed, and train a model.</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.1.6. Model Performance Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.1.7. Model Evaluation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.1.7.1. Spread Skill Score</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.1.7.2. Probability Integral Transform (PIT) Histogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-is-the-model-over-dispersive-or-under-dispersive">10.1.7.3. <strong>Q7) Is the model over-dispersive or under-dispersive?</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.1.8. Bonus Challenge</a></li>
@@ -520,6 +545,7 @@ document.write(`
 <span class="c1"># Import pooch - used to handle data downloading</span>
 <span class="kn">import</span> <span class="nn">pooch</span>
 
+<span class="c1"># Define colorblind safe colors for plotting</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">215</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">122</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">199</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">214</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">114</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -543,50 +569,83 @@ document.write(`
 <h2><span class="section-number">10.1.1. </span>A Quick Introduction to Uncertainty<a class="headerlink" href="#a-quick-introduction-to-uncertainty" title="Permalink to this headline">#</a></h2>
 <p>Uncertainty is one of those terms that you are likely very familiar with, whether in the colloquial sense (I’d have a hard time believing that any of us have <em>never</em> had a moment of doubt) or the scientific sense.</p>
 <p>Today, we’ll be using <a href="https://doi.org/10.1175/AIES-D-22-0061.1">Haynes et al.’s paper on uncertainty estimates with neural networks for environmental science applications</a> as a guide for our efforts. Let us then begin as they did - by discussing the different types of uncertainty we expect to encounter.</p>
-<p>Generally speaking, we expect to encounter two types of uncertainty - reducible and irreducible uncertainty.</p>
+<p>Generally speaking, we expect to encounter two types of uncertainty - reducible and irreducible uncertainty. As you may imagine, irreducible uncertainty refers to the types of uncertainty that we can’t do anything about - largely associated with <em>stochastic</em> (a.k.a. random) processes.</p>
+<div class="section" id="irreducible-uncertainty">
+<h3><span class="section-number">10.1.1.1. </span>Irreducible Uncertainty<a class="headerlink" href="#irreducible-uncertainty" title="Permalink to this headline">#</a></h3>
+<p>Let’s imagine, for example, that you are the head of a seedy bookmaker organization that wants to make money on rubber duck races - similar to the one pictured below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
-# prompt: Write a small python script that illustrates how machine precision affects floating point operations
-
-a = 1.0
-b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1
-print(a == b)  # False due to floating-point precision limitations
-print(a)
-print(b)
-
-c = 0.3
-d = 0.1 + 0.2
-print(c == d)  # Also False due to floating-point precision
-
-import math
-print(math.isclose(a, b))  # True, using a tolerance for comparison
-print(math.isclose(c, d))  # True
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Run this cell to load the embedded youtube video</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OhRngvJlfmI?amp;start=35&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’d have a hard (even impossible) time trying to fix your odds for a single duck winning. Sure, maybe you could figure out what region of the box the winning duck is more likely to come from after enough trials. But the turbulent swirls (or <em>eddies</em>) in the flow in the river, the waterfall, and the collisions between ducks are all stochastic processes that will ultimately determine the average speed of the duck between the start and finish (and therefore the winner).</p>
+<p>Many phenomena in this world are like these ducks - we can’t predict them precisely but we can talk about them in statistical terms (for example, the diffusion of milk into your morning coffee). As a result, many of the data that we are able to measure carry a degree of uncertainty that we have no way of reducing - e.g., was the mean flow that I measured influenced by turbulent eddies? And if so, by how much?</p>
+<p>In Machine Learning literature, people sometimes even extend the concept of irreducible uncertainty to the uncertainty in the data itself (e.g., the measurements we’re working with). However, this type of unertainty is not strictly irreducible - better measurement technology, understanding of the phenomena, or includion of additional data might end up with us reducing the uncertainty in our current dataset. However, most of the time we’re stuck with the quality of the data that we have and thus some refer to this uncertainty as irreducible. We don’t recommend doing this, but hopefully this gives you context for their reasoning.</p>
+<p>As a last note, you will also hear about irreducible uncertainty being referred to as <em><strong>aleatoric</strong></em> uncertainty, which comes from the latin word for random. (This will be more apparent to those of you who speak romantic languages, as aleatorio / aléatoire / aleatório mean random in Spanish / French / Portuguese)</p>
+</div>
+<div class="section" id="reducible-uncertainty">
+<h3><span class="section-number">10.1.1.2. </span>Reducible Uncertainty<a class="headerlink" href="#reducible-uncertainty" title="Permalink to this headline">#</a></h3>
+<p>This brings us to the second kind of uncertainty: reducible uncertainty. This is the type of uncertainty that results from decisions made in the data sampling and model development process, i.e., <em>it comes from our lack of knowledge</em>. This can take form in our method for measuring, sampling, or even the technical aspects of how we build our models.</p>
+<p>As a matter of fact, you’ve probably haven’t thought about how your own decisions in programming can affect the output of your models. Let’s look at the errors we can get depending on how we handle data operations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We know that by adding a period we have a floating point representation of a number</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The value of a is </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
-# prompt: Make a namespace with &quot;with&quot; that allows me to only import numpy within that namespace
-
-with np_namespace():
-  import numpy as np
-  print(np.array([1, 2, 3]))
-
-def np_namespace():
-  class Namespace:
-    pass
-  return Namespace()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Additionally, we can make a list of 10 elements whose value is 0.1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;b as a list: </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># If we were to sum those elements, we would expect a value of 1. Let&#39;s try python&#39;s built-in sum function:</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of b is </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</div>
+<p>By summing 0.1 to itself multiple times, we introduce errors (and hence uncertainty) because there is no way of representing 0.1 perfectly as a floating point number, and the error accumulates over the repetitions. Let’s try using numpy intead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;c as an array: </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of c is </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Does this mean that numpy is perfect? Well, the short answer is no - it’s just better at handling floating point operations that the default sum function in python. But it too accumulates errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.05</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;d as an array: </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of d is </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may imagine, then, that performing many operations on values can end up with a small accumulation of error. Still, this is typically one of the smaller sources of uncertainty in our models.</p>
+<p>How accurate and precise was the instrument used to generate the data we’re working with? How much information is present in the variables/covariates we’ve chosen to model our problem? What variables/processes important for our problem are we ignorant of or unable to capture? These are all sources of uncertainty that we’re forced to deal with and, though these are reducible, in practice it’s generally something that is easier said than done.</p>
+<p>Finally, before we move on to today’s problem, let’s introduce another term for reducible uncertainty: <em><strong>epistemic uncertainty</strong></em>. This term comes from the greek epistēmē, meaning knowledge, and thus reflects that this uncertainty comes from a lack of knowledge. 🙂</p>
+</div>
+<div class="section" id="q1-can-you-think-of-sources-of-epistemic-and-aleatoric-uncertainty-in-your-field">
+<h3><span class="section-number">10.1.1.3. </span><strong>Q1) Can you think of sources of epistemic and aleatoric uncertainty in your field?</strong><a class="headerlink" href="#q1-can-you-think-of-sources-of-epistemic-and-aleatoric-uncertainty-in-your-field" title="Permalink to this headline">#</a></h3>
+<p>Add your reflections here 🧠</p>
 </div>
 </div>
 <div class="section" id="data-preparation-and-analysis">
 <h2><span class="section-number">10.1.2. </span>Data Preparation and Analysis<a class="headerlink" href="#data-preparation-and-analysis" title="Permalink to this headline">#</a></h2>
-<p>First, let’s download a dataset we prepared for this notebook and plot it. Like before, we’ll rely on pooch to load the data from OneDrive, and</p>
+<p>First, let’s download a dataset we prepared for this notebook and plot it. Like before, we’ll rely on pooch to load the data from OneDrive, and then save the file assocaited with the “x” values in x_file and that associated wit the “y” values in y_file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the files from the cloud using Pooch.</span>
@@ -627,8 +686,8 @@ def np_namespace():
 </div>
 </div>
 <p>Imagine that you’ve taken this data from a physical variable you’re very familiar with - and thus you know that you can model the variable with a 4th degree polynomial. Let’s fit it quickly, e.g., with scikit-learn.</p>
-<div class="section" id="q1-model-the-data-using-a-4th-degree-polynomial">
-<h3><span class="section-number">10.1.2.1. </span><strong>Q1) Model the data using a 4th degree polynomial</strong><a class="headerlink" href="#q1-model-the-data-using-a-4th-degree-polynomial" title="Permalink to this headline">#</a></h3>
+<div class="section" id="q2-model-the-data-using-a-4th-degree-polynomial">
+<h3><span class="section-number">10.1.2.1. </span><strong>Q2) Model the data using a 4th degree polynomial</strong><a class="headerlink" href="#q2-model-the-data-using-a-4th-degree-polynomial" title="Permalink to this headline">#</a></h3>
 <details>
 <summary>Tips</summary>
 Scikit-learn doesn't include a polynomial regression model because they can be more easily made by extending the linear model! Since a polynomial regression is simply the linear combination of inputs to different powers, you can instead populate the feature space with these and fit a linear regression model.
@@ -650,19 +709,19 @@ Scikit-learn doesn't include a polynomial regression model because they can be m
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Here&#39;s one solution for fitting the model. Double click to see the answer.</span>
-<span class="c1"># %%script false --no-raise-error</span>
-<span class="c1"># Remove %%script false --no-raise-error in order to get this cell to run</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="n">poly_features</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">x_poly</span> <span class="o">=</span> <span class="n">poly_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error in order to get this cell to run
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+poly_features = PolynomialFeatures(degree=4, include_bias=False)
+x_poly = poly_features.fit_transform(x.reshape(-1, 1))
 
-<span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+lin_reg = LinearRegression()
+lin_reg.fit(x_poly, y)
 
-<span class="n">x_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">x_pred_poly</span> <span class="o">=</span> <span class="n">poly_features</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_pred_poly</span><span class="p">)</span>
+x_pred = np.linspace(x.min(), x.max(), 500)
+x_pred_poly = poly_features.transform(x_pred.reshape(-1, 1))
+y_pred = lin_reg.predict(x_pred_poly)
 </pre></div>
 </div>
 </div>
@@ -670,13 +729,13 @@ Scikit-learn doesn't include a polynomial regression model because they can be m
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Here&#39;s a quick plot of the polynomial regression in the solution above. Double click to see the answer.</span>
-<span class="c1"># %%script false --no-raise-error</span>
-<span class="c1"># Remove %%script false --no-raise-error in order to get this cell to run</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error in order to get this cell to run
+fig, ax = plt.subplots(figsize = (8,2), dpi=150)
+ax.scatter(x, y, s=0.1, alpha=0.5)
+ax.plot(x_pred, y_pred, alpha=1, color=&#39;red&#39;)
+ax.set_xlabel(&#39;x&#39;)
+ax.set_ylabel(&#39;y&#39;)
 </pre></div>
 </div>
 </div>
@@ -684,8 +743,8 @@ Scikit-learn doesn't include a polynomial regression model because they can be m
 <p>This does a pretty good job, but we can clearly see that y isn’t a simple function of x - after all, there are multiple values of y for each value of x, so technically a function relating x to y does not exist!</p>
 <p>Thus, we can say that there is a degree of uncertainty in the value we predict for y. One common way to express this in your model is to add simple error bars, which quantify how far away your predicted y is from the actual value of y - <strong>on average</strong>.</p>
 </div>
-<div class="section" id="q2-how-would-express-the-confidence-in-this-model">
-<h3><span class="section-number">10.1.2.2. </span><strong>Q2: How would express the confidence in this model?</strong><a class="headerlink" href="#q2-how-would-express-the-confidence-in-this-model" title="Permalink to this headline">#</a></h3>
+<div class="section" id="q3-how-would-express-the-confidence-in-this-model">
+<h3><span class="section-number">10.1.2.2. </span><strong>Q3) How would express the confidence in this model?</strong><a class="headerlink" href="#q3-how-would-express-the-confidence-in-this-model" title="Permalink to this headline">#</a></h3>
 <p>Imagine a stakeholder asks you for a measurement of the error and how confident you are in the model predictions.</p>
 <details>
 <summary>Tips</summary>
@@ -721,12 +780,14 @@ The variance in y is 8.94</p>
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Our solution for quantifying the average error.</span>
-<span class="c1"># Quantify the error using the mean absolute error.</span>
-<span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_poly</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The mean absolute error is </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The standard deviation of the error is </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum error is </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The variance in y is </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error to get this cell to run
+# Quantify the error using the mean absolute error.
+error = np.abs(lin_reg.predict(x_poly) - y)
+print(f&#39;The mean absolute error is {error.mean():.2f}&#39;)
+print(f&#39;The standard deviation of the error is {error.std():.2f}&#39;)
+print(f&#39;The maximum error is {error.max():.2f}&#39;)
+print(f&#39;The variance in y is {y.std():.2f}&#39;)
 </pre></div>
 </div>
 </div>
@@ -734,13 +795,15 @@ The variance in y is 8.94</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Our solution for visualizing the error.</span>
-<span class="c1"># Plot the polynomial model with error bars</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">-</span> <span class="n">error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">error</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="n">y_pred</span> <span class="o">+</span> <span class="n">error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">error</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error to get this cell to run.
+# Plot the polynomial model with error bars
+fig, ax = plt.subplots(figsize = (8,2), dpi=150)
+ax.scatter(x, y, s=0.1, alpha=0.25)
+ax.plot(x_pred, y_pred, alpha=1, color=&#39;red&#39;, linewidth=0.5)
+ax.set_xlabel(&#39;x&#39;)
+ax.set_ylabel(&#39;y&#39;)
+ax.fill_between(x_pred, y_pred - error.mean() - 2 * error.std(), y_pred + error.mean() + 2*error.std(), alpha=0.25, color=&#39;red&#39;)
 </pre></div>
 </div>
 </div>
@@ -797,7 +860,7 @@ The variance in y is 8.94</p>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">/</span> <span class="n">std</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">std</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Gaussian with mean </span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s1"> and std </span><span class="si">{</span><span class="n">std</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
@@ -826,7 +889,7 @@ The variance in y is 8.94</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Let&#39;s plot the three gaussians. As always, feel free to check the code by double clicking :)</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">8.5</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -841,7 +904,7 @@ The variance in y is 8.94</p>
     <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;probability density&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Comparison of three gaussians&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
@@ -954,7 +1017,7 @@ The variance in y is 8.94</p>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ys</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Gaussian </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1"> CRPS </span><span class="si">{</span><span class="n">crps_scores</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Prob.&#39;</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
 
         <span class="c1"># Change the legend facecolor</span>
@@ -1013,7 +1076,7 @@ The variance in y is 8.94</p>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_range</span><span class="p">,</span> <span class="n">Y_heaviside</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">215</span><span class="p">,</span> <span class="mi">166</span><span class="p">,</span> <span class="mi">122</span><span class="p">])</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
 
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Prob.&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Degenerate distribution with x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
@@ -1200,28 +1263,67 @@ The variance in y is 8.94</p>
 </div>
 </div>
 </div>
+<div class="section" id="q4-set-up-a-simple-neural-network-using-pytorch">
+<h3><span class="section-number">10.1.5.1. </span><strong>Q4) Set up a simple neural network using PyTorch</strong><a class="headerlink" href="#q4-set-up-a-simple-neural-network-using-pytorch" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, let&#39;s create a model by defining a class that inherits from nn.module</span>
-<span class="k">class</span> <span class="nc">ANN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a simple neural network by defining a class that inherits from nn.module. Replace ___ with whatever you want to name your class</span>
+<span class="k">class</span> <span class="nc">___</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="c1"># Let&#39;s define what our model will look like using the init method</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">input_size</span><span class="p">,</span> <span class="c1"># the number of features in the input</span>
-                 <span class="n">hidden_size</span><span class="p">,</span> <span class="c1"># the number of neurons in the hidden layer</span>
-                 <span class="n">output_size</span> <span class="c1"># the number of output features.</span>
-                 <span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ANN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+                <span class="c1"># Add additional arguments depending on what you need to define your neural network. We recommend have at least:</span>
+                <span class="c1"># the input size (i.e., the number of features in the input)</span>
+                <span class="c1"># the number of neurons in each hidden layer</span>
+                <span class="c1"># the output size (i.e., the number of features in the output)</span>
+                <span class="p">):</span>
+        <span class="c1"># Call the parent&#39;s __init__ method. Replace ___ with the name of your class</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">___</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
+        <span class="c1"># Here is how you define a linear layer (i.e., a layer that combines n number of inputs linearly into m number of outputs). The values for n and m will likely depend on your arguments, or you can hard code them into your model definition if you prefer.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_____</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+        <span class="c1">#You can also add as many layers as you like. Also, don&#39;t worry about the activation functions for now - we&#39;ll define them further down.</span>
 
     <span class="c1"># When the model is trained or used in inference, it calls upon its &#39;forward&#39; method, which tell&#39;s it precisely what it needs to do. Let&#39;s go ahead and define it</span>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">leaky_relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">x</span><span class="p">,</span> <span class="c1"># Note that x is whatever inputs the neural network sees</span>
+                <span class="p">):</span>
+        <span class="c1"># The convention is to overwrite x whenever we call upon the model&#39;s layers. Let&#39;s assume you have a fully connected layer called fc1. This is how you would apply the leaky relu activation function:</span>
+        <span class="c1"># x = F.leaky_relu(self.fc1(x))</span>
+
+        <span class="c1"># Write out your actual model below.</span>
+
+        <span class="c1"># and finally, you should return the final value for x</span>
         <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Our solution for defining a simple model</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error to get this cell to run.
+# Now, let&#39;s create a model by defining a class that inherits from nn.module
+class ANN(nn.Module):
+    # Let&#39;s define what our model will look like using the init method
+    def __init__(self,
+                 input_size, # the number of features in the input
+                 hidden_size, # the number of neurons in the hidden layer
+                 output_size # the number of output features.
+                 ):
+        super(ANN, self).__init__()
+
+        self.fc1 = nn.Linear(input_size, hidden_size)
+        self.fc2 = nn.Linear(hidden_size, hidden_size)
+        self.fc3 = nn.Linear(hidden_size, output_size)
+
+    # When the model is trained or used in inference, it calls upon its &#39;forward&#39; method, which tell&#39;s it precisely what it needs to do. Let&#39;s go ahead and define it
+    def forward(self, x):
+        x = F.leaky_relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
 </pre></div>
 </div>
 </div>
@@ -1285,46 +1387,106 @@ The variance in y is 8.94</p>
 <li><p>Since we know the underlying relationship is well represented using 4th degree polynomials, let’s make polynomial features of the x array</p></li>
 <li><p>Convert the numpy arrays to pytorch tensors.</p></li>
 <li><p>Convert the tensors into a tensor dataset and use the dataset to make a dataloader.</p></li>
-<li><p>Instantiate the model. Remember that the</p></li>
+<li><p>Instantiate the model. Remember that the model you defined above may need a number of arguments in order to be instantiated, depending on how you defined it.</p></li>
 <li><p>Define the loss function and optimizer</p></li>
 <li><p>Write and run the training loop. It should include an early stopping criterion or two :</p></li>
 </ol>
+</div>
+<div class="section" id="q5-implement-steps-1-5-detailed-above-in-the-code-cells-below">
+<h3><span class="section-number">10.1.5.2. </span><strong>Q5) Implement steps 1-5 detailed above in the code cells below.</strong><a class="headerlink" href="#q5-implement-steps-1-5-detailed-above-in-the-code-cells-below" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly_fitter</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">poly_x</span> <span class="o">=</span> <span class="n">poly_fitter</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make the polynomial features using sklearn&#39;s PolynomialFeatures. Remember to make sure that the shape of the data you transform is (num_samples, num_features) - otherwise sklearn will complain.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transform the numpy arrays into pytorch tensors.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the x and y tensors to make a torch TensorDataset</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use your tensor dataset to make a torch DataLoader</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Here is our solution to the above segments.</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error to get this cell to run.
+poly_fitter = PolynomialFeatures(degree=4, include_bias=False)
+poly_x = poly_fitter.fit_transform(x.reshape(-1, 1))
 
-<span class="n">x_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">poly_x</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
-<span class="n">y_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="kc">None</span><span class="p">])</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+x_tensor = torch.from_numpy(poly_x).float()
+y_tensor = torch.from_numpy(y[:,None]).float()
+print(x_tensor.shape, y_tensor.shape)
 
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TensorDataset</span><span class="p">(</span><span class="n">x_tensor</span><span class="p">,</span> <span class="n">y_tensor</span><span class="p">)</span>
-<span class="n">dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span>
-                                         <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="c1"># The number of samples in each batch</span>
-                                         <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># Whether to shuffle the order of the points being fed during training</span>
-                                         <span class="p">)</span>
+dataset = torch.utils.data.TensorDataset(x_tensor, y_tensor)
+dataloader = torch.utils.data.DataLoader(dataset,
+                                         batch_size=256, # The number of samples in each batch
+                                         shuffle=True, # Whether to shuffle the order of the points being fed during training
+                                         )
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">ANN</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="c1">#Number of input features</span>
-            <span class="mi">110</span><span class="p">,</span> <span class="c1"># Number of neurons / hidden layer</span>
-            <span class="mi">2</span><span class="p">,</span> <span class="c1"># Predicted features, =2 because we predict a mean and std</span>
-            <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate your model in this cell</span>
+<span class="n">model</span> <span class="o">=</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss_function</span> <span class="o">=</span> <span class="n">CRPS_ML</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">NAdam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define your loss function - in this case, we&#39;ll use CRPS</span>
+<span class="n">loss_function</span> <span class="o">=</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And define your optimizer. You could start with Adam, but choose whatever suits your fancy.</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">_______</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Our solution for the above segments is here</span>
+<span class="o">%%</span><span class="k">script</span> false --no-raise-error
+# Remove %%script false --no-raise-error to get this cell to run.
+
+model = ANN(4, #Number of input features
+            110, # Number of neurons / hidden layer
+            2, # Predicted features, =2 because we predict a mean and std
+            )
+
+loss_function = CRPS_ML
+optimizer = torch.optim.NAdam(model.parameters(), lr=0.0001)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q6-update-the-training-loop-as-needed-and-train-a-model">
+<h3><span class="section-number">10.1.5.3. </span><strong>Q6) Update the training loop as needed, and train a model.</strong><a class="headerlink" href="#q6-update-the-training-loop-as-needed-and-train-a-model" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># training loop</span>
@@ -1380,6 +1542,7 @@ The variance in y is 8.94</p>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="model-performance-overview">
 <h2><span class="section-number">10.1.6. </span>Model Performance Overview<a class="headerlink" href="#model-performance-overview" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -1422,13 +1585,6 @@ The variance in y is 8.94</p>
 <span class="n">legend</span><span class="o">.</span><span class="n">legend_handles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">];</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1566,7 +1722,10 @@ The variance in y is 8.94</p>
 </div>
 </div>
 </div>
-<p>Question: Is the model over-dispersive or under-dispersive?</p>
+</div>
+<div class="section" id="q7-is-the-model-over-dispersive-or-under-dispersive">
+<h3><span class="section-number">10.1.7.3. </span><strong>Q7) Is the model over-dispersive or under-dispersive?</strong><a class="headerlink" href="#q7-is-the-model-over-dispersive-or-under-dispersive" title="Permalink to this headline">#</a></h3>
+<p>Write your thoughts here 📉</p>
 </div>
 </div>
 <div class="section" id="bonus-challenge">
@@ -1700,19 +1859,30 @@ The variance in y is 8.94</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quick-introduction-to-uncertainty">10.1.1. A Quick Introduction to Uncertainty</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#irreducible-uncertainty">10.1.1.1. Irreducible Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reducible-uncertainty">10.1.1.2. Reducible Uncertainty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-can-you-think-of-sources-of-epistemic-and-aleatoric-uncertainty-in-your-field">10.1.1.3. <strong>Q1) Can you think of sources of epistemic and aleatoric uncertainty in your field?</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation-and-analysis">10.1.2. Data Preparation and Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q1-model-the-data-using-a-4th-degree-polynomial">10.1.2.1. <strong>Q1) Model the data using a 4th degree polynomial</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-how-would-express-the-confidence-in-this-model">10.1.2.2. <strong>Q2: How would express the confidence in this model?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q2-model-the-data-using-a-4th-degree-polynomial">10.1.2.1. <strong>Q2) Model the data using a 4th degree polynomial</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-how-would-express-the-confidence-in-this-model">10.1.2.2. <strong>Q3) How would express the confidence in this model?</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distributional-regression">10.1.3. Distributional Regression</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explaining-crps">10.1.4. Explaining CRPS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.1.5. Setting up the Neural Network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-neural-network">10.1.5. Setting up the Neural Network</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-set-up-a-simple-neural-network-using-pytorch">10.1.5.1. <strong>Q4) Set up a simple neural network using PyTorch</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-implement-steps-1-5-detailed-above-in-the-code-cells-below">10.1.5.2. <strong>Q5) Implement steps 1-5 detailed above in the code cells below.</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-update-the-training-loop-as-needed-and-train-a-model">10.1.5.3. <strong>Q6) Update the training loop as needed, and train a model.</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-performance-overview">10.1.6. Model Performance Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">10.1.7. Model Evaluation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spread-skill-score">10.1.7.1. Spread Skill Score</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-integral-transform-pit-histogram">10.1.7.2. Probability Integral Transform (PIT) Histogram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-is-the-model-over-dispersive-or-under-dispersive">10.1.7.3. <strong>Q7) Is the model over-dispersive or under-dispersive?</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-challenge">10.1.8. Bonus Challenge</a></li>
