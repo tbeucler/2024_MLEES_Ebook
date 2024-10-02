@@ -62,6 +62,7 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
 # Import pooch - used to handle data downloading
 import pooch
 
+# Define colorblind safe colors for plotting
 colors = [np.array([215, 166, 122])/255, np.array([0, 148, 199])/255, np.array([214, 7, 114])/255]
 ------------------
 
