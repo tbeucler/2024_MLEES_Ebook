@@ -121,6 +121,9 @@ parts:
           title: (Exercise) Hydrological Modeling
     - file: DL/GNN.ipynb
       title: Graph Neural Networks and Interconnected Systems
+      sections:
+        - file: Haokun/Graph_neural_networks.ipynb
+          title: (Exercise) Graph neural networks
 - caption: (Part IV) Towards Trustworthy AI
   numbered: True
   chapters:
