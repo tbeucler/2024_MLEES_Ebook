@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11.1. 1. Introduction to Glacier Flow &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>11.1. (Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -250,11 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. 1. Introduction to Glacier Flow</a></li>
-
-
-
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </li>
 </ul>
@@ -440,7 +436,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. Introduction to Glacier Flow</h1>
+    <h1>(Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -450,26 +446,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">11.1. 1. Introduction to Glacier Flow</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-glen-stokes-equations">11.2. 2. The Glen-Stokes Equations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-equations-for-glacier-flow">11.2.1. 2.1 Stokes Equations for Glacier Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glen-s-flow-law">11.2.2. 2.2 Glen’s Flow Law</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-to-the-ice-sheet-equation">11.2.3. 2.3. Transition to the Ice Sheet Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">11.1.1.1. Introduction to Glacier Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">11.1.1.2. Numerical solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-case">11.1.1.2.1. Boundary Conditions with no-slip condition at the case</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">11.3. 3. Boundary Conditions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-slip-condition-at-the-base">11.3.1. 3.1 No-Slip Condition at the Base</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-free-surface">11.3.2. 3.2 Stress-Free Surface</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.4. 4. Emulating Ice Flow with Machine Learning</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.4.1. 4.1 Overview of the Machine Learning Approach</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.4.2. Start working on the CNN model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.1.2. Introduction to hybrid modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.1.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.1.2.1.1. Overview of the Machine Learning Approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-funcitons-you-do-not-need-to-know">11.1.2.1.2. Necessary funcitons you do not need to know</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">11.1.2.1.3. Functions to prepare the data for the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.1.2.1.4. Start working on the CNN model</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">11.5. 4.2 Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementatiing-the-hybrid-model">11.1.2.2. Implementatiing the hybrid model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-functions-for-the-hybrid-model">11.1.2.2.1. Helping functions for the hybrid model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">11.1.2.2.2. Run the hybrid model</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -480,18 +480,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p>This chapter about hybrid models will reproduce <a class="reference external" href="https://github.com/jouvetg/igm">IGM</a> which is a glacier evolution model. We will start with a conventional glacier evolution model that solves the partial differential equations in a numerical scheme. This model is computationally expensive and not practical for large regions (i.e. The Alps). This is why glaciologists use the Shallow Ice Approximation (SIA) which is less expensive at the costs of sactifying physics though many simplifications.</p>
-<p>Here, we train a Machine Learning (ML) model to replace certain, expensive parts of the physics model.</p>
-<p>Learning Objectives:</p>
-<ul class="simple">
-<li><p>What is a physical model?
-A model that uses known equations and input variables (data) to predict the state of the system.</p></li>
-<li><p>What are some dissadvantages to the physical model ? computationally expensive and unknown relationship/laws between inputs and system</p></li>
-<li><p>How can we use machine learning to imporve physical models? We can learn parts of the system via : a) data driven models b) PINN by enforcing physics laws in the NNs i.e. Conservation of mass</p></li>
-<li><p>What are the advantages of hybrid models? bridges the best of both worlds. Faster models and learn relationships not known before.</p></li>
-</ul>
-<div class="section" id="introduction-to-glacier-flow">
-<h1><span class="section-number">11.1. </span>1. Introduction to Glacier Flow<a class="headerlink" href="#introduction-to-glacier-flow" title="Permalink to this headline">#</a></h1>
+  <div class="section" id="exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models">
+<h1><span class="section-number">11.1. </span>(Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models<a class="headerlink" href="#exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models" title="Permalink to this headline">#</a></h1>
+<div class="section" id="learning-objectives">
+<h2><span class="section-number">11.1.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>How can we model glaciers</strong> with physic-based approach?</p></li>
+<li><p><strong>Understand what hybrid models are</strong> and how they integrate physics-based and ML approaches.</p></li>
+<li><p><strong>Explore the advantages and shortcomings</strong> of using hybrid models.</p></li>
+<li><p><strong>Examine different applications</strong> for combining machine learning and physical models.</p></li>
+</ol>
+<p><strong>Q: According to you, what is a glacier ?</strong></p>
+<center>
+<img src="https://home.nps.gov/lacl/learn/nature/images/Glaciers-page_-Image-w-cred-cap_-1200w_-Tanaina-Glacier_2_1.jpg?maxwidth=1300&autorotate=false&quality=78&format=webp" width=80%></img>
+<p><br> <i> To me :  A glacier is a non-Newtonian fluid, with a stress dependent viscosity, that flows from higher to lower elevations </i></p>
+</center><div class="section" id="introduction-to-glacier-flow">
+<h3><span class="section-number">11.1.1.1. </span>Introduction to Glacier Flow<a class="headerlink" href="#introduction-to-glacier-flow" title="Permalink to this headline">#</a></h3>
 <p>Glaciers are massive bodies of ice that flow slowly under their own weight. The flow of ice in a glacier is a complex process governed by physical laws that describe how the ice deforms and moves.
 Given an initial glacier geometry, the time evolution in ice thickness <span class="math notranslate nohighlight">\(h(x, y, t)\)</span> is determined by the mass conservation equation, which couples ice dynamics and surface mass balance (SMB)
 through:</p>
@@ -502,64 +506,18 @@ through:</p>
 \end{aligned}
 \)</span></p>
 <p>where <span class="math notranslate nohighlight">\(\nabla \cdot\)</span> denotes the divergence operator with respect to the flux (<span class="math notranslate nohighlight">\(Q=\mathbf{u}h\)</span>). <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the vertically averaged horizontal ice velocity field and SMB the SMB function, which consists of the
-integration of ice accumulation and ablation over one year. Mass conservation equation is generic and can be applied to model glacier evolution in number of applications provided adequate SMB and ice-flow model components.
+integration of ice accumulation and ablation over one year.</p>
+<p>Mass conservation equation is generic and can be applied to model glacier evolution in number of applications provided adequate SMB and ice-flow model components.
 In the following, we mostly focus on developing an efficient numerical method to compute the ice-flow considering it is often the most computationally expensive component in glacier evolution model.</p>
 <ul class="simple">
 <li><p>First, we will use a numerical solution to compute <span class="math notranslate nohighlight">\(Q\)</span>.</p></li>
-<li><p>Then we will use a data-driven Machine Learning (ML) approach that emulates ice-flow (Jouvet and others, 2022).
-The state of the art ML techniques ( Jouvet and Cordonnier, 2023), use a Physics Informed Neural Network (PINN); however, this goes beyond the scope of this chapter which focuses on hybrid models.</p></li>
+<li><p>Then we will use a data-driven Machine Learning (ML) approach that emulates ice-flow.
+The state of the art ML techniques, use a Physics Informed Neural Network (PINN); however, this goes beyond the scope of this chapter which focuses on hybrid models.</p></li>
 </ul>
 </div>
-<div class="section" id="the-glen-stokes-equations">
-<h1><span class="section-number">11.2. </span>2. The Glen-Stokes Equations<a class="headerlink" href="#the-glen-stokes-equations" title="Permalink to this headline">#</a></h1>
-<p>The <strong>Glen-Stokes model</strong> is a widely used theoretical framework to describe this flow, particularly in the context of ice dynamics.</p>
-<div class="section" id="stokes-equations-for-glacier-flow">
-<h2><span class="section-number">11.2.1. </span>2.1 Stokes Equations for Glacier Flow<a class="headerlink" href="#stokes-equations-for-glacier-flow" title="Permalink to this headline">#</a></h2>
-<p>The Stokes equations are fundamental to describing the motion of viscous fluids, including glacier ice. For glaciers, the flow is generally assumed to be slow enough that inertial forces can be neglected, leaving us with the simplified Stokes equations:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-    -\nabla \cdot \sigma &amp;= \rho \mathbf{g}, \\
-    \nabla \cdot \mathbf{u} &amp;= 0.
-\end{aligned}
-\)</span></p>
-<p>Where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> is the Cauchy stress tensor, which represents internal stresses within the glacier ice.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\rho\)</span> is the density of ice (about 910 kg/m³).</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{g}\)</span> is the gravitational acceleration vector.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the velocity vector of the ice.</p></li>
-</ul>
-</div>
-<div class="section" id="glen-s-flow-law">
-<h2><span class="section-number">11.2.2. </span>2.2 Glen’s Flow Law<a class="headerlink" href="#glen-s-flow-law" title="Permalink to this headline">#</a></h2>
-<p>Glen’s flow law relates the strain rate (deformation rate) of the ice to the applied stress. This relationship is crucial for understanding how ice deforms under pressure and is given by:</p>
-<p><span class="math notranslate nohighlight">\(
-\mathbf{D}(\mathbf{u}) = \frac{1}{2} (\nabla \mathbf{u} + \nabla \mathbf{u}^\top)
-\)</span></p>
-<p>The stress-strain relationship, often called Glen’s law, is expressed as:</p>
-<p><span class="math notranslate nohighlight">\(
-\mathbf{\tau} = 2\eta \mathbf{D}(\mathbf{u}),
-\)</span></p>
-<p>Where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{\tau}\)</span> is the deviatoric stress tensor (a measure of stress causing deformation).</p></li>
-<li><p><span class="math notranslate nohighlight">\(\eta\)</span> is the effective viscosity of ice, which depends on the temperature and the stress applied to the ice.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbf{D}(\mathbf{u})\)</span> is the strain rate tensor.</p></li>
-</ul>
-<p>Glen’s law is non-linear and can be expressed in the following form:</p>
-<p><span class="math notranslate nohighlight">\(
-\mathbf{\tau} = 2 A^{-1/n} \left|\mathbf{D}(\mathbf{u})\right|^{\frac{1-n}{n}} \mathbf{D}(\mathbf{u}),
-\)</span></p>
-<p>Where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(A\)</span> is the flow rate factor, dependent on temperature.</p></li>
-<li><p><span class="math notranslate nohighlight">\(n\)</span> is Glen’s exponent, typically taken as 3 for glacier ice, indicating the non-linear relationship between stress and strain rate.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\left|\mathbf{D}(\mathbf{u})\right|\)</span> is the magnitude of the strain rate tensor.</p></li>
-</ul>
-</div>
-<div class="section" id="transition-to-the-ice-sheet-equation">
-<h2><span class="section-number">11.2.3. </span>2.3. Transition to the Ice Sheet Equation<a class="headerlink" href="#transition-to-the-ice-sheet-equation" title="Permalink to this headline">#</a></h2>
-<p>The Glen-Stokes equations describe the flow of ice under stress, but their computational cost makes them impractical for large-scale ice-sheet modeling over long time periods. This leads us to introduce the <strong>shallow ice approximation (SIA)</strong>, which is used in ice sheet models due to its simplicity and efficiency.</p>
+<div class="section" id="numerical-solution-for-u">
+<h3><span class="section-number">11.1.1.2. </span>Numerical solution for <strong>u</strong><a class="headerlink" href="#numerical-solution-for-u" title="Permalink to this headline">#</a></h3>
+<p>We can describe the ice-flow equations under stress, but their computational cost makes them impractical for large-scale ice-sheet modeling over long time periods. This leads us to introduce the <strong>shallow ice approximation (SIA)</strong>, which is used in ice sheet models due to its simplicity and efficiency.</p>
 <p>The SIA simplifies the full Stokes equations by assuming that the ice flow is dominated by vertical shear stresses and that horizontal stresses can be neglected. This results in an expression for the ice velocity in terms of the ice thickness gradient and the surface slope. The ice velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> can be approximated as:</p>
 <p><span class="math notranslate nohighlight">\(
 \mathbf{u} = -\left(\frac{2 A}{n+2}\right) \left(\rho g \sin(s)\right)^n h^{n+1} \nabla h,
@@ -573,26 +531,20 @@ The state of the art ML techniques ( Jouvet and Cordonnier, 2023), use a Physics
 <li><p><span class="math notranslate nohighlight">\(h\)</span> is the ice thickness, and</p></li>
 <li><p><span class="math notranslate nohighlight">\(s\)</span> is the surface slope.</p></li>
 </ul>
-<p>This equation governs the horizontal velocity of ice based on the local ice thickness and slope, and is more computationally feasible than the full Glen-Stokes model.
+<p>This equation governs the horizontal velocity of ice based on the local ice thickness and slope.
 We plug the <strong>u</strong> into the mass conservation equation and obtain:</p>
 <p><span class="math notranslate nohighlight">\(
 \frac{\partial h}{\partial t} + \nabla \cdot (D(h,z)\frac{\partial z}{\partial x}) = \text{SMB},
 \)</span></p>
 <p>where <span class="math notranslate nohighlight">\(D(h,z) =  f_d (\rho g)^3 h^5 |\nabla S|^2\)</span>.</p>
 <p>This equation describes the time evolution of the ice thickness, where the velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is computed from the ice sheet’s surface slope and thickness. This approach provides a balance between accuracy and computational efficiency and is widely used in large-scale ice sheet models.</p>
-</div>
-</div>
-<div class="section" id="boundary-conditions">
-<h1><span class="section-number">11.3. </span>3. Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">#</a></h1>
-<div class="section" id="no-slip-condition-at-the-base">
-<h2><span class="section-number">11.3.1. </span>3.1 No-Slip Condition at the Base<a class="headerlink" href="#no-slip-condition-at-the-base" title="Permalink to this headline">#</a></h2>
+<div class="section" id="boundary-conditions-with-no-slip-condition-at-the-case">
+<h4><span class="section-number">11.1.1.2.1. </span>Boundary Conditions with no-slip condition at the case<a class="headerlink" href="#boundary-conditions-with-no-slip-condition-at-the-case" title="Permalink to this headline">#</a></h4>
 <p>In many glacier models, we assume a no-slip condition at the base, meaning the ice velocity is zero at the bedrock. This condition is suitable for glaciers frozen to their beds:</p>
 <p><span class="math notranslate nohighlight">\(
 \mathbf{u} = 0 \text{ on the bedrock surface}.
 \)</span></p>
-</div>
-<div class="section" id="stress-free-surface">
-<h2><span class="section-number">11.3.2. </span>3.2 Stress-Free Surface<a class="headerlink" href="#stress-free-surface" title="Permalink to this headline">#</a></h2>
+<p><strong>Stress-Free Surface</strong></p>
 <p>At the glacier surface (exposed to air), a stress-free boundary condition is typically applied:</p>
 <p><span class="math notranslate nohighlight">\(
 \sigma \cdot \mathbf{n} = 0 \text{ on the surface},
@@ -606,6 +558,15 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
 <span class="kn">import</span> <span class="nn">netCDF4</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+<span class="kn">import</span> <span class="nn">pooch</span>
+
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+
+<span class="c1"># Make True if you want to train the model from scratch. It should take 30 min to train. </span>
+<span class="n">train_mode</span><span class="o">=</span><span class="kc">True</span>
+
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -618,7 +579,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">netCDF4</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">pooch</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;netCDF4&#39;
 </pre></div>
@@ -652,7 +613,11 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># x-coordinates</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>  <span class="c1"># y-coordinates</span>
 
-<span class="n">nc_file</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="s1">&#39;bedrock.nc&#39;</span><span class="p">)</span>  <span class="c1"># Load the NetCDF file</span>
+
+<span class="n">bedrock_url</span><span class="o">=</span><span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EXI_z9iu_MlMn_J4IdG97DkBpvE8K-IKiZUxuEogU-cwVg?download=1&#39;</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">bedrock_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
+<span class="n">nc_file</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>  <span class="c1"># Load the NetCDF file</span>
 <span class="n">Z_topo</span> <span class="o">=</span> <span class="n">nc_file</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;topg&#39;</span><span class="p">]</span>    <span class="c1"># Replace &#39;topg&#39; with the appropriate v</span>
 
 <span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>  <span class="c1"># Initial ice thickness</span>
@@ -672,10 +637,8 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
     <span class="n">it</span>   <span class="o">+=</span> <span class="mi">1</span>
 
-
     <span class="c1"># Calculate H_avg, size (ny-1,nx-1)</span>
     <span class="n">H_avg</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">H_ice</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
 
     <span class="c1"># Compute Snorm, size (ny-1,nx-1)</span>
     <span class="n">Sx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
@@ -684,38 +647,29 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="n">Sy</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">Sy</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Sy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>
     <span class="n">Snorm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Sx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Sy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-
     <span class="c1"># Compute D, size (ny-1,nx-1)</span>
     <span class="n">D</span> <span class="o">=</span> <span class="n">fd</span> <span class="o">*</span> <span class="p">(</span><span class="n">rho</span> <span class="o">*</span> <span class="n">g</span><span class="p">)</span><span class="o">**</span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">H_avg</span><span class="o">**</span><span class="mi">5</span> <span class="o">*</span> <span class="n">Snorm</span><span class="o">**</span><span class="mi">2</span>
-
 
     <span class="c1"># Compute dt</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mf">4.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">D</span><span class="p">)),</span> <span class="n">dtmax</span><span class="p">)</span>
 
-
     <span class="c1"># Compute qx, size (ny-2,nx-1)</span>
     <span class="n">qx</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span>
 
-
     <span class="c1"># Compute qy, size (ny-1,nx-2)</span>
     <span class="n">qy</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span>
-
 
     <span class="c1"># Update rule (diffusion)</span>
     <span class="n">dHdt</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">qx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">qy</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">dy</span><span class="p">)</span>
     <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dHdt</span> <span class="c1"># size (ny-2,nx-2)</span>
 
-
     <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">grad_b</span> <span class="o">*</span> <span class="p">(</span><span class="n">Z_surf</span> <span class="o">-</span> <span class="n">Z_ELA</span><span class="p">),</span> <span class="n">b_max</span><span class="p">)</span>
-
 
     <span class="c1"># Update rule (mass balance)</span>
     <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-
     <span class="c1"># Update rule (positive thickness)</span>
     <span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">H_ice</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
 
     <span class="c1"># updatesurface topography</span>
     <span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>
@@ -756,40 +710,48 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <img alt="../_images/d3438841bd87d8ed538cc4b90ab1ac7ca867dc8bb2b880092e0d6aba70dc1ca3.png" src="../_images/d3438841bd87d8ed538cc4b90ab1ac7ca867dc8bb2b880092e0d6aba70dc1ca3.png" />
 </div>
 </div>
+<p><strong>Q: Which is the most expensive part of of solving the mass conservation equation?</strong></p>
+<p><i>The most expensive part is the calculation of <strong>u</strong>. </i></p>
 </div>
 </div>
+</div>
+<div class="section" id="introduction-to-hybrid-modeling">
+<h2><span class="section-number">11.1.2. </span>Introduction to hybrid modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Permalink to this headline">#</a></h2>
+<p>Hybrid models combine traditional physics-based models (model-based, MB) with machine learning (ML) to leverage the strengths of both approaches. In purely physics-based models, known equations govern system dynamics, but these models often require detailed domain knowledge and can be limited by the availability of precise parameters. Machine learning, in contrast, can model complex systems without relying on such parameters, making it useful for data-rich but theory-poor domains. However, ML models may struggle to generalize outside the data they are trained on and can produce results that violate known physical laws.</p>
+<p><strong>Q: How can hybrid models overcome these limitations?</strong></p>
+<p><i>Hybrid modeling overcomes these limitations by using physics-informed constraints, embedding known physical equations into machine learning models, or combining the outputs of both approaches. The goal is to create models that are more accurate and robust, especially in cases with limited data or imperfect physical models. By fusing physics with data-driven methods, hybrid models can handle sparse data, correct ML predictions that violate physical laws, and produce interpretable results across a wide range of applications.</i></p>
+<p><strong>Q: How can we make our simulations run faster?</strong></p>
+<p><i>We can replace the calutation of <strong>u</strong> with an emulator. The emulator will take as input the state of the medium (glacier thickness, slope of glacier, etc) and will calucate the velocity field (<strong>u</strong>) for the corresponding time step. </i></p>
 <div class="section" id="emulating-ice-flow-with-machine-learning">
-<h1><span class="section-number">11.4. </span>4. Emulating Ice Flow with Machine Learning<a class="headerlink" href="#emulating-ice-flow-with-machine-learning" title="Permalink to this headline">#</a></h1>
-<p>The <em>Instructed Glacier Model</em> (IGM) presented by Jouvet et al. introduces a convolutional neural network (CNN) to predict ice flow, trained using data from traditional models such as hybrid SIA+SSA or Stokes models. The advantage of this approach is that it substitutes the computationally expensive ice flow component with a much faster emulator. This enables simulations that are up to 1000 times faster, with a fidelity of over 90%.</p>
+<h3><span class="section-number">11.1.2.1. </span>Emulating Ice Flow with Machine Learning<a class="headerlink" href="#emulating-ice-flow-with-machine-learning" title="Permalink to this headline">#</a></h3>
+<p>The <em>Instructed Glacier Model</em> (<a class="reference external" href="https://github.com/jouvetg/igm">IGM</a>) introduces a convolutional neural network (CNN) to predict ice flow, trained using data from traditional models such as hybrid SIA+SSA or Stokes models. The advantage of this approach is that it substitutes the computationally expensive ice flow component with a much faster emulator. This enables simulations that are up to 1000 times faster, with a fidelity of over 90%.</p>
 <div class="section" id="overview-of-the-machine-learning-approach">
-<h2><span class="section-number">11.4.1. </span>4.1 Overview of the Machine Learning Approach<a class="headerlink" href="#overview-of-the-machine-learning-approach" title="Permalink to this headline">#</a></h2>
-<p>Machine learning, specifically deep learning, allows us to create surrogate models that emulate the glacier dynamics described by traditional models. These surrogate models, once trained, provide nearly identical ice flow solutions at a fraction of the computational cost.</p>
-<ul class="simple">
-<li><p><strong>CNN Emulator</strong>: A convolutional neural network (CNN) is trained on input data such as ice thickness, surface slope, and basal sliding coefficients, and it predicts the ice flow field (horizontal velocity).</p></li>
-<li><p><strong>Training</strong>: The network is trained using data generated from physically accurate glacier models like PISM (Parallel Ice Sheet Model) or CfsFlow. This large dataset is crucial for high fidelity and ensuring the emulator can generalize across different glaciers.</p></li>
-</ul>
+<h4><span class="section-number">11.1.2.1.1. </span>Overview of the Machine Learning Approach<a class="headerlink" href="#overview-of-the-machine-learning-approach" title="Permalink to this headline">#</a></h4>
+<p>A simple version of the IGM could be built by the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Input Variables</strong>: The ML model takes ice thickness and surface slope gradients as inputs  <span class="math notranslate nohighlight">\(\{ h(x,y), \frac{\partial s}{\partial x},\frac{\partial s}{\partial y}\}\)</span>.</p></li>
+<li><p><strong>Training</strong>: A convolutional neural network (CNN) is trained using a dataset generated from high-order glacier flow models.</p></li>
+<li><p><strong>Prediction</strong>: Once trained, the emulator predicts the vertically averaged ice flow from the input variables <strong>u</strong>(u,v).</p></li>
+</ol>
+<p>The input and output fields are 2 D grid rasters:</p>
+<p><span class="math notranslate nohighlight">\(
+\R^{N_x \times N_y \times 3} \rightarrow \R^{N_x \times N_y \times 2} ,
+\)</span></p>
+<p><strong>Q: what is another advantage of the hybrid model (except making faster models)?</strong></p>
+<p><i>Hybrid models can help in theory-poor domains where we do not have known equation that govern system dynamics. However, we should have enough data and be sure to make this model generalizable. A pitfall, when we dont have enough data and are not carefull, could be to overfitting</i></p>
+</div>
+<div class="section" id="necessary-funcitons-you-do-not-need-to-know">
+<h4><span class="section-number">11.1.2.1.2. </span>Necessary funcitons you do not need to know<a class="headerlink" href="#necessary-funcitons-you-do-not-need-to-know" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I suggest to use Tensor Flow variables instead of Numpy</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Test</span>
 
-<span class="n">train_mode</span><span class="o">=</span><span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to load, merge NetCDF files, and fill NaN with 0</span>
-<span class="k">def</span> <span class="nf">load_and_merge_netcdf</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
-    <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
-    
-    <span class="c1"># Align the datasets along the spatial dimensions using fill_value=0 for NaN</span>
-    <span class="n">combined_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">combined_ds</span>
+<span class="c1"># Function to load NetCDF files</span>
+
+<span class="k">def</span> <span class="nf">load_from_pooch</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="n">nc_file</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nc_file</span>
+
 
 <span class="c1"># Function to scale the field based on 90th percentile of its maximum</span>
 <span class="k">def</span> <span class="nf">scale_field</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
@@ -854,80 +816,156 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="c1"># Adjust layout</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">plot_comparison</span><span class="p">(</span><span class="n">thk</span><span class="p">,</span> <span class="n">slopesurx</span><span class="p">,</span> <span class="n">slopesury</span><span class="p">,</span> <span class="n">true_ubar</span><span class="p">,</span> <span class="n">true_vbar</span><span class="p">,</span> <span class="n">pred_ubar</span><span class="p">,</span> <span class="n">pred_vbar</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="c1"># Plot inputs with individual color bars</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thk</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness (thk)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesurx</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope x (slopesurx)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesury</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope y (slopesury)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+    <span class="c1"># Determine the shared vmin and vmax for velocity comparisons</span>
+    <span class="n">vmin_ubar</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">true_ubar</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">pred_ubar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">vmax_ubar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">true_ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pred_ubar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">vmin_vbar</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">true_vbar</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">pred_vbar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">vmax_vbar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">true_vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pred_vbar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="c1"># Plot true outputs with shared color bars</span>
+    <span class="n">im_ubar_true</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;True Velocity x (ubar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">im_vbar_true</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_vbar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_vbar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;True Velocity y (vbar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1"># Plot predicted outputs with the same color scales</span>
+    <span class="n">im_ubar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity x (ubar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_pred</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">im_vbar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_vbar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_vbar</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity y (vbar)&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_pred</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># Plot difference between true and predicted velocities</span>
+    <span class="n">im_ubar_diff</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">pred_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Difference Velocity x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_diff</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+    <span class="n">im_vbar_diff</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">pred_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Difference Velocity y&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_diff</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    
+    <span class="c1"># Adjust layout</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="functions-to-prepare-the-data-for-the-model">
+<h4><span class="section-number">11.1.2.1.3. </span>Functions to prepare the data for the model<a class="headerlink" href="#functions-to-prepare-the-data-for-the-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># File paths for the training dataset</span>
-<span class="n">file_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/home/klleshi/Desktop/surflib3d_A78_100/ALP11_A78_C0/ex.nc&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_data</span> <span class="p">(</span><span class="n">merged_data</span><span class="p">):</span>
+    <span class="c1"># Step 1: Extract the input and output fields</span>
+    <span class="n">thk</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;thk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>           <span class="c1"># Ice thickness</span>
+    <span class="n">slopsurfx</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;slopsurfx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Surface slope in x</span>
+    <span class="n">slopsurfy</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;slopsurfy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Surface slope in y</span>
+    <span class="n">ubar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;ubar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity x component</span>
+    <span class="n">vbar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;vbar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity y component</span>
+    <span class="n">usurf</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;usurf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    
+    <span class="c1"># Calculate 90th percentile scaling factors for training</span>
+    <span class="n">scaling_factors</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;thk&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">thk</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;slopsurfx&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">slopsurfx</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;slopsurfy&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">slopsurfy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;ubar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
+        <span class="s2">&quot;vbar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Step 2: Scale each field using the 90th percentile of its maximum</span>
+    <span class="n">thk_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">thk</span><span class="p">)</span>
+    <span class="n">slopsurfx_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfx</span><span class="p">)</span>
+    <span class="n">slopsurfy_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfy</span><span class="p">)</span>
+    <span class="n">ubar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">ubar</span><span class="p">)</span>
+    <span class="n">vbar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">vbar</span><span class="p">)</span>
+    <span class="n">usurf_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">usurf</span><span class="p">)</span>
+    
+    <span class="c1"># Step 3: Stack inputs and outputs after scaling</span>
+    <span class="n">inputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">thk_scaled</span><span class="p">,</span> <span class="n">slopsurfx_scaled</span><span class="p">,</span> <span class="n">slopsurfy_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 3)</span>
+    <span class="n">outputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">ubar_scaled</span><span class="p">,</span> <span class="n">vbar_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 2)</span>
+    
+    <span class="c1"># Check shapes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inputs scaled shape: </span><span class="si">{</span><span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outputs scaled shape: </span><span class="si">{</span><span class="n">outputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1"># Load and merge the NetCDF datasets</span>
-<span class="n">merged_data</span> <span class="o">=</span> <span class="n">load_and_merge_netcdf</span><span class="p">(</span><span class="n">file_paths</span><span class="p">)</span>
+    <span class="c1"># Visualize the data</span>
+
+    <span class="n">time_idx</span><span class="o">=</span><span class="mi">20</span>
+    <span class="n">plot_input_output</span><span class="p">(</span><span class="n">thk</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">slopsurfx</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">slopsurfy</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">inputs_scaled</span><span class="p">,</span> <span class="n">outputs_scaled</span><span class="p">,</span> <span class="n">scaling_factors</span>
+
+<span class="k">def</span> <span class="nf">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">):</span>
+    <span class="c1"># Split index for 90-10 split</span>
+    <span class="n">split_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.9</span> <span class="o">*</span> <span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Train-test split for inputs</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">inputs_scaled</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">inputs_scaled</span><span class="p">[</span><span class="n">split_idx</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+
+    <span class="c1"># Train-test split for outputs</span>
+    <span class="n">y_train</span> <span class="o">=</span> <span class="n">outputs_scaled</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">y_test</span> <span class="o">=</span> <span class="n">outputs_scaled</span><span class="p">[</span><span class="n">split_idx</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+
+    <span class="c1"># Apply data augmentation</span>
+    <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span> <span class="o">=</span> <span class="n">augment_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span> <span class="o">=</span> <span class="n">augment_data</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+    <span class="c1"># Check shapes</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_train shape: </span><span class="si">{</span><span class="n">y_train_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_test shape: </span><span class="si">{</span><span class="n">y_test_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Extract the input and output fields</span>
-<span class="n">thk</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;thk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>           <span class="c1"># Ice thickness</span>
-<span class="n">slopsurfx</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;slopsurfx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Surface slope in x</span>
-<span class="n">slopsurfy</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;slopsurfy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># Surface slope in y</span>
-<span class="n">ubar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;ubar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity x component</span>
-<span class="n">vbar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;vbar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity y component</span>
-<span class="n">usurf</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;usurf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="c1"># Calculate 90th percentile scaling factors for training</span>
-<span class="n">scaling_factors</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;thk&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">thk</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
-    <span class="s2">&quot;slopsurfx&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">slopsurfx</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
-    <span class="s2">&quot;slopsurfy&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">slopsurfy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
-    <span class="s2">&quot;ubar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
-    <span class="s2">&quot;vbar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1"># Step 2: Scale each field using the 90th percentile of its maximum</span>
-<span class="n">thk_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">thk</span><span class="p">)</span>
-<span class="n">slopsurfx_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfx</span><span class="p">)</span>
-<span class="n">slopsurfy_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfy</span><span class="p">)</span>
-<span class="n">ubar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">ubar</span><span class="p">)</span>
-<span class="n">vbar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">vbar</span><span class="p">)</span>
-<span class="n">usurf_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">usurf</span><span class="p">)</span>
-
-<span class="c1"># Step 3: Stack inputs and outputs after scaling</span>
-<span class="n">inputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">thk_scaled</span><span class="p">,</span> <span class="n">slopsurfx_scaled</span><span class="p">,</span> <span class="n">slopsurfy_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 3)</span>
-<span class="n">outputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">ubar_scaled</span><span class="p">,</span> <span class="n">vbar_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 2)</span>
-
-<span class="c1"># Check shapes</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inputs scaled shape: </span><span class="si">{</span><span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outputs scaled shape: </span><span class="si">{</span><span class="n">outputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inputs scaled shape: (101, 323, 497, 3)
-Outputs scaled shape: (101, 323, 497, 2)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting the data to visualize the relationship between input and output</span>
-<span class="n">time_idx</span><span class="o">=</span><span class="mi">20</span>
-<span class="n">plot_input_output</span><span class="p">(</span><span class="n">thk</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">slopsurfx</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">slopsurfy</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">],</span> <span class="n">vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" src="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" />
 </div>
 </div>
 </div>
 <div class="section" id="start-working-on-the-cnn-model">
-<h2><span class="section-number">11.4.2. </span>Start working on the CNN model<a class="headerlink" href="#start-working-on-the-cnn-model" title="Permalink to this headline">#</a></h2>
+<h4><span class="section-number">11.1.2.1.4. </span>Start working on the CNN model<a class="headerlink" href="#start-working-on-the-cnn-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration as a dictionary</span>
@@ -1009,7 +1047,7 @@ Outputs scaled shape: (101, 323, 497, 2)
 <span class="n">model</span> <span class="o">=</span> <span class="n">build_cnn</span><span class="p">(</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">nb_outputs</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
 
 <span class="c1"># Compile the model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mae&quot;</span><span class="p">,</span> <span class="s2">&quot;mse&quot;</span><span class="p">])</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mae&quot;</span><span class="p">,</span> <span class="s2">&quot;mse&quot;</span><span class="p">])</span>
 
 <span class="c1"># Print model summary</span>
 <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -1063,18 +1101,16 @@ Non-trainable params: 0
 __________________________________________________________________________________________________
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-02 12:23:17.208163: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:975] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2024-10-02 12:23:17.208434: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208528: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublas.so.11&#39;; dlerror: libcublas.so.11: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208595: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublasLt.so.11&#39;; dlerror: libcublasLt.so.11: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208657: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcufft.so.10&#39;; dlerror: libcufft.so.10: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208726: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcurand.so.10&#39;; dlerror: libcurand.so.10: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208793: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcusolver.so.11&#39;; dlerror: libcusolver.so.11: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208855: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcusparse.so.11&#39;; dlerror: libcusparse.so.11: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208921: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudnn.so.8&#39;; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
-2024-10-02 12:23:17.208944: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-13 10:08:16.232973: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:975] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-10-13 10:08:16.233305: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2024-10-13 10:08:16.233378: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublas.so.11&#39;; dlerror: libcublas.so.11: cannot open shared object file: No such file or directory
+2024-10-13 10:08:16.233409: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublasLt.so.11&#39;; dlerror: libcublasLt.so.11: cannot open shared object file: No such file or directory
+2024-10-13 10:08:16.233437: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcufft.so.10&#39;; dlerror: libcufft.so.10: cannot open shared object file: No such file or directory
+2024-10-13 10:08:16.347368: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcusparse.so.11&#39;; dlerror: libcusparse.so.11: cannot open shared object file: No such file or directory
+2024-10-13 10:08:16.347428: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudnn.so.8&#39;; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2024-10-13 10:08:16.347433: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
 Skipping registering GPU devices...
-2024-10-02 12:23:17.209454: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX_VNNI FMA
+2024-10-13 10:08:16.347970: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX_VNNI FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -1082,381 +1118,314 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split index for 90-10 split</span>
-<span class="n">split_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.9</span> <span class="o">*</span> <span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Retrieve the files from the cloud using Pooch.\n&quot;,</span>
+<span class="n">data_url</span> <span class="o">=</span> <span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EZVN0nazQYFMoFkONuM4788BfSsSe3xjB-jSXYW9JibtHw?download=1&#39;</span>
+<span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">data_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
 
-<span class="c1"># Train-test split for inputs</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">inputs_scaled</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">inputs_scaled</span><span class="p">[</span><span class="n">split_idx</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
+<span class="c1"># Load and prepare the necessary dataset</span>
+<span class="n">merged_data</span><span class="o">=</span> <span class="n">load_from_pooch</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
-<span class="c1"># Train-test split for outputs</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">outputs_scaled</span><span class="p">[:</span><span class="n">split_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">outputs_scaled</span><span class="p">[</span><span class="n">split_idx</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span>
-
-<span class="c1"># Apply data augmentation</span>
-<span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span> <span class="o">=</span> <span class="n">augment_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span> <span class="o">=</span> <span class="n">augment_data</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
-<span class="c1"># Check shapes</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_train shape: </span><span class="si">{</span><span class="n">y_train_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y_test shape: </span><span class="si">{</span><span class="n">y_test_aug</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Visualize the I/O variables</span>
+<span class="n">inputs_scaled</span><span class="p">,</span> <span class="n">outputs_scaled</span><span class="p">,</span> <span class="n">scaling_factors</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">merged_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inputs scaled shape: (101, 323, 497, 3)
+Outputs scaled shape: (101, 323, 497, 2)
+</pre></div>
+</div>
+<img alt="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" src="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span>
+    <span class="c1"># Prepare the data for training</span>
+    <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="o">=</span><span class="n">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">)</span>
+    
+    <span class="c1"># Train the model</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">))</span>
+    <span class="c1"># Save the trained model to a file</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.keras&#39;</span><span class="p">)</span>
+    
+    
+<span class="k">else</span> <span class="p">:</span> 
+    <span class="n">model_url</span><span class="o">=</span><span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EdNZk6-82ItCmR0oisE135YBTv-TLc7mwPDuU2gPrTojGA?download=1&#39;</span>
+    <span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">model_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (270, 323, 497, 3)
 y_train shape: (270, 323, 497, 2)
-X_test shape: (11, 323, 497, 3)
-y_test shape: (11, 323, 497, 2)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span> 
-<span class="c1"># Train the model</span>
-    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">))</span>
-    <span class="c1"># Save the trained model to a file</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;glacier_flow_model.h5&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;glacier_flow_model.h5&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/100
-12/12 [==============================] - 8s 633ms/step - loss: 0.0422 - mae: 0.0323 - mse: 0.0066 - val_loss: 0.0346 - val_mae: 0.0248 - val_mse: 0.0054
+X_test shape: (33, 323, 497, 3)
+y_test shape: (33, 323, 497, 2)
+Epoch 1/100
+34/34 [==============================] - 28s 816ms/step - loss: 0.0137 - mae: 0.0315 - mse: 0.0060 - val_loss: 0.0099 - val_mae: 0.0279 - val_mse: 0.0045
 Epoch 2/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0325 - mae: 0.0230 - mse: 0.0054 - val_loss: 0.0315 - val_mae: 0.0223 - val_mse: 0.0052
+34/34 [==============================] - 28s 812ms/step - loss: 0.0093 - mae: 0.0281 - mse: 0.0051 - val_loss: 0.0074 - val_mae: 0.0266 - val_mse: 0.0041
 Epoch 3/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0292 - mae: 0.0202 - mse: 0.0046 - val_loss: 0.0278 - val_mae: 0.0191 - val_mse: 0.0039
+34/34 [==============================] - 28s 833ms/step - loss: 0.0075 - mae: 0.0264 - mse: 0.0047 - val_loss: 0.0061 - val_mae: 0.0231 - val_mse: 0.0036
 Epoch 4/100
-12/12 [==============================] - 7s 609ms/step - loss: 0.0266 - mae: 0.0181 - mse: 0.0038 - val_loss: 0.0261 - val_mae: 0.0179 - val_mse: 0.0035
+34/34 [==============================] - 30s 869ms/step - loss: 0.0064 - mae: 0.0236 - mse: 0.0042 - val_loss: 0.0055 - val_mae: 0.0223 - val_mse: 0.0035
 Epoch 5/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0252 - mae: 0.0172 - mse: 0.0035 - val_loss: 0.0246 - val_mae: 0.0169 - val_mse: 0.0033
+34/34 [==============================] - 29s 867ms/step - loss: 0.0059 - mae: 0.0222 - mse: 0.0040 - val_loss: 0.0048 - val_mae: 0.0192 - val_mse: 0.0030
 Epoch 6/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0238 - mae: 0.0163 - mse: 0.0033 - val_loss: 0.0231 - val_mae: 0.0158 - val_mse: 0.0029
+34/34 [==============================] - 29s 863ms/step - loss: 0.0055 - mae: 0.0213 - mse: 0.0038 - val_loss: 0.0045 - val_mae: 0.0184 - val_mse: 0.0029
 Epoch 7/100
-12/12 [==============================] - 7s 612ms/step - loss: 0.0224 - mae: 0.0153 - mse: 0.0030 - val_loss: 0.0222 - val_mae: 0.0153 - val_mse: 0.0028
+34/34 [==============================] - 29s 858ms/step - loss: 0.0052 - mae: 0.0206 - mse: 0.0037 - val_loss: 0.0045 - val_mae: 0.0209 - val_mse: 0.0030
 Epoch 8/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0213 - mae: 0.0146 - mse: 0.0027 - val_loss: 0.0202 - val_mae: 0.0137 - val_mse: 0.0023
+34/34 [==============================] - 29s 867ms/step - loss: 0.0050 - mae: 0.0202 - mse: 0.0036 - val_loss: 0.0041 - val_mae: 0.0180 - val_mse: 0.0027
 Epoch 9/100
-12/12 [==============================] - 7s 614ms/step - loss: 0.0198 - mae: 0.0135 - mse: 0.0025 - val_loss: 0.0187 - val_mae: 0.0125 - val_mse: 0.0019
+34/34 [==============================] - 29s 853ms/step - loss: 0.0049 - mae: 0.0200 - mse: 0.0035 - val_loss: 0.0040 - val_mae: 0.0174 - val_mse: 0.0026
 Epoch 10/100
-12/12 [==============================] - 8s 625ms/step - loss: 0.0188 - mae: 0.0128 - mse: 0.0024 - val_loss: 0.0180 - val_mae: 0.0121 - val_mse: 0.0020
+34/34 [==============================] - 30s 890ms/step - loss: 0.0047 - mae: 0.0199 - mse: 0.0034 - val_loss: 0.0039 - val_mae: 0.0178 - val_mse: 0.0026
 Epoch 11/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0184 - mae: 0.0126 - mse: 0.0023 - val_loss: 0.0174 - val_mae: 0.0118 - val_mse: 0.0018
+34/34 [==============================] - 30s 891ms/step - loss: 0.0048 - mae: 0.0198 - mse: 0.0035 - val_loss: 0.0040 - val_mae: 0.0188 - val_mse: 0.0027
 Epoch 12/100
-12/12 [==============================] - 7s 609ms/step - loss: 0.0175 - mae: 0.0120 - mse: 0.0022 - val_loss: 0.0162 - val_mae: 0.0108 - val_mse: 0.0017
+34/34 [==============================] - 30s 887ms/step - loss: 0.0046 - mae: 0.0201 - mse: 0.0034 - val_loss: 0.0037 - val_mae: 0.0168 - val_mse: 0.0025
 Epoch 13/100
-12/12 [==============================] - 7s 609ms/step - loss: 0.0169 - mae: 0.0116 - mse: 0.0021 - val_loss: 0.0154 - val_mae: 0.0102 - val_mse: 0.0016
+34/34 [==============================] - 30s 892ms/step - loss: 0.0043 - mae: 0.0188 - mse: 0.0031 - val_loss: 0.0035 - val_mae: 0.0168 - val_mse: 0.0023
 Epoch 14/100
-12/12 [==============================] - 7s 615ms/step - loss: 0.0163 - mae: 0.0112 - mse: 0.0020 - val_loss: 0.0148 - val_mae: 0.0098 - val_mse: 0.0014
+34/34 [==============================] - 30s 888ms/step - loss: 0.0043 - mae: 0.0186 - mse: 0.0030 - val_loss: 0.0038 - val_mae: 0.0173 - val_mse: 0.0026
 Epoch 15/100
-12/12 [==============================] - 7s 619ms/step - loss: 0.0158 - mae: 0.0110 - mse: 0.0019 - val_loss: 0.0147 - val_mae: 0.0099 - val_mse: 0.0015
+34/34 [==============================] - 30s 889ms/step - loss: 0.0044 - mae: 0.0189 - mse: 0.0032 - val_loss: 0.0039 - val_mae: 0.0205 - val_mse: 0.0027
 Epoch 16/100
-12/12 [==============================] - 7s 615ms/step - loss: 0.0156 - mae: 0.0109 - mse: 0.0018 - val_loss: 0.0139 - val_mae: 0.0093 - val_mse: 0.0013
+34/34 [==============================] - 30s 889ms/step - loss: 0.0042 - mae: 0.0185 - mse: 0.0030 - val_loss: 0.0038 - val_mae: 0.0182 - val_mse: 0.0026
 Epoch 17/100
-12/12 [==============================] - 7s 619ms/step - loss: 0.0150 - mae: 0.0105 - mse: 0.0017 - val_loss: 0.0137 - val_mae: 0.0092 - val_mse: 0.0013
+34/34 [==============================] - 27s 800ms/step - loss: 0.0043 - mae: 0.0191 - mse: 0.0031 - val_loss: 0.0035 - val_mae: 0.0173 - val_mse: 0.0023
 Epoch 18/100
-12/12 [==============================] - 7s 613ms/step - loss: 0.0147 - mae: 0.0103 - mse: 0.0017 - val_loss: 0.0131 - val_mae: 0.0088 - val_mse: 0.0012
+34/34 [==============================] - 25s 731ms/step - loss: 0.0041 - mae: 0.0183 - mse: 0.0029 - val_loss: 0.0036 - val_mae: 0.0184 - val_mse: 0.0024
 Epoch 19/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0142 - mae: 0.0100 - mse: 0.0015 - val_loss: 0.0129 - val_mae: 0.0087 - val_mse: 0.0012
+34/34 [==============================] - 25s 735ms/step - loss: 0.0039 - mae: 0.0178 - mse: 0.0028 - val_loss: 0.0032 - val_mae: 0.0152 - val_mse: 0.0020
 Epoch 20/100
-12/12 [==============================] - 7s 612ms/step - loss: 0.0139 - mae: 0.0098 - mse: 0.0015 - val_loss: 0.0124 - val_mae: 0.0083 - val_mse: 0.0010
+34/34 [==============================] - 25s 737ms/step - loss: 0.0041 - mae: 0.0181 - mse: 0.0029 - val_loss: 0.0034 - val_mae: 0.0177 - val_mse: 0.0023
 Epoch 21/100
-12/12 [==============================] - 7s 612ms/step - loss: 0.0137 - mae: 0.0097 - mse: 0.0014 - val_loss: 0.0121 - val_mae: 0.0081 - val_mse: 0.0010
+34/34 [==============================] - 25s 723ms/step - loss: 0.0039 - mae: 0.0179 - mse: 0.0027 - val_loss: 0.0034 - val_mae: 0.0164 - val_mse: 0.0022
 Epoch 22/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0133 - mae: 0.0093 - mse: 0.0013 - val_loss: 0.0124 - val_mae: 0.0085 - val_mse: 0.0010
+34/34 [==============================] - 25s 737ms/step - loss: 0.0038 - mae: 0.0173 - mse: 0.0026 - val_loss: 0.0032 - val_mae: 0.0151 - val_mse: 0.0021
 Epoch 23/100
-12/12 [==============================] - 7s 613ms/step - loss: 0.0130 - mae: 0.0091 - mse: 0.0012 - val_loss: 0.0115 - val_mae: 0.0077 - val_mse: 8.6724e-04
+34/34 [==============================] - 25s 732ms/step - loss: 0.0038 - mae: 0.0175 - mse: 0.0026 - val_loss: 0.0031 - val_mae: 0.0144 - val_mse: 0.0020
 Epoch 24/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0128 - mae: 0.0091 - mse: 0.0012 - val_loss: 0.0114 - val_mae: 0.0077 - val_mse: 8.7221e-04
+34/34 [==============================] - 25s 735ms/step - loss: 0.0039 - mae: 0.0175 - mse: 0.0027 - val_loss: 0.0032 - val_mae: 0.0155 - val_mse: 0.0020
 Epoch 25/100
-12/12 [==============================] - 7s 608ms/step - loss: 0.0133 - mae: 0.0097 - mse: 0.0013 - val_loss: 0.0124 - val_mae: 0.0088 - val_mse: 0.0010
+34/34 [==============================] - 25s 732ms/step - loss: 0.0036 - mae: 0.0164 - mse: 0.0024 - val_loss: 0.0031 - val_mae: 0.0155 - val_mse: 0.0019
 Epoch 26/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0130 - mae: 0.0094 - mse: 0.0013 - val_loss: 0.0118 - val_mae: 0.0083 - val_mse: 0.0010
+34/34 [==============================] - 25s 735ms/step - loss: 0.0036 - mae: 0.0167 - mse: 0.0024 - val_loss: 0.0030 - val_mae: 0.0140 - val_mse: 0.0019
 Epoch 27/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0127 - mae: 0.0092 - mse: 0.0012 - val_loss: 0.0108 - val_mae: 0.0073 - val_mse: 7.9680e-04
+34/34 [==============================] - 25s 726ms/step - loss: 0.0036 - mae: 0.0167 - mse: 0.0025 - val_loss: 0.0029 - val_mae: 0.0143 - val_mse: 0.0018
 Epoch 28/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0122 - mae: 0.0088 - mse: 0.0011 - val_loss: 0.0108 - val_mae: 0.0075 - val_mse: 8.0385e-04
+34/34 [==============================] - 25s 733ms/step - loss: 0.0034 - mae: 0.0158 - mse: 0.0023 - val_loss: 0.0029 - val_mae: 0.0136 - val_mse: 0.0017
 Epoch 29/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0119 - mae: 0.0086 - mse: 0.0011 - val_loss: 0.0102 - val_mae: 0.0069 - val_mse: 6.9161e-04
+34/34 [==============================] - 25s 731ms/step - loss: 0.0036 - mae: 0.0163 - mse: 0.0024 - val_loss: 0.0031 - val_mae: 0.0151 - val_mse: 0.0020
 Epoch 30/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0117 - mae: 0.0084 - mse: 0.0010 - val_loss: 0.0102 - val_mae: 0.0070 - val_mse: 7.1146e-04
+34/34 [==============================] - 25s 743ms/step - loss: 0.0034 - mae: 0.0160 - mse: 0.0023 - val_loss: 0.0029 - val_mae: 0.0149 - val_mse: 0.0018
 Epoch 31/100
-12/12 [==============================] - 7s 607ms/step - loss: 0.0115 - mae: 0.0082 - mse: 9.7177e-04 - val_loss: 0.0103 - val_mae: 0.0071 - val_mse: 7.2447e-04
+34/34 [==============================] - 25s 726ms/step - loss: 0.0035 - mae: 0.0161 - mse: 0.0024 - val_loss: 0.0028 - val_mae: 0.0134 - val_mse: 0.0017
 Epoch 32/100
-12/12 [==============================] - 7s 612ms/step - loss: 0.0115 - mae: 0.0084 - mse: 9.9698e-04 - val_loss: 0.0108 - val_mae: 0.0076 - val_mse: 8.3028e-04
+34/34 [==============================] - 25s 727ms/step - loss: 0.0033 - mae: 0.0153 - mse: 0.0021 - val_loss: 0.0028 - val_mae: 0.0136 - val_mse: 0.0016
 Epoch 33/100
-12/12 [==============================] - 7s 622ms/step - loss: 0.0114 - mae: 0.0083 - mse: 9.5849e-04 - val_loss: 0.0104 - val_mae: 0.0073 - val_mse: 7.3210e-04
+34/34 [==============================] - 25s 733ms/step - loss: 0.0032 - mae: 0.0151 - mse: 0.0021 - val_loss: 0.0028 - val_mae: 0.0134 - val_mse: 0.0017
 Epoch 34/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0113 - mae: 0.0082 - mse: 9.7695e-04 - val_loss: 0.0097 - val_mae: 0.0067 - val_mse: 6.3751e-04
+34/34 [==============================] - 25s 735ms/step - loss: 0.0032 - mae: 0.0151 - mse: 0.0021 - val_loss: 0.0026 - val_mae: 0.0141 - val_mse: 0.0015
 Epoch 35/100
-12/12 [==============================] - 7s 622ms/step - loss: 0.0110 - mae: 0.0080 - mse: 9.0673e-04 - val_loss: 0.0100 - val_mae: 0.0070 - val_mse: 6.2141e-04
+34/34 [==============================] - 25s 731ms/step - loss: 0.0032 - mae: 0.0151 - mse: 0.0021 - val_loss: 0.0028 - val_mae: 0.0135 - val_mse: 0.0017
 Epoch 36/100
-12/12 [==============================] - 7s 619ms/step - loss: 0.0112 - mae: 0.0082 - mse: 9.5758e-04 - val_loss: 0.0099 - val_mae: 0.0070 - val_mse: 6.4805e-04
+34/34 [==============================] - 25s 734ms/step - loss: 0.0032 - mae: 0.0149 - mse: 0.0020 - val_loss: 0.0027 - val_mae: 0.0140 - val_mse: 0.0016
 Epoch 37/100
-12/12 [==============================] - 7s 610ms/step - loss: 0.0109 - mae: 0.0080 - mse: 9.0894e-04 - val_loss: 0.0095 - val_mae: 0.0066 - val_mse: 5.9103e-04
+34/34 [==============================] - 25s 732ms/step - loss: 0.0032 - mae: 0.0150 - mse: 0.0020 - val_loss: 0.0026 - val_mae: 0.0133 - val_mse: 0.0015
 Epoch 38/100
-12/12 [==============================] - 7s 621ms/step - loss: 0.0110 - mae: 0.0081 - mse: 9.2203e-04 - val_loss: 0.0093 - val_mae: 0.0065 - val_mse: 5.3374e-04
+34/34 [==============================] - 25s 738ms/step - loss: 0.0033 - mae: 0.0157 - mse: 0.0022 - val_loss: 0.0029 - val_mae: 0.0134 - val_mse: 0.0018
 Epoch 39/100
-12/12 [==============================] - 7s 614ms/step - loss: 0.0107 - mae: 0.0079 - mse: 8.7039e-04 - val_loss: 0.0094 - val_mae: 0.0066 - val_mse: 6.1950e-04
+34/34 [==============================] - 25s 738ms/step - loss: 0.0031 - mae: 0.0149 - mse: 0.0020 - val_loss: 0.0025 - val_mae: 0.0125 - val_mse: 0.0014
 Epoch 40/100
-12/12 [==============================] - 7s 612ms/step - loss: 0.0105 - mae: 0.0077 - mse: 8.3327e-04 - val_loss: 0.0089 - val_mae: 0.0062 - val_mse: 4.8494e-04
+34/34 [==============================] - 25s 737ms/step - loss: 0.0031 - mae: 0.0145 - mse: 0.0020 - val_loss: 0.0026 - val_mae: 0.0138 - val_mse: 0.0015
 Epoch 41/100
-12/12 [==============================] - 8s 636ms/step - loss: 0.0105 - mae: 0.0078 - mse: 8.4012e-04 - val_loss: 0.0087 - val_mae: 0.0060 - val_mse: 4.8328e-04
+34/34 [==============================] - 27s 790ms/step - loss: 0.0030 - mae: 0.0145 - mse: 0.0019 - val_loss: 0.0025 - val_mae: 0.0122 - val_mse: 0.0014
 Epoch 42/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0104 - mae: 0.0077 - mse: 8.3211e-04 - val_loss: 0.0091 - val_mae: 0.0064 - val_mse: 5.4638e-04
+34/34 [==============================] - 30s 897ms/step - loss: 0.0030 - mae: 0.0144 - mse: 0.0019 - val_loss: 0.0027 - val_mae: 0.0139 - val_mse: 0.0016
 Epoch 43/100
-12/12 [==============================] - 7s 608ms/step - loss: 0.0102 - mae: 0.0076 - mse: 8.1121e-04 - val_loss: 0.0093 - val_mae: 0.0067 - val_mse: 5.7991e-04
+34/34 [==============================] - 29s 851ms/step - loss: 0.0032 - mae: 0.0152 - mse: 0.0021 - val_loss: 0.0030 - val_mae: 0.0139 - val_mse: 0.0019
 Epoch 44/100
-12/12 [==============================] - 7s 605ms/step - loss: 0.0102 - mae: 0.0076 - mse: 8.1150e-04 - val_loss: 0.0084 - val_mae: 0.0058 - val_mse: 4.5807e-04
+34/34 [==============================] - 29s 839ms/step - loss: 0.0030 - mae: 0.0145 - mse: 0.0019 - val_loss: 0.0025 - val_mae: 0.0128 - val_mse: 0.0014
 Epoch 45/100
-12/12 [==============================] - 7s 623ms/step - loss: 0.0102 - mae: 0.0076 - mse: 8.2930e-04 - val_loss: 0.0090 - val_mae: 0.0065 - val_mse: 5.4685e-04
+34/34 [==============================] - 29s 841ms/step - loss: 0.0030 - mae: 0.0144 - mse: 0.0019 - val_loss: 0.0025 - val_mae: 0.0126 - val_mse: 0.0014
 Epoch 46/100
-12/12 [==============================] - 7s 615ms/step - loss: 0.0100 - mae: 0.0075 - mse: 7.9446e-04 - val_loss: 0.0086 - val_mae: 0.0061 - val_mse: 4.9311e-04
+34/34 [==============================] - 29s 846ms/step - loss: 0.0029 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0118 - val_mse: 0.0014
 Epoch 47/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0102 - mae: 0.0077 - mse: 8.4323e-04 - val_loss: 0.0086 - val_mae: 0.0061 - val_mse: 4.9948e-04
+34/34 [==============================] - 28s 839ms/step - loss: 0.0028 - mae: 0.0138 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0115 - val_mse: 0.0013
 Epoch 48/100
-12/12 [==============================] - 7s 608ms/step - loss: 0.0100 - mae: 0.0075 - mse: 7.8443e-04 - val_loss: 0.0085 - val_mae: 0.0061 - val_mse: 4.6633e-04
+34/34 [==============================] - 29s 849ms/step - loss: 0.0028 - mae: 0.0138 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0116 - val_mse: 0.0013
 Epoch 49/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0100 - mae: 0.0075 - mse: 7.8612e-04 - val_loss: 0.0085 - val_mae: 0.0060 - val_mse: 4.9903e-04
+34/34 [==============================] - 29s 857ms/step - loss: 0.0028 - mae: 0.0138 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0118 - val_mse: 0.0013
 Epoch 50/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0099 - mae: 0.0075 - mse: 8.1171e-04 - val_loss: 0.0085 - val_mae: 0.0061 - val_mse: 4.2348e-04
+34/34 [==============================] - 32s 957ms/step - loss: 0.0028 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0025 - val_mae: 0.0128 - val_mse: 0.0014
 Epoch 51/100
-12/12 [==============================] - 8s 660ms/step - loss: 0.0097 - mae: 0.0073 - mse: 7.5397e-04 - val_loss: 0.0082 - val_mae: 0.0058 - val_mse: 4.4957e-04
+34/34 [==============================] - 30s 888ms/step - loss: 0.0028 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0124 - val_mse: 0.0013
 Epoch 52/100
-12/12 [==============================] - 7s 621ms/step - loss: 0.0097 - mae: 0.0073 - mse: 7.6673e-04 - val_loss: 0.0079 - val_mae: 0.0056 - val_mse: 4.1271e-04
+34/34 [==============================] - 29s 853ms/step - loss: 0.0030 - mae: 0.0149 - mse: 0.0020 - val_loss: 0.0024 - val_mae: 0.0122 - val_mse: 0.0013
 Epoch 53/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0097 - mae: 0.0074 - mse: 7.7561e-04 - val_loss: 0.0090 - val_mae: 0.0067 - val_mse: 5.5876e-04
+34/34 [==============================] - 29s 848ms/step - loss: 0.0029 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0119 - val_mse: 0.0014
 Epoch 54/100
-12/12 [==============================] - 7s 621ms/step - loss: 0.0097 - mae: 0.0074 - mse: 7.7143e-04 - val_loss: 0.0078 - val_mae: 0.0055 - val_mse: 3.8866e-04
+34/34 [==============================] - 29s 853ms/step - loss: 0.0029 - mae: 0.0139 - mse: 0.0018 - val_loss: 0.0023 - val_mae: 0.0115 - val_mse: 0.0013
 Epoch 55/100
-12/12 [==============================] - 7s 614ms/step - loss: 0.0097 - mae: 0.0074 - mse: 7.6700e-04 - val_loss: 0.0082 - val_mae: 0.0059 - val_mse: 4.5757e-04
+34/34 [==============================] - 29s 855ms/step - loss: 0.0029 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0124 - val_mse: 0.0014
 Epoch 56/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0095 - mae: 0.0073 - mse: 7.5231e-04 - val_loss: 0.0079 - val_mae: 0.0056 - val_mse: 4.1336e-04
+34/34 [==============================] - 29s 856ms/step - loss: 0.0028 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0023 - val_mae: 0.0117 - val_mse: 0.0012
 Epoch 57/100
-12/12 [==============================] - 7s 614ms/step - loss: 0.0095 - mae: 0.0072 - mse: 7.3876e-04 - val_loss: 0.0079 - val_mae: 0.0057 - val_mse: 4.2869e-04
+34/34 [==============================] - 29s 853ms/step - loss: 0.0027 - mae: 0.0130 - mse: 0.0016 - val_loss: 0.0022 - val_mae: 0.0115 - val_mse: 0.0012
 Epoch 58/100
-12/12 [==============================] - 7s 620ms/step - loss: 0.0095 - mae: 0.0073 - mse: 7.4774e-04 - val_loss: 0.0089 - val_mae: 0.0066 - val_mse: 5.1653e-04
+34/34 [==============================] - 29s 854ms/step - loss: 0.0028 - mae: 0.0140 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0119 - val_mse: 0.0013
 Epoch 59/100
-12/12 [==============================] - 7s 621ms/step - loss: 0.0095 - mae: 0.0073 - mse: 7.4333e-04 - val_loss: 0.0087 - val_mae: 0.0065 - val_mse: 5.3053e-04
+34/34 [==============================] - 28s 823ms/step - loss: 0.0027 - mae: 0.0133 - mse: 0.0016 - val_loss: 0.0023 - val_mae: 0.0108 - val_mse: 0.0012
 Epoch 60/100
-12/12 [==============================] - 8s 631ms/step - loss: 0.0093 - mae: 0.0072 - mse: 7.2926e-04 - val_loss: 0.0077 - val_mae: 0.0055 - val_mse: 3.9428e-04
+34/34 [==============================] - 25s 722ms/step - loss: 0.0026 - mae: 0.0129 - mse: 0.0016 - val_loss: 0.0022 - val_mae: 0.0115 - val_mse: 0.0011
 Epoch 61/100
-12/12 [==============================] - 8s 627ms/step - loss: 0.0093 - mae: 0.0071 - mse: 7.2754e-04 - val_loss: 0.0081 - val_mae: 0.0059 - val_mse: 4.7091e-04
+34/34 [==============================] - 25s 740ms/step - loss: 0.0026 - mae: 0.0129 - mse: 0.0016 - val_loss: 0.0023 - val_mae: 0.0113 - val_mse: 0.0012
 Epoch 62/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0092 - mae: 0.0071 - mse: 7.1703e-04 - val_loss: 0.0074 - val_mae: 0.0052 - val_mse: 3.5539e-04
+34/34 [==============================] - 25s 731ms/step - loss: 0.0027 - mae: 0.0131 - mse: 0.0016 - val_loss: 0.0022 - val_mae: 0.0116 - val_mse: 0.0012
 Epoch 63/100
-12/12 [==============================] - 7s 611ms/step - loss: 0.0091 - mae: 0.0070 - mse: 7.0279e-04 - val_loss: 0.0078 - val_mae: 0.0057 - val_mse: 4.1387e-04
+34/34 [==============================] - 25s 727ms/step - loss: 0.0027 - mae: 0.0134 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0133 - val_mse: 0.0014
 Epoch 64/100
-12/12 [==============================] - 7s 614ms/step - loss: 0.0091 - mae: 0.0070 - mse: 7.0570e-04 - val_loss: 0.0076 - val_mae: 0.0055 - val_mse: 3.8793e-04
+34/34 [==============================] - 25s 723ms/step - loss: 0.0027 - mae: 0.0133 - mse: 0.0016 - val_loss: 0.0023 - val_mae: 0.0114 - val_mse: 0.0013
 Epoch 65/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0092 - mae: 0.0070 - mse: 7.1815e-04 - val_loss: 0.0081 - val_mae: 0.0060 - val_mse: 4.7167e-04
+34/34 [==============================] - 25s 733ms/step - loss: 0.0028 - mae: 0.0143 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0135 - val_mse: 0.0013
 Epoch 66/100
-12/12 [==============================] - 7s 614ms/step - loss: 0.0091 - mae: 0.0070 - mse: 7.2032e-04 - val_loss: 0.0079 - val_mae: 0.0058 - val_mse: 3.7262e-04
+34/34 [==============================] - 25s 726ms/step - loss: 0.0028 - mae: 0.0145 - mse: 0.0018 - val_loss: 0.0023 - val_mae: 0.0118 - val_mse: 0.0012
 Epoch 67/100
-12/12 [==============================] - 8s 627ms/step - loss: 0.0094 - mae: 0.0074 - mse: 7.4016e-04 - val_loss: 0.0076 - val_mae: 0.0056 - val_mse: 3.9167e-04
+34/34 [==============================] - 25s 735ms/step - loss: 0.0028 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0143 - val_mse: 0.0015
 Epoch 68/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0093 - mae: 0.0072 - mse: 7.0830e-04 - val_loss: 0.0077 - val_mae: 0.0057 - val_mse: 3.6772e-04
+34/34 [==============================] - 25s 735ms/step - loss: 0.0029 - mae: 0.0144 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0135 - val_mse: 0.0014
 Epoch 69/100
-12/12 [==============================] - 7s 620ms/step - loss: 0.0093 - mae: 0.0072 - mse: 7.3151e-04 - val_loss: 0.0081 - val_mae: 0.0061 - val_mse: 4.9276e-04
+34/34 [==============================] - 25s 731ms/step - loss: 0.0026 - mae: 0.0129 - mse: 0.0016 - val_loss: 0.0024 - val_mae: 0.0126 - val_mse: 0.0014
 Epoch 70/100
-12/12 [==============================] - 8s 625ms/step - loss: 0.0092 - mae: 0.0072 - mse: 7.1555e-04 - val_loss: 0.0073 - val_mae: 0.0052 - val_mse: 3.4875e-04
+34/34 [==============================] - 25s 732ms/step - loss: 0.0027 - mae: 0.0136 - mse: 0.0017 - val_loss: 0.0023 - val_mae: 0.0113 - val_mse: 0.0012
 Epoch 71/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0092 - mae: 0.0071 - mse: 7.1793e-04 - val_loss: 0.0083 - val_mae: 0.0062 - val_mse: 4.9716e-04
+34/34 [==============================] - 25s 722ms/step - loss: 0.0026 - mae: 0.0128 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0107 - val_mse: 0.0011
 Epoch 72/100
-12/12 [==============================] - 8s 626ms/step - loss: 0.0091 - mae: 0.0071 - mse: 7.3458e-04 - val_loss: 0.0076 - val_mae: 0.0056 - val_mse: 4.2522e-04
+34/34 [==============================] - 25s 724ms/step - loss: 0.0026 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0109 - val_mse: 0.0011
 Epoch 73/100
-12/12 [==============================] - 7s 624ms/step - loss: 0.0090 - mae: 0.0070 - mse: 7.0480e-04 - val_loss: 0.0074 - val_mae: 0.0054 - val_mse: 3.8701e-04
+34/34 [==============================] - 24s 717ms/step - loss: 0.0026 - mae: 0.0127 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0104 - val_mse: 0.0011
 Epoch 74/100
-12/12 [==============================] - 8s 633ms/step - loss: 0.0088 - mae: 0.0068 - mse: 6.7951e-04 - val_loss: 0.0076 - val_mae: 0.0056 - val_mse: 4.2542e-04
+34/34 [==============================] - 24s 721ms/step - loss: 0.0028 - mae: 0.0142 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0122 - val_mse: 0.0013
 Epoch 75/100
-12/12 [==============================] - 7s 619ms/step - loss: 0.0090 - mae: 0.0070 - mse: 7.1343e-04 - val_loss: 0.0074 - val_mae: 0.0054 - val_mse: 3.6250e-04
+34/34 [==============================] - 24s 719ms/step - loss: 0.0027 - mae: 0.0139 - mse: 0.0017 - val_loss: 0.0022 - val_mae: 0.0111 - val_mse: 0.0012
 Epoch 76/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0090 - mae: 0.0070 - mse: 7.0048e-04 - val_loss: 0.0078 - val_mae: 0.0059 - val_mse: 4.5308e-04
+34/34 [==============================] - 25s 724ms/step - loss: 0.0025 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0111 - val_mse: 0.0011
 Epoch 77/100
-12/12 [==============================] - 8s 626ms/step - loss: 0.0089 - mae: 0.0070 - mse: 6.9972e-04 - val_loss: 0.0072 - val_mae: 0.0053 - val_mse: 3.5187e-04
+34/34 [==============================] - 25s 728ms/step - loss: 0.0025 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0108 - val_mse: 0.0011
 Epoch 78/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0089 - mae: 0.0070 - mse: 6.8166e-04 - val_loss: 0.0074 - val_mae: 0.0055 - val_mse: 3.9632e-04
+34/34 [==============================] - 24s 719ms/step - loss: 0.0025 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0022 - val_mae: 0.0119 - val_mse: 0.0012
 Epoch 79/100
-12/12 [==============================] - 7s 616ms/step - loss: 0.0088 - mae: 0.0069 - mse: 6.7656e-04 - val_loss: 0.0077 - val_mae: 0.0058 - val_mse: 3.8780e-04
+34/34 [==============================] - 25s 734ms/step - loss: 0.0026 - mae: 0.0130 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0106 - val_mse: 0.0011
 Epoch 80/100
-12/12 [==============================] - 7s 620ms/step - loss: 0.0088 - mae: 0.0069 - mse: 6.7445e-04 - val_loss: 0.0072 - val_mae: 0.0053 - val_mse: 3.5768e-04
+34/34 [==============================] - 25s 722ms/step - loss: 0.0024 - mae: 0.0123 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0100 - val_mse: 0.0010
 Epoch 81/100
-12/12 [==============================] - 8s 641ms/step - loss: 0.0087 - mae: 0.0068 - mse: 6.6462e-04 - val_loss: 0.0073 - val_mae: 0.0054 - val_mse: 3.3820e-04
+34/34 [==============================] - 25s 723ms/step - loss: 0.0025 - mae: 0.0124 - mse: 0.0015 - val_loss: 0.0020 - val_mae: 0.0105 - val_mse: 9.8833e-04
 Epoch 82/100
-12/12 [==============================] - 8s 625ms/step - loss: 0.0087 - mae: 0.0069 - mse: 6.6580e-04 - val_loss: 0.0079 - val_mae: 0.0061 - val_mse: 4.5902e-04
+34/34 [==============================] - 25s 722ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0015 - val_loss: 0.0023 - val_mae: 0.0133 - val_mse: 0.0013
 Epoch 83/100
-12/12 [==============================] - 7s 612ms/step - loss: 0.0089 - mae: 0.0071 - mse: 7.0671e-04 - val_loss: 0.0071 - val_mae: 0.0052 - val_mse: 3.4438e-04
+34/34 [==============================] - 25s 720ms/step - loss: 0.0025 - mae: 0.0128 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0105 - val_mse: 0.0011
 Epoch 84/100
-12/12 [==============================] - 8s 627ms/step - loss: 0.0087 - mae: 0.0068 - mse: 6.5793e-04 - val_loss: 0.0072 - val_mae: 0.0054 - val_mse: 3.6925e-04
+34/34 [==============================] - 25s 725ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0015 - val_loss: 0.0020 - val_mae: 0.0106 - val_mse: 9.8987e-04
 Epoch 85/100
-12/12 [==============================] - 8s 628ms/step - loss: 0.0088 - mae: 0.0069 - mse: 6.7951e-04 - val_loss: 0.0076 - val_mae: 0.0058 - val_mse: 4.0764e-04
+34/34 [==============================] - 24s 721ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0119 - val_mse: 0.0011
 Epoch 86/100
-12/12 [==============================] - 7s 620ms/step - loss: 0.0089 - mae: 0.0070 - mse: 7.1026e-04 - val_loss: 0.0073 - val_mae: 0.0054 - val_mse: 3.6374e-04
+34/34 [==============================] - 25s 724ms/step - loss: 0.0025 - mae: 0.0127 - mse: 0.0015 - val_loss: 0.0022 - val_mae: 0.0125 - val_mse: 0.0012
 Epoch 87/100
-12/12 [==============================] - 7s 618ms/step - loss: 0.0088 - mae: 0.0069 - mse: 6.7811e-04 - val_loss: 0.0073 - val_mae: 0.0055 - val_mse: 4.0448e-04
+34/34 [==============================] - 25s 725ms/step - loss: 0.0026 - mae: 0.0134 - mse: 0.0016 - val_loss: 0.0020 - val_mae: 0.0108 - val_mse: 0.0010
 Epoch 88/100
-12/12 [==============================] - 7s 619ms/step - loss: 0.0086 - mae: 0.0067 - mse: 6.5483e-04 - val_loss: 0.0068 - val_mae: 0.0050 - val_mse: 3.1360e-04
+34/34 [==============================] - 24s 716ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0015 - val_loss: 0.0020 - val_mae: 0.0101 - val_mse: 0.0010
 Epoch 89/100
-12/12 [==============================] - 7s 620ms/step - loss: 0.0086 - mae: 0.0068 - mse: 6.5693e-04 - val_loss: 0.0079 - val_mae: 0.0060 - val_mse: 4.1186e-04
+34/34 [==============================] - 25s 734ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0101 - val_mse: 9.8987e-04
 Epoch 90/100
-12/12 [==============================] - 7s 622ms/step - loss: 0.0087 - mae: 0.0069 - mse: 6.7007e-04 - val_loss: 0.0069 - val_mae: 0.0051 - val_mse: 3.2070e-04
+34/34 [==============================] - 24s 722ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0103 - val_mse: 0.0011
 Epoch 91/100
-12/12 [==============================] - 7s 620ms/step - loss: 0.0086 - mae: 0.0068 - mse: 6.5317e-04 - val_loss: 0.0082 - val_mae: 0.0064 - val_mse: 4.7922e-04
+34/34 [==============================] - 25s 730ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0107 - val_mse: 0.0011
 Epoch 92/100
-12/12 [==============================] - 8s 627ms/step - loss: 0.0087 - mae: 0.0069 - mse: 6.8120e-04 - val_loss: 0.0083 - val_mae: 0.0065 - val_mse: 4.7492e-04
+34/34 [==============================] - 25s 732ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0104 - val_mse: 0.0010
 Epoch 93/100
-12/12 [==============================] - 8s 636ms/step - loss: 0.0091 - mae: 0.0073 - mse: 7.3346e-04 - val_loss: 0.0080 - val_mae: 0.0062 - val_mse: 4.8918e-04
+34/34 [==============================] - 25s 729ms/step - loss: 0.0024 - mae: 0.0121 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0097 - val_mse: 9.7307e-04
 Epoch 94/100
-12/12 [==============================] - 8s 631ms/step - loss: 0.0087 - mae: 0.0069 - mse: 6.7763e-04 - val_loss: 0.0068 - val_mae: 0.0050 - val_mse: 3.0657e-04
+34/34 [==============================] - 25s 723ms/step - loss: 0.0024 - mae: 0.0119 - mse: 0.0014 - val_loss: 0.0019 - val_mae: 0.0098 - val_mse: 9.3450e-04
 Epoch 95/100
-12/12 [==============================] - 8s 629ms/step - loss: 0.0086 - mae: 0.0068 - mse: 6.5488e-04 - val_loss: 0.0070 - val_mae: 0.0052 - val_mse: 3.5471e-04
+34/34 [==============================] - 25s 726ms/step - loss: 0.0024 - mae: 0.0121 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0104 - val_mse: 9.6628e-04
 Epoch 96/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0085 - mae: 0.0067 - mse: 6.5132e-04 - val_loss: 0.0073 - val_mae: 0.0055 - val_mse: 3.9245e-04
+34/34 [==============================] - 25s 722ms/step - loss: 0.0027 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0021 - val_mae: 0.0118 - val_mse: 0.0011
 Epoch 97/100
-12/12 [==============================] - 8s 624ms/step - loss: 0.0086 - mae: 0.0068 - mse: 6.5645e-04 - val_loss: 0.0072 - val_mae: 0.0055 - val_mse: 3.9733e-04
+34/34 [==============================] - 25s 726ms/step - loss: 0.0024 - mae: 0.0121 - mse: 0.0014 - val_loss: 0.0019 - val_mae: 0.0096 - val_mse: 9.5879e-04
 Epoch 98/100
-12/12 [==============================] - 8s 627ms/step - loss: 0.0086 - mae: 0.0068 - mse: 6.6318e-04 - val_loss: 0.0069 - val_mae: 0.0052 - val_mse: 3.2705e-04
+34/34 [==============================] - 24s 719ms/step - loss: 0.0023 - mae: 0.0120 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0104 - val_mse: 0.0010
 Epoch 99/100
-12/12 [==============================] - 7s 617ms/step - loss: 0.0085 - mae: 0.0067 - mse: 6.3052e-04 - val_loss: 0.0071 - val_mae: 0.0054 - val_mse: 3.5150e-04
+34/34 [==============================] - 25s 728ms/step - loss: 0.0027 - mae: 0.0138 - mse: 0.0017 - val_loss: 0.0022 - val_mae: 0.0126 - val_mse: 0.0012
 Epoch 100/100
-12/12 [==============================] - 9s 785ms/step - loss: 0.0084 - mae: 0.0067 - mse: 6.4290e-04 - val_loss: 0.0070 - val_mae: 0.0052 - val_mse: 3.4045e-04
+34/34 [==============================] - 25s 731ms/step - loss: 0.0024 - mae: 0.0119 - mse: 0.0013 - val_loss: 0.0020 - val_mae: 0.0106 - val_mse: 0.0010
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 3: Plot the learning curves for training and validation loss</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-
-<span class="c1"># Plot training loss</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Loss&#39;</span><span class="p">)</span>
-
-<span class="c1"># Plot validation loss</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Loss&#39;</span><span class="p">)</span>
-
-<span class="c1"># Add labels and legend</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Learning Curve (Loss vs. Epochs)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Lr.png&quot;</span><span class="p">)</span>
-<span class="c1"># Show plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/f8721b7f4d0551099ae146a8accfc54f17fd4d0e104866fbcb8253e5a026706f.png" src="../_images/f8721b7f4d0551099ae146a8accfc54f17fd4d0e104866fbcb8253e5a026706f.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to plot inputs, true outputs, and predicted outputs with color bars</span>
-<span class="c1"># Function to plot inputs, true outputs, and predicted outputs with shared colorbars</span>
-<span class="k">def</span> <span class="nf">plot_comparison</span><span class="p">(</span><span class="n">thk</span><span class="p">,</span> <span class="n">slopesurx</span><span class="p">,</span> <span class="n">slopesury</span><span class="p">,</span> <span class="n">true_ubar</span><span class="p">,</span> <span class="n">true_vbar</span><span class="p">,</span> <span class="n">pred_ubar</span><span class="p">,</span> <span class="n">pred_vbar</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-
-    <span class="c1"># Plot inputs with individual color bars</span>
-    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">thk</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness (thk)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-
-    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesurx</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope x (slopesurx)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slopesury</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Surface Slope y (slopesury)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-
-    <span class="c1"># Determine the shared vmin and vmax for velocity comparisons</span>
-    <span class="n">vmin_ubar</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">true_ubar</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">pred_ubar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-    <span class="n">vmax_ubar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">true_ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pred_ubar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-    <span class="n">vmin_vbar</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">true_vbar</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">pred_vbar</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-    <span class="n">vmax_vbar</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">true_vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pred_vbar</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-
-    <span class="c1"># Plot true outputs with shared color bars</span>
-    <span class="n">im_ubar_true</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;True Velocity x (ubar)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-
-    <span class="n">im_vbar_true</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">true_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_vbar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_vbar</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;True Velocity y (vbar)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-    <span class="c1"># Plot predicted outputs with the same color scales</span>
-    <span class="n">im_ubar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity x (ubar)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_ubar_pred</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-
-    <span class="n">im_vbar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_vbar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_vbar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_vbar</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity y (vbar)&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_pred</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-    <span class="c1"># Adjust layout</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-
-<span class="c1"># Assuming you have a trained model and test data loaded, let&#39;s make predictions</span>
-<span class="n">predicted_outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualise the performance of the trained model by making predictions</span>
+ 
+<span class="n">predicted_outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">)</span>
 <span class="c1"># Separate predicted outputs into ubar and vbar components</span>
 <span class="n">pred_ubar</span> <span class="o">=</span> <span class="n">predicted_outputs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># First channel is ubar</span>
 <span class="n">pred_vbar</span> <span class="o">=</span> <span class="n">predicted_outputs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Second channel is vbar</span>
-
 <span class="c1"># Call the plot function for a specific time index, e.g., 0</span>
 <span class="n">time_idx</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">plot_comparison</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y_test</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_test</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pred_ubar</span><span class="p">,</span> <span class="n">pred_vbar</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">)</span>
+<span class="n">plot_comparison</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">X_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">y_test_aug</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">pred_ubar</span><span class="p">,</span> <span class="n">pred_vbar</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - 0s 196ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/2 [==============================] - 1s 22ms/step
 </pre></div>
 </div>
-<img alt="../_images/848bdc1c13b3b7b7c84f9cd510ce55b3fe3d3d032da15fac00b6de43b069de8f.png" src="../_images/848bdc1c13b3b7b7c84f9cd510ce55b3fe3d3d032da15fac00b6de43b069de8f.png" />
+<img alt="../_images/b442a0d9c566dd9e3c12831c7c317495da5f1c56646e7a81c90c2ee3b6c91a17.png" src="../_images/b442a0d9c566dd9e3c12831c7c317495da5f1c56646e7a81c90c2ee3b6c91a17.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot the Learning curve </span>
+
+<span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Plot training loss</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Loss&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot validation loss</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Loss&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add labels and legend</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Learning Curve (Loss vs. Epochs)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Lr.png&quot;</span><span class="p">)</span>
+    <span class="c1"># Show plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4a14ccfa40eddda582ad31364fa1dc2c849aa5c55345e99c3cc9164614a7071f.png" src="../_images/4a14ccfa40eddda582ad31364fa1dc2c849aa5c55345e99c3cc9164614a7071f.png" />
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="implementation">
-<h1><span class="section-number">11.5. </span>4.2 Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h1>
-<p>A basic version of this model could use the following steps:</p>
-<ol class="arabic simple">
-<li><p><strong>Input Variables</strong>: The CNN takes ice thickness and surface slope gradients as inputs  <span class="math notranslate nohighlight">\(\{ h(x,y), \frac{\partial s}{\partial x},\frac{\partial s}{\partial y}\}\)</span>.</p></li>
-<li><p><strong>Training the Emulator</strong>: The model is trained using a dataset generated from high-order glacier flow models.</p></li>
-<li><p><strong>Prediction</strong>: Once trained, the emulator predicts the vertically averaged ice flow from the input variables <strong>u</strong>(u,v).</p></li>
-</ol>
-<p>The input and output fields are 2 D grid rasters:</p>
-<p><span class="math notranslate nohighlight">\(
-\R^{N_x \times N_y \times 3} \rightarrow \R^{N_x \times N_y \times 2} ,
-\)</span></p>
-<p>For the hybrid model we will calculate <strong>u</strong>(x,y) with the emulator we trained above and plug it in the mass conservation equation to calculate the flux.
-The implementation is similar to above with some slight changes. Now we will need a <code class="docutils literal notranslate"><span class="pre">compute_divflux()</span></code> function for each itteration of the numerical scheme.
-In addition, we will need a new function (<code class="docutils literal notranslate"><span class="pre">compute_gradient_tf()</span></code>) to calculate the slope of the glacier, remember that the velocity field is mainly dependent on the slope and the thckness of the glacier.</p>
+<div class="section" id="implementatiing-the-hybrid-model">
+<h3><span class="section-number">11.1.2.2. </span>Implementatiing the hybrid model<a class="headerlink" href="#implementatiing-the-hybrid-model" title="Permalink to this headline">#</a></h3>
+<p>For the hybrid model, we will implement the mass conservation equation in a numerical shceme. The main difference with the first approach will be how we calculate <strong>u</strong>(x,y). The emulator we trained above, we plug it in the mass conservation equation to calculate the flux.
+Now we will need a couple of helper functions, <code class="docutils literal notranslate"><span class="pre">compute_divflux()</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_gradient_tf()</span></code>, for each itteration of the numerical scheme.
+Remember that the velocity field is mainly dependent on the slope and the thckness of the glacier.</p>
+<div class="section" id="helping-functions-for-the-hybrid-model">
+<h4><span class="section-number">11.1.2.2.1. </span>Helping functions for the hybrid model<a class="headerlink" href="#helping-functions-for-the-hybrid-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@tf</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
@@ -1548,6 +1517,9 @@ In addition, we will need a new function (<code class="docutils literal notransl
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="run-the-hybrid-model">
+<h4><span class="section-number">11.1.2.2.2. </span>Run the hybrid model<a class="headerlink" href="#run-the-hybrid-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Physical parameters</span>
@@ -1557,9 +1529,6 @@ In addition, we will need a new function (<code class="docutils literal notransl
 <span class="n">grad_b</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># Mass balance gradient (no unit)</span>
 <span class="n">b_max</span> <span class="o">=</span> <span class="mf">0.5</span>   <span class="c1"># Maximum precip (m/yr)</span>
 <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># Elevation of equilibrium line altitude (m)</span>
-
-
-
 
 <span class="c1"># Initialization &amp; load data</span>
 
@@ -1572,11 +1541,6 @@ In addition, we will need a new function (<code class="docutils literal notransl
 <span class="n">ny</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">Ly</span><span class="o">/</span><span class="n">dy</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>  <span class="c1"># x-coordinates</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>  <span class="c1"># y-coordinates</span>
-
-<span class="n">nc_file</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="s1">&#39;bedrock.nc&#39;</span><span class="p">)</span>  <span class="c1"># Load the NetCDF file</span>
-<span class="n">Z_topo</span> <span class="o">=</span> <span class="n">nc_file</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;topg&#39;</span><span class="p">]</span>  <span class="c1"># Replace &#39;topg&#39; with the appropriate v</span>
-
-
 
 <span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">))</span>  <span class="c1"># Initial ice thickness</span>
 <span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>  <span class="c1"># Initial ice surface</span>
@@ -1688,7 +1652,20 @@ In addition, we will need a new function (<code class="docutils literal notransl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/365a4acbd2e0f3537fd7c6312975350fc802cd2be3abf9ce259127fa2b02f62e.png" src="../_images/365a4acbd2e0f3537fd7c6312975350fc802cd2be3abf9ce259127fa2b02f62e.png" />
+<img alt="../_images/5063037a2dcef6781d9b239f6396502bec0031ca6389721c852d4fe44385112a.png" src="../_images/5063037a2dcef6781d9b239f6396502bec0031ca6389721c852d4fe44385112a.png" />
+</div>
+</div>
+<p><strong>Q: What are some dissadvantage of the hybrid models?</strong></p>
+<ul class="simple">
+<li><p><i> Border conditions are difficoult to implement.</i></p></li>
+<li><p><i> The model is as good as our data is </i></p></li>
+</ul>
+<p><strong>Q: What are some other fields where we can use Hybrid Models?</strong></p>
+<ul class="simple">
+<li><p><i> 1 </i></p></li>
+<li><p><i> 2 </i></p></li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1751,26 +1728,30 @@ In addition, we will need a new function (<code class="docutils literal notransl
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">11.1. 1. Introduction to Glacier Flow</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-glen-stokes-equations">11.2. 2. The Glen-Stokes Equations</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stokes-equations-for-glacier-flow">11.2.1. 2.1 Stokes Equations for Glacier Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glen-s-flow-law">11.2.2. 2.2 Glen’s Flow Law</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transition-to-the-ice-sheet-equation">11.2.3. 2.3. Transition to the Ice Sheet Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">11.1.1.1. Introduction to Glacier Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">11.1.1.2. Numerical solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-case">11.1.1.2.1. Boundary Conditions with no-slip condition at the case</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">11.3. 3. Boundary Conditions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#no-slip-condition-at-the-base">11.3.1. 3.1 No-Slip Condition at the Base</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-free-surface">11.3.2. 3.2 Stress-Free Surface</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.4. 4. Emulating Ice Flow with Machine Learning</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.4.1. 4.1 Overview of the Machine Learning Approach</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.4.2. Start working on the CNN model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.1.2. Introduction to hybrid modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.1.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.1.2.1.1. Overview of the Machine Learning Approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-funcitons-you-do-not-need-to-know">11.1.2.1.2. Necessary funcitons you do not need to know</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">11.1.2.1.3. Functions to prepare the data for the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.1.2.1.4. Start working on the CNN model</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">11.5. 4.2 Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementatiing-the-hybrid-model">11.1.2.2. Implementatiing the hybrid model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-functions-for-the-hybrid-model">11.1.2.2.1. Helping functions for the hybrid model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">11.1.2.2.2. Run the hybrid model</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+</ul>
   </nav></div>
 
 </div></div>
