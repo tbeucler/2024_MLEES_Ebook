@@ -227,12 +227,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.1. (Exercise) Graph Neural Networks with PyTorch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/GNN_Knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.6. (Exercise) Graph Neural Networks with PyTorch</a></li>
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/LAM_Graphcast.html">8.11. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.1. (Exercise) Introduction to Hybrid models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </li>
 </ul>
@@ -467,7 +468,7 @@ document.write(`
 <p>Statistical forecasting is a method used to predict future values or trends based on historical data and statistical techniques. It relies on the assumption that historical patterns and relationships observed in the data will continue into the future. They play a crucial role in environmental science for analyzing complex datasets, identifying patterns, and making informed decisions related to environmental monitoring, management, and projections. They help researchers extract valuable insights from environmental data and support evidence-based decision-making.</p>
 <blockquote>
 <div><p>Principal Component Analysis (PCA):
-Definition: PCA is a dimensionality reduction technique that identifies the most important variables (principal components) in a dataset while reducing redundancy.
+Definition: PCA is a dimensionality reduction technique that identifies the most important variables (i.e., the <em>principal components</em>) in a dataset while reducing redundancy.
 Example: In climate science, PCA can be used to reduce a large set of meteorological variables (temperature, humidity, pressure) into a smaller set of principal components that capture the most variability in weather patterns.</p>
 </div></blockquote>
 <div class="section" id="preprocessing-feature-selection-in-environmental-forecasting">
@@ -485,7 +486,7 @@ Example: In climate science, PCA can be used to reduce a large set of meteorolog
 <h2><span class="section-number">2.4.3. </span>Prediction Intervals<a class="headerlink" href="#prediction-intervals" title="Permalink to this headline">#</a></h2>
 <p>Temporal dependency in statistical forecasting is a fundamental concept that underscores the inherent relationship between data points in a time series. As phenomena observed in a time series get closer in time, they tend to exhibit a stronger connection and dependence than those further apart. This notion is crucial in understanding the dynamics of time series data and forms the bedrock of forecasting methodologies. When dealing with time series forecasting, it becomes apparent that forecasting events or values closer in time often results in considerably less variability and, consequently, higher accuracy than attempting predictions further into the future. This principle echoes the idea that phenomena evolve over time and are influenced by recent observations. Therefore, considering temporal dependency is essential when delving into time series analysis, as it provides valuable insights into the patterns and trends that can drive accurate forecasts, making it a vital concept in the field of statistical forecasting.</p>
 <p><img alt="austa.png" src="https://github.com/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/Figures/austa.png?raw=1" /></p>
-<p>Total international visitors to Australia (1980–2015) along with 10-year forecasts and 80% and 95% prediction intervals.The width of a prediction interval reflects the level of uncertainty associated with the forecast – narrower intervals indicate greater confidence, while wider intervals signify higher uncertainty. Thus, prediction intervals are a vital component of forecasting as they not only provide a point estimate but also convey the degree of uncertainty associated with the forecasted values.</p>
+<p>Total international visitors to Australia (1980–2015) along with 10-year forecasts and 80% and 95% prediction intervals. The blue line represents the mean (or <strong>expected</strong>) forecasted value. The width of a prediction interval reflects the level of uncertainty associated with the forecast – narrower intervals indicate greater confidence, while wider intervals signify higher uncertainty. Thus, prediction intervals are a vital component of forecasting as they not only provide a point estimate but also convey the degree of uncertainty associated with the forecasted values.</p>
 <p>Figure credit: An Easy Guide to Gradient Descent in Machine Learning, Great Learning. (<a class="reference external" href="https://otexts.com/fpp2/perspective.html">link</a>)</p>
 </div>
 <div class="section" id="model-output-statistics-mos">
@@ -509,6 +510,8 @@ Example: In climate science, PCA can be used to reduce a large set of meteorolog
 </div></blockquote>
 <p>MOS is particularly valuable in situations where NWP models have known biases or limitations. It helps address issues like systematic over- or under-prediction of temperature, poor handling of local terrain effects, and biases in precipitation forecasts.</p>
 <p>Regression models are widely used in environmental sciences for statistical forecasting and prediction. They allow researchers to analyze and model the relationships between various environmental variables, leading to a better understanding of natural systems and improved forecasts.</p>
+<p>Note that in weather forecasting, Model Output Statistics (MOS) are tailored to specific regions and cannot easily be applied elsewhere. They are typically developed for a particular area, making it difficult to rapidly adapt them for use in other locations.</p>
+<p>Due to this regional specificity, creating MOS is often a slow process and generally lags behind the development of new dynamic models and advancements in computing power. In practice, it may take 2 to 3 years of using new dynamic models before MOS can enhance prediction accuracy. One approach to accelerate MOS development is to “reforecast” past weather data using updated dynamic models, thus allowing faster regional adaptation.</p>
 </div>
 <div class="section" id="application-of-regression-models-in-environmental-sciences">
 <h2><span class="section-number">2.4.5. </span>Application of Regression Models in Environmental Sciences:<a class="headerlink" href="#application-of-regression-models-in-environmental-sciences" title="Permalink to this headline">#</a></h2>

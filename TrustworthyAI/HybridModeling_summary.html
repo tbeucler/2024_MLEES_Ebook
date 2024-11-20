@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'TrustworthyAI/HybridModeling_summary';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11.1. (Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models" href="../Kejdi/10_Hybird_Models.html" />
+    <link rel="next" title="11.5. (Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models" href="../Kejdi/10_Hybird_Models.html" />
     <link rel="prev" title="10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models" href="../Ayoub/Week_9_Generative_modeling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -227,12 +227,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.1. (Exercise) Graph Neural Networks with PyTorch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/GNN_Knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.6. (Exercise) Graph Neural Networks with PyTorch</a></li>
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/LAM_Graphcast.html">8.11. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">11. Hybrid Modeling and Knowledge-Guided Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.1. (Exercise) Introduction to Hybrid models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </li>
 </ul>
@@ -422,7 +423,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -438,6 +441,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.2. Introduction to Hybrid Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-hybrid-models">11.3. Why Use Hybrid Models?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-hybrid-models">11.4. Applications of Hybrid Models</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -450,7 +464,45 @@ document.write(`
   <p><a href="https://colab.research.google.com/github/tbeucler/2024_MLEES_Ebook/blob/main/TrustworthyAI/HybridModeling_summary.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="hybrid-modeling-and-knowledge-guided-learning">
 <h1><span class="section-number">11. </span>Hybrid Modeling and Knowledge-Guided Learning<a class="headerlink" href="#hybrid-modeling-and-knowledge-guided-learning" title="Permalink to this headline">#</a></h1>
-<p>Placeholder for Hybrid Modeling summary</p>
+<div class="section" id="learning-objectives">
+<h2><span class="section-number">11.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<p>Welcome to the Hybrid Modeling chapter! By the end of this section, you will:</p>
+<ol class="arabic simple">
+<li><p><strong>Understand glacier modeling</strong> through physics-based approaches.</p></li>
+<li><p><strong>Learn about hybrid models</strong> and how they seamlessly combine physics-based and ML approaches.</p></li>
+<li><p><strong>Identify the strengths and limitations</strong> of hybrid models.</p></li>
+<li><p><strong>Explore various applications</strong> of hybrid modeling in scientific and engineering domains.</p></li>
+</ol>
+</div>
+<div class="section" id="introduction-to-hybrid-modeling">
+<h2><span class="section-number">11.2. </span>Introduction to Hybrid Modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Permalink to this headline">#</a></h2>
+<p>Hybrid models integrate the rigor of physics-based models with the flexibility of machine learning (ML). In purely physics-based models, known equations such as mass, energy, and momentum conservation dictate system behavior. These models provide valuable insights but can be computationally intensive and reliant on precise domain-specific knowledge.</p>
+<p>On the other hand, machine learning models, which excel in finding patterns from data, can approximate complex systems without explicit equations. This is especially useful in data-rich environments, where system behavior may be difficult to describe with traditional methods alone. However, ML models often lack physical interpretability and can produce results that defy known laws of nature, particularly when extrapolating beyond their training data.</p>
+<p>Hybrid models aim to merge the best of both worlds: they use physics-based constraints to guide the learning process, improving the physical plausibility of ML predictions while leveraging ML to speed up or enhance the traditional modeling process. This synergy makes hybrid models powerful for applications where data is abundant but physics-based models alone are insufficient, or where precise physical laws exist but would benefit from data-driven refinement.</p>
+</div>
+<div class="section" id="why-use-hybrid-models">
+<h2><span class="section-number">11.3. </span>Why Use Hybrid Models?<a class="headerlink" href="#why-use-hybrid-models" title="Permalink to this headline">#</a></h2>
+<p>The motivation for using hybrid models stems from the limitations of relying solely on either physics-based models or ML. Physics-based models are grounded in known laws, ensuring that their results are consistent with our understanding of the world, but they require detailed parameterization and are not always practical in data-limited settings. Conversely, ML models excel at learning from large datasets, but their predictions may violate fundamental principles without some form of guidance.</p>
+<p>By combining these two approaches, hybrid models offer the following advantages:</p>
+<ul class="simple">
+<li><p><strong>Improved accuracy</strong>: ML can learn residual patterns or unknown processes that a physics-based model might miss.</p></li>
+<li><p><strong>Physical consistency</strong>: The inclusion of physical laws helps prevent ML from making predictions that violate established principles.</p></li>
+<li><p><strong>Reduced computational costs</strong>: ML can be used to approximate or accelerate parts of the model, reducing the computational demands of complex simulations.</p></li>
+<li><p><strong>Enhanced interpretability</strong>: Physics-based constraints ensure that the model remains interpretable, which is critical in scientific applications.</p></li>
+</ul>
+<p>However, hybrid models are not without challenges. The integration of physics and ML requires careful balance and may introduce complexity in model training, particularly in ensuring that the ML component adheres to physical laws. Additionally, hybrid models may still rely on large datasets for training, which can be a limitation in data-scarce regions.</p>
+</div>
+<div class="section" id="applications-of-hybrid-models">
+<h2><span class="section-number">11.4. </span>Applications of Hybrid Models<a class="headerlink" href="#applications-of-hybrid-models" title="Permalink to this headline">#</a></h2>
+<p>Hybrid models have found applications across numerous fields, including:</p>
+<ul class="simple">
+<li><p><strong>Climate science</strong>: For modeling complex processes like glacier flow, ocean currents, or atmospheric dynamics.</p></li>
+<li><p><strong>Engineering</strong>: In systems where physical laws are well-known but ML can help optimize performance or reduce simulation time.</p></li>
+<li><p><strong>Medical sciences</strong>: Combining physiological models with ML to predict outcomes in complex biological systems.</p></li>
+<li><p><strong>Environmental sciences</strong>: Hybrid models help simulate natural systems, like glacier evolution, that involve complex interactions between physical processes and data-driven uncertainties.</p></li>
+</ul>
+<p>By blending the predictive power of ML with the robustness of physics-based modeling, hybrid models represent a promising approach for advancing our understanding of complex systems.</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -500,7 +552,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11.1. </span>(Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models</p>
+        <p class="prev-next-title"><span class="section-number">11.5. </span>(Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -513,6 +565,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1. Learning Objectives:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.2. Introduction to Hybrid Modeling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-hybrid-models">11.3. Why Use Hybrid Models?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-hybrid-models">11.4. Applications of Hybrid Models</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

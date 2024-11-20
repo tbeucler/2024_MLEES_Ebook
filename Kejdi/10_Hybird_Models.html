@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11.1. (Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models &#8212; Machine Learning for Earth and Environmental Sciences</title>
+    <title>11.5. (Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models &#8212; Machine Learning for Earth and Environmental Sciences</title>
   
   
   
@@ -228,12 +228,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.1. (Exercise) Graph Neural Networks with PyTorch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/GNN_Knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.6. (Exercise) Graph Neural Networks with PyTorch</a></li>
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/LAM_Graphcast.html">8.11. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -250,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.1. (Exercise) Introduction to Hybrid models</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.5. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </li>
 </ul>
@@ -446,25 +447,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">11.1.1.1. Introduction to Glacier Flow</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">11.1.1.2. Numerical solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-case">11.1.1.2.1. Boundary Conditions with no-slip condition at the case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.5.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">11.5.1.1. Introduction to Glacier Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">11.5.1.2. Numerical solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-case">11.5.1.2.1. Boundary Conditions with no-slip condition at the case</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.1.2. Introduction to hybrid modeling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.1.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.1.2.1.1. Overview of the Machine Learning Approach</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-funcitons-you-do-not-need-to-know">11.1.2.1.2. Necessary funcitons you do not need to know</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">11.1.2.1.3. Functions to prepare the data for the model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.1.2.1.4. Start working on the CNN model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.5.2. Introduction to hybrid modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.5.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.5.2.1.1. Overview of the Machine Learning Approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-funcitons-you-do-not-need-to-know">11.5.2.1.2. Necessary funcitons you do not need to know</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">11.5.2.1.3. Functions to prepare the data for the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.5.2.1.4. Start working on the CNN model</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementatiing-the-hybrid-model">11.1.2.2. Implementatiing the hybrid model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-functions-for-the-hybrid-model">11.1.2.2.1. Helping functions for the hybrid model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">11.1.2.2.2. Run the hybrid model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementatiing-the-hybrid-model">11.5.2.2. Implementatiing the hybrid model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-functions-for-the-hybrid-model">11.5.2.2.1. Helping functions for the hybrid model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">11.5.2.2.2. Run the hybrid model</a></li>
 </ul>
 </li>
 </ul>
@@ -480,10 +481,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="section" id="exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models">
-<h1><span class="section-number">11.1. </span>(Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models<a class="headerlink" href="#exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models" title="Permalink to this headline">#</a></h1>
+  <p><a href="https://colab.research.google.com/github/tbeucler/2024_MLEES_Ebook/blob/main/Kejdi/10_Hybird_Models.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="section" id="exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models">
+<h1><span class="section-number">11.5. </span>(Exercise) Introduction to Hybrid models. Combining Physics-Based and Machine Learning Models<a class="headerlink" href="#exercise-introduction-to-hybrid-models-combining-physics-based-and-machine-learning-models" title="Permalink to this headline">#</a></h1>
 <div class="section" id="learning-objectives">
-<h2><span class="section-number">11.1.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.5.1. </span>Learning Objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
 <ol class="arabic simple">
 <li><p><strong>How can we model glaciers</strong> with physic-based approach?</p></li>
 <li><p><strong>Understand what hybrid models are</strong> and how they integrate physics-based and ML approaches.</p></li>
@@ -495,7 +497,7 @@ document.write(`
 <img src="https://home.nps.gov/lacl/learn/nature/images/Glaciers-page_-Image-w-cred-cap_-1200w_-Tanaina-Glacier_2_1.jpg?maxwidth=1300&autorotate=false&quality=78&format=webp" width=80%></img>
 <p><br> <i> To me :  A glacier is a non-Newtonian fluid, with a stress dependent viscosity, that flows from higher to lower elevations </i></p>
 </center><div class="section" id="introduction-to-glacier-flow">
-<h3><span class="section-number">11.1.1.1. </span>Introduction to Glacier Flow<a class="headerlink" href="#introduction-to-glacier-flow" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.5.1.1. </span>Introduction to Glacier Flow<a class="headerlink" href="#introduction-to-glacier-flow" title="Permalink to this headline">#</a></h3>
 <p>Glaciers are massive bodies of ice that flow slowly under their own weight. The flow of ice in a glacier is a complex process governed by physical laws that describe how the ice deforms and moves.
 Given an initial glacier geometry, the time evolution in ice thickness <span class="math notranslate nohighlight">\(h(x, y, t)\)</span> is determined by the mass conservation equation, which couples ice dynamics and surface mass balance (SMB)
 through:</p>
@@ -516,7 +518,7 @@ The state of the art ML techniques, use a Physics Informed Neural Network (PINN)
 </ul>
 </div>
 <div class="section" id="numerical-solution-for-u">
-<h3><span class="section-number">11.1.1.2. </span>Numerical solution for <strong>u</strong><a class="headerlink" href="#numerical-solution-for-u" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.5.1.2. </span>Numerical solution for <strong>u</strong><a class="headerlink" href="#numerical-solution-for-u" title="Permalink to this headline">#</a></h3>
 <p>We can describe the ice-flow equations under stress, but their computational cost makes them impractical for large-scale ice-sheet modeling over long time periods. This leads us to introduce the <strong>shallow ice approximation (SIA)</strong>, which is used in ice sheet models due to its simplicity and efficiency.</p>
 <p>The SIA simplifies the full Stokes equations by assuming that the ice flow is dominated by vertical shear stresses and that horizontal stresses can be neglected. This results in an expression for the ice velocity in terms of the ice thickness gradient and the surface slope. The ice velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> can be approximated as:</p>
 <p><span class="math notranslate nohighlight">\(
@@ -539,7 +541,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <p>where <span class="math notranslate nohighlight">\(D(h,z) =  f_d (\rho g)^3 h^5 |\nabla S|^2\)</span>.</p>
 <p>This equation describes the time evolution of the ice thickness, where the velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is computed from the ice sheet’s surface slope and thickness. This approach provides a balance between accuracy and computational efficiency and is widely used in large-scale ice sheet models.</p>
 <div class="section" id="boundary-conditions-with-no-slip-condition-at-the-case">
-<h4><span class="section-number">11.1.1.2.1. </span>Boundary Conditions with no-slip condition at the case<a class="headerlink" href="#boundary-conditions-with-no-slip-condition-at-the-case" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.1.2.1. </span>Boundary Conditions with no-slip condition at the case<a class="headerlink" href="#boundary-conditions-with-no-slip-condition-at-the-case" title="Permalink to this headline">#</a></h4>
 <p>In many glacier models, we assume a no-slip condition at the base, meaning the ice velocity is zero at the bedrock. This condition is suitable for glaciers frozen to their beds:</p>
 <p><span class="math notranslate nohighlight">\(
 \mathbf{u} = 0 \text{ on the bedrock surface}.
@@ -554,7 +556,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import the necessary libraies</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
 <span class="kn">import</span> <span class="nn">netCDF4</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
@@ -564,7 +566,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
 
-<span class="c1"># Make True if you want to train the model from scratch. It should take 30 min to train. </span>
+<span class="c1"># Make True if you want to train the model from scratch. It should take 30 min to train.</span>
 <span class="n">train_mode</span><span class="o">=</span><span class="kc">True</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -575,7 +577,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">ndimage</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">netCDF4</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
@@ -597,7 +599,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># Elevation of equilibrium line altitude (m)</span>
 <span class="n">rho</span> <span class="o">=</span> <span class="mf">910.0</span>   <span class="c1"># Ice density (g/m^3)</span>
 <span class="n">g</span>   <span class="o">=</span> <span class="mf">9.81</span>    <span class="c1"># Earth&#39;s gravity (m/s^2)</span>
-<span class="n">fd</span>  <span class="o">=</span> <span class="mf">1e-18</span>   <span class="c1"># Deformation constant (Pa^-3 y^-1) </span>
+<span class="n">fd</span>  <span class="o">=</span> <span class="mf">1e-18</span>   <span class="c1"># Deformation constant (Pa^-3 y^-1)</span>
 
 
 
@@ -632,7 +634,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop</span>
 <span class="k">while</span> <span class="n">time</span> <span class="o">&lt;</span> <span class="n">ttot</span><span class="p">:</span>
-    
+
     <span class="c1"># Update time</span>
     <span class="n">time</span> <span class="o">+=</span> <span class="n">dt</span>
     <span class="n">it</span>   <span class="o">+=</span> <span class="mi">1</span>
@@ -673,7 +675,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 
     <span class="c1"># updatesurface topography</span>
     <span class="n">Z_surf</span> <span class="o">=</span> <span class="n">Z_topo</span> <span class="o">+</span> <span class="n">H_ice</span>
-  
+
     <span class="c1"># Update ELA after 500 years</span>
     <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
         <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">2700</span>
@@ -681,9 +683,9 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="c1"># Display</span>
     <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Clear the previous output in the notebook</span>
-    
+
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-        
+
         <span class="c1"># First subplot: Ice surface</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Z_surf</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
@@ -691,7 +693,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ice Surface at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; y&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
-    
+
         <span class="c1"># Second subplot: Ice thickness</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">H_ice</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">H_ice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">),</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">Lx</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Ly</span><span class="o">/</span><span class="mi">1000</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
@@ -699,15 +701,16 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
         <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ice Thickness at &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; y&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance, km&#39;</span><span class="p">)</span>
-        
+
         <span class="c1"># Show the plot</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d3438841bd87d8ed538cc4b90ab1ac7ca867dc8bb2b880092e0d6aba70dc1ca3.png" src="../_images/d3438841bd87d8ed538cc4b90ab1ac7ca867dc8bb2b880092e0d6aba70dc1ca3.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2200x800 with 4 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p><strong>Q: Which is the most expensive part of of solving the mass conservation equation?</strong></p>
@@ -716,17 +719,17 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 </div>
 </div>
 <div class="section" id="introduction-to-hybrid-modeling">
-<h2><span class="section-number">11.1.2. </span>Introduction to hybrid modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">11.5.2. </span>Introduction to hybrid modeling<a class="headerlink" href="#introduction-to-hybrid-modeling" title="Permalink to this headline">#</a></h2>
 <p>Hybrid models combine traditional physics-based models (model-based, MB) with machine learning (ML) to leverage the strengths of both approaches. In purely physics-based models, known equations govern system dynamics, but these models often require detailed domain knowledge and can be limited by the availability of precise parameters. Machine learning, in contrast, can model complex systems without relying on such parameters, making it useful for data-rich but theory-poor domains. However, ML models may struggle to generalize outside the data they are trained on and can produce results that violate known physical laws.</p>
 <p><strong>Q: How can hybrid models overcome these limitations?</strong></p>
 <p><i>Hybrid modeling overcomes these limitations by using physics-informed constraints, embedding known physical equations into machine learning models, or combining the outputs of both approaches. The goal is to create models that are more accurate and robust, especially in cases with limited data or imperfect physical models. By fusing physics with data-driven methods, hybrid models can handle sparse data, correct ML predictions that violate physical laws, and produce interpretable results across a wide range of applications.</i></p>
 <p><strong>Q: How can we make our simulations run faster?</strong></p>
 <p><i>We can replace the calutation of <strong>u</strong> with an emulator. The emulator will take as input the state of the medium (glacier thickness, slope of glacier, etc) and will calucate the velocity field (<strong>u</strong>) for the corresponding time step. </i></p>
 <div class="section" id="emulating-ice-flow-with-machine-learning">
-<h3><span class="section-number">11.1.2.1. </span>Emulating Ice Flow with Machine Learning<a class="headerlink" href="#emulating-ice-flow-with-machine-learning" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.5.2.1. </span>Emulating Ice Flow with Machine Learning<a class="headerlink" href="#emulating-ice-flow-with-machine-learning" title="Permalink to this headline">#</a></h3>
 <p>The <em>Instructed Glacier Model</em> (<a class="reference external" href="https://github.com/jouvetg/igm">IGM</a>) introduces a convolutional neural network (CNN) to predict ice flow, trained using data from traditional models such as hybrid SIA+SSA or Stokes models. The advantage of this approach is that it substitutes the computationally expensive ice flow component with a much faster emulator. This enables simulations that are up to 1000 times faster, with a fidelity of over 90%.</p>
 <div class="section" id="overview-of-the-machine-learning-approach">
-<h4><span class="section-number">11.1.2.1.1. </span>Overview of the Machine Learning Approach<a class="headerlink" href="#overview-of-the-machine-learning-approach" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.2.1.1. </span>Overview of the Machine Learning Approach<a class="headerlink" href="#overview-of-the-machine-learning-approach" title="Permalink to this headline">#</a></h4>
 <p>A simple version of the IGM could be built by the following steps:</p>
 <ol class="arabic simple">
 <li><p><strong>Input Variables</strong>: The ML model takes ice thickness and surface slope gradients as inputs  <span class="math notranslate nohighlight">\(\{ h(x,y), \frac{\partial s}{\partial x},\frac{\partial s}{\partial y}\}\)</span>.</p></li>
@@ -741,7 +744,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <p><i>Hybrid models can help in theory-poor domains where we do not have known equation that govern system dynamics. However, we should have enough data and be sure to make this model generalizable. A pitfall, when we dont have enough data and are not carefull, could be to overfitting</i></p>
 </div>
 <div class="section" id="necessary-funcitons-you-do-not-need-to-know">
-<h4><span class="section-number">11.1.2.1.2. </span>Necessary funcitons you do not need to know<a class="headerlink" href="#necessary-funcitons-you-do-not-need-to-know" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.2.1.2. </span>Necessary funcitons you do not need to know<a class="headerlink" href="#necessary-funcitons-you-do-not-need-to-know" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Test</span>
@@ -857,7 +860,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_true</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-    
+
     <span class="c1"># Plot predicted outputs with the same color scales</span>
     <span class="n">im_ubar_pred</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pred_ubar</span><span class="p">[</span><span class="n">time_idx</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin_ubar</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax_ubar</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Predicted Velocity x (ubar)&#39;</span><span class="p">)</span>
@@ -883,7 +886,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im_vbar_diff</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-    
+
     <span class="c1"># Adjust layout</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -893,7 +896,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 </div>
 </div>
 <div class="section" id="functions-to-prepare-the-data-for-the-model">
-<h4><span class="section-number">11.1.2.1.3. </span>Functions to prepare the data for the model<a class="headerlink" href="#functions-to-prepare-the-data-for-the-model" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.2.1.3. </span>Functions to prepare the data for the model<a class="headerlink" href="#functions-to-prepare-the-data-for-the-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_data</span> <span class="p">(</span><span class="n">merged_data</span><span class="p">):</span>
@@ -904,7 +907,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="n">ubar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;ubar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity x component</span>
     <span class="n">vbar</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;vbar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>         <span class="c1"># Velocity y component</span>
     <span class="n">usurf</span> <span class="o">=</span> <span class="n">merged_data</span><span class="p">[</span><span class="s1">&#39;usurf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    
+
     <span class="c1"># Calculate 90th percentile scaling factors for training</span>
     <span class="n">scaling_factors</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;thk&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">thk</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
@@ -913,7 +916,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
         <span class="s2">&quot;ubar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">ubar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">),</span>
         <span class="s2">&quot;vbar&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">vbar</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="mi">90</span><span class="p">)</span>
     <span class="p">}</span>
-    
+
     <span class="c1"># Step 2: Scale each field using the 90th percentile of its maximum</span>
     <span class="n">thk_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">thk</span><span class="p">)</span>
     <span class="n">slopsurfx_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">slopsurfx</span><span class="p">)</span>
@@ -921,11 +924,11 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
     <span class="n">ubar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">ubar</span><span class="p">)</span>
     <span class="n">vbar_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">vbar</span><span class="p">)</span>
     <span class="n">usurf_scaled</span> <span class="o">=</span> <span class="n">scale_field</span><span class="p">(</span><span class="n">usurf</span><span class="p">)</span>
-    
+
     <span class="c1"># Step 3: Stack inputs and outputs after scaling</span>
     <span class="n">inputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">thk_scaled</span><span class="p">,</span> <span class="n">slopsurfx_scaled</span><span class="p">,</span> <span class="n">slopsurfy_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 3)</span>
     <span class="n">outputs_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">ubar_scaled</span><span class="p">,</span> <span class="n">vbar_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Shape: (time, y, x, 2)</span>
-    
+
     <span class="c1"># Check shapes</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inputs scaled shape: </span><span class="si">{</span><span class="n">inputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outputs scaled shape: </span><span class="si">{</span><span class="n">outputs_scaled</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -965,7 +968,7 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 </div>
 </div>
 <div class="section" id="start-working-on-the-cnn-model">
-<h4><span class="section-number">11.1.2.1.4. </span>Start working on the CNN model<a class="headerlink" href="#start-working-on-the-cnn-model" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.2.1.4. </span>Start working on the CNN model<a class="headerlink" href="#start-working-on-the-cnn-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration as a dictionary</span>
@@ -986,16 +989,16 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_cnn</span><span class="p">(</span><span class="n">nb_inputs</span><span class="p">,</span> <span class="n">nb_outputs</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Build a convolutional neural network (CNN) for glacier velocity field prediction.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters:</span>
 <span class="sd">    - nb_inputs: Number of input channels (thk, slopsurfx, slopsurfy).</span>
 <span class="sd">    - nb_outputs: Number of output channels (ubar, vbar).</span>
 <span class="sd">    - config: Dictionary containing CNN configuration.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">    - A compiled Keras model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="c1"># Define the input layer</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">nb_inputs</span><span class="p">])</span>
 
@@ -1022,14 +1025,14 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 
     <span class="c1"># Output layer with nb_outputs channels (for ubar, vbar)</span>
     <span class="n">outputs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span>
-        <span class="n">filters</span><span class="o">=</span><span class="n">nb_outputs</span><span class="p">,</span> 
-        <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+        <span class="n">filters</span><span class="o">=</span><span class="n">nb_outputs</span><span class="p">,</span>
+        <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
         <span class="n">activation</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">)(</span><span class="n">conv</span><span class="p">)</span>
 
     <span class="c1"># Return the complete model</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span>
-    
+
     <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
@@ -1136,7 +1139,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 Outputs scaled shape: (101, 323, 497, 2)
 </pre></div>
 </div>
-<img alt="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" src="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x500 with 11 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1144,14 +1149,14 @@ Outputs scaled shape: (101, 323, 497, 2)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span>
     <span class="c1"># Prepare the data for training</span>
     <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="o">=</span><span class="n">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">)</span>
-    
+
     <span class="c1"># Train the model</span>
     <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">))</span>
     <span class="c1"># Save the trained model to a file</span>
     <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.keras&#39;</span><span class="p">)</span>
-    
-    
-<span class="k">else</span> <span class="p">:</span> 
+
+
+<span class="k">else</span> <span class="p">:</span>
     <span class="n">model_url</span><span class="o">=</span><span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EdNZk6-82ItCmR0oisE135YBTv-TLc7mwPDuU2gPrTojGA?download=1&#39;</span>
     <span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">model_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
@@ -1371,7 +1376,7 @@ Epoch 100/100
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualise the performance of the trained model by making predictions</span>
- 
+
 <span class="n">predicted_outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">)</span>
 <span class="c1"># Separate predicted outputs into ubar and vbar components</span>
 <span class="n">pred_ubar</span> <span class="o">=</span> <span class="n">predicted_outputs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># First channel is ubar</span>
@@ -1386,14 +1391,16 @@ Epoch 100/100
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/2 [==============================] - 1s 22ms/step
 </pre></div>
 </div>
-<img alt="../_images/b442a0d9c566dd9e3c12831c7c317495da5f1c56646e7a81c90c2ee3b6c91a17.png" src="../_images/b442a0d9c566dd9e3c12831c7c317495da5f1c56646e7a81c90c2ee3b6c91a17.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x700 with 18 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot the Learning curve </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot the Learning curve</span>
 
-<span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span> 
+<span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
     <span class="c1"># Plot training loss</span>
@@ -1414,32 +1421,34 @@ Epoch 100/100
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4a14ccfa40eddda582ad31364fa1dc2c849aa5c55345e99c3cc9164614a7071f.png" src="../_images/4a14ccfa40eddda582ad31364fa1dc2c849aa5c55345e99c3cc9164614a7071f.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 1 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="implementatiing-the-hybrid-model">
-<h3><span class="section-number">11.1.2.2. </span>Implementatiing the hybrid model<a class="headerlink" href="#implementatiing-the-hybrid-model" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">11.5.2.2. </span>Implementatiing the hybrid model<a class="headerlink" href="#implementatiing-the-hybrid-model" title="Permalink to this headline">#</a></h3>
 <p>For the hybrid model, we will implement the mass conservation equation in a numerical shceme. The main difference with the first approach will be how we calculate <strong>u</strong>(x,y). The emulator we trained above, we plug it in the mass conservation equation to calculate the flux.
 Now we will need a couple of helper functions, <code class="docutils literal notranslate"><span class="pre">compute_divflux()</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_gradient_tf()</span></code>, for each itteration of the numerical scheme.
 Remember that the velocity field is mainly dependent on the slope and the thckness of the glacier.</p>
 <div class="section" id="helping-functions-for-the-hybrid-model">
-<h4><span class="section-number">11.1.2.2.1. </span>Helping functions for the hybrid model<a class="headerlink" href="#helping-functions-for-the-hybrid-model" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.2.2.1. </span>Helping functions for the hybrid model<a class="headerlink" href="#helping-functions-for-the-hybrid-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@tf</span><span class="o">.</span><span class="n">function</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">compute_divflux</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Upwind computation of the divergence of the flux: d(u h)/dx + d(v h)/dy</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters:</span>
 <span class="sd">    - u: x-component of velocity (2D tensor).</span>
 <span class="sd">    - v: y-component of velocity (2D tensor).</span>
 <span class="sd">    - h: ice thickness (2D tensor).</span>
 <span class="sd">    - dx: grid spacing in the x-direction (float).</span>
 <span class="sd">    - dy: grid spacing in the y-direction (float).</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">    - divflux: divergence of flux (2D tensor).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1464,12 +1473,12 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 <span class="k">def</span> <span class="nf">compute_gradient_tf</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute spatial 2D gradient of a given field.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters:</span>
 <span class="sd">    - s: surface elevation (2D tensor).</span>
 <span class="sd">    - dx: grid spacing in the x-direction (float).</span>
 <span class="sd">    - dy: grid spacing in the y-direction (float).</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">    - diffx: gradient in the x-direction (2D tensor).</span>
 <span class="sd">    - diffy: gradient in the y-direction (2D tensor).</span>
@@ -1487,11 +1496,11 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Apply boundary condition to the ice thickness field `H_ice`.</span>
 <span class="sd">    The ice thickness will linearly decrease to zero starting from `boundary_width` pixels away from the boundary.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters:</span>
 <span class="sd">    - H_ice: 2D numpy array representing ice thickness.</span>
 <span class="sd">    - boundary_width: Number of pixels from the boundary where H_ice starts to decrease.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">    - Modified H_ice with boundary condition applied.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1511,7 +1520,7 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 
     <span class="c1"># Apply boundary condition to the bottom boundary</span>
     <span class="n">H_ice</span><span class="p">[</span><span class="o">-</span><span class="n">boundary_width</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">*=</span> <span class="n">ramp</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="c1"># Decrease vertically to bottom boundary</span>
-    
+
     <span class="k">return</span> <span class="n">H_ice</span>
 </pre></div>
 </div>
@@ -1519,7 +1528,7 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 </div>
 </div>
 <div class="section" id="run-the-hybrid-model">
-<h4><span class="section-number">11.1.2.2.2. </span>Run the hybrid model<a class="headerlink" href="#run-the-hybrid-model" title="Permalink to this headline">#</a></h4>
+<h4><span class="section-number">11.5.2.2.2. </span>Run the hybrid model<a class="headerlink" href="#run-the-hybrid-model" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Physical parameters</span>
@@ -1572,7 +1581,7 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 
     <span class="c1"># Calculate H_avg, size (ny-1, nx-1)</span>
     <span class="n">H_avg</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">H_ice</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">H_ice</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    
+
     <span class="c1"># Scale the inputs with stored scaling factors</span>
     <span class="n">H_ice_scaled</span> <span class="o">=</span> <span class="n">H_ice</span> <span class="o">/</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;thk&quot;</span><span class="p">]</span>
     <span class="n">slopsurfx_scaled</span> <span class="o">=</span> <span class="n">slopsurfx</span> <span class="o">/</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;slopsurfx&quot;</span><span class="p">]</span>
@@ -1582,7 +1591,7 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
     <span class="n">input_data_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">H_ice_scaled</span><span class="p">,</span> <span class="n">slopsurfx_scaled</span><span class="p">,</span> <span class="n">slopsurfy_scaled</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">input_data_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">input_data_scaled</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Add batch dimension</span>
     <span class="c1"># Step 2: Use the trained model to predict ubar (x-velocity) and vbar (y-velocity)</span>
-    
+
     <span class="n">ubar_vbar_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_data_scaled</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">ubar</span> <span class="o">=</span> <span class="n">ubar_vbar_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;ubar&quot;</span><span class="p">]</span> <span class="c1"># x-component of velocity (ubar)</span>
     <span class="n">vbar</span> <span class="o">=</span> <span class="n">ubar_vbar_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">scaling_factors</span><span class="p">[</span><span class="s2">&quot;vbar&quot;</span><span class="p">]</span> <span class="c1"># y-component of velocity (vbar)</span>
@@ -1592,13 +1601,13 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
         <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ubar</span><span class="p">)),</span>
         <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">vbar</span><span class="p">)),</span>
     <span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-    
+
     <span class="c1"># Step 4: Compute time step (CFL condition)</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">cfl</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">vel_max</span><span class="p">,</span> <span class="n">dtmax</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-  
+
     <span class="c1"># Step 5: Update rule (diffusion): Compute the change in thickness (dH/dt)</span>
     <span class="n">dHdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">compute_divflux</span><span class="p">(</span><span class="n">ubar</span><span class="p">,</span> <span class="n">vbar</span><span class="p">,</span> <span class="n">H_ice</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
-    
+
     <span class="c1"># Update ice thickness (ensure no negative values)</span>
     <span class="n">H_ice</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">dHdt</span>
 
@@ -1610,7 +1619,7 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 
     <span class="c1"># Update rule (positive thickness)</span>
     <span class="n">H_ice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">H_ice</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    
+
     <span class="c1"># Apply the boundary condition before the next iteration</span>
     <span class="n">H_ice</span> <span class="o">=</span> <span class="n">apply_boundary_condition</span><span class="p">(</span><span class="n">H_ice</span><span class="p">)</span>
 
@@ -1623,7 +1632,7 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
     <span class="c1"># Update ELA after 500 years</span>
     <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">:</span>
         <span class="n">Z_ELA</span> <span class="o">=</span> <span class="mi">2700</span>
-    
+
    <span class="c1"># Display</span>
     <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="n">nout</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Clear the previous output in the notebook</span>
@@ -1652,7 +1661,9 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5063037a2dcef6781d9b239f6396502bec0031ca6389721c852d4fe44385112a.png" src="../_images/5063037a2dcef6781d9b239f6396502bec0031ca6389721c852d4fe44385112a.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2200x800 with 4 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p><strong>Q: What are some dissadvantage of the hybrid models?</strong></p>
@@ -1728,25 +1739,25 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.1.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">11.1.1.1. Introduction to Glacier Flow</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">11.1.1.2. Numerical solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-case">11.1.1.2.1. Boundary Conditions with no-slip condition at the case</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">11.5.1. Learning Objectives:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-glacier-flow">11.5.1.1. Introduction to Glacier Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-for-u">11.5.1.2. Numerical solution for <strong>u</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions-with-no-slip-condition-at-the-case">11.5.1.2.1. Boundary Conditions with no-slip condition at the case</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.1.2. Introduction to hybrid modeling</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.1.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.1.2.1.1. Overview of the Machine Learning Approach</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-funcitons-you-do-not-need-to-know">11.1.2.1.2. Necessary funcitons you do not need to know</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">11.1.2.1.3. Functions to prepare the data for the model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.1.2.1.4. Start working on the CNN model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-hybrid-modeling">11.5.2. Introduction to hybrid modeling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#emulating-ice-flow-with-machine-learning">11.5.2.1. Emulating Ice Flow with Machine Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-machine-learning-approach">11.5.2.1.1. Overview of the Machine Learning Approach</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#necessary-funcitons-you-do-not-need-to-know">11.5.2.1.2. Necessary funcitons you do not need to know</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-to-prepare-the-data-for-the-model">11.5.2.1.3. Functions to prepare the data for the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#start-working-on-the-cnn-model">11.5.2.1.4. Start working on the CNN model</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementatiing-the-hybrid-model">11.1.2.2. Implementatiing the hybrid model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-functions-for-the-hybrid-model">11.1.2.2.1. Helping functions for the hybrid model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">11.1.2.2.2. Run the hybrid model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementatiing-the-hybrid-model">11.5.2.2. Implementatiing the hybrid model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helping-functions-for-the-hybrid-model">11.5.2.2.1. Helping functions for the hybrid model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-hybrid-model">11.5.2.2.2. Run the hybrid model</a></li>
 </ul>
 </li>
 </ul>

@@ -227,12 +227,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.1. (Exercise) Graph Neural Networks with PyTorch</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/GNN_Knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.6. (Exercise) Graph Neural Networks with PyTorch</a></li>
 
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/LAM_Graphcast.html">8.11. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -249,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.1. (Exercise) Introduction to Hybrid models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </li>
 </ul>
@@ -461,7 +462,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="basic-machine-learning-algorithms-for-classification-tasks">
 <h1><span class="section-number">3.1. </span>Basic Machine Learning Algorithms for Classification Tasks<a class="headerlink" href="#basic-machine-learning-algorithms-for-classification-tasks" title="Permalink to this headline">#</a></h1>
-<p>This week we will introduce simple ML models particularly useful for classification tasks. Classification tasks aim to automatically assign different labels to new data based on the multivariate characteristics of the training dataset. We will introduce three possible approaches for such tasks: Support Vector Machine (SVM), Random Forest (RF) and Ensemble Models.</p>
+<p>This week we will introduce simple ML models particularly useful for classification tasks. Classification tasks aim to automatically assign different labels to new data based on the multivariate characteristics of the training dataset. We will introduce three possible approaches for such tasks: Support Vector Machine (SVM), Random Forest (RF) and Ensemble Models. Here you find a Machine Learning Glossary : <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#top_of_page">Link</a> that defines general ML terms</p>
 <p>Your learning objectives for this week include:</p>
 <ol class="arabic simple">
 <li><p>Understand the applicability of SVMs</p></li>
@@ -508,11 +509,12 @@ We use scikit-learn to build different SVMs to classify flowers in the proproces
 <p><strong>Key points</strong></p>
 <ul class="simple">
 <li><p>Decision trees comprise multiple nodes and branches. Different nodes encode decisions based on input features.</p></li>
-<li><p>Scikit-learn uses the CART algorithm to divide data, create new decision nodes (growing the trees)</p></li>
-<li><p>The CART algorithm finds the optimal data features and thresholds that can reduce impurity in the split samples (classification) or MSE (regression) the most. Data impurity can be measured by the Gini impurity values.</p></li>
+<li><p>Scikit-learn uses the Classification And Regression Tree (CART) algorithm to divide data, create new decision nodes (growing the trees)</p></li>
+<li><p>The CART algorithm finds the optimal data features and thresholds that can reduce impurity in the split samples (classification) or MSE (regression) the most. Data impurity can be measured by the Gini impurity values <a class="reference external" href="https://en.wikipedia.org/wiki/Decision_tree_learning#:~:text=Gini%20impurity%20measures%20how%20often,into%20a%20single%20target%20category.">(reference)</a>.</p></li>
 <li><p>Training stops when the CART algorithm cannot find new rules to reduce impurity/entropy, or when the maximum depth (a tuneable hyperparameter) is reached.</p></li>
 <li><p>Similar to SVMs, there are different regularisation hyperparameters in the scikit-learn implementation that need to be tuned to get a model that generalizes well to unseen data. (see Geron p.181-182 for details)</p></li>
 <li><p>It is particularly important to tune the regularisation hyperparameter when using decision trees since they are highly susceptible to overfitting.</p></li>
+<li><p>Decision trees are prone to overfitting if the model becomes overly complex</p></li>
 </ul>
 <p><strong>Environmental Sciences Applications</strong></p>
 <p>Decision trees can be useful when your problem when you have a multiclass classification problem. One example is to classify and differentiate types of thunderstorms from weather model outputs or weather radar images (e.g., Gagne et al 2009).</p>
@@ -540,6 +542,7 @@ How to find the best set of hyperparameters for a single decision tree for a dat
 <li><p>Random Forest (RF) combines multiple decision trees (usually with bagging) on random subsets of training data. Random forest models allow greater tree diversity and generally make better predictions for new data.</p></li>
 <li><p>To interpret RF models, scikit-learn provides a feature importance measurement, which amounts to how a specific feature reduces gini impurity amongst all trees.</p></li>
 <li><p>The practice of boosting provides additional improvements in model performance and generalisation. Boosting is to train different ensemble models sequentially, with the later models specifically tasked to correct the error in the earlier trained models. <em>Gradient-boosting trees</em> are a good example of boosting for decision trees algorithms.</p></li>
+<li><p>Ensemble models typically improve performance by decreasing overfitting and variance compared to decision trees.</p></li>
 </ul>
 <p><strong>Environmental Sciences Applications</strong></p>
 <p>Random Forests can be used in similar environmental science problems as decision trees. We provide a practical exercise of using RF for real environmental science problems, based on a recent peer-reviewed paper (Tonini et al. 2020). The problem at hand is to create a susceptibility map of wildfires in Liguria, Italy. We will provide you a dataset with various environmental data (vegetation, topography, land use etc.). With this dataset, you will try to train an ensemble classification model and create a wildfire susceptibility map.</p>
