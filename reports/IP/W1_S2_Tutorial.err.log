@@ -21,7 +21,7 @@ h = Hurricane('Ida', 5, 300)
 ------------------
 
 ----- stdout -----
-<__main__.Hurricane object at 0x0000028F8B8FA610> FLORENCE
+<__main__.Hurricane object at 0x000001801E0C6730> FLORENCE
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m

@@ -228,13 +228,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/GNN_Knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.6. (Exercise) Graph Neural Networks with PyTorch</a></li>
-
-
-
-
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/LAM_Graphcast.html">8.11. (Exercise) Neural Weather Prediction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/gnn_knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/graph_neural_networks.html">8.6. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/lam_graphcast.html">8.7. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -565,9 +561,11 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>gdown<span class="w"> </span>--quiet
+
 
 <span class="c1"># Make True if you want to train the model from scratch. It should take 30 min to train.</span>
-<span class="n">train_mode</span><span class="o">=</span><span class="kc">True</span>
+<span class="n">train_mode</span><span class="o">=</span><span class="kc">False</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
@@ -704,11 +702,6 @@ We plug the <strong>u</strong> into the mass conservation equation and obtain:</
 
         <span class="c1"># Show the plot</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2200x800 with 4 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1104,16 +1097,16 @@ Non-trainable params: 0
 __________________________________________________________________________________________________
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-10-13 10:08:16.232973: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:975] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2024-10-13 10:08:16.233305: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2024-10-13 10:08:16.233378: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublas.so.11&#39;; dlerror: libcublas.so.11: cannot open shared object file: No such file or directory
-2024-10-13 10:08:16.233409: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublasLt.so.11&#39;; dlerror: libcublasLt.so.11: cannot open shared object file: No such file or directory
-2024-10-13 10:08:16.233437: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcufft.so.10&#39;; dlerror: libcufft.so.10: cannot open shared object file: No such file or directory
-2024-10-13 10:08:16.347368: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcusparse.so.11&#39;; dlerror: libcusparse.so.11: cannot open shared object file: No such file or directory
-2024-10-13 10:08:16.347428: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudnn.so.8&#39;; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
-2024-10-13 10:08:16.347433: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-11-20 11:33:29.344088: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:975] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2024-11-20 11:33:29.344315: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2024-11-20 11:33:29.344371: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublas.so.11&#39;; dlerror: libcublas.so.11: cannot open shared object file: No such file or directory
+2024-11-20 11:33:29.344420: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcublasLt.so.11&#39;; dlerror: libcublasLt.so.11: cannot open shared object file: No such file or directory
+2024-11-20 11:33:29.344469: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcufft.so.10&#39;; dlerror: libcufft.so.10: cannot open shared object file: No such file or directory
+2024-11-20 11:33:29.370928: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcusparse.so.11&#39;; dlerror: libcusparse.so.11: cannot open shared object file: No such file or directory
+2024-11-20 11:33:29.370993: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudnn.so.8&#39;; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2024-11-20 11:33:29.371006: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1850] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
 Skipping registering GPU devices...
-2024-10-13 10:08:16.347970: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX_VNNI FMA
+2024-11-20 11:33:29.371973: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX_VNNI FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
@@ -1131,6 +1124,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 
 <span class="c1"># Visualize the I/O variables</span>
 <span class="n">inputs_scaled</span><span class="p">,</span> <span class="n">outputs_scaled</span><span class="p">,</span> <span class="n">scaling_factors</span> <span class="o">=</span> <span class="n">prepare_data</span><span class="p">(</span><span class="n">merged_data</span><span class="p">)</span>
+<span class="c1"># Prepare the data for training</span>
+<span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="o">=</span><span class="n">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1139,7 +1134,11 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 Outputs scaled shape: (101, 323, 497, 2)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x500 with 11 Axes&gt;
+<img alt="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" src="../_images/7fef4ba2892ba4a9b35062c07aefb25b56b504eec74d046e17e5bca96761e518.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (270, 323, 497, 3)
+y_train shape: (270, 323, 497, 2)
+X_test shape: (33, 323, 497, 3)
+y_test shape: (33, 323, 497, 2)
 </pre></div>
 </div>
 </div>
@@ -1147,228 +1146,28 @@ Outputs scaled shape: (101, 323, 497, 2)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">train_mode</span><span class="p">:</span>
-    <span class="c1"># Prepare the data for training</span>
-    <span class="n">X_test_aug</span><span class="p">,</span> <span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="o">=</span><span class="n">augment_data_for_training</span><span class="p">(</span><span class="n">inputs_scaled</span><span class="p">,</span><span class="n">outputs_scaled</span><span class="p">)</span>
 
     <span class="c1"># Train the model</span>
-    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">))</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_aug</span><span class="p">,</span> <span class="n">y_train_aug</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test_aug</span><span class="p">,</span> <span class="n">y_test_aug</span><span class="p">))</span>
     <span class="c1"># Save the trained model to a file</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.keras&#39;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s1">&#39;model_weights.h5&#39;</span><span class="p">)</span>
 
 
 <span class="k">else</span> <span class="p">:</span>
-    <span class="n">model_url</span><span class="o">=</span><span class="s1">&#39;https://unils-my.sharepoint.com/:u:/g/personal/kejdi_lleshi_unil_ch/EdNZk6-82ItCmR0oisE135YBTv-TLc7mwPDuU2gPrTojGA?download=1&#39;</span>
-    <span class="nb">hash</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">file</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">model_url</span><span class="p">,</span> <span class="n">known_hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">)</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="n">file_id</span> <span class="o">=</span> <span class="s1">&#39;1rwVaB8dTt175yVxDXp4dninfixsx2R9u&#39;</span>  <span class="c1"># Replace with your file ID</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;model_weights.h5&#39;</span>  <span class="c1"># Name to save the file locally</span>
+    <span class="o">!</span>gdown<span class="w"> </span><span class="nv">$file_id</span><span class="w"> </span>-O<span class="w"> </span><span class="nv">$output_file</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (270, 323, 497, 3)
-y_train shape: (270, 323, 497, 2)
-X_test shape: (33, 323, 497, 3)
-y_test shape: (33, 323, 497, 2)
-Epoch 1/100
-34/34 [==============================] - 28s 816ms/step - loss: 0.0137 - mae: 0.0315 - mse: 0.0060 - val_loss: 0.0099 - val_mae: 0.0279 - val_mse: 0.0045
-Epoch 2/100
-34/34 [==============================] - 28s 812ms/step - loss: 0.0093 - mae: 0.0281 - mse: 0.0051 - val_loss: 0.0074 - val_mae: 0.0266 - val_mse: 0.0041
-Epoch 3/100
-34/34 [==============================] - 28s 833ms/step - loss: 0.0075 - mae: 0.0264 - mse: 0.0047 - val_loss: 0.0061 - val_mae: 0.0231 - val_mse: 0.0036
-Epoch 4/100
-34/34 [==============================] - 30s 869ms/step - loss: 0.0064 - mae: 0.0236 - mse: 0.0042 - val_loss: 0.0055 - val_mae: 0.0223 - val_mse: 0.0035
-Epoch 5/100
-34/34 [==============================] - 29s 867ms/step - loss: 0.0059 - mae: 0.0222 - mse: 0.0040 - val_loss: 0.0048 - val_mae: 0.0192 - val_mse: 0.0030
-Epoch 6/100
-34/34 [==============================] - 29s 863ms/step - loss: 0.0055 - mae: 0.0213 - mse: 0.0038 - val_loss: 0.0045 - val_mae: 0.0184 - val_mse: 0.0029
-Epoch 7/100
-34/34 [==============================] - 29s 858ms/step - loss: 0.0052 - mae: 0.0206 - mse: 0.0037 - val_loss: 0.0045 - val_mae: 0.0209 - val_mse: 0.0030
-Epoch 8/100
-34/34 [==============================] - 29s 867ms/step - loss: 0.0050 - mae: 0.0202 - mse: 0.0036 - val_loss: 0.0041 - val_mae: 0.0180 - val_mse: 0.0027
-Epoch 9/100
-34/34 [==============================] - 29s 853ms/step - loss: 0.0049 - mae: 0.0200 - mse: 0.0035 - val_loss: 0.0040 - val_mae: 0.0174 - val_mse: 0.0026
-Epoch 10/100
-34/34 [==============================] - 30s 890ms/step - loss: 0.0047 - mae: 0.0199 - mse: 0.0034 - val_loss: 0.0039 - val_mae: 0.0178 - val_mse: 0.0026
-Epoch 11/100
-34/34 [==============================] - 30s 891ms/step - loss: 0.0048 - mae: 0.0198 - mse: 0.0035 - val_loss: 0.0040 - val_mae: 0.0188 - val_mse: 0.0027
-Epoch 12/100
-34/34 [==============================] - 30s 887ms/step - loss: 0.0046 - mae: 0.0201 - mse: 0.0034 - val_loss: 0.0037 - val_mae: 0.0168 - val_mse: 0.0025
-Epoch 13/100
-34/34 [==============================] - 30s 892ms/step - loss: 0.0043 - mae: 0.0188 - mse: 0.0031 - val_loss: 0.0035 - val_mae: 0.0168 - val_mse: 0.0023
-Epoch 14/100
-34/34 [==============================] - 30s 888ms/step - loss: 0.0043 - mae: 0.0186 - mse: 0.0030 - val_loss: 0.0038 - val_mae: 0.0173 - val_mse: 0.0026
-Epoch 15/100
-34/34 [==============================] - 30s 889ms/step - loss: 0.0044 - mae: 0.0189 - mse: 0.0032 - val_loss: 0.0039 - val_mae: 0.0205 - val_mse: 0.0027
-Epoch 16/100
-34/34 [==============================] - 30s 889ms/step - loss: 0.0042 - mae: 0.0185 - mse: 0.0030 - val_loss: 0.0038 - val_mae: 0.0182 - val_mse: 0.0026
-Epoch 17/100
-34/34 [==============================] - 27s 800ms/step - loss: 0.0043 - mae: 0.0191 - mse: 0.0031 - val_loss: 0.0035 - val_mae: 0.0173 - val_mse: 0.0023
-Epoch 18/100
-34/34 [==============================] - 25s 731ms/step - loss: 0.0041 - mae: 0.0183 - mse: 0.0029 - val_loss: 0.0036 - val_mae: 0.0184 - val_mse: 0.0024
-Epoch 19/100
-34/34 [==============================] - 25s 735ms/step - loss: 0.0039 - mae: 0.0178 - mse: 0.0028 - val_loss: 0.0032 - val_mae: 0.0152 - val_mse: 0.0020
-Epoch 20/100
-34/34 [==============================] - 25s 737ms/step - loss: 0.0041 - mae: 0.0181 - mse: 0.0029 - val_loss: 0.0034 - val_mae: 0.0177 - val_mse: 0.0023
-Epoch 21/100
-34/34 [==============================] - 25s 723ms/step - loss: 0.0039 - mae: 0.0179 - mse: 0.0027 - val_loss: 0.0034 - val_mae: 0.0164 - val_mse: 0.0022
-Epoch 22/100
-34/34 [==============================] - 25s 737ms/step - loss: 0.0038 - mae: 0.0173 - mse: 0.0026 - val_loss: 0.0032 - val_mae: 0.0151 - val_mse: 0.0021
-Epoch 23/100
-34/34 [==============================] - 25s 732ms/step - loss: 0.0038 - mae: 0.0175 - mse: 0.0026 - val_loss: 0.0031 - val_mae: 0.0144 - val_mse: 0.0020
-Epoch 24/100
-34/34 [==============================] - 25s 735ms/step - loss: 0.0039 - mae: 0.0175 - mse: 0.0027 - val_loss: 0.0032 - val_mae: 0.0155 - val_mse: 0.0020
-Epoch 25/100
-34/34 [==============================] - 25s 732ms/step - loss: 0.0036 - mae: 0.0164 - mse: 0.0024 - val_loss: 0.0031 - val_mae: 0.0155 - val_mse: 0.0019
-Epoch 26/100
-34/34 [==============================] - 25s 735ms/step - loss: 0.0036 - mae: 0.0167 - mse: 0.0024 - val_loss: 0.0030 - val_mae: 0.0140 - val_mse: 0.0019
-Epoch 27/100
-34/34 [==============================] - 25s 726ms/step - loss: 0.0036 - mae: 0.0167 - mse: 0.0025 - val_loss: 0.0029 - val_mae: 0.0143 - val_mse: 0.0018
-Epoch 28/100
-34/34 [==============================] - 25s 733ms/step - loss: 0.0034 - mae: 0.0158 - mse: 0.0023 - val_loss: 0.0029 - val_mae: 0.0136 - val_mse: 0.0017
-Epoch 29/100
-34/34 [==============================] - 25s 731ms/step - loss: 0.0036 - mae: 0.0163 - mse: 0.0024 - val_loss: 0.0031 - val_mae: 0.0151 - val_mse: 0.0020
-Epoch 30/100
-34/34 [==============================] - 25s 743ms/step - loss: 0.0034 - mae: 0.0160 - mse: 0.0023 - val_loss: 0.0029 - val_mae: 0.0149 - val_mse: 0.0018
-Epoch 31/100
-34/34 [==============================] - 25s 726ms/step - loss: 0.0035 - mae: 0.0161 - mse: 0.0024 - val_loss: 0.0028 - val_mae: 0.0134 - val_mse: 0.0017
-Epoch 32/100
-34/34 [==============================] - 25s 727ms/step - loss: 0.0033 - mae: 0.0153 - mse: 0.0021 - val_loss: 0.0028 - val_mae: 0.0136 - val_mse: 0.0016
-Epoch 33/100
-34/34 [==============================] - 25s 733ms/step - loss: 0.0032 - mae: 0.0151 - mse: 0.0021 - val_loss: 0.0028 - val_mae: 0.0134 - val_mse: 0.0017
-Epoch 34/100
-34/34 [==============================] - 25s 735ms/step - loss: 0.0032 - mae: 0.0151 - mse: 0.0021 - val_loss: 0.0026 - val_mae: 0.0141 - val_mse: 0.0015
-Epoch 35/100
-34/34 [==============================] - 25s 731ms/step - loss: 0.0032 - mae: 0.0151 - mse: 0.0021 - val_loss: 0.0028 - val_mae: 0.0135 - val_mse: 0.0017
-Epoch 36/100
-34/34 [==============================] - 25s 734ms/step - loss: 0.0032 - mae: 0.0149 - mse: 0.0020 - val_loss: 0.0027 - val_mae: 0.0140 - val_mse: 0.0016
-Epoch 37/100
-34/34 [==============================] - 25s 732ms/step - loss: 0.0032 - mae: 0.0150 - mse: 0.0020 - val_loss: 0.0026 - val_mae: 0.0133 - val_mse: 0.0015
-Epoch 38/100
-34/34 [==============================] - 25s 738ms/step - loss: 0.0033 - mae: 0.0157 - mse: 0.0022 - val_loss: 0.0029 - val_mae: 0.0134 - val_mse: 0.0018
-Epoch 39/100
-34/34 [==============================] - 25s 738ms/step - loss: 0.0031 - mae: 0.0149 - mse: 0.0020 - val_loss: 0.0025 - val_mae: 0.0125 - val_mse: 0.0014
-Epoch 40/100
-34/34 [==============================] - 25s 737ms/step - loss: 0.0031 - mae: 0.0145 - mse: 0.0020 - val_loss: 0.0026 - val_mae: 0.0138 - val_mse: 0.0015
-Epoch 41/100
-34/34 [==============================] - 27s 790ms/step - loss: 0.0030 - mae: 0.0145 - mse: 0.0019 - val_loss: 0.0025 - val_mae: 0.0122 - val_mse: 0.0014
-Epoch 42/100
-34/34 [==============================] - 30s 897ms/step - loss: 0.0030 - mae: 0.0144 - mse: 0.0019 - val_loss: 0.0027 - val_mae: 0.0139 - val_mse: 0.0016
-Epoch 43/100
-34/34 [==============================] - 29s 851ms/step - loss: 0.0032 - mae: 0.0152 - mse: 0.0021 - val_loss: 0.0030 - val_mae: 0.0139 - val_mse: 0.0019
-Epoch 44/100
-34/34 [==============================] - 29s 839ms/step - loss: 0.0030 - mae: 0.0145 - mse: 0.0019 - val_loss: 0.0025 - val_mae: 0.0128 - val_mse: 0.0014
-Epoch 45/100
-34/34 [==============================] - 29s 841ms/step - loss: 0.0030 - mae: 0.0144 - mse: 0.0019 - val_loss: 0.0025 - val_mae: 0.0126 - val_mse: 0.0014
-Epoch 46/100
-34/34 [==============================] - 29s 846ms/step - loss: 0.0029 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0118 - val_mse: 0.0014
-Epoch 47/100
-34/34 [==============================] - 28s 839ms/step - loss: 0.0028 - mae: 0.0138 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0115 - val_mse: 0.0013
-Epoch 48/100
-34/34 [==============================] - 29s 849ms/step - loss: 0.0028 - mae: 0.0138 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0116 - val_mse: 0.0013
-Epoch 49/100
-34/34 [==============================] - 29s 857ms/step - loss: 0.0028 - mae: 0.0138 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0118 - val_mse: 0.0013
-Epoch 50/100
-34/34 [==============================] - 32s 957ms/step - loss: 0.0028 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0025 - val_mae: 0.0128 - val_mse: 0.0014
-Epoch 51/100
-34/34 [==============================] - 30s 888ms/step - loss: 0.0028 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0124 - val_mse: 0.0013
-Epoch 52/100
-34/34 [==============================] - 29s 853ms/step - loss: 0.0030 - mae: 0.0149 - mse: 0.0020 - val_loss: 0.0024 - val_mae: 0.0122 - val_mse: 0.0013
-Epoch 53/100
-34/34 [==============================] - 29s 848ms/step - loss: 0.0029 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0119 - val_mse: 0.0014
-Epoch 54/100
-34/34 [==============================] - 29s 853ms/step - loss: 0.0029 - mae: 0.0139 - mse: 0.0018 - val_loss: 0.0023 - val_mae: 0.0115 - val_mse: 0.0013
-Epoch 55/100
-34/34 [==============================] - 29s 855ms/step - loss: 0.0029 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0124 - val_mse: 0.0014
-Epoch 56/100
-34/34 [==============================] - 29s 856ms/step - loss: 0.0028 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0023 - val_mae: 0.0117 - val_mse: 0.0012
-Epoch 57/100
-34/34 [==============================] - 29s 853ms/step - loss: 0.0027 - mae: 0.0130 - mse: 0.0016 - val_loss: 0.0022 - val_mae: 0.0115 - val_mse: 0.0012
-Epoch 58/100
-34/34 [==============================] - 29s 854ms/step - loss: 0.0028 - mae: 0.0140 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0119 - val_mse: 0.0013
-Epoch 59/100
-34/34 [==============================] - 28s 823ms/step - loss: 0.0027 - mae: 0.0133 - mse: 0.0016 - val_loss: 0.0023 - val_mae: 0.0108 - val_mse: 0.0012
-Epoch 60/100
-34/34 [==============================] - 25s 722ms/step - loss: 0.0026 - mae: 0.0129 - mse: 0.0016 - val_loss: 0.0022 - val_mae: 0.0115 - val_mse: 0.0011
-Epoch 61/100
-34/34 [==============================] - 25s 740ms/step - loss: 0.0026 - mae: 0.0129 - mse: 0.0016 - val_loss: 0.0023 - val_mae: 0.0113 - val_mse: 0.0012
-Epoch 62/100
-34/34 [==============================] - 25s 731ms/step - loss: 0.0027 - mae: 0.0131 - mse: 0.0016 - val_loss: 0.0022 - val_mae: 0.0116 - val_mse: 0.0012
-Epoch 63/100
-34/34 [==============================] - 25s 727ms/step - loss: 0.0027 - mae: 0.0134 - mse: 0.0017 - val_loss: 0.0024 - val_mae: 0.0133 - val_mse: 0.0014
-Epoch 64/100
-34/34 [==============================] - 25s 723ms/step - loss: 0.0027 - mae: 0.0133 - mse: 0.0016 - val_loss: 0.0023 - val_mae: 0.0114 - val_mse: 0.0013
-Epoch 65/100
-34/34 [==============================] - 25s 733ms/step - loss: 0.0028 - mae: 0.0143 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0135 - val_mse: 0.0013
-Epoch 66/100
-34/34 [==============================] - 25s 726ms/step - loss: 0.0028 - mae: 0.0145 - mse: 0.0018 - val_loss: 0.0023 - val_mae: 0.0118 - val_mse: 0.0012
-Epoch 67/100
-34/34 [==============================] - 25s 735ms/step - loss: 0.0028 - mae: 0.0141 - mse: 0.0018 - val_loss: 0.0025 - val_mae: 0.0143 - val_mse: 0.0015
-Epoch 68/100
-34/34 [==============================] - 25s 735ms/step - loss: 0.0029 - mae: 0.0144 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0135 - val_mse: 0.0014
-Epoch 69/100
-34/34 [==============================] - 25s 731ms/step - loss: 0.0026 - mae: 0.0129 - mse: 0.0016 - val_loss: 0.0024 - val_mae: 0.0126 - val_mse: 0.0014
-Epoch 70/100
-34/34 [==============================] - 25s 732ms/step - loss: 0.0027 - mae: 0.0136 - mse: 0.0017 - val_loss: 0.0023 - val_mae: 0.0113 - val_mse: 0.0012
-Epoch 71/100
-34/34 [==============================] - 25s 722ms/step - loss: 0.0026 - mae: 0.0128 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0107 - val_mse: 0.0011
-Epoch 72/100
-34/34 [==============================] - 25s 724ms/step - loss: 0.0026 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0109 - val_mse: 0.0011
-Epoch 73/100
-34/34 [==============================] - 24s 717ms/step - loss: 0.0026 - mae: 0.0127 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0104 - val_mse: 0.0011
-Epoch 74/100
-34/34 [==============================] - 24s 721ms/step - loss: 0.0028 - mae: 0.0142 - mse: 0.0018 - val_loss: 0.0024 - val_mae: 0.0122 - val_mse: 0.0013
-Epoch 75/100
-34/34 [==============================] - 24s 719ms/step - loss: 0.0027 - mae: 0.0139 - mse: 0.0017 - val_loss: 0.0022 - val_mae: 0.0111 - val_mse: 0.0012
-Epoch 76/100
-34/34 [==============================] - 25s 724ms/step - loss: 0.0025 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0111 - val_mse: 0.0011
-Epoch 77/100
-34/34 [==============================] - 25s 728ms/step - loss: 0.0025 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0108 - val_mse: 0.0011
-Epoch 78/100
-34/34 [==============================] - 24s 719ms/step - loss: 0.0025 - mae: 0.0126 - mse: 0.0015 - val_loss: 0.0022 - val_mae: 0.0119 - val_mse: 0.0012
-Epoch 79/100
-34/34 [==============================] - 25s 734ms/step - loss: 0.0026 - mae: 0.0130 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0106 - val_mse: 0.0011
-Epoch 80/100
-34/34 [==============================] - 25s 722ms/step - loss: 0.0024 - mae: 0.0123 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0100 - val_mse: 0.0010
-Epoch 81/100
-34/34 [==============================] - 25s 723ms/step - loss: 0.0025 - mae: 0.0124 - mse: 0.0015 - val_loss: 0.0020 - val_mae: 0.0105 - val_mse: 9.8833e-04
-Epoch 82/100
-34/34 [==============================] - 25s 722ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0015 - val_loss: 0.0023 - val_mae: 0.0133 - val_mse: 0.0013
-Epoch 83/100
-34/34 [==============================] - 25s 720ms/step - loss: 0.0025 - mae: 0.0128 - mse: 0.0015 - val_loss: 0.0021 - val_mae: 0.0105 - val_mse: 0.0011
-Epoch 84/100
-34/34 [==============================] - 25s 725ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0015 - val_loss: 0.0020 - val_mae: 0.0106 - val_mse: 9.8987e-04
-Epoch 85/100
-34/34 [==============================] - 24s 721ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0119 - val_mse: 0.0011
-Epoch 86/100
-34/34 [==============================] - 25s 724ms/step - loss: 0.0025 - mae: 0.0127 - mse: 0.0015 - val_loss: 0.0022 - val_mae: 0.0125 - val_mse: 0.0012
-Epoch 87/100
-34/34 [==============================] - 25s 725ms/step - loss: 0.0026 - mae: 0.0134 - mse: 0.0016 - val_loss: 0.0020 - val_mae: 0.0108 - val_mse: 0.0010
-Epoch 88/100
-34/34 [==============================] - 24s 716ms/step - loss: 0.0025 - mae: 0.0125 - mse: 0.0015 - val_loss: 0.0020 - val_mae: 0.0101 - val_mse: 0.0010
-Epoch 89/100
-34/34 [==============================] - 25s 734ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0101 - val_mse: 9.8987e-04
-Epoch 90/100
-34/34 [==============================] - 24s 722ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0103 - val_mse: 0.0011
-Epoch 91/100
-34/34 [==============================] - 25s 730ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0021 - val_mae: 0.0107 - val_mse: 0.0011
-Epoch 92/100
-34/34 [==============================] - 25s 732ms/step - loss: 0.0024 - mae: 0.0122 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0104 - val_mse: 0.0010
-Epoch 93/100
-34/34 [==============================] - 25s 729ms/step - loss: 0.0024 - mae: 0.0121 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0097 - val_mse: 9.7307e-04
-Epoch 94/100
-34/34 [==============================] - 25s 723ms/step - loss: 0.0024 - mae: 0.0119 - mse: 0.0014 - val_loss: 0.0019 - val_mae: 0.0098 - val_mse: 9.3450e-04
-Epoch 95/100
-34/34 [==============================] - 25s 726ms/step - loss: 0.0024 - mae: 0.0121 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0104 - val_mse: 9.6628e-04
-Epoch 96/100
-34/34 [==============================] - 25s 722ms/step - loss: 0.0027 - mae: 0.0137 - mse: 0.0017 - val_loss: 0.0021 - val_mae: 0.0118 - val_mse: 0.0011
-Epoch 97/100
-34/34 [==============================] - 25s 726ms/step - loss: 0.0024 - mae: 0.0121 - mse: 0.0014 - val_loss: 0.0019 - val_mae: 0.0096 - val_mse: 9.5879e-04
-Epoch 98/100
-34/34 [==============================] - 24s 719ms/step - loss: 0.0023 - mae: 0.0120 - mse: 0.0014 - val_loss: 0.0020 - val_mae: 0.0104 - val_mse: 0.0010
-Epoch 99/100
-34/34 [==============================] - 25s 728ms/step - loss: 0.0027 - mae: 0.0138 - mse: 0.0017 - val_loss: 0.0022 - val_mae: 0.0126 - val_mse: 0.0012
-Epoch 100/100
-34/34 [==============================] - 25s 731ms/step - loss: 0.0024 - mae: 0.0119 - mse: 0.0013 - val_loss: 0.0020 - val_mae: 0.0106 - val_mse: 0.0010
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading...
+From: https://drive.google.com/uc?id=1rwVaB8dTt175yVxDXp4dninfixsx2R9u
+To: /home/klleshi/Documents/courses/ML_EES/2024_MLEES_Ebook/Kejdi/model_weights.h5
+100%|████████████████████████████████████████| 142k/142k [00:00&lt;00:00, 6.59MB/s]
 </pre></div>
 </div>
 </div>
@@ -1388,12 +1187,10 @@ Epoch 100/100
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/2 [==============================] - 1s 22ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2/2 [==============================] - 1s 17ms/step
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x700 with 18 Axes&gt;
-</pre></div>
-</div>
+<img alt="../_images/98cfde3e7597243e43a6ae35cbfddc30e4b5f247dbad7ca3a2aa1d49d71137a3.png" src="../_images/98cfde3e7597243e43a6ae35cbfddc30e4b5f247dbad7ca3a2aa1d49d71137a3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1417,11 +1214,6 @@ Epoch 100/100
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;Lr.png&quot;</span><span class="p">)</span>
     <span class="c1"># Show plot</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 1 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1657,11 +1449,6 @@ Remember that the velocity field is mainly dependent on the slope and the thckne
 
         <span class="c1"># Show the plot</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 2200x800 with 4 Axes&gt;
 </pre></div>
 </div>
 </div>

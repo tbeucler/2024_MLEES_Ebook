@@ -26,9 +26,11 @@ import pooch
 import xarray as xr
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+!pip install gdown --quiet
+
 
 # Make True if you want to train the model from scratch. It should take 30 min to train.
-train_mode=True
+train_mode=False
 
 %matplotlib inline
 ------------------
