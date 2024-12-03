@@ -229,12 +229,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Haokun/Graph_neural_networks.html">8.1. (Exercise) Graph Neural Networks with PyTorch</a></li>
-
-
-
-
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/gnn_knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/graph_neural_networks.html">8.1. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/lam_graphcast.html">8.2. (Exercise) Neural Weather Prediction</a></li>
 </ul>
 </li>
 </ul>
@@ -251,11 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.1. 1. Introduction to Glacier Flow</a></li>
-
-
-
-
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
 </ul>
 </li>
 </ul>
@@ -460,12 +453,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-visualize-the-cifar-10-dataset-using-tsne">10.2.2.2. <strong>Q3) Visualize the CIFAR-10 dataset using tsne</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#denoising-autoencoders">10.2.3. ⊩ Denoising Autoencoders</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-denoising-autoencoders">10.2.3. [OPTIONAL] ⊩ Denoising Autoencoders</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-complete-the-denoising-autoencoder-architecture-below">10.2.3.1. <strong>Q4) Complete the denoising autoencoder architecture below</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-try-generating-images-from-noisy-inputs-what-do-you-notice">10.2.3.2. <strong>Q5) Try generating images from noisy inputs. What do you notice?</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-autoencoders">10.2.4. ଽ Variational Autoencoders</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-variational-autoencoders">10.2.4. [OPTIONAL] ଽ Variational Autoencoders</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-complete-the-vae-architecture-below">10.2.4.1. <strong>Q6) Complete the VAE architecture below</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-train-the-variational-autoencoder-to-reconstruct-the-cifar-images">10.2.4.2. <strong>Q7) Train the variational autoencoder to reconstruct the CIFAR images</strong></a></li>
 </ul>
@@ -475,7 +468,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-train-the-gan-to-generate-new-images">10.2.5.2. <strong>Q9) Train the GAN to generate new images</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-convolutional-gans">10.2.6. 灬🅶 Deep Convolutional GANs</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-deep-convolutional-gans">10.2.6. [OPTIONAL] 灬🅶 Deep Convolutional GANs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-complete-the-deep-convolutional-gan-architecture-below">10.2.6.1. <strong>Q10) Complete the deep convolutional GAN architecture below</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-train-this-new-model-to-generate-images">10.2.6.2. <strong>Q11) Train this new model to generate images</strong></a></li>
 </ul>
@@ -501,9 +494,17 @@ document.write(`
 <h1><span class="section-number">10.2. </span>(Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models<a class="headerlink" href="#exercise-autoencoders-generative-adversarial-networks-and-diffusion-models" title="Permalink to this headline">#</a></h1>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Th%C3%A9%C3%A2tre_D%E2%80%99op%C3%A9ra_Spatial.png/920px-Th%C3%A9%C3%A2tre_D%E2%80%99op%C3%A9ra_Spatial.png" /></p>
 <p>Théâtre D’opéra Spatial, 2022 artwork created by Jason M. Allen with Midjourney</p>
+<p>The code in this notebook is inspired by the work of Aurélien Géron, particularly his book (Hands-on ML) and accompanying exercise notebooks. Additionally, valuable insights and techniques have been drawn from the comprehensive tutorials and resources provided by <a class="reference external" href="https://machinelearningmastery.com">https://machinelearningmastery.com</a>.</p>
 <p><strong>Autoencoders</strong>, <strong>GANs</strong>, and <strong>Diffusion Models</strong> are all machine learning algorithms that can generate new data, often in an unsupervised manner. <strong>Autoencoders</strong> learn to compress and decompress data, capturing underlying patterns. <strong>GAN</strong>s (Generative adversarial networks) use two competing neural networks: a generator that creates new data and a discriminator that evaluates its authenticity. <strong>Diffusion Models</strong> gradually add noise to data and then learn to remove it, producing realistic samples. These models have applications in image generation, style transfer, and more.</p>
 <p>We’ll be implementing them on the <a class="reference external" href="https://www.cs.toronto.edu/%7Ekriz/cifar.html">CIFAR-10</a> dataset to explore their capabilities in <strong>capturing patterns, image generation and style transfer</strong>. These models offer powerful techniques for learning latent representations, generating new data, and understanding complex patterns within data.</p>
 <p><em>Note</em> : CIFAR10 classes are: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck</p>
+<p><strong>Learning Objectives:</strong></p>
+<ol class="arabic simple">
+<li><p>Implement VAEs, GANs, and Diffusion Models in TensorFlow.</p></li>
+<li><p>Understand the key differences and trade-offs between these models.</p></li>
+<li><p>Experiment with hyperparameters to improve model performance.</p></li>
+</ol>
+<p><font color='red'>Running all parts of this notebook can be time-consuming. Feel free to reduce the number of epochs or interrupt the training process if it takes too long.</font></p>
 <div class="section" id="imports-and-data-loading">
 <h2><span class="section-number">10.2.1. </span>Imports and Data Loading<a class="headerlink" href="#imports-and-data-loading" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -546,6 +547,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">packaging</span> <span class="kn">import</span> <span class="n">version</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -569,7 +584,31 @@ document.write(`
 <h3><span class="section-number">10.2.1.1. </span><strong>Q1) Load the dataset, scale it, and split it into a training set, a validation set, and a test set</strong><a class="headerlink" href="#q1-load-the-dataset-scale-it-and-split-it-into-a-training-set-a-validation-set-and-a-test-set" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the CIFAR-10 dataset</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the CIFAR-10 dataset using tf.keras.datasets.cifar10.load_data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalize the pixel values to the range [0, 1]</span>
+<span class="c1"># RGB values are between 0 and 256</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the training set into a training set and a validation set</span>
+<span class="c1"># Get 5000 images as the validation set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Load the CIFAR-10 dataset</span>
 <span class="p">(</span><span class="n">X_train_full</span><span class="p">,</span> <span class="n">y_train_full</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">cifar10</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 
 <span class="c1"># Normalize the pixel values to the range [0, 1]</span>
@@ -588,6 +627,22 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Get familiar with CIFAR-10 dataset</span>
+<span class="c1"># Get the shape of the images</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display a sample image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1">### Get familiar with CIFAR-10 dataset</span>
 <span class="c1"># Get the shape of the images</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">___</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">___</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="c1"># Display a sample image</span>
@@ -608,6 +663,43 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the stacked encoder architecture</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the stacked decoder architecture</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine encoder and decoder into the stacked autoencoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile the stacked autoencoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the stacked autoencoder</span>
+<span class="c1"># We want the predictions to be as the input (X == y)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Define the stacked encoder architecture</span>
 <span class="c1"># Recommended 512, 256 units for the Dense layers and ReLU activation</span>
 <span class="n">stacked_encoder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
     <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
@@ -659,13 +751,42 @@ document.write(`
 </div>
 </div>
 </div>
-<p><font color='red'>The reconstructions look fuzzy, but remember that the images were compressed down to just 256 numbers, instead of 3072.</font></p>
+<p><font color='red'>The reconstructions look fuzzy, but remember that the images were compressed down to just 256 (or whatever number of neurons in your last layer you choosed) numbers, instead of 3072.</font></p>
 </div>
 <div class="section" id="q3-visualize-the-cifar-10-dataset-using-tsne">
 <h3><span class="section-number">10.2.2.2. </span><strong>Q3) Visualize the CIFAR-10 dataset using <a class="reference external" href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">tsne</a></strong><a class="headerlink" href="#q3-visualize-the-cifar-10-dataset-using-tsne" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict the validation set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply t-SNE for dimensionality reduction</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transform the compressed validation set into 2D</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the 2D data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Predict the validation set</span>
 <span class="n">X_valid_compressed</span> <span class="o">=</span> <span class="n">stacked_encoder</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">___</span><span class="p">)</span>
 
 <span class="c1"># Apply t-SNE for dimensionality reduction</span>
@@ -708,8 +829,8 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="denoising-autoencoders">
-<h2><span class="section-number">10.2.3. </span>⊩ Denoising Autoencoders<a class="headerlink" href="#denoising-autoencoders" title="Permalink to this headline">#</a></h2>
+<div class="section" id="optional-denoising-autoencoders">
+<h2><span class="section-number">10.2.3. </span>[OPTIONAL] ⊩ Denoising Autoencoders<a class="headerlink" href="#optional-denoising-autoencoders" title="Permalink to this headline">#</a></h2>
 <p>To make autoencoders learn better features, we can add noise to their inputs and train them to remove the noise and recover the original data. This is called <strong>denoising autoencoding</strong>.</p>
 <p>The implementation is straightforward: it’s a standard stacked autoencoder with an additional Dropout layer applied to the encoder’s inputs. You could also use a GaussianNoise layer instead.</p>
 <p>The noise can be pure Gaussian noise added to the inputs, or it can be randomly switched-off inputs, just like in dropout.</p>
@@ -812,8 +933,8 @@ document.write(`
 <p>This demonstrates that denoising autoencoders can not only be used for data visualization or unsupervised pretraining but also for effectively removing noise from images.</p>
 </div>
 </div>
-<div class="section" id="variational-autoencoders">
-<h2><span class="section-number">10.2.4. </span>ଽ Variational Autoencoders<a class="headerlink" href="#variational-autoencoders" title="Permalink to this headline">#</a></h2>
+<div class="section" id="optional-variational-autoencoders">
+<h2><span class="section-number">10.2.4. </span>[OPTIONAL] ଽ Variational Autoencoders<a class="headerlink" href="#optional-variational-autoencoders" title="Permalink to this headline">#</a></h2>
 <p><strong>Variational autoencoders (VAEs)</strong> are different from other autoencoders because they use randomness to create their outputs. Instead of just producing a single code for an input, VAEs create a range of possible codes. This randomness helps them create new data that looks like the original data.</p>
 <p>Here’s how it works:</p>
 <ol class="arabic simple">
@@ -955,7 +1076,37 @@ document.write(`
 <h3><span class="section-number">10.2.5.1. </span><strong>Q8) Complete the GAN architecture below</strong><a class="headerlink" href="#q8-complete-the-gan-architecture-below" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the size of the latent space, e.g. 30</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the size of the latent space</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the generator model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the discriminator model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combine generator and discriminator into a GAN</span>
+<span class="c1"># The GAN model consists of the generator followed by the discriminator</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Define the size of the latent space, e.g. 30</span>
 <span class="n">codings_size</span> <span class="o">=</span> <span class="n">___</span>
 
 <span class="c1"># Build the generator model</span>
@@ -985,6 +1136,28 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile the discriminator model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set discriminator to non-trainable when training the GAN to freeze its weights</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile the GAN model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Compile the discriminator model</span>
 <span class="c1"># Uses binary cross-entropy loss for binary classification and RMSprop optimizer</span>
 <span class="n">discriminator</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">___</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">___</span><span class="p">)</span>
 
@@ -1000,16 +1173,29 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">drop_remainder</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define batch size for training</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define batch size for training</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a TensorFlow dataset from the training data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Batch the data into chunks of size batch_size</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Define batch size for training</span>
 <span class="n">batch_size</span> <span class="o">=</span> <span class="n">___</span>
 
 <span class="c1"># Create a TensorFlow dataset from the training data</span>
@@ -1057,6 +1243,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the GAN model, with e.g. 50 epochs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Train the GAN model, with e.g. 50 epochs</span>
 <span class="n">train_gan</span><span class="p">(</span><span class="n">gan</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">codings_size</span><span class="p">,</span> <span class="n">n_epochs</span><span class="o">=</span><span class="n">___</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1065,6 +1259,28 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a batch of latent vectors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate images using the trained generator (using the `codings`)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the generated images, e.g. 5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># Generate a batch of latent vectors</span>
 <span class="n">codings</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">codings_size</span><span class="p">])</span>
 
 <span class="c1"># Generate images using the trained generator (using the `codings`)</span>
@@ -1079,8 +1295,8 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="section" id="deep-convolutional-gans">
-<h2><span class="section-number">10.2.6. </span>灬🅶 Deep Convolutional GANs<a class="headerlink" href="#deep-convolutional-gans" title="Permalink to this headline">#</a></h2>
+<div class="section" id="optional-deep-convolutional-gans">
+<h2><span class="section-number">10.2.6. </span>[OPTIONAL] 灬🅶 Deep Convolutional GANs<a class="headerlink" href="#optional-deep-convolutional-gans" title="Permalink to this headline">#</a></h2>
 <p>Deep GANs (Generative Adversarial Networks) are a type of GAN that use deep neural networks in both the generator and the discriminator. By leveraging deep architectures, these models can create more complex and realistic images or data.</p>
 <div class="section" id="q10-complete-the-deep-convolutional-gan-architecture-below">
 <h3><span class="section-number">10.2.6.1. </span><strong>Q10) Complete the deep convolutional GAN architecture below</strong><a class="headerlink" href="#q10-complete-the-deep-convolutional-gan-architecture-below" title="Permalink to this headline">#</a></h3>
@@ -1246,6 +1462,30 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_dataset</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="c1"># Create a dataset from input data</span>
+
+    <span class="c1"># Optionally shuffle the dataset (use the shuffle arg)</span>
+
+
+    <span class="c1"># Batch the data, apply necessary preparation and prefetch one at time</span>
+
+
+    <span class="k">return</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare the training and validation datasets</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="k">def</span> <span class="nf">prepare_dataset</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># Create a dataset from input data</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="n">___</span><span class="p">)</span>
 
     <span class="c1"># Optionally shuffle the dataset</span>
@@ -1321,6 +1561,39 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the size of the embedding e.g. 64</span>
+<span class="n">embed_size</span> <span class="o">=</span> <span class="n">___</span>
+
+<span class="c1"># Custom layer to encode time steps with sinusoidal embeddings</span>
+<span class="k">class</span> <span class="nc">TimeEncoding</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">embed_size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Initialize layer and ensure embed_size is even</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">embed_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;embed_size must be even&quot;</span>
+
+        <span class="c1"># Create a meshgrid for time steps and embedding indices</span>
+        <span class="n">p</span><span class="p">,</span> <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">T</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">embed_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
+
+        <span class="c1"># Initialize the time embeddings matrix</span>
+        <span class="n">t_emb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">T</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">embed_size</span><span class="p">))</span>
+
+        <span class="c1"># Fill even indices with sine values and odd indices with cosine values</span>
+        <span class="n">t_emb</span><span class="p">[:,</span> <span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="mi">10_000</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">embed_size</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">t_emb</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="mi">10_000</span> <span class="o">**</span> <span class="p">(</span><span class="n">i</span> <span class="o">/</span> <span class="n">embed_size</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="c1"># Convert the embeddings to TensorFlow constant</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_encodings</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">t_emb</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+
+    <span class="c1"># Method to fetch time encodings for `input` time steps</span>
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_encodings</span><span class="p">,</span> <span class="n">___</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown Fill in the blank code. Double-click here to reveal</span>
+<span class="c1"># the size of the embedding e.g. 64</span>
 <span class="n">embed_size</span> <span class="o">=</span> <span class="n">___</span>
 
 <span class="c1"># Custom layer to encode time steps with sinusoidal embeddings</span>
@@ -1564,12 +1837,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q3-visualize-the-cifar-10-dataset-using-tsne">10.2.2.2. <strong>Q3) Visualize the CIFAR-10 dataset using tsne</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#denoising-autoencoders">10.2.3. ⊩ Denoising Autoencoders</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-denoising-autoencoders">10.2.3. [OPTIONAL] ⊩ Denoising Autoencoders</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q4-complete-the-denoising-autoencoder-architecture-below">10.2.3.1. <strong>Q4) Complete the denoising autoencoder architecture below</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q5-try-generating-images-from-noisy-inputs-what-do-you-notice">10.2.3.2. <strong>Q5) Try generating images from noisy inputs. What do you notice?</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-autoencoders">10.2.4. ଽ Variational Autoencoders</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-variational-autoencoders">10.2.4. [OPTIONAL] ଽ Variational Autoencoders</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q6-complete-the-vae-architecture-below">10.2.4.1. <strong>Q6) Complete the VAE architecture below</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q7-train-the-variational-autoencoder-to-reconstruct-the-cifar-images">10.2.4.2. <strong>Q7) Train the variational autoencoder to reconstruct the CIFAR images</strong></a></li>
 </ul>
@@ -1579,7 +1852,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q9-train-the-gan-to-generate-new-images">10.2.5.2. <strong>Q9) Train the GAN to generate new images</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-convolutional-gans">10.2.6. 灬🅶 Deep Convolutional GANs</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-deep-convolutional-gans">10.2.6. [OPTIONAL] 灬🅶 Deep Convolutional GANs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q10-complete-the-deep-convolutional-gan-architecture-below">10.2.6.1. <strong>Q10) Complete the deep convolutional GAN architecture below</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#q11-train-this-new-model-to-generate-images">10.2.6.2. <strong>Q11) Train this new model to generate images</strong></a></li>
 </ul>

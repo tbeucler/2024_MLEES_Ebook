@@ -15,21 +15,27 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-from numpy.random import default_rng
-import matplotlib.pyplot as plt
-import pooch
-import urllib.request
+from sklearn.linear_model import LinearRegression
+
+# instantiate, fit, and predict:
+# (Reshape your data either using array.reshape(-1, 1) if your data has a single feature
+# or array.reshape(1, -1) if it contains a single sample.)
+linreg = LinearRegression()
+linreg.fit(x.reshape(-1,1), y.reshape(-1,1))
+y_pred = linreg.predict(x.reshape(-1,1))
+
+
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[1], line 4[0m
-[0;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrandom[39;00m [38;5;28;01mimport[39;00m default_rng
-[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m----> 4[0m [38;5;28;01mimport[39;00m [38;5;21;01mpooch[39;00m
-[0;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01murllib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mrequest[39;00m
+Cell [1;32mIn[5], line 1[0m
+[1;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinear_model[39;00m [38;5;28;01mimport[39;00m LinearRegression
+[0;32m      3[0m [38;5;66;03m# instantiate, fit, and predict:[39;00m
+[0;32m      4[0m [38;5;66;03m# (Reshape your data either using array.reshape(-1, 1) if your data has a single feature[39;00m
+[0;32m      5[0m [38;5;66;03m# or array.reshape(1, -1) if it contains a single sample.)[39;00m
+[0;32m      6[0m linreg [38;5;241m=[39m LinearRegression()
 
-[1;31mModuleNotFoundError[0m: No module named 'pooch'
+[1;31mModuleNotFoundError[0m: No module named 'sklearn'
 

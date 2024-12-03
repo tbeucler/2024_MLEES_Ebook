@@ -227,21 +227,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/gnn_knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/graph_neural_networks.html">8.1. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/lam_graphcast.html">8.2. (Exercise) Neural Weather Prediction</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Milton/09_GenerativeAI.html">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -1401,7 +1408,7 @@ but also works with floating-point numbers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x18af4d6edf0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1da10a492e0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/07199ce34b6fb5b0bafa22c121b66b6de061d79c4e1239225285746f46d969fe.png" src="../_images/07199ce34b6fb5b0bafa22c121b66b6de061d79c4e1239225285746f46d969fe.png" />
@@ -1415,7 +1422,7 @@ but also works with floating-point numbers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x18af4dc2fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x1da12c10880&gt;
 </pre></div>
 </div>
 <img alt="../_images/063e2463389eed164f29d9322b0d1cae6f4d3576d6e778072cfb66d635db532a.png" src="../_images/063e2463389eed164f29d9322b0d1cae6f4d3576d6e778072cfb66d635db532a.png" />
@@ -1428,7 +1435,7 @@ but also works with floating-point numbers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x18af4df9ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x1da10ad9e50&gt;
 </pre></div>
 </div>
 <img alt="../_images/c7ee34386ac408f5d2a417d15d333d7881d56d4e859db479ef86172b95a7d463.png" src="../_images/c7ee34386ac408f5d2a417d15d333d7881d56d4e859db479ef86172b95a7d463.png" />
@@ -1454,7 +1461,7 @@ but also works with floating-point numbers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x18af4e767f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x1da10b4e520&gt;
 </pre></div>
 </div>
 <img alt="../_images/a4544e70536651510324e343f6507047e8c2e8ff34a845f52fa2ebdb63251fc1.png" src="../_images/a4544e70536651510324e343f6507047e8c2e8ff34a845f52fa2ebdb63251fc1.png" />
@@ -1472,7 +1479,7 @@ but also works with floating-point numbers.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x18af4edcdf0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x1da12da83d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/23b02f6170510d19a8a0c5aeb1af14ed6566c8c9aa93cd536933db8539c4a4f0.png" src="../_images/23b02f6170510d19a8a0c5aeb1af14ed6566c8c9aa93cd536933db8539c4a4f0.png" />

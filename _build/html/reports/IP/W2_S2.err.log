@@ -15,48 +15,105 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# We'll need to load the data from the UNIL sharepoint using pooch, so let's
-# import the library
-import pooch
-import numpy as np
-import matplotlib.pyplot as plt
+# Replicate this figure
+# Temperature values are originally in Kelvin units -> Convert to degree celsius by subtracting 273.15
+fig, (__,__) = plt.subplots(__, __, figsize=(___,___),gridspec_kw={'width_ratios': [5, 1.5]})
+ctemp = __.________(___,__,_________,cmap='magma',levels=np.linspace(-30,40,15),extend='both')
+___._________(___,___,_________,colors='w',levels=[-10],extend='both')
+___.set_xlabel('________')
+___.set_ylabel('________')
+___.set_title('______________________')
+___._______(_____,ax=___,____='$^o$C')
 
-# In order to keep our code concise and readable, we'll use a variable that
-# stores the common part of the URL where the data is hosted. Then, we'll store
-# the full URL for each file in its own variable
-base_url = 'https://unils-my.sharepoint.com/:u:/g/personal/tom_beucler_unil_ch/'
-lon_url =  f'{base_url}EQtSkmHdXlZAuZcDljeHXuMBIVGfXP4lkR56RX6vuCDh1Q?download=1'
-lat_url =  f'{base_url}EbMAwn26etZPjxw4F3akRt8BmPef3PMQPn751e6tF0Xi-Q?download=1'
-temp_url = f'{base_url}EfUOMGrJNtVMgJUtfP9137sB9d64M_osBRPa0iQRSCHKGg?download=1'
-
-# Let's go ahead and cache each file
-lon_filename  = pooch.retrieve(lon_url,
-                               known_hash='eaf54b88dd89279d3034da17fe8470dc2c841bf9fa89b2aa741dacff9c326cdb'
-                               )
-
-lat_filename  = pooch.retrieve(lat_url,
-                               known_hash='af1f438080460e1fca4583b2ec19b44285a3d3776e4d21b8da9b6e162906c88a'
-                               )
-temp_filename = pooch.retrieve(temp_url,
-                               known_hash='e040ca257334708b43e86398e09a5669fcf051179ecf5dcd278f758d67beed20'
-                               )
-
-# And then load each file into a numpy array. You can now use these variables
-# to continue with the exercise :)
-lon = np.load(lon_filename)
-lat = np.load(lat_filename)
-temp = np.load(temp_filename)
+___.____(np.__________(___________,axis=_),lat,lw=2,c='k')
+___.set_xlabel(r'$^{o}$C')
+___.set_ylabel(r'Latitude')
+___.set_title('Zonal Mean Temperature')
+plt.____()
+plt.show()
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[1], line 3[0m
-[0;32m      1[0m [38;5;66;03m# We'll need to load the data from the UNIL sharepoint using pooch, so let's[39;00m
-[0;32m      2[0m [38;5;66;03m# import the library[39;00m
-[1;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mpooch[39;00m
-[0;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[0;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[2], line 3[0m
+[0;32m      1[0m [38;5;66;03m# Replicate this figure[39;00m
+[0;32m      2[0m [38;5;66;03m# Temperature values are originally in Kelvin units -> Convert to degree celsius by subtracting 273.15[39;00m
+[1;32m----> 3[0m fig, (__,__) [38;5;241m=[39m [43mplt[49m[38;5;241;43m.[39;49m[43msubplots[49m[43m([49m[43m__[49m[43m,[49m[43m [49m[43m__[49m[43m,[49m[43m [49m[43mfigsize[49m[38;5;241;43m=[39;49m[43m([49m[43m___[49m[43m,[49m[43m___[49m[43m)[49m[43m,[49m[43mgridspec_kw[49m[38;5;241;43m=[39;49m[43m{[49m[38;5;124;43m'[39;49m[38;5;124;43mwidth_ratios[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43m[[49m[38;5;241;43m5[39;49m[43m,[49m[43m [49m[38;5;241;43m1.5[39;49m[43m][49m[43m}[49m[43m)[49m
+[0;32m      4[0m ctemp [38;5;241m=[39m __[38;5;241m.[39m________(___,__,_________,cmap[38;5;241m=[39m[38;5;124m'[39m[38;5;124mmagma[39m[38;5;124m'[39m,levels[38;5;241m=[39mnp[38;5;241m.[39mlinspace([38;5;241m-[39m[38;5;241m30[39m,[38;5;241m40[39m,[38;5;241m15[39m),extend[38;5;241m=[39m[38;5;124m'[39m[38;5;124mboth[39m[38;5;124m'[39m)
+[0;32m      5[0m ___[38;5;241m.[39m_________(___,___,_________,colors[38;5;241m=[39m[38;5;124m'[39m[38;5;124mw[39m[38;5;124m'[39m,levels[38;5;241m=[39m[[38;5;241m-[39m[38;5;241m10[39m],extend[38;5;241m=[39m[38;5;124m'[39m[38;5;124mboth[39m[38;5;124m'[39m)
 
-[1;31mModuleNotFoundError[0m: No module named 'pooch'
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib\pyplot.py:1501[0m, in [0;36msubplots[1;34m(nrows, ncols, sharex, sharey, squeeze, width_ratios, height_ratios, subplot_kw, gridspec_kw, **fig_kw)[0m
+[0;32m   1355[0m [38;5;28;01mdef[39;00m [38;5;21msubplots[39m(nrows[38;5;241m=[39m[38;5;241m1[39m, ncols[38;5;241m=[39m[38;5;241m1[39m, [38;5;241m*[39m, sharex[38;5;241m=[39m[38;5;28;01mFalse[39;00m, sharey[38;5;241m=[39m[38;5;28;01mFalse[39;00m, squeeze[38;5;241m=[39m[38;5;28;01mTrue[39;00m,
+[0;32m   1356[0m              width_ratios[38;5;241m=[39m[38;5;28;01mNone[39;00m, height_ratios[38;5;241m=[39m[38;5;28;01mNone[39;00m,
+[0;32m   1357[0m              subplot_kw[38;5;241m=[39m[38;5;28;01mNone[39;00m, gridspec_kw[38;5;241m=[39m[38;5;28;01mNone[39;00m, [38;5;241m*[39m[38;5;241m*[39mfig_kw):
+[0;32m   1358[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[0;32m   1359[0m [38;5;124;03m    Create a figure and a set of subplots.[39;00m
+[0;32m   1360[0m 
+[1;32m   (...)[0m
+[0;32m   1499[0m 
+[0;32m   1500[0m [38;5;124;03m    """[39;00m
+[1;32m-> 1501[0m     fig [38;5;241m=[39m figure([38;5;241m*[39m[38;5;241m*[39mfig_kw)
+[0;32m   1502[0m     axs [38;5;241m=[39m fig[38;5;241m.[39msubplots(nrows[38;5;241m=[39mnrows, ncols[38;5;241m=[39mncols, sharex[38;5;241m=[39msharex, sharey[38;5;241m=[39msharey,
+[0;32m   1503[0m                        squeeze[38;5;241m=[39msqueeze, subplot_kw[38;5;241m=[39msubplot_kw,
+[0;32m   1504[0m                        gridspec_kw[38;5;241m=[39mgridspec_kw, height_ratios[38;5;241m=[39mheight_ratios,
+[0;32m   1505[0m                        width_ratios[38;5;241m=[39mwidth_ratios)
+[0;32m   1506[0m     [38;5;28;01mreturn[39;00m fig, axs
+
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib\_api\deprecation.py:454[0m, in [0;36mmake_keyword_only.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m    448[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m name_idx:
+[0;32m    449[0m     warn_deprecated(
+[0;32m    450[0m         since, message[38;5;241m=[39m[38;5;124m"[39m[38;5;124mPassing the [39m[38;5;132;01m%(name)s[39;00m[38;5;124m [39m[38;5;132;01m%(obj_type)s[39;00m[38;5;124m [39m[38;5;124m"[39m
+[0;32m    451[0m         [38;5;124m"[39m[38;5;124mpositionally is deprecated since Matplotlib [39m[38;5;132;01m%(since)s[39;00m[38;5;124m; the [39m[38;5;124m"[39m
+[0;32m    452[0m         [38;5;124m"[39m[38;5;124mparameter will become keyword-only [39m[38;5;132;01m%(removal)s[39;00m[38;5;124m.[39m[38;5;124m"[39m,
+[0;32m    453[0m         name[38;5;241m=[39mname, obj_type[38;5;241m=[39m[38;5;124mf[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;132;01m{[39;00mfunc[38;5;241m.[39m[38;5;18m__name__[39m[38;5;132;01m}[39;00m[38;5;124m()[39m[38;5;124m"[39m)
+[1;32m--> 454[0m [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib\pyplot.py:840[0m, in [0;36mfigure[1;34m(num, figsize, dpi, facecolor, edgecolor, frameon, FigureClass, clear, **kwargs)[0m
+[0;32m    830[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(allnums) [38;5;241m==[39m max_open_warning [38;5;241m>[39m[38;5;241m=[39m [38;5;241m1[39m:
+[0;32m    831[0m     _api[38;5;241m.[39mwarn_external(
+[0;32m    832[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mMore than [39m[38;5;132;01m{[39;00mmax_open_warning[38;5;132;01m}[39;00m[38;5;124m figures have been opened. [39m[38;5;124m"[39m
+[0;32m    833[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mFigures created through the pyplot interface [39m[38;5;124m"[39m
+[1;32m   (...)[0m
+[0;32m    837[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mConsider using `matplotlib.pyplot.close()`.[39m[38;5;124m"[39m,
+[0;32m    838[0m         [38;5;167;01mRuntimeWarning[39;00m)
+[1;32m--> 840[0m manager [38;5;241m=[39m new_figure_manager(
+[0;32m    841[0m     num, figsize[38;5;241m=[39mfigsize, dpi[38;5;241m=[39mdpi,
+[0;32m    842[0m     facecolor[38;5;241m=[39mfacecolor, edgecolor[38;5;241m=[39medgecolor, frameon[38;5;241m=[39mframeon,
+[0;32m    843[0m     FigureClass[38;5;241m=[39mFigureClass, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m    844[0m fig [38;5;241m=[39m manager[38;5;241m.[39mcanvas[38;5;241m.[39mfigure
+[0;32m    845[0m [38;5;28;01mif[39;00m fig_label:
+
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib\pyplot.py:384[0m, in [0;36mnew_figure_manager[1;34m(*args, **kwargs)[0m
+[0;32m    382[0m [38;5;250m[39m[38;5;124;03m"""Create a new figure manager instance."""[39;00m
+[0;32m    383[0m _warn_if_gui_out_of_main_thread()
+[1;32m--> 384[0m [38;5;28;01mreturn[39;00m _get_backend_mod()[38;5;241m.[39mnew_figure_manager([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib_inline\backend_inline.py:27[0m, in [0;36mnew_figure_manager[1;34m(num, FigureClass, *args, **kwargs)[0m
+[0;32m     21[0m [38;5;28;01mdef[39;00m [38;5;21mnew_figure_manager[39m(num, [38;5;241m*[39margs, FigureClass[38;5;241m=[39mFigure, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[0;32m     22[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[0;32m     23[0m [38;5;124;03m    Return a new figure manager for a new figure instance.[39;00m
+[0;32m     24[0m 
+[0;32m     25[0m [38;5;124;03m    This function is part of the API expected by Matplotlib backends.[39;00m
+[0;32m     26[0m [38;5;124;03m    """[39;00m
+[1;32m---> 27[0m     [38;5;28;01mreturn[39;00m new_figure_manager_given_figure(num, FigureClass([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs))
+
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib\_api\deprecation.py:454[0m, in [0;36mmake_keyword_only.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m    448[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(args) [38;5;241m>[39m name_idx:
+[0;32m    449[0m     warn_deprecated(
+[0;32m    450[0m         since, message[38;5;241m=[39m[38;5;124m"[39m[38;5;124mPassing the [39m[38;5;132;01m%(name)s[39;00m[38;5;124m [39m[38;5;132;01m%(obj_type)s[39;00m[38;5;124m [39m[38;5;124m"[39m
+[0;32m    451[0m         [38;5;124m"[39m[38;5;124mpositionally is deprecated since Matplotlib [39m[38;5;132;01m%(since)s[39;00m[38;5;124m; the [39m[38;5;124m"[39m
+[0;32m    452[0m         [38;5;124m"[39m[38;5;124mparameter will become keyword-only [39m[38;5;132;01m%(removal)s[39;00m[38;5;124m.[39m[38;5;124m"[39m,
+[0;32m    453[0m         name[38;5;241m=[39mname, obj_type[38;5;241m=[39m[38;5;124mf[39m[38;5;124m"[39m[38;5;124mparameter of [39m[38;5;132;01m{[39;00mfunc[38;5;241m.[39m[38;5;18m__name__[39m[38;5;132;01m}[39;00m[38;5;124m()[39m[38;5;124m"[39m)
+[1;32m--> 454[0m [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [1;32m~\.conda\envs\JB\lib\site-packages\matplotlib\figure.py:2568[0m, in [0;36mFigure.__init__[1;34m(self, figsize, dpi, facecolor, edgecolor, linewidth, frameon, subplotpars, tight_layout, constrained_layout, layout, **kwargs)[0m
+[0;32m   2565[0m [38;5;28;01mif[39;00m frameon [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m   2566[0m     frameon [38;5;241m=[39m mpl[38;5;241m.[39mrcParams[[38;5;124m'[39m[38;5;124mfigure.frameon[39m[38;5;124m'[39m]
+[1;32m-> 2568[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [43mnp[49m[38;5;241;43m.[39;49m[43misfinite[49m[43m([49m[43mfigsize[49m[43m)[49m[38;5;241m.[39mall() [38;5;129;01mor[39;00m (np[38;5;241m.[39marray(figsize) [38;5;241m<[39m [38;5;241m0[39m)[38;5;241m.[39many():
+[0;32m   2569[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m'[39m[38;5;124mfigure size must be positive finite not [39m[38;5;124m'[39m
+[0;32m   2570[0m                      [38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mfigsize[38;5;132;01m}[39;00m[38;5;124m'[39m)
+[0;32m   2571[0m [38;5;28mself[39m[38;5;241m.[39mbbox_inches [38;5;241m=[39m Bbox[38;5;241m.[39mfrom_bounds([38;5;241m0[39m, [38;5;241m0[39m, [38;5;241m*[39mfigsize)
+
+[1;31mTypeError[0m: ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
 

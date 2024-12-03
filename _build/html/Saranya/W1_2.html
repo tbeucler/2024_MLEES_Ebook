@@ -59,6 +59,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Saranya/W1_2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -227,21 +229,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/gnn_knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/graph_neural_networks.html">8.1. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/lam_graphcast.html">8.2. (Exercise) Neural Weather Prediction</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Milton/09_GenerativeAI.html">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -444,6 +453,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">2.1.3. Training the Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">2.1.3.1. Gradient Descent</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">2.1.3.2. Learning Rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-curves">2.1.3.3. Learning Curves</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-model-performance">2.1.4. Evaluate Model Performance</a></li>
@@ -459,8 +469,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><a href="https://colab.research.google.com/github/tbeucler/2023_MLEES_JB/blob/main/ML_EES/Saranya/W1_2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="classification-and-regression">
+  <div class="tex2jax_ignore mathjax_ignore section" id="classification-and-regression">
 <h1><span class="section-number">2.1. </span>Classification and Regression<a class="headerlink" href="#classification-and-regression" title="Permalink to this headline">#</a></h1>
 <p>This summary will give you a brief introduction to classification and regression tasks in Machine Learning</p>
 <p><strong>Learning Objectives</strong>:</p>
@@ -475,7 +484,7 @@ document.write(`
 <div class="section" id="classification">
 <h3><span class="section-number">2.1.1.1. </span>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">#</a></h3>
 <p>Classification is a supervised learning task where the model learns to <strong>classify instances into predefined classes or categories</strong>.</p>
-<p><strong>Binary Classification</strong>: Classifying instances into two classes (e.g., spam vs. non-spam emails).</p>
+<p><strong>Binary Classification</strong>: Classifying instances into two classes (e.g., spam vs. non-spam emails; does the image represent one species or another species).</p>
 <blockquote>
 <div><p><strong>Logistic regression</strong> is used for binary classification tasks, predicting probabilities for each class.</p>
 </div></blockquote>
@@ -506,7 +515,7 @@ Cross-Entropy Loss: The cost function used to evaluate softmax regression models
 Multilabel classification deals with instances that can belong to multiple classes simultaneously. In other words, an instance can have multiple labels associated with it.</p>
 <blockquote>
 <div><blockquote>
-<div><p>Example: Tagging a news article with multiple categories like “politics,” “economy,” and “technology” to capture its diverse content.</p>
+<div><p>Example: Tagging a single news article with <em>multiple</em> categories like “politics,” “economy,” and “technology” to capture its diverse content. Belonging to one class does not exclude an instance from belonging to another class.</p>
 </div></blockquote>
 </div></blockquote>
 <p><em><strong>Multioutput Classification</strong></em>(or Multioutput Regression):</p>
@@ -523,6 +532,7 @@ Multilabel classification deals with instances that can belong to multiple class
 <li><p>Land Cover Classification: Satellite imagery can be classified into various land cover types, aiding in monitoring land use changes over time.</p></li>
 <li><p>Invasive Species Detection: Developing models that classify invasive species in images, helping conservationists identify and manage ecological threats.</p></li>
 <li><p>Water Quality Assessment: Using classification algorithms to determine the quality of water bodies based on factors like chemical concentrations and biological indicators.</p></li>
+<li><p>Landslide Susceptibility Classification: Classification models can predict areas prone to landslides through the use of environmental factors, e.g., slope steepness, rainfall, soil composition, and vegetation cover. These models can categorize regions into risk levels, helping to mitigate landslide threats.</p></li>
 </ol>
 </div></blockquote>
 </div>
@@ -625,44 +635,89 @@ Multilabel classification deals with instances that can belong to multiple class
 <li><p><strong>Stochastic Gradient Descent</strong> (SGD): Updates parameters based on a single training instance or a small batch of instances.</p></li>
 <li><p><strong>Mini-batch Gradient Descent</strong>: A compromise between batch and SGD, updating parameters using a small batch of instances.</p></li>
 </ul>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Category</p></th>
-<th class="head"><p>Advantages</p></th>
-<th class="head"><p>Disadvantages</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Batch Gradient Descent</p></td>
-<td><p>Stable error gradient</p></td>
-<td><p>Requires entire training data in memory</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Parallelizable</p></td>
-<td><p>Slow model updates and convergence</p></td>
-</tr>
-<tr class="row-even"><td><p>Stochastic Gradient Descent</p></td>
-<td><p>Avoids stucking in local minimas</p></td>
-<td><p>Noisy gradient and large variance during training</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Improvements in every model update</p></td>
-<td><p>Computationally intensive</p></td>
-</tr>
-<tr class="row-even"><td><p>Mini-batch Gradient Descent</p></td>
-<td><p>Computationally efficient</p></td>
-<td><p>Extra hyperparameter to tune</p></td>
-</tr>
-<tr class="row-odd"><td><p></p></td>
-<td><p>Smoother learning curves than SGD</p></td>
-<td><p>Need to accumulate error over batches</p></td>
-</tr>
-<tr class="row-even"><td><p></p></td>
-<td><p>Less memory intensive</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: None
+        outline: none;
+    }
+    th {
+        border: None;
+        outline: none;
+        padding: 10px;
+        text-align: left;
+        text-align: center;
+        background-color: #545454;
+        color: white;
+    }
+    td {
+        border: None;
+        outline: none;
+        padding: 10px;
+        text-align: left;
+        text-align: center;
+        background-color: #A1A1A1;
+        color:black;
+    }
+    .light-row {
+        background-color: #C1C1C1;
+        }
+    .transparent-cell {
+        background-color: transparent; /* Make cell background transparent */
+        }
+    .subheader{
+        font-weight: bold;
+        font-size: 1.1em;
+        background-color: #545454;
+        color: white;
+    }
+    .subheader_light{
+        font-weight: bold;
+        font-size: 1.1em;
+        background-color: #747474;
+        color: white;
+    }
+
+</style>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Advantages</th>
+        <th>Disadvantages</th>
+    </tr>
+    <tr>
+        <td class="subheader" rowspan=2>Batch Gradient Descent</td>
+        <td>Stable error gradient</td>
+        <td>Requires entire training data in memory</td>
+    </tr>
+    <tr>
+        <td>Parallelizable</td>
+        <td>Slow model updates and convergence</td>
+    </tr>
+    <tr>
+        <td class="subheader_light" rowspan=2>Stochastic Gradient Descent</td>
+        <td class="light-row">Avoids stucking in local minimas</td>
+        <td class="light-row">Noisy gradient and large variance during training</td>
+    </tr>
+    <tr>
+        <td class="light-row">Improvements in every model update</td>
+        <td class="light-row">Computationally intensive</td>
+    </tr>
+    <tr>
+        <td class="subheader" rowspan=3>Mini-batch Gradient Descent</td>
+        <td>Computationally efficient</td>
+        <td>Extra hyperparameter to tune</td>
+    </tr>
+    <tr>
+        <td>Smoother learning curves than SGD</td>
+        <td>Need to accumulate error over batches</td>
+    </tr>
+    <tr>
+        <td>Less memory intensive</td>
+    </tr>
 </table>
+<p>Note that the choice of optimization algorithm depends on the dataset size, model complexity, and computational resources available. Batch Gradient Descent is suitable for small datasets, while Stochastic Gradient Descent and Mini-batch Gradient Descent are preferred for large datasets.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="learning-rate">
@@ -696,19 +751,33 @@ Multilabel classification deals with instances that can belong to multiple class
 <blockquote>
 <div><p>Ecosystem Modeling: Learning rates are essential in ecosystem models, where they affect the speed and stability of parameter estimation, allowing researchers to gain insights into ecosystem dynamics.</p>
 </div></blockquote>
+</div>
 <hr class="docutils" />
+<div class="section" id="learning-curves">
+<h3><span class="section-number">2.1.3.3. </span>Learning Curves<a class="headerlink" href="#learning-curves" title="Permalink to this headline">#</a></h3>
+<p><strong>Learning Curves</strong> are plots that show how the model’s performance (e.g., training and validation error) changes over time as the model is trained on more data. They help visualize the learning process and identify issues like overfitting, underfitting, and convergence problems.</p>
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div style="width: 45%;">
+        <img src="https://github.com/tbeucler/2024_MLEES_Ebook/blob/main/Saranya/Figures/overfit.png?raw=1" alt="Overfitting Learning Curves" style="width: 100%;">
+        <p style="text-align: center;">Learning curves showing the MSE vs epoch. Note that the separation between the curves indicates overfitting.</p>
+    </div>
+    <div style="width: 45%;">
+        <img src="https://github.com/tbeucler/2024_MLEES_Ebook/blob/main/Saranya/Figures/reasonable_fit.png?raw=1" alt="Reasonable Learning Curves" style="width: 100%;">
+        <p style="text-align: center;">Learning curves showing the MSE vs epoch. Note that the similar behavior of the curves indicates a reasonable fit and generalization although the overall performance is worse compared to the overfitting curve on the left.</p>
+    </div>
+</div><hr class="docutils" />
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="evaluate-model-performance">
 <h2><span class="section-number">2.1.4. </span>Evaluate Model Performance<a class="headerlink" href="#evaluate-model-performance" title="Permalink to this headline">#</a></h2>
 <p>In Machine Learning, it is critical to make sure that your trained model can <strong>generalize</strong> well to <strong>unseen data</strong>. Model evaluation involves assessing the performance of a trained model using various metrics on a separate dataset (test set or validation set) that the model hasn’t seen during training. For this purpose, we rely on different <strong>performance metrics</strong>.</p>
-<p>The most simple skill score for classification models is the <em><strong>Accuracy Score</strong></em>, which is <em>the ratio between correct predictions and the total number of instances</em>.</p>
+<p>The most simple skill score for classification models is the <em><strong>Accuracy Score</strong></em>, which is <em>the ratio between correct predictions</em> (that is, the <em>true positives</em>) <em>and the total number of instances</em>.</p>
 <p>The accuracy score is intuitive and straight-forward, but using it to benchmark your classification models can be problematic for real data, particularly if you are dealing with <em>unbalanced data</em>.</p>
 <p>Assuming that 90% of your data belongs to the positive class, then the model can have no skills on preddicting negative class and still have a good precision score. 😲 It is definitely not ideal that your classification model can only give you one answer no matter how your samples look like!</p>
-<p>Fortunately, we have skill scores that are useful for unbalanced data. These scores balance the precision and the recall of a model.</p>
+<p>Fortunately, we have skill scores that are useful for unbalanced data. These scores balance the precision and the recall of a model. We also note that precision and recall are inversely related to each other, resulting in the precision/recall trade-off.</p>
 <blockquote>
-<div><p><em><strong>Precision</strong></em>: The ratio between correctly-predicted positives (True Positive; TP) and the number of instances the model predicted positive (True Positive + False Positive). \
+<div><p><em><strong>Precision</strong></em>: The ratio between correctly-predicted positives (True Positive; TP) and the number of instances the model predicted positive (True Positive + False Positive). <br>
 <em><strong>Recall</strong></em>: The ratio between TP and the number of real positives in the data (True Positive + False Negative).</p>
 </div></blockquote>
 <p>Analyze misclassified instances to gain insights into model weaknesses and potential data issues. We can use a <strong>Confusion Matrix</strong> table to summary these information in an attractive visual format and how they impact the model’s performance..</p>
@@ -722,7 +791,22 @@ Multilabel classification deals with instances that can belong to multiple class
 </div></blockquote>
 <p>ROC-AUC (Receiver Operating Characteristic - Area Under Curve), and PR-AUC (Precision-Recall Area Under Curve) are other metrics used for evaluation.</p>
 <blockquote>
-<div><p>The <strong>ROC curve</strong> is a graphical representation that illustrates the trade-off between true positive rate (TPR) and false positive rate (FPR) across various thresholds.</p>
+<div><p>The <strong>ROC curve</strong> is a graphical representation that illustrates the trade-off between true positive rate (TPR) and false positive rate (FPR) across various thresholds. The formulae for these are as follows: <br><br> <center>
+$<span class="math notranslate nohighlight">\(
+\begin{align*}
+TPR &amp; = \dfrac{TP}{TP + FN} \\\\
+FPR &amp; = \dfrac{FP}{FP + TN}
+\end{align*}
+\)</span>$</p>
+</div></blockquote>
+</center>
+<blockquote>
+<div><p>Talking about the model performance using overfitting and Underfitting</p>
+<blockquote>
+<div><p><strong>Overfitting</strong>: When a model performs well on the training data but poorly on unseen data, it is said to be overfitting. Overfitting occurs when the model learns the noise in the training data rather than the underlying patterns. This leads to poor generalization and <em>high variance</em>. <br><br>
+<strong>Underfitting</strong>: When a model performs poorly on both the training and test data, it is said to be underfitting. Underfitting occurs when the model is too simple to capture the underlying patterns in the data. This leads poor generalization and <em>high bias</em>. <br>
+<br></p>
+</div></blockquote>
 </div></blockquote>
 </div>
 <div class="section" id="benchmarking">
@@ -816,6 +900,7 @@ Multilabel classification deals with instances that can belong to multiple class
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">2.1.3. Training the Model</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent">2.1.3.1. Gradient Descent</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-rate">2.1.3.2. Learning Rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-curves">2.1.3.3. Learning Curves</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-model-performance">2.1.4. Evaluate Model Performance</a></li>

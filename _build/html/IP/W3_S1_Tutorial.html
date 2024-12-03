@@ -227,21 +227,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../DL/S6_2_LSTM.html">7.4. (Exercise) Hydrological Modeling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../DL/GNN.html">8. Graph Neural Networks and Interconnected Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Haokun/gnn_knowledge.html">8. Graph Neural Networks and Interconnected Systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/graph_neural_networks.html">8.1. (Exercises) Graph neural networks with PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Haokun/lam_graphcast.html">8.2. (Exercise) Neural Weather Prediction</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">(Part IV) Towards Trustworthy AI</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../DL/W8_XAI.html">9. Explainable Artifical Intelligence and Understanding Predictions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/S8_XAIsummary.html">9.1. Why do we need machine learning model interpretability?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Frederick/Chapter8_Ex1.html">9.2. (Exercise) XAI on Simple Datasets</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Jingyan/ch9generative_uncertainty.html">10. Generative Modeling and Uncertainty Quantification</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Milton/09_GenerativeAI.html">10.1. (Exercise) Introduction to Uncertainty Quantification and Generative Modeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ayoub/Week_9_Generative_modeling.html">10.2. (Exercise) Autoencoders, Generative Adversarial Networks, and Diffusion Models</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../TrustworthyAI/HybridModeling_summary.html">11. Hybrid Modeling and Knowledge-Guided Learning</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Kejdi/10_Hybird_Models.html">11.5. (Exercise) Introduction to Hybrid models</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -1454,19 +1461,7 @@ Name: temperature, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pooch</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">POOCH</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">path</span><span class="o">=</span><span class="n">pooch</span><span class="o">.</span><span class="n">os_cache</span><span class="p">(</span><span class="s2">&quot;noaa-data&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;doi:10.5281/zenodo.5564850/&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="p">},</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">datafile</span> <span class="o">=</span> <span class="n">POOCH</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pooch&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;C:\\Users\\tbeucler\\AppData\\Local\\noaa-data\\noaa-data\\Cache\\data.txt&#39;
 </pre></div>
 </div>
 </div>
@@ -1474,6 +1469,12 @@ Name: temperature, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>head<span class="w"> </span><span class="s1">&#39;/root/.cache/noaa-data/data.txt&#39;</span><span class="w"> </span>#<span class="w"> </span>Replace<span class="w"> </span>this<span class="w"> </span>value<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>download<span class="w"> </span>path<span class="w"> </span>indicated<span class="w"> </span>above
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;head&#39; is not recognized as an internal or external command,
+operable program or batch file.
 </pre></div>
 </div>
 </div>
@@ -1488,6 +1489,52 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO LST_DATE CRX_VN LONGITUDE LATITUDE T_DAILY_MAX T_DAILY_MIN T_DAILY_MEAN T_DAILY_AVG P_DAILY_CALC SOLARAD_DAILY SUR_TEMP_DAILY_TYPE SUR_TEMP_DAILY_MAX SUR_TEMP_DAILY_MIN SUR_TEMP_DAILY_AVG RH_DAILY_MAX RH_DAILY_MIN RH_DAILY_AVG SOIL_MOISTURE_5_DAILY SOIL_MOISTURE_10_DAILY SOIL_MOISTURE_20_DAILY SOIL_MOISTURE_50_DAILY SOIL_MOISTURE_100_DAILY SOIL_TEMP_5_DAILY SOIL_TEMP_10_DAILY SOIL_TEMP_20_DAILY SOIL_TEMP_50_DAILY SOIL_TEMP_100_DAILY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>64756 20170101  2.422  -73.74   41.79     6.6 ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>64756 20170102  2.422  -73.74   41.79     4.0 ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64756 20170103  2.422  -73.74   41.79     4.9 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64756 20170104  2.422  -73.74   41.79     8.7 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>64756 20170105  2.422  -73.74   41.79    -0.5 ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Pandas failed to identify the different columns. This is because it was expecting standard <a class="reference external" href="https://en.wikipedia.org/wiki/Comma-separated_values"><code class="docutils literal notranslate"><span class="pre">CSV</span></code> (comma-separated values)</a> file. In our file, instead, the values are separated by whitespace. And not a single whilespace–the amount of whitespace between values varies. We can tell pandas this using the <code class="docutils literal notranslate"><span class="pre">sep</span></code> keyword.</p>
 <div class="cell docutils container">
@@ -1497,6 +1544,173 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>LST_DATE</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_5_DAILY</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>64756</td>
+      <td>20170101</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>6.6</td>
+      <td>-5.4</td>
+      <td>0.6</td>
+      <td>2.2</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>-99.0</td>
+      <td>-99.0</td>
+      <td>0.207</td>
+      <td>0.152</td>
+      <td>0.175</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>1.5</td>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>64756</td>
+      <td>20170102</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>4.0</td>
+      <td>-6.8</td>
+      <td>-1.4</td>
+      <td>-1.2</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>-99.0</td>
+      <td>-99.0</td>
+      <td>0.205</td>
+      <td>0.151</td>
+      <td>0.173</td>
+      <td>-0.2</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>1.5</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64756</td>
+      <td>20170103</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>4.9</td>
+      <td>0.7</td>
+      <td>2.8</td>
+      <td>2.7</td>
+      <td>13.1</td>
+      <td>...</td>
+      <td>-99.0</td>
+      <td>-99.0</td>
+      <td>0.205</td>
+      <td>0.150</td>
+      <td>0.173</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.5</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64756</td>
+      <td>20170104</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>8.7</td>
+      <td>-1.6</td>
+      <td>3.6</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>...</td>
+      <td>-99.0</td>
+      <td>-99.0</td>
+      <td>0.215</td>
+      <td>0.153</td>
+      <td>0.174</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.5</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>64756</td>
+      <td>20170105</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>-0.5</td>
+      <td>-4.6</td>
+      <td>-2.5</td>
+      <td>-2.8</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>-99.0</td>
+      <td>-99.0</td>
+      <td>0.215</td>
+      <td>0.154</td>
+      <td>0.177</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.4</td>
+      <td>3.1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div></div></div>
 </div>
 <p>Great! It worked.</p>
 <p>If we look closely, we will see there are lots of -99 and -9999 values in the file. The README file tells us that these are values used to represent missing data. Let’s tell this to pandas.</p>
@@ -1507,12 +1721,218 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>LST_DATE</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_5_DAILY</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>64756</td>
+      <td>20170101</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>6.6</td>
+      <td>-5.4</td>
+      <td>0.6</td>
+      <td>2.2</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.207</td>
+      <td>0.152</td>
+      <td>0.175</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>1.5</td>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>64756</td>
+      <td>20170102</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>4.0</td>
+      <td>-6.8</td>
+      <td>-1.4</td>
+      <td>-1.2</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.205</td>
+      <td>0.151</td>
+      <td>0.173</td>
+      <td>-0.2</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>1.5</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64756</td>
+      <td>20170103</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>4.9</td>
+      <td>0.7</td>
+      <td>2.8</td>
+      <td>2.7</td>
+      <td>13.1</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.205</td>
+      <td>0.150</td>
+      <td>0.173</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.5</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64756</td>
+      <td>20170104</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>8.7</td>
+      <td>-1.6</td>
+      <td>3.6</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.215</td>
+      <td>0.153</td>
+      <td>0.174</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.5</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>64756</td>
+      <td>20170105</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>-0.5</td>
+      <td>-4.6</td>
+      <td>-2.5</td>
+      <td>-2.8</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.215</td>
+      <td>0.154</td>
+      <td>0.177</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.4</td>
+      <td>3.1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div></div></div>
 </div>
 <p>Wonderful. The missing data is now represented by <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
 <p>What data types did pandas infer?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 365 entries, 0 to 364
+Data columns (total 28 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   WBANNO                   365 non-null    int64  
+ 1   LST_DATE                 365 non-null    int64  
+ 2   CRX_VN                   365 non-null    float64
+ 3   LONGITUDE                365 non-null    float64
+ 4   LATITUDE                 365 non-null    float64
+ 5   T_DAILY_MAX              364 non-null    float64
+ 6   T_DAILY_MIN              364 non-null    float64
+ 7   T_DAILY_MEAN             364 non-null    float64
+ 8   T_DAILY_AVG              364 non-null    float64
+ 9   P_DAILY_CALC             364 non-null    float64
+ 10  SOLARAD_DAILY            364 non-null    float64
+ 11  SUR_TEMP_DAILY_TYPE      365 non-null    object 
+ 12  SUR_TEMP_DAILY_MAX       364 non-null    float64
+ 13  SUR_TEMP_DAILY_MIN       364 non-null    float64
+ 14  SUR_TEMP_DAILY_AVG       364 non-null    float64
+ 15  RH_DAILY_MAX             364 non-null    float64
+ 16  RH_DAILY_MIN             364 non-null    float64
+ 17  RH_DAILY_AVG             364 non-null    float64
+ 18  SOIL_MOISTURE_5_DAILY    317 non-null    float64
+ 19  SOIL_MOISTURE_10_DAILY   317 non-null    float64
+ 20  SOIL_MOISTURE_20_DAILY   336 non-null    float64
+ 21  SOIL_MOISTURE_50_DAILY   364 non-null    float64
+ 22  SOIL_MOISTURE_100_DAILY  359 non-null    float64
+ 23  SOIL_TEMP_5_DAILY        364 non-null    float64
+ 24  SOIL_TEMP_10_DAILY       364 non-null    float64
+ 25  SOIL_TEMP_20_DAILY       364 non-null    float64
+ 26  SOIL_TEMP_50_DAILY       364 non-null    float64
+ 27  SOIL_TEMP_100_DAILY      364 non-null    float64
+dtypes: float64(25), int64(2), object(1)
+memory usage: 80.0+ KB
 </pre></div>
 </div>
 </div>
@@ -1527,6 +1947,45 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 365 entries, 0 to 364
+Data columns (total 28 columns):
+ #   Column                   Non-Null Count  Dtype         
+---  ------                   --------------  -----         
+ 0   WBANNO                   365 non-null    int64         
+ 1   LST_DATE                 365 non-null    datetime64[ns]
+ 2   CRX_VN                   365 non-null    float64       
+ 3   LONGITUDE                365 non-null    float64       
+ 4   LATITUDE                 365 non-null    float64       
+ 5   T_DAILY_MAX              364 non-null    float64       
+ 6   T_DAILY_MIN              364 non-null    float64       
+ 7   T_DAILY_MEAN             364 non-null    float64       
+ 8   T_DAILY_AVG              364 non-null    float64       
+ 9   P_DAILY_CALC             364 non-null    float64       
+ 10  SOLARAD_DAILY            364 non-null    float64       
+ 11  SUR_TEMP_DAILY_TYPE      365 non-null    object        
+ 12  SUR_TEMP_DAILY_MAX       364 non-null    float64       
+ 13  SUR_TEMP_DAILY_MIN       364 non-null    float64       
+ 14  SUR_TEMP_DAILY_AVG       364 non-null    float64       
+ 15  RH_DAILY_MAX             364 non-null    float64       
+ 16  RH_DAILY_MIN             364 non-null    float64       
+ 17  RH_DAILY_AVG             364 non-null    float64       
+ 18  SOIL_MOISTURE_5_DAILY    317 non-null    float64       
+ 19  SOIL_MOISTURE_10_DAILY   317 non-null    float64       
+ 20  SOIL_MOISTURE_20_DAILY   336 non-null    float64       
+ 21  SOIL_MOISTURE_50_DAILY   364 non-null    float64       
+ 22  SOIL_MOISTURE_100_DAILY  359 non-null    float64       
+ 23  SOIL_TEMP_5_DAILY        364 non-null    float64       
+ 24  SOIL_TEMP_10_DAILY       364 non-null    float64       
+ 25  SOIL_TEMP_20_DAILY       364 non-null    float64       
+ 26  SOIL_TEMP_50_DAILY       364 non-null    float64       
+ 27  SOIL_TEMP_100_DAILY      364 non-null    float64       
+dtypes: datetime64[ns](1), float64(25), int64(1), object(1)
+memory usage: 80.0+ KB
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1536,10 +1995,233 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>SOLARAD_DAILY</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_5_DAILY</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+    </tr>
+    <tr>
+      <th>LST_DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-01-01</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>6.6</td>
+      <td>-5.4</td>
+      <td>0.6</td>
+      <td>2.2</td>
+      <td>0.0</td>
+      <td>8.68</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.207</td>
+      <td>0.152</td>
+      <td>0.175</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>1.5</td>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <th>2017-01-02</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>4.0</td>
+      <td>-6.8</td>
+      <td>-1.4</td>
+      <td>-1.2</td>
+      <td>0.0</td>
+      <td>2.08</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.205</td>
+      <td>0.151</td>
+      <td>0.173</td>
+      <td>-0.2</td>
+      <td>0.0</td>
+      <td>0.6</td>
+      <td>1.5</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>2017-01-03</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>4.9</td>
+      <td>0.7</td>
+      <td>2.8</td>
+      <td>2.7</td>
+      <td>13.1</td>
+      <td>0.68</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.205</td>
+      <td>0.150</td>
+      <td>0.173</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.5</td>
+      <td>3.3</td>
+    </tr>
+    <tr>
+      <th>2017-01-04</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>8.7</td>
+      <td>-1.6</td>
+      <td>3.6</td>
+      <td>3.5</td>
+      <td>1.3</td>
+      <td>2.85</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.215</td>
+      <td>0.153</td>
+      <td>0.174</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.5</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>2017-01-05</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>-0.5</td>
+      <td>-4.6</td>
+      <td>-2.5</td>
+      <td>-2.8</td>
+      <td>0.0</td>
+      <td>4.90</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.215</td>
+      <td>0.154</td>
+      <td>0.177</td>
+      <td>-0.1</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>1.4</td>
+      <td>3.1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 27 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017-08-07&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WBANNO                     64756
+CRX_VN                     2.422
+LONGITUDE                 -73.74
+LATITUDE                   41.79
+T_DAILY_MAX                 19.3
+T_DAILY_MIN                 12.3
+T_DAILY_MEAN                15.8
+T_DAILY_AVG                 16.3
+P_DAILY_CALC                 4.9
+SOLARAD_DAILY               3.93
+SUR_TEMP_DAILY_TYPE            C
+SUR_TEMP_DAILY_MAX          22.3
+SUR_TEMP_DAILY_MIN          11.9
+SUR_TEMP_DAILY_AVG          17.7
+RH_DAILY_MAX                94.7
+RH_DAILY_MIN                76.4
+RH_DAILY_AVG                89.5
+SOIL_MOISTURE_5_DAILY      0.148
+SOIL_MOISTURE_10_DAILY     0.113
+SOIL_MOISTURE_20_DAILY     0.094
+SOIL_MOISTURE_50_DAILY     0.114
+SOIL_MOISTURE_100_DAILY    0.151
+SOIL_TEMP_5_DAILY           21.4
+SOIL_TEMP_10_DAILY          21.7
+SOIL_TEMP_20_DAILY          22.1
+SOIL_TEMP_50_DAILY          22.2
+SOIL_TEMP_100_DAILY         21.5
+Name: 2017-08-07 00:00:00, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1550,6 +2232,341 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>SOLARAD_DAILY</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_5_DAILY</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+    </tr>
+    <tr>
+      <th>LST_DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-07-01</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>28.0</td>
+      <td>19.7</td>
+      <td>23.9</td>
+      <td>23.8</td>
+      <td>0.2</td>
+      <td>19.28</td>
+      <td>...</td>
+      <td>0.157</td>
+      <td>0.136</td>
+      <td>0.144</td>
+      <td>0.129</td>
+      <td>0.163</td>
+      <td>25.7</td>
+      <td>25.4</td>
+      <td>23.7</td>
+      <td>21.9</td>
+      <td>19.9</td>
+    </tr>
+    <tr>
+      <th>2017-07-02</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>29.8</td>
+      <td>18.4</td>
+      <td>24.1</td>
+      <td>23.7</td>
+      <td>4.0</td>
+      <td>27.67</td>
+      <td>...</td>
+      <td>0.146</td>
+      <td>0.135</td>
+      <td>0.143</td>
+      <td>0.129</td>
+      <td>0.162</td>
+      <td>26.8</td>
+      <td>26.4</td>
+      <td>24.5</td>
+      <td>22.3</td>
+      <td>20.1</td>
+    </tr>
+    <tr>
+      <th>2017-07-03</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>28.3</td>
+      <td>15.0</td>
+      <td>21.7</td>
+      <td>21.4</td>
+      <td>0.0</td>
+      <td>27.08</td>
+      <td>...</td>
+      <td>0.141</td>
+      <td>0.132</td>
+      <td>0.139</td>
+      <td>0.128</td>
+      <td>0.162</td>
+      <td>26.4</td>
+      <td>26.3</td>
+      <td>24.8</td>
+      <td>22.8</td>
+      <td>20.3</td>
+    </tr>
+    <tr>
+      <th>2017-07-04</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>26.8</td>
+      <td>12.6</td>
+      <td>19.7</td>
+      <td>20.0</td>
+      <td>0.0</td>
+      <td>29.45</td>
+      <td>...</td>
+      <td>0.131</td>
+      <td>0.126</td>
+      <td>0.136</td>
+      <td>0.126</td>
+      <td>0.161</td>
+      <td>25.9</td>
+      <td>25.8</td>
+      <td>24.6</td>
+      <td>22.9</td>
+      <td>20.6</td>
+    </tr>
+    <tr>
+      <th>2017-07-05</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>28.0</td>
+      <td>11.9</td>
+      <td>20.0</td>
+      <td>20.7</td>
+      <td>0.0</td>
+      <td>26.90</td>
+      <td>...</td>
+      <td>0.116</td>
+      <td>0.114</td>
+      <td>0.131</td>
+      <td>0.125</td>
+      <td>0.161</td>
+      <td>25.3</td>
+      <td>25.3</td>
+      <td>24.2</td>
+      <td>22.8</td>
+      <td>20.7</td>
+    </tr>
+    <tr>
+      <th>2017-07-06</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>25.7</td>
+      <td>14.3</td>
+      <td>20.0</td>
+      <td>20.3</td>
+      <td>0.0</td>
+      <td>19.03</td>
+      <td>...</td>
+      <td>0.105</td>
+      <td>0.104</td>
+      <td>0.126</td>
+      <td>0.124</td>
+      <td>0.160</td>
+      <td>24.7</td>
+      <td>24.7</td>
+      <td>23.9</td>
+      <td>22.7</td>
+      <td>20.9</td>
+    </tr>
+    <tr>
+      <th>2017-07-07</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>25.8</td>
+      <td>16.8</td>
+      <td>21.3</td>
+      <td>20.0</td>
+      <td>11.5</td>
+      <td>13.88</td>
+      <td>...</td>
+      <td>0.114</td>
+      <td>0.100</td>
+      <td>0.123</td>
+      <td>0.123</td>
+      <td>0.160</td>
+      <td>24.2</td>
+      <td>24.2</td>
+      <td>23.4</td>
+      <td>22.4</td>
+      <td>20.8</td>
+    </tr>
+    <tr>
+      <th>2017-07-08</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>29.0</td>
+      <td>15.3</td>
+      <td>22.1</td>
+      <td>21.5</td>
+      <td>0.0</td>
+      <td>21.92</td>
+      <td>...</td>
+      <td>0.130</td>
+      <td>0.106</td>
+      <td>0.122</td>
+      <td>0.123</td>
+      <td>0.159</td>
+      <td>25.5</td>
+      <td>25.3</td>
+      <td>23.9</td>
+      <td>22.4</td>
+      <td>20.8</td>
+    </tr>
+    <tr>
+      <th>2017-07-09</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>26.3</td>
+      <td>10.9</td>
+      <td>18.6</td>
+      <td>19.4</td>
+      <td>0.0</td>
+      <td>29.72</td>
+      <td>...</td>
+      <td>0.119</td>
+      <td>0.103</td>
+      <td>0.119</td>
+      <td>0.121</td>
+      <td>0.158</td>
+      <td>24.8</td>
+      <td>24.8</td>
+      <td>23.8</td>
+      <td>22.5</td>
+      <td>20.8</td>
+    </tr>
+    <tr>
+      <th>2017-07-10</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>27.6</td>
+      <td>11.8</td>
+      <td>19.7</td>
+      <td>21.3</td>
+      <td>0.0</td>
+      <td>23.67</td>
+      <td>...</td>
+      <td>0.105</td>
+      <td>0.096</td>
+      <td>0.113</td>
+      <td>0.120</td>
+      <td>0.158</td>
+      <td>24.7</td>
+      <td>24.7</td>
+      <td>23.6</td>
+      <td>22.5</td>
+      <td>20.9</td>
+    </tr>
+    <tr>
+      <th>2017-07-11</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>27.4</td>
+      <td>19.2</td>
+      <td>23.3</td>
+      <td>22.6</td>
+      <td>8.5</td>
+      <td>17.79</td>
+      <td>...</td>
+      <td>0.106</td>
+      <td>0.093</td>
+      <td>0.110</td>
+      <td>0.120</td>
+      <td>0.157</td>
+      <td>25.6</td>
+      <td>25.4</td>
+      <td>24.1</td>
+      <td>22.6</td>
+      <td>20.9</td>
+    </tr>
+  </tbody>
+</table>
+<p>11 rows × 27 columns</p>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="quick-statistics">
@@ -1560,6 +2577,245 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>SOLARAD_DAILY</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_5_DAILY</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>365.0</td>
+      <td>365.000000</td>
+      <td>365.00</td>
+      <td>3.650000e+02</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>...</td>
+      <td>317.000000</td>
+      <td>317.000000</td>
+      <td>336.000000</td>
+      <td>364.000000</td>
+      <td>359.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+      <td>364.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>64756.0</td>
+      <td>2.470767</td>
+      <td>-73.74</td>
+      <td>4.179000e+01</td>
+      <td>15.720055</td>
+      <td>4.037912</td>
+      <td>9.876374</td>
+      <td>9.990110</td>
+      <td>2.797802</td>
+      <td>13.068187</td>
+      <td>...</td>
+      <td>0.189498</td>
+      <td>0.183991</td>
+      <td>0.165470</td>
+      <td>0.140192</td>
+      <td>0.160630</td>
+      <td>12.312637</td>
+      <td>12.320604</td>
+      <td>12.060165</td>
+      <td>11.978022</td>
+      <td>11.915659</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.0</td>
+      <td>0.085997</td>
+      <td>0.00</td>
+      <td>7.115181e-15</td>
+      <td>10.502087</td>
+      <td>9.460676</td>
+      <td>9.727451</td>
+      <td>9.619168</td>
+      <td>7.238628</td>
+      <td>7.953074</td>
+      <td>...</td>
+      <td>0.052031</td>
+      <td>0.054113</td>
+      <td>0.043989</td>
+      <td>0.020495</td>
+      <td>0.016011</td>
+      <td>9.390034</td>
+      <td>9.338176</td>
+      <td>8.767752</td>
+      <td>8.078346</td>
+      <td>7.187317</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>64756.0</td>
+      <td>2.422000</td>
+      <td>-73.74</td>
+      <td>4.179000e+01</td>
+      <td>-12.300000</td>
+      <td>-21.800000</td>
+      <td>-17.000000</td>
+      <td>-16.700000</td>
+      <td>0.000000</td>
+      <td>0.100000</td>
+      <td>...</td>
+      <td>0.075000</td>
+      <td>0.078000</td>
+      <td>0.087000</td>
+      <td>0.101000</td>
+      <td>0.117000</td>
+      <td>-0.700000</td>
+      <td>-0.400000</td>
+      <td>0.200000</td>
+      <td>0.900000</td>
+      <td>1.900000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>64756.0</td>
+      <td>2.422000</td>
+      <td>-73.74</td>
+      <td>4.179000e+01</td>
+      <td>6.900000</td>
+      <td>-2.775000</td>
+      <td>2.100000</td>
+      <td>2.275000</td>
+      <td>0.000000</td>
+      <td>6.225000</td>
+      <td>...</td>
+      <td>0.152000</td>
+      <td>0.139000</td>
+      <td>0.118750</td>
+      <td>0.118000</td>
+      <td>0.154000</td>
+      <td>2.225000</td>
+      <td>2.000000</td>
+      <td>2.475000</td>
+      <td>3.300000</td>
+      <td>4.100000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>64756.0</td>
+      <td>2.422000</td>
+      <td>-73.74</td>
+      <td>4.179000e+01</td>
+      <td>17.450000</td>
+      <td>4.350000</td>
+      <td>10.850000</td>
+      <td>11.050000</td>
+      <td>0.000000</td>
+      <td>12.865000</td>
+      <td>...</td>
+      <td>0.192000</td>
+      <td>0.198000</td>
+      <td>0.183000</td>
+      <td>0.147500</td>
+      <td>0.165000</td>
+      <td>13.300000</td>
+      <td>13.350000</td>
+      <td>13.100000</td>
+      <td>12.850000</td>
+      <td>11.600000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>64756.0</td>
+      <td>2.422000</td>
+      <td>-73.74</td>
+      <td>4.179000e+01</td>
+      <td>24.850000</td>
+      <td>11.900000</td>
+      <td>18.150000</td>
+      <td>18.450000</td>
+      <td>1.400000</td>
+      <td>19.740000</td>
+      <td>...</td>
+      <td>0.234000</td>
+      <td>0.227000</td>
+      <td>0.203000</td>
+      <td>0.157000</td>
+      <td>0.173000</td>
+      <td>21.025000</td>
+      <td>21.125000</td>
+      <td>20.400000</td>
+      <td>19.800000</td>
+      <td>19.325000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>64756.0</td>
+      <td>2.622000</td>
+      <td>-73.74</td>
+      <td>4.179000e+01</td>
+      <td>33.400000</td>
+      <td>20.700000</td>
+      <td>25.700000</td>
+      <td>26.700000</td>
+      <td>65.700000</td>
+      <td>29.910000</td>
+      <td>...</td>
+      <td>0.296000</td>
+      <td>0.321000</td>
+      <td>0.235000</td>
+      <td>0.182000</td>
+      <td>0.192000</td>
+      <td>27.600000</td>
+      <td>27.400000</td>
+      <td>25.600000</td>
+      <td>24.100000</td>
+      <td>22.100000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 26 columns</p>
+</div></div></div>
 </div>
 <p><a name="Plotting_Values"></a></p>
 </div>
@@ -1580,6 +2836,9 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/756748a48c05fcf2461646dafd0a61db154d782ac972e2b8660e5fd0aa4477f6.png" src="../_images/756748a48c05fcf2461646dafd0a61db154d782ac972e2b8660e5fd0aa4477f6.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1587,6 +2846,12 @@ Name: temperature, dtype: int64
 <span class="n">df</span><span class="o">.</span><span class="n">T_DAILY_MEAN</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/f4de4e5ec3c8be770f2aee492d7b222ba7c9bc2552a9eac41b743dd2b2aa0ad9.png" src="../_images/f4de4e5ec3c8be770f2aee492d7b222ba7c9bc2552a9eac41b743dd2b2aa0ad9.png" />
 </div>
 </div>
 <p><strong>Note:</strong> we could also manually create an axis and plot into it.</p>
@@ -1598,12 +2863,24 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Pandas Made This!&#39;)
+</pre></div>
+</div>
+<img alt="../_images/895e8967247f5b5987e1e6befcac438e52ddc99cb8ab3d17a9d117637ecb2a34.png" src="../_images/895e8967247f5b5987e1e6befcac438e52ddc99cb8ab3d17a9d117637ecb2a34.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;T_DAILY_MIN&#39;</span><span class="p">,</span> <span class="s1">&#39;T_DAILY_MEAN&#39;</span><span class="p">,</span> <span class="s1">&#39;T_DAILY_MAX&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/d53c9e74031169c20dceb7c302cf6ff8054c0a954e4760c703655a7ded06949d.png" src="../_images/d53c9e74031169c20dceb7c302cf6ff8054c0a954e4760c703655a7ded06949d.png" />
 </div>
 </div>
 </div>
@@ -1618,10 +2895,325 @@ Name: temperature, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x000001F8467D3130&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs_obj</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\groupby.py:1490,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1489</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span>         <span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1494</span>         <span class="n">axis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1495</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:959,</span> in <span class="ni">BaseGrouper._cython_operation</span><span class="nt">(self, kind, values, how, axis, min_count, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span>
+<span class="ne">--&gt; </span><span class="mi">959</span> <span class="k">return</span> <span class="n">cy_op</span><span class="o">.</span><span class="n">cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>     <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> <span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:657,</span> in <span class="ni">WrappedCythonOp.cython_operation</span><span class="nt">(self, values, axis, min_count, comp_ids, ngroups, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ea_wrap_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">657</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_op_ndim_compat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:497,</span> in <span class="ni">WrappedCythonOp._cython_op_ndim_compat</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">T</span>
+<span class="ne">--&gt; </span><span class="mi">497</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cython_op</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">result_mask</span><span class="o">=</span><span class="n">result_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:541,</span> in <span class="ni">WrappedCythonOp._call_cython_op</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="n">out_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_output_shape</span><span class="p">(</span><span class="n">ngroups</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">541</span> <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kind</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">is_numeric</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span> <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_cython_vals</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:173,</span> in <span class="ni">WrappedCythonOp._get_cython_function</span><span class="nt">(cls, kind, how, dtype, is_numeric)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="k">if</span> <span class="s2">&quot;object&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">__signatures__</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>     <span class="c1"># raise NotImplementedError here rather than TypeError later</span>
+<span class="ne">--&gt; </span><span class="mi">173</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>         <span class="sa">f</span><span class="s2">&quot;function is not implemented for this dtype: &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>         <span class="sa">f</span><span class="s2">&quot;[how-&gt;</span><span class="si">{</span><span class="n">how</span><span class="si">}</span><span class="s2">,dtype-&gt;</span><span class="si">{</span><span class="n">dtype_str</span><span class="si">}</span><span class="s2">]&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="k">return</span> <span class="n">f</span>
+
+<span class="ne">NotImplementedError</span>: function is not implemented for this dtype: [how-&gt;mean,dtype-&gt;object]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:1692,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1691</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1692</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span> <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1694</span>     <span class="c1"># e.g. &quot;1+1j&quot; or &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:1696,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1695</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1696</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>     <span class="c1"># e.g. &quot;foo&quot;</span>
+
+<span class="ne">ValueError</span>: complex() arg is a malformed string
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">51</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rs_obj</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\resample.py:979,</span> in <span class="ni">Resampler.mean</span><span class="nt">(self, numeric_only, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span> <span class="n">maybe_warn_args_and_kwargs</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_resampler_func</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">979</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_downsample</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\resample.py:1297,</span> in <span class="ni">DatetimeIndexResampler._downsample</span><span class="nt">(self, how, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1293</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">asfreq</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1295</span> <span class="c1"># we are downsampling</span>
+<span class="g g-Whitespace">   </span><span class="mi">1296</span> <span class="c1"># we want to call the actual grouper method here</span>
+<span class="ne">-&gt; </span><span class="mi">1297</span> <span class="n">result</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1299</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\generic.py:1269,</span> in <span class="ni">DataFrameGroupBy.aggregate</span><span class="nt">(self, func, engine, engine_kwargs, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1266</span> <span class="n">func</span> <span class="o">=</span> <span class="n">maybe_mangle_lambdas</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1268</span> <span class="n">op</span> <span class="o">=</span> <span class="n">GroupByApply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1269</span> <span class="n">result</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">agg</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1270</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_dict_like</span><span class="p">(</span><span class="n">func</span><span class="p">)</span> <span class="ow">and</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1271</span>     <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\apply.py:160,</span> in <span class="ni">Apply.agg</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">160</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_str</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span> <span class="k">if</span> <span class="n">is_dict_like</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">agg_dict_like</span><span class="p">()</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\apply.py:496,</span> in <span class="ni">Apply.apply_str</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">if</span> <span class="s2">&quot;axis&quot;</span> <span class="ow">in</span> <span class="n">arg_names</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axis&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span>
+<span class="ne">--&gt; </span><span class="mi">496</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_try_aggregate_string_function</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\apply.py:565,</span> in <span class="ni">Apply._try_aggregate_string_function</span><span class="nt">(self, obj, arg, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">565</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span>     <span class="c1"># people may try to aggregate on a non-callable attribute</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="c1"># but don&#39;t let them think they can pass args to it</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\groupby.py:1855,</span> in <span class="ni">GroupBy.mean</span><span class="nt">(self, numeric_only, engine, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\groupby.py:1507,</span> in <span class="ni">GroupBy._cython_agg_general</span><span class="nt">(self, how, alt, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="ne">-&gt; </span><span class="mi">1507</span> <span class="n">new_mgr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">grouped_reduce</span><span class="p">(</span><span class="n">array_func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_agged_manager</span><span class="p">(</span><span class="n">new_mgr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_aggregated_output</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\internals\managers.py:1503,</span> in <span class="ni">BlockManager.grouped_reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">if</span> <span class="n">blk</span><span class="o">.</span><span class="n">is_object</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># split on object-dtype blocks bc some columns may raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1">#  while others do not.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="k">for</span> <span class="n">sb</span> <span class="ow">in</span> <span class="n">blk</span><span class="o">.</span><span class="n">_split</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>         <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\internals\blocks.py:329,</span> in <span class="ni">Block.apply</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     apply the function to my values; return a block if we are not</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span><span class="sd">     one</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">329</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_op_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\groupby.py:1503,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1490</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">values</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>     <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\groupby.py:1457,</span> in <span class="ni">GroupBy._agg_py_fallback</span><span class="nt">(self, values, ndim, alt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>     <span class="n">ser</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1454</span> <span class="c1"># We do not get here with UDFs, so we know that our dtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">1455</span> <span class="c1">#  should always be preserved by the implemented aggregations</span>
+<span class="g g-Whitespace">   </span><span class="mi">1456</span> <span class="c1"># TODO: Is this exactly right; see WrappedCythonOp get_result_dtype?</span>
+<span class="ne">-&gt; </span><span class="mi">1457</span> <span class="n">res_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">agg_series</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">preserve_dtype</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1459</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">Categorical</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="c1"># Because we only get here with known dtype-preserving</span>
+<span class="g g-Whitespace">   </span><span class="mi">1461</span>     <span class="c1">#  reductions, we cast back to Categorical.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1462</span>     <span class="c1"># TODO: if we ever get &quot;rank&quot; working, exclude it here.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1463</span>     <span class="n">res_values</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">_from_sequence</span><span class="p">(</span><span class="n">res_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:994,</span> in <span class="ni">BaseGrouper.agg_series</span><span class="nt">(self, obj, func, preserve_dtype)</span>
+<span class="g g-Whitespace">    </span><span class="mi">987</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">988</span>     <span class="c1"># we can preserve a little bit more aggressively with EA dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">989</span>     <span class="c1">#  because maybe_cast_pointwise_result will do a try/except</span>
+<span class="g g-Whitespace">    </span><span class="mi">990</span>     <span class="c1">#  with _from_sequence.  NB we are assuming here that _from_sequence</span>
+<span class="g g-Whitespace">    </span><span class="mi">991</span>     <span class="c1">#  is sufficiently strict that it casts appropriately.</span>
+<span class="g g-Whitespace">    </span><span class="mi">992</span>     <span class="n">preserve_dtype</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="ne">--&gt; </span><span class="mi">994</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aggregate_series_pure_python</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">996</span> <span class="n">npvalues</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_objects</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">try_float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">997</span> <span class="k">if</span> <span class="n">preserve_dtype</span><span class="p">:</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\ops.py:1015,</span> in <span class="ni">BaseGrouper._aggregate_series_pure_python</span><span class="nt">(self, obj, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1012</span> <span class="n">splitter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_splitter</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">splitter</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1015</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1016</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">libreduction</span><span class="o">.</span><span class="n">extract_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1018</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">initialized</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1019</span>         <span class="c1"># We only do this validation on the first iteration</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\groupby\groupby.py:1857,</span> in <span class="ni">GroupBy.mean.&lt;locals&gt;.&lt;lambda&gt;</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1853</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_numba_agg_general</span><span class="p">(</span><span class="n">sliding_mean</span><span class="p">,</span> <span class="n">engine_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1854</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1855</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1856</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1857</span>         <span class="n">alt</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1858</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1859</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1860</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\generic.py:11556,</span> in <span class="ni">NDFrame._add_numeric_operations.&lt;locals&gt;.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11539</span> <span class="nd">@doc</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11540</span>     <span class="n">_num_doc</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11541</span>     <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Return the mean of the values over the requested axis.&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11554</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11555</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11556</span>     <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\generic.py:11201,</span> in <span class="ni">NDFrame.mean</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11194</span> <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11195</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11196</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11199</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11200</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Series</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11201</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11202</span>         <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nanmean</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">11203</span>     <span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\generic.py:11158,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11154</span>     <span class="n">nv</span><span class="o">.</span><span class="n">validate_stat_func</span><span class="p">((),</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11156</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11158</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11159</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11160</span> <span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\series.py:4670,</span> in <span class="ni">Series._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4665</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4666</span>         <span class="sa">f</span><span class="s2">&quot;Series.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not allow </span><span class="si">{</span><span class="n">kwd_name</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">numeric_only</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4667</span>         <span class="s2">&quot;with non-numeric dtypes.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4668</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4669</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4670</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:96,</span> in <span class="ni">disallow.__call__.&lt;locals&gt;._f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="c1"># we want to transform an object array</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="c1"># ValueError message to the more typical TypeError</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="c1"># e.g. this is normally a disallowed function on</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="c1"># object arrays that contain strings</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="k">if</span> <span class="n">is_object_dtype</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:158,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:421,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">421</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">423</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:727,</span> in <span class="ni">nanmean</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="n">dtype_count</span> <span class="o">=</span> <span class="n">dtype</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span> <span class="n">count</span> <span class="o">=</span> <span class="n">_get_counts</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_count</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">727</span> <span class="n">the_sum</span> <span class="o">=</span> <span class="n">_ensure_numeric</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype_sum</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">729</span> <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">the_sum</span><span class="p">,</span> <span class="s2">&quot;ndim&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">730</span>     <span class="n">count</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="nn">File ~\.conda\envs\JB\lib\site-packages\pandas\core\nanops.py:1699,</span> in <span class="ni">_ensure_numeric</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1696</span>             <span class="n">x</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1697</span>         <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span>             <span class="c1"># e.g. &quot;foo&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1699</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not convert </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> to numeric&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">1700</span> <span class="k">return</span> <span class="n">x</span>
+
+<span class="ne">TypeError</span>: Could not convert CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC to numeric
 </pre></div>
 </div>
 </div>

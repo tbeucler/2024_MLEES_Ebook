@@ -15,20 +15,24 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Pooch Code
-import pooch
-datafile = pooch.retrieve('https://unils-my.sharepoint.com/:x:/g/personal/tom_beucler_unil_ch/Efg089STo25Gq6N_BBn_qGoBIsAOd2yUNBgeTfPR2wxw4g?download=1',
-                          known_hash='84d455fb96dc8f782fba4b5fbe56cb8970cab678f07c766fcba1b1c4674de1b1')
+#@markdown Fill in the blank version. Double click to reveal
+# Open the URL as a Pandas' DataFrame
+df = pd.read_csv(__)
+# Display first few rows
+df.____()
+# Display DataFrame info
+df.____()
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[1], line 2[0m
-[0;32m      1[0m [38;5;66;03m# Pooch Code[39;00m
-[1;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpooch[39;00m
-[0;32m      3[0m datafile [38;5;241m=[39m pooch[38;5;241m.[39mretrieve([38;5;124m'[39m[38;5;124mhttps://unils-my.sharepoint.com/:x:/g/personal/tom_beucler_unil_ch/Efg089STo25Gq6N_BBn_qGoBIsAOd2yUNBgeTfPR2wxw4g?download=1[39m[38;5;124m'[39m,
-[0;32m      4[0m                           known_hash[38;5;241m=[39m[38;5;124m'[39m[38;5;124m84d455fb96dc8f782fba4b5fbe56cb8970cab678f07c766fcba1b1c4674de1b1[39m[38;5;124m'[39m)
+[1;31mNameError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[7], line 3[0m
+[0;32m      1[0m [38;5;66;03m#@markdown Fill in the blank version. Double click to reveal[39;00m
+[0;32m      2[0m [38;5;66;03m# Open the URL as a Pandas' DataFrame[39;00m
+[1;32m----> 3[0m df [38;5;241m=[39m [43mpd[49m[38;5;241m.[39mread_csv(__)
+[0;32m      4[0m [38;5;66;03m# Display first few rows[39;00m
+[0;32m      5[0m df[38;5;241m.[39m____()
 
-[1;31mModuleNotFoundError[0m: No module named 'pooch'
+[1;31mNameError[0m: name 'pd' is not defined
 
